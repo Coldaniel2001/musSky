@@ -1,0 +1,1 @@
+export { default as Artistas } from './Artistas';
