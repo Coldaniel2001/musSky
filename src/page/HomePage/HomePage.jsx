@@ -1,5 +1,6 @@
 import React from 'react'
 import SidebarLeft from '../../component/SidebarLeft/SidebarLeft'
+import SidebarRight from '../../component/SidebarRight/SidebarRight'
 
 const HomePage = () => {
   return (
@@ -11,7 +12,7 @@ const HomePage = () => {
 
       </div>
       <div className='w-[15%] border border-r-white'>
-
+<SidebarRight/>
       </div>
     </div>
     
