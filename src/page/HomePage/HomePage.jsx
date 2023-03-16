@@ -1,4 +1,5 @@
 import React from 'react'
+import CenterSection from '../../component/CenterSection/CenterSection'
 import SidebarLeft from '../../component/SidebarLeft/SidebarLeft'
 
 const HomePage = () => {
@@ -8,7 +9,7 @@ const HomePage = () => {
         <SidebarLeft />
       </div>
       <div className='w-[67%]'>
-
+        <CenterSection />
       </div>
       <div className='w-[15%]'>
 
