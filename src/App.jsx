@@ -5,7 +5,7 @@ import RoutesPath from './routes/RoutesPath';
 function App() {
   return (
     <>
-      <RoutesPath/>
+      <RoutesPath />
     </>
   );
 }

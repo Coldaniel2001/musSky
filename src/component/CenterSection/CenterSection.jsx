@@ -1,14 +1,17 @@
 import React from 'react';
 import Artists from '../Artists/Artists';
+import Recents from '../Recents/Recents';
+import Recomendations from '../Recomendations/Recomendations';
 import Search from '../Search/Search';
 
 const CenterSection = () => {
 	return (
-		<div>
+		<div >
 			<Search />
-			<div className='m-10 text-white'>
-				<h2 className='text-white text-[2rem] font-extrabold text-shadow-xl-white'>ARTISTAS</h2>
+			<div className='m-10 text-white h-full overflow-y-scroll'>
 				<Artists />	
+				<Recents />	
+				<Recomendations />
 			</div>
 			
 			
