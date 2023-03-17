@@ -8,7 +8,7 @@ const CenterSection = () => {
 	return (
 		<div >
 			<Search />
-			<div className='m-10 text-white h-[80vh] overflow-y-scroll'>
+			<div className='mx-3 lg:ml-10 lg:m-10 text-white lg:h-[80vh] lg:overflow-y-scroll'>
 				<Artists />	
 				<Recents />	
 				<Recomendations />

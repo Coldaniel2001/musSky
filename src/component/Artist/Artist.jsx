@@ -7,21 +7,21 @@ import extremoduro from '../../assets/images/extremoduro.jpg'
 const Artist = () => {
   return (
     <>
-        <div>
+        <div className='mb-6'>
             <img className='w-[90%] mx-auto rounded' src={antonioJose} alt="first artist" />
-            <p className='flex justify-center text-[2rem] font-semibold'>Antonio José</p>
+            <p className='hidden lg:flex justify-center text-[2rem] font-semibold'>Antonio José</p>
         </div>
         <div>
             <img className='w-[90%] mx-auto rounded' src={shakira} alt="first artist" />
-            <p className='flex justify-center text-[2rem] font-semibold'>Shakira</p>
+            <p className='hidden lg:flex justify-center text-[2rem] font-semibold'>Shakira</p>
         </div>
         <div>
             <img className='w-[90%] mx-auto rounded' src={melendi} alt="first artist" />
-            <p className='flex justify-center text-[2rem] font-semibold'>Melendi</p>
+            <p className='hidden lg:flex justify-center text-[2rem] font-semibold'>Melendi</p>
         </div>
         <div>
             <img className='w-[90%] mx-auto rounded' src={extremoduro} alt="first artist" />
-            <p className='flex justify-center text-[2rem] font-semibold'>Extremoduro</p>
+            <p className='hidden lg:flex justify-center text-[2rem] font-semibold'>Extremoduro</p>
         </div>
     </>
   )
