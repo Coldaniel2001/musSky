@@ -2,7 +2,7 @@ import React from 'react'
 
 const RecomendationSong = () => {
   return (
-    <div>RecomendationSong</div>
+    <div className=''>RecomendationSong</div>
   )
 }
 
