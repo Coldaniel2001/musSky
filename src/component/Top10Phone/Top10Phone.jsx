@@ -8,7 +8,7 @@ const Top10Phone = () => {
     <div>
         <div className='pt-14 text-white bg-black sm:hidden md:hidden lg:md'>
         </div>
-        <p className='mt-10 ml-5 text-3xl font-extrabold mb-5 text-white'>TOP 10</p>
+        <p className='mt-10 ml-5 text-3xl font-extrabold mb-5 text-white sm:hidden md:hidden lg:hidden'>TOP 10</p>
         <div className=' bg-black mx-5 rounded-md text-white sm:hidden md:hidden lg:md'>
             <div className="flex w-full overflow-x-scroll">
                 <div className='w-full grid grid-cols-9 bg-[#D9D9D9] items-center rounded bg-opacity-20 m-2 mr-10'>

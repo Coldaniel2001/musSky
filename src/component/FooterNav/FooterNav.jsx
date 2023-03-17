@@ -7,7 +7,7 @@ import generoPhone from '../../assets/images/icons/genero-phone.png'
 
 const FooterNav = () => {
   return (
-    <div className='fixed bottom-0 w-screen bg-black grid grid-cols-5 py-1'>
+    <div className='fixed bottom-0 w-screen bg-black grid grid-cols-5 py-3 border-t border-gray-700'>
         <div className='cols-span-1'>
             <img className='mx-auto w-8' src={home} alt="" />
             <p className='flex justify-center text-white font-bold text-sm'>Home</p>
