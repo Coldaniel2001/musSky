@@ -3,9 +3,9 @@ import RecomendationSong from '../RecomendationSong/RecomendationSong';
 
 const Recomendations = () => {
 	return (
-		<div>
+		<div className='pb-40 lg:pb-0'>
 		<h2 className='text-white text-[2rem] mb-5 font-extrabold text-shadow-xl-white mt-16'>TE RECOMENDAMOS</h2>
-		<div className='' >
+		<div className='mb-100' >
 			<RecomendationSong />
 		</div>
 		</div>
