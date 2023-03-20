@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import Login from '../../component/Login/Login'
+import Register from '../../component/Register/Register'
+import DataContext from '../../context/DataContext'
 
 const LoginPage = () => {
+  
+const {isLoggin} = useContext(DataContext)
+  
   return (
     <>
-      <Login />
+      {isLoggin?<Login />:<Register/>}
     </>
   )
 }
