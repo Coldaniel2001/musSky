@@ -9,19 +9,19 @@ const Artist = () => {
     <>
         <div>
             <img className='w-[90%] mx-auto rounded' src={antonioJose} alt="first artist" />
-            <p className='flex justify-center text-[2rem] font-semibold'>Antonio José</p>
+            <p className='flex justify-center text-[1rem] font-semibold sm:text-xs md:text-sm lg:text-lg 2xl:text-[2rem]'>Antonio José</p>
         </div>
         <div>
             <img className='w-[90%] mx-auto rounded' src={shakira} alt="first artist" />
-            <p className='flex justify-center text-[2rem] font-semibold'>Shakira</p>
+            <p className='flex justify-center text-[1rem] font-semibold sm:text-xs md:text-sm lg:text-lg 2xl:text-[2rem]'>Shakira</p>
         </div>
         <div>
             <img className='w-[90%] mx-auto rounded' src={melendi} alt="first artist" />
-            <p className='flex justify-center text-[2rem] font-semibold'>Melendi</p>
+            <p className='flex justify-center text-[1rem] font-semibold sm:text-xs md:text-sm lg:text-lg 2xl:text-[2rem]'>Melendi</p>
         </div>
         <div>
             <img className='w-[90%] mx-auto rounded' src={extremoduro} alt="first artist" />
-            <p className='flex justify-center text-[2rem] font-semibold'>Extremoduro</p>
+            <p className='flex justify-center text-[1rem] font-semibold sm:text-xs md:text-sm lg:text-lg 2xl:text-[2rem]'>Extremoduro</p>
         </div>
     </>
   )
