@@ -9,19 +9,19 @@ const Artist = () => {
     <>
         <div className='mb-6'>
             <img className='w-[90%] mx-auto rounded' src={antonioJose} alt="first artist" />
-            <p className='hidden lg:flex justify-center text-[2rem] font-semibold'>Antonio José</p>
+            <p className='hidden lg:flex lg:text-[1.3rem] lg:mt-2 xl:text-[1.6rem] 2xl:text-[2rem] justify-center  font-semibold'>Antonio José</p>
         </div>
         <div>
             <img className='w-[90%] mx-auto rounded' src={shakira} alt="first artist" />
-            <p className='hidden lg:flex justify-center text-[2rem] font-semibold'>Shakira</p>
+            <p className='hidden lg:flex lg:text-[1.3rem] lg:mt-2 xl:text-[1.6rem] 2xl:text-[2rem] justify-center  font-semibold'>Shakira</p>
         </div>
         <div>
             <img className='w-[90%] mx-auto rounded' src={melendi} alt="first artist" />
-            <p className='hidden lg:flex justify-center text-[2rem] font-semibold'>Melendi</p>
+            <p className='hidden lg:flex lg:text-[1.3rem] lg:mt-2 xl:text-[1.6rem] 2xl:text-[2rem] justify-center  font-semibold'>Melendi</p>
         </div>
         <div>
             <img className='w-[90%] mx-auto rounded' src={extremoduro} alt="first artist" />
-            <p className='hidden lg:flex justify-center text-[2rem] font-semibold'>Extremoduro</p>
+            <p className='hidden lg:flex lg:text-[1.3rem] lg:mt-2 xl:text-[1.6rem] 2xl:text-[2rem] justify-center  font-semibold'>Extremoduro</p>
         </div>
     </>
   )

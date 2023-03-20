@@ -5,7 +5,7 @@ const Artists = () => {
 	return (
 		<div>
 			<h2 className='text-white text-[2rem] font-extrabold'>ARTISTAS</h2>
-			<div className='grid grid-cols-4 lg:grid-cols-4 mt-5 lg:mt-10 ' >
+			<div className='grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 mt-5 lg:mt-10 ' >
 				<Artist />
 			</div>
 		</div>

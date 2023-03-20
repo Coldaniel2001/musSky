@@ -9,24 +9,24 @@ const FooterNav = () => {
   return (
     <div className='fixed bottom-0 w-screen bg-black grid grid-cols-5 py-3 border-t border-gray-700'>
         <div className='cols-span-1'>
-            <img className='mx-auto w-8' src={home} alt="" />
-            <p className='flex justify-center text-white font-bold text-sm'>Home</p>
+            <img className='mx-auto w-8 sm:w-10 md:w-12' src={home} alt="" />
+            <p className='flex justify-center text-white font-bold text-sm md:text-lg'>Home</p>
         </div>
         <div className='cols-span-1'>
-            <img className='mx-auto w-8' src={generoPhone} alt="" />
-            <p className='flex justify-center text-[#373737] font-bold text-sm'>Géneros</p>
+            <img className='mx-auto w-8 sm:w-10 md:w-12' src={generoPhone} alt="" />
+            <p className='flex justify-center text-[#373737] font-bold text-sm md:text-lg'>Géneros</p>
         </div>
         <div className='cols-span-1'>
-            <img className='mx-auto w-8' src={whiteMicro} alt="" />
-            <p className='flex justify-center text-[#373737] font-bold text-sm'>PlayList</p>
+            <img className='mx-auto w-8 sm:w-10 md:w-12' src={whiteMicro} alt="" />
+            <p className='flex justify-center text-[#373737] font-bold text-sm md:text-lg'>PlayList</p>
         </div>
         <div className='cols-span-1'>
-            <img className='mx-auto w-8' src={liked} alt="" />
-            <p className='flex justify-center text-[#373737] font-bold text-sm'>Me gusta</p>
+            <img className='mx-auto w-8 sm:w-10 md:w-12' src={liked} alt="" />
+            <p className='flex justify-center text-[#373737] font-bold text-sm md:text-lg'>Me gusta</p>
         </div>
         <div className='cols-span-1'>
-            <img className='mx-auto w-8' src={search} alt="" />
-            <p className='flex justify-center text-[#373737] font-bold text-sm'>Buscar</p>
+            <img className='mx-auto w-8 sm:w-10 md:w-12' src={search} alt="" />
+            <p className='flex justify-center text-[#373737] font-bold text-sm md:text-lg'>Buscar</p>
         </div>
     </div>
   )

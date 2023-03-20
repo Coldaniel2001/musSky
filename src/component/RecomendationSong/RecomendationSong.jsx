@@ -6,7 +6,7 @@ import fito from '../../assets/images/fito.jpg'
 
 const RecomendationSong = () => {
   return (
-    <div className='grid-cols-2 mb-16 grid lg:grid-cols-4 gap-3'>
+    <div className='grid-cols-2 sm:grid-cols-3 mb-16 grid lg:grid-cols-4 gap-3'>
       <div className='text-center bg-[#8839E5] bg-opacity-20 py-3 rounded-xl'>
         <p className='text-xl font-bold'>THE BEATLES</p>
         <p className='text-gray-500'>Imagine</p>
