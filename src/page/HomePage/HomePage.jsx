@@ -8,7 +8,7 @@ import TopPhone from '../../component/TopPhone/TopPhone'
 
 const HomePage = () => {
   return (
-    <div className='bg-gradient-to-tr from-black via-black to-[#7339E5]  lg:flex'>
+    <div className='bg-gradient-to-tr from-black via-black to-[#7339E5] lg:h-screen  lg:flex'>
       <div className='lg:hidden'>
       <TopPhone />
       <Top10Phone />

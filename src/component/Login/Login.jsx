@@ -45,22 +45,24 @@ const Login = () => {
           alt="MW"
         />
       </div>
-      <div className="flex flex-col h-[50rem] justify-between items-center fixed inset-0 z-10 sm:justify-center sm:h-screen">
+      <div className="flex flex-col justify-between items-center fixed inset-0 z-10 sm:justify-center ">
         <img
-          className=" w-[10rem]  sm:mb-12 sm:w-[25rem]"
+          className="sm:-mb-40 w-[10rem] sm:w-[25rem]"
           src={logo}
           alt="Logo"
         />
-        <div className="flex items-center bg-opacity-0  rounded-xl w-[15rem] h-[25rem] sm:w-[25rem] sm:h-[30rem] sm:m-[0rem] sm:bg-opacity-20 sm:bg-mainPurple sm:border-2 sm:border-purple-900 sm:z-10">
+        <div className="h-full w-full  flex items-center justify-center ">
+        <div className="flex flex-col items-center mx-auto bg-opacity-0 bg-red-500 pb-5 rounded-xl w-[80%]  sm:w-[25rem] sm:h-[30rem] sm:m-[0rem] sm:bg-opacity-20 sm:bg-mainPurple sm:border-2 sm:border-purple-900 sm:z-10">
+          <h2 className="mb-16 sm:mb-5 text-white text-4xl font-bold my-5">Login</h2>
           <form
             className="w-full h-[80%] flex flex-col items-center justify-center"
             onSubmit={handleSubmit}
           >
             <div className="flex flex-col justify-around h-full w-4/5">
               <div className="flex flex-col justify-between h-[30%]">
-                <div className="relative border-solid border-b-2">
+                <div className="relative border-solid border-b py-1">
                   <input
-                    className="text-white bg-transparent outline-none"
+                    className="text-white bg-transparent outline-none w-full"
                     type="email"
                     placeholder="Correo Electronico"
                     value={email}
@@ -68,9 +70,9 @@ const Login = () => {
                     required
                   />
                 </div>
-                <div className="relative border-solid border-b-2">
+                <div className="relative border-solid border-b mt-5 mb-1 py-1">
                   <input
-                    className="text-white bg-transparent outline-none"
+                    className="text-white bg-transparent outline-none w-full"
                     type="password"
                     placeholder="Contraseña"
                     value={password}
@@ -79,14 +81,14 @@ const Login = () => {
                   />
                 </div>
                 <div className="flex justify-end item-end ">
-                  <span className="text-white text-[0.6rem]">
+                  <span className="text-white text-[0.8rem]">
                     *Recupera contraseña{" "}
                     <span className="text-mainPurple">Aquí</span>
                   </span>
                 </div>
               </div>
               <div className="flex justify-center items-center">
-                <div className="w-[80%] ">
+                <div className="w-[100%] my-10 sm:m-0">
                   <Button
                     type="submit"
                     value="Login"
@@ -95,20 +97,20 @@ const Login = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col items-center justify-between h-[9rem]">
-                <div className="border-solid border-2 w-[80%] h-[2.5rem] rounded-lg cursor-pointer">
+              <div className="flex flex-col items-center justify-between h-[9rem] gap-3">
+                <div className="border-solid border-2 w-full h-[2.5rem] rounded-lg cursor-pointer">
                   <div className=" flex justify-between items-center w-[65%] h-[100%]">
                     <img className="pl-4 w-[2.3rem]" src={google} alt="google" />
                     <span className="text-white pr-2">Google</span>
                   </div>
                 </div>
-                <div className="border-solid border-2 w-[80%] h-[2.5rem] rounded-lg cursor-pointer">
+                <div className="border-solid border-2 w-full h-[2.5rem] rounded-lg cursor-pointer">
                   <div className="flex justify-between items-center w-[65%] h-[100%]">
                     <img className="pl-4 w-[2.5rem]" src={facebook} alt="facebook" />
                     <span className="text-white ">Facebook</span>
                   </div>
                 </div>
-                <div className="flex justify-center items-center border-solid border-2 w-[80%] h-[2.5rem] rounded-lg cursor-pointer">
+                <div className="flex justify-center items-center border-solid border-2 w-full h-[2.5rem] rounded-lg cursor-pointer">
                   <span className="text-white" onClick={handleRegister}>
                     Registrate con tu correo
                   </span>
@@ -116,6 +118,7 @@ const Login = () => {
               </div>
             </div>
           </form>
+        </div>
         </div>
       </div>
     </>

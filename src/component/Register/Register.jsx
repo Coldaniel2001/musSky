@@ -62,19 +62,21 @@ console.log(passwordRequest)
           alt="MW"
         />
       </div>
-      <div className="flex flex-col h-[50rem] justify-between items-center fixed inset-0 z-10 sm:justify-center sm:h-screen">
+      <div className="flex flex-col  justify-between items-center fixed inset-0 z-10 sm:justify-center sm:h-screen">
         <img
-          className=" w-[10rem]  sm:mb-12 sm:w-[25rem]"
+          className="sm:-mb-40 w-[10rem]  sm:mb-12 sm:w-[25rem]"
           src={logo}
           alt="Logo"
         />
-        <div className="flex items-center bg-opacity-0  rounded-xl w-[15rem] h-[25rem] sm:w-[25rem] sm:h-[35rem] sm:m-[0rem] sm:bg-opacity-20 sm:bg-mainPurple sm:border-2 sm:border-purple-900 sm:z-10">
-          <form onSubmit={handleSubmit} className="w-full h-[80%] flex flex-col items-center">
-            <div className="flex flex-col justify-between h-[90rem] w-4/5">
-              <div className="flex flex-col justify-between h-[70%]">
-                <div className="relative border-solid border-b-2">
+        <div className="w-full sm:w-auto h-full flex items-center">
+        <div className="flex items-center  rounded-xl w-full  sm:w-[25rem] sm:pb-6 sm:m-[0rem] sm:bg-opacity-20 sm:bg-mainPurple sm:border-2 sm:border-purple-900 sm:z-10">
+          <form onSubmit={handleSubmit} className="w-full h-auto sm:h-[80%] flex flex-col items-center">
+          <h2 className="mb-16 text-4xl sm:mb-5 text-white  font-bold my-5">Registro</h2>
+            <div className="flex flex-col  w-4/6 ">
+              <div className="flex flex-col justify-between gap-1 ">
+                <div className="relative border-solid border-b">
                   <input
-                    className="text-white bg-transparent outline-none"
+                    className="text-white bg-transparent outline-none py-1 w-full"
                     type="text"
                     name="name"
                     placeholder="Nombre"
@@ -83,7 +85,7 @@ console.log(passwordRequest)
                     required
                   />
                 </div>
-                <div className="relative border-solid border-b-2">
+                <div className="relative border-solid border-b py-1 mt-2 w-full">
                   <input
                     className="text-white bg-transparent outline-none"
                     type="text"
@@ -94,7 +96,7 @@ console.log(passwordRequest)
                     required
                   />
                 </div>
-                <div className="relative border-solid border-b-2">
+                <div className="relative border-solid border-b py-1 mt-2 w-full">
                   <input
                     className="text-white bg-transparent outline-none"
                     type="text"
@@ -105,7 +107,7 @@ console.log(passwordRequest)
                     required
                   />
                 </div>
-                <div className="relative border-solid border-b-2">
+                <div className="relative border-solid border-b py-1 mt-2 w-full">
                   <input
                     className="text-white bg-transparent outline-none"
                     type="email"
@@ -116,7 +118,7 @@ console.log(passwordRequest)
                     required
                   />
                 </div>
-                <div className="relative border-solid border-b-2">
+                <div className="relative border-solid border-b py-1 mt-2 w-full">
                   <input
                     className="text-white bg-transparent outline-none"
                     type="password"
@@ -127,7 +129,7 @@ console.log(passwordRequest)
                     required
                   />
                 </div>
-                <div className="relative border-solid border-b-2">
+                <div className="relative border-solid border-b py-1 mt-2 w-full">
                   <input
                     className="text-white bg-transparent outline-none"
                     type="password"
@@ -139,11 +141,11 @@ console.log(passwordRequest)
                   />
                 </div>
               </div>
-              <div className="flex flex-col items-start justify-center h-[10rem] w-[25rem]">
-                {passwordRequest.character ? <span className="text-[#00A92C]" >* Mínimo 8 caracteres</span> : <span className="text-[#727372]" >* Mínimo 8 caracteres</span>}
-                {passwordRequest.upperLower ? <span className="text-[#00A92C]" >* Al menos una letra mayúscula y una minúsculas</span> : <span className="text-[#727372]" >* Al menos una letra mayúscula y una minúsculas</span>}
-                {passwordRequest.number ? <span className="text-[#00A92C]" >* Tiene que haber al menos un número</span> : <span className="text-[#727372]" >* Tiene que haber al menos un número</span>}
-                {passwordRequest.matchPassword ? <span className="text-[#00A92C]" >* Las contraseñas tienen que coincidir</span> : <span className="text-[#727372]" >* Las contraseñas tienen que coincidir</span>}
+              <div className="flex flex-col items-start justify-center mt-3 mb-8 w-[25rem]">
+                {passwordRequest.character ? <span className="text-[#00A92C] text-[0.8rem]" >* Mínimo 8 caracteres</span> : <span className="text-[#727372] text-[0.8rem]" >* Mínimo 8 caracteres</span>}
+                {passwordRequest.upperLower ? <span className="text-[#00A92C] text-[0.8rem]" >* Al menos una letra mayúscula y una minúsculas</span> : <span className="text-[#727372] text-[0.8rem]" >* Al menos una letra mayúscula y una minúsculas</span>}
+                {passwordRequest.number ? <span className="text-[#00A92C] text-[0.8rem]" >* Tiene que haber al menos un número</span> : <span className="text-[#727372] text-[0.8rem]" >* Tiene que haber al menos un número</span>}
+                {passwordRequest.matchPassword ? <span className="text-[#00A92C] text-[0.8rem]" >* Las contraseñas tienen que coincidir</span> : <span className="text-[#727372] text-[0.8rem]" >* Las contraseñas tienen que coincidir</span>}
               </div>
               <div className="flex flex-col items-center justify-around h-[5rem]">
                 <div className="w-[80%] ">
@@ -161,6 +163,7 @@ console.log(passwordRequest)
               </div>
             </div>
           </form>
+        </div>
         </div>
       </div>
     </>
