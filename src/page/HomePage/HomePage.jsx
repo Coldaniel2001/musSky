@@ -1,10 +1,11 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import CenterSection from '../../component/CenterSection/CenterSection'
 import FooterNav from '../../component/FooterNav/FooterNav'
 import SidebarLeft from '../../component/SidebarLeft/SidebarLeft'
 import SidebarRight from '../../component/SidebarRight/SidebarRight'
 import Top10Phone from '../../component/Top10Phone/Top10Phone'
 import TopPhone from '../../component/TopPhone/TopPhone'
+
 
 const HomePage = () => {
   return (
