@@ -64,7 +64,7 @@ console.log(passwordRequest)
       </div>
       <div className="flex flex-col  justify-between items-center fixed inset-0 z-10 sm:justify-center sm:h-screen">
         <img
-          className="sm:-mb-40 w-[10rem]  sm:mb-12 sm:w-[25rem]"
+          className="sm:-mb-40 w-[10rem]  sm:w-[25rem]"
           src={logo}
           alt="Logo"
         />
