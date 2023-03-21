@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Button from "../Button/Button";
 import DataContext from "../../context/DataContext";
@@ -10,7 +10,6 @@ import musicWoman from "../../assets/images/bgLoginRegister/modelPortada.png";
 import logo from "../../assets/images/logo/LogoMusSky.png";
 
 
-
 const Register = () => {
   const { setIsLoggin } = useContext(DataContext);
   const [passwordRequest, setPasswordRequest] = useState({
@@ -19,6 +18,8 @@ const Register = () => {
     number: false,
     matchPassword: false
   })
+  const navigate = useNavigate()
+
 
   const [inputChange, setInputChange] = useState({
     name: "",
@@ -29,30 +30,65 @@ const Register = () => {
     passwordrepeat: ""
   });
 
+
   const handleLogin = () => {
     setIsLoggin(true);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if(passwordRequest.character===true&&passwordRequest.upperLower===true&&passwordRequest.number===true&&passwordRequest.matchPassword===true){
+      navigate("/")
+    }
   }
 
   const handleInputChange = (event) => {
-    setInputChange({ ...inputChange, [event.target.name]: event.target.value });
-    
-    
+    setInputChange({ ...inputChange, [event.target.name]: event.target.value })
   }
 
-  useEffect(()=>{
-    if ((inputChange.password.length >= 8 && inputChange.passwordrepeat.length >= 8) && (inputChange.password === inputChange.passwordrepeat) ) {
-      setPasswordRequest({ ...passwordRequest, character: true, matchPassword: true  })
-    } else {
-      setPasswordRequest({ ...passwordRequest, character: false, matchPassword:false })
+
+
+
+
+  useEffect(() => {
+    if ((inputChange.password.length >= 8) && (inputChange.password === inputChange.passwordrepeat) && ((inputChange.password !== inputChange.password.toLowerCase()) && (inputChange.password !== inputChange.password.toUpperCase())) && (/\d/.test(inputChange.password))) {
+      setPasswordRequest({ ...passwordRequest, character: true, matchPassword: true, upperLower: true, number: true })
+    } else if ((inputChange.password.length >= 8) && (inputChange.password === inputChange.passwordrepeat) && ((inputChange.password !== inputChange.password.toLowerCase()) && (inputChange.password !== inputChange.password.toUpperCase()))) {
+      setPasswordRequest({ ...passwordRequest, character: true, matchPassword: true, upperLower: true, number: false })
+    } else if ((inputChange.password.length >= 8) && (inputChange.password === inputChange.passwordrepeat) && (/\d/.test(inputChange.password))) {
+      setPasswordRequest({ ...passwordRequest, character: true, matchPassword: true, upperLower: false, number: true })
+    } else if ((inputChange.password.length >= 8) && ((inputChange.password !== inputChange.password.toLowerCase()) && (inputChange.password !== inputChange.password.toUpperCase())) && (/\d/.test(inputChange.password))) {
+      setPasswordRequest({ ...passwordRequest, character: true, matchPassword: false, upperLower: true, number: true })
+    } else if ((inputChange.password === inputChange.passwordrepeat) && ((inputChange.password !== inputChange.password.toLowerCase()) && (inputChange.password !== inputChange.password.toUpperCase())) && (/\d/.test(inputChange.password))) {
+      setPasswordRequest({ ...passwordRequest, character: false, matchPassword: true, upperLower: true, number: true })
+    } else if ((inputChange.password.length >= 8) && (inputChange.password === inputChange.passwordrepeat)) {
+      setPasswordRequest({ ...passwordRequest, character: true, matchPassword: true, upperLower: false, number: false })
+    } else if (((inputChange.password !== inputChange.password.toLowerCase()) && (inputChange.password !== inputChange.password.toUpperCase())) && (/\d/.test(inputChange.password))) {
+      setPasswordRequest({ ...passwordRequest, character: false, matchPassword: false, upperLower: true, number: true })
+    } else if ((/\d/.test(inputChange.password)) && (inputChange.password === inputChange.passwordrepeat)) {
+      setPasswordRequest({ ...passwordRequest, character: false, matchPassword: true, upperLower: false, number: true })
+    } else if ((/\d/.test(inputChange.password)) && (inputChange.password.length >= 8)) {
+      setPasswordRequest({ ...passwordRequest, character: true, matchPassword: false, upperLower: false, number: true })
+    } else if (((inputChange.password !== inputChange.password.toLowerCase()) && (inputChange.password !== inputChange.password.toUpperCase())) && (inputChange.password.length >= 8)) {
+      setPasswordRequest({ ...passwordRequest, character: true, matchPassword: false, upperLower: true, number: false })
+    } else if (((inputChange.password !== inputChange.password.toLowerCase()) && (inputChange.password !== inputChange.password.toUpperCase())) && (inputChange.password === inputChange.passwordrepeat)) {
+      setPasswordRequest({ ...passwordRequest, character: false, matchPassword: true, upperLower: true, number: false })
+    } else if((inputChange.password === inputChange.passwordrepeat)&&(inputChange.password.length >= 8)){
+      setPasswordRequest({ ...passwordRequest, character: true, matchPassword: true, upperLower: false, number: false })
+    }else if((inputChange.password.length >= 8)){
+      setPasswordRequest({ ...passwordRequest, character: true, matchPassword: false, upperLower: false, number: false })
+    }else if((inputChange.password === inputChange.passwordrepeat)&&(inputChange.password!=="")){
+      setPasswordRequest({ ...passwordRequest, character: false, matchPassword: true, upperLower: false, number: false })
+    }else if (((inputChange.password !== inputChange.password.toLowerCase()) && (inputChange.password !== inputChange.password.toUpperCase())) ) {
+      setPasswordRequest({ ...passwordRequest, character: false, matchPassword: false, upperLower: true, number: false })
+    }else if ((/\d/.test(inputChange.password)) ) {
+      setPasswordRequest({ ...passwordRequest, character: false, matchPassword: false, upperLower: false, number: true })
+    }  else {
+      setPasswordRequest({ ...passwordRequest, character: false, matchPassword: false, upperLower: false, number: false })
     }
+  }, [inputChange.password, inputChange.passwordrepeat])
 
-  },[inputChange.password, inputChange.passwordrepeat])
 
-console.log(passwordRequest)
   return (
     <>
       <div className="w-screen h-screen bg-gradient-to-t from-black via-black to-mainPurple flex justify-center lg:justify-end overflow-hidden">
