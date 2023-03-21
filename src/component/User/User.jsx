@@ -2,13 +2,16 @@ import React, {  useState,useContext } from 'react';
 import user from '../../assets/images/user.jpg'
 import arrowDown from '../../assets/images/icons/arrow-down.png'
 import UserModal from './UserModal';
+import Context from '../../context/Context';
+
 
 
 
 const User = () => {
     const[showModal,setShowModal]=useState(false);
 //    const close = useContext(setShowModal(false))
-    // const hideModal=useContext(handleOnClose)
+    // const hideModal=useContext(Context)
+    // console.log(hideModal)
     const toggleModal=()=>{
      
         setShowModal(!showModal) ;
