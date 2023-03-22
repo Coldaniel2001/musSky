@@ -7,7 +7,7 @@ import logo from "../../assets/images/logo/LogoMusSky.png";
 
 
 const Register = () => {
-  const { setIsLoggin, register } = useContext(UserContext);
+  const { setIsLoggin, register, inputChange, setInputChange } = useContext(UserContext);
   const [passwordRequest, setPasswordRequest] = useState({
     character: false,
     upperLower: false,
@@ -16,15 +16,6 @@ const Register = () => {
   })
 
   const navigate = useNavigate()
-
-  const [inputChange, setInputChange] = useState({
-    name: "",
-    surname: "",
-    username: "",
-    email: "",
-    password: "",
-    passwordrepeat: ""
-  });
 
 
   const handleLogin = () => {

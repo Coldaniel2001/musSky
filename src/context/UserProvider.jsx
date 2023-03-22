@@ -6,6 +6,14 @@ import UserContext from "./UserContext";
 
 const UserProvider = ({ children }) => {
   const [isLoggin, setIsLoggin] = useState(true);
+  const [inputChange, setInputChange] = useState({
+    name: "",
+    surname: "",
+    username: "",
+    email: "",
+    password: "",
+    passwordrepeat: ""
+  });
 
   const [state, dispatch] = useReducer(userReducer, initialState);
 
@@ -35,6 +43,7 @@ const UserProvider = ({ children }) => {
         register,
         logOutUser,
         changePassword,
+        inputChange, setInputChange
       }}
     >
       {children}
