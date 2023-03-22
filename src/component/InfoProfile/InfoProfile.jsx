@@ -10,7 +10,7 @@ const InfoProfile = () => {
 		<>
 			<div className='flex flex-col justify-between h-[11rem]'>
 				<span className='text-white font-extrabold text-[3rem]'>MI CUENTA</span>
-				<span className='text-white font-bold text-[2rem]'>INFORMACIÓN</span>
+				<h2 className='text-white font-bold text-[2rem]'>INFORMACIÓN</h2>
 			</div>
 			<div className='flex justify-center'>
 				<div className='flex justify-between items-center w-[95%]'>
