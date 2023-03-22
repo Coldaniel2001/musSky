@@ -6,6 +6,7 @@ import iconPlayList from '../../assets/images/icons/icon-playlist.png'
 import iconLiked from '../../assets/images/icons/icon-liked.png'
 import iconAccount from '../../assets/images/icons/icon-account.png'
 import MusicPlayed from '../MusicPlayed/MusicPlayed';
+import { NavLink } from 'react-router-dom';
 
 const SidebarLeft = () => {
 	return (
@@ -13,11 +14,14 @@ const SidebarLeft = () => {
 			<div className='text-white flex flex-col items-center'>
 				<img className='w-60' src={logo} alt="logo" />
 			</div>
-			<div className='text-white mt-14 md:hidden lg:block'>
-				<div className='xl:grid grid-cols-8 lg:flex lg:justify-center lg:pl-0  items-center xl:pl-6 h-[3.5rem]  border-l-[0.5rem] border-[#7339E5]'>
-					<img className='lg:w-12 xl:w-12 col-span-2' src={iconHome} alt="home icon" />
-					<p className='lg:hidden xl:grid xl:text-[1.5rem] col-span-6 font-semibold'>Home</p>
-				</div>
+			
+			<div className='text-white mt-14 md:hidden lg:block '>
+				<NavLink className={({ isActive, isPending }) => isPending ? "fontWeight: bold"  : isActive ? "fontWeight: bold"  : "fontWeight: bold"}>
+					<div className='xl:grid grid-cols-8 lg:flex lg:justify-center lg:pl-0  items-center xl:pl-6 h-[3.5rem] border-l-[0.5rem] border-[#7339E5]'>
+						<img className='lg:w-12 xl:w-12 col-span-2' src={iconHome} alt="home icon" />
+						<p className='lg:hidden xl:grid xl:text-[1.5rem] col-span-6 font-semibold'>Home</p>
+					</div>
+				</NavLink>
 				<div className='xl:grid grid-cols-8 lg:flex lg:justify-center lg:pl-0  items-center xl:pl-6 h-[3.5rem]  border-l-[0.5rem] border-transparent mt-5'>
 					<img className='lg:w-12 xl:w-12 col-span-2' src={iconGenero} alt="home icon" />
 					<p className='lg:hidden xl:grid xl:text-[1.5rem] col-span-4 font-semibold'>Géneros</p>

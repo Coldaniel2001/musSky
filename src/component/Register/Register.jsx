@@ -1,11 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import Button from "../Button/Button";
 import UserContext from "../../context/UserContext";
-
-
-
 import musicWoman from "../../assets/images/bgLoginRegister/modelPortada.png";
 import logo from "../../assets/images/logo/LogoMusSky.png";
 
@@ -18,8 +14,8 @@ const Register = () => {
     number: false,
     matchPassword: false
   })
-  const navigate = useNavigate()
 
+  const navigate = useNavigate()
 
   const [inputChange, setInputChange] = useState({
     name: "",
