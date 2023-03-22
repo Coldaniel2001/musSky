@@ -1,7 +1,6 @@
 import React from 'react'
 
 
-import ContactUs from '../../component/ContactUs/ContactUs'
 import Profile from '../../component/Profile/Profile'
 import SidebarLeft from '../../component/SidebarLeft/SidebarLeft'
 import SidebarRight from '../../component/SidebarRight/SidebarRight'
@@ -16,7 +15,7 @@ const ProfilePage = () => {
                 <SidebarLeft />
             </div>
             <div className='w-full pt-10 sm:pt-10 lg:pt-0 lg:w-[85%] xl:w-[75%] 2xl:w-[67%]'>
-                {/* <Profile/> */}<ContactUs/>
+                <Profile/>
             </div>
             <div className='hidden w-full lg:hidden xl:hidden 2xl:block 2xl:w-[15%]'>
                 <SidebarRight />
