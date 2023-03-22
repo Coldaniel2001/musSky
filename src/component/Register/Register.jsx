@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import Button from "../Button/Button";
-import DataContext from "../../context/DataContext";
+import UserContext from "../../context/UserContext";
 
 
 
@@ -11,7 +11,7 @@ import logo from "../../assets/images/logo/LogoMusSky.png";
 
 
 const Register = () => {
-  const { setIsLoggin } = useContext(DataContext);
+  const { setIsLoggin, register } = useContext(UserContext);
   const [passwordRequest, setPasswordRequest] = useState({
     character: false,
     upperLower: false,
@@ -38,6 +38,7 @@ const Register = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if(passwordRequest.character===true&&passwordRequest.upperLower===true&&passwordRequest.number===true&&passwordRequest.matchPassword===true){
+      register(inputChange);
       navigate("/")
     }
   }
@@ -45,9 +46,6 @@ const Register = () => {
   const handleInputChange = (event) => {
     setInputChange({ ...inputChange, [event.target.name]: event.target.value })
   }
-
-
-
 
 
   useEffect(() => {

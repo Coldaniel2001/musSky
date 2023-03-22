@@ -1,13 +1,13 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import DataProvider from '../context/DataProvider'
+import UserProvider from '../context/UserProvider'
 import HomePage from '../page/HomePage/HomePage'
 import LoginPage from '../page/LoginPage/LoginPage'
 
 
 const RoutesPath = () => {
     return (
-        <DataProvider>
+        <UserProvider>
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<HomePage/>}/>
@@ -15,7 +15,7 @@ const RoutesPath = () => {
                 <Route path='/*' element={<Navigate to={'/login'}/>}/>
             </Routes>
         </BrowserRouter>
-        </DataProvider>
+        </UserProvider>
     )
 }
 

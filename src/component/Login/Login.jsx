@@ -7,13 +7,13 @@ import musicWoman from "../../assets/images/bgLoginRegister/modelPortada.png";
 import logo from "../../assets/images/logo/LogoMusSky.png";
 import google from "../../assets/images/icons/google.png";
 import facebook from "../../assets/images/icons/facebook.png";
-import DataContext from "../../context/DataContext";
+import UserContext from "../../context/UserContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { setIsLoggin } = useContext(DataContext);
+  const { setIsLoggin, loginUser } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -26,6 +26,8 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (email === "wilson@gmail.com" && password === "1234") {
+      //vamos a lanzar la funcion que actualiza el estado
+      loginUser({email, password})
       navigate("/");
     } else {
       console.log("correo incorrecto");
