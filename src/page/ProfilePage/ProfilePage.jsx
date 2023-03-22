@@ -5,6 +5,7 @@ import Profile from '../../component/Profile/Profile'
 import SidebarLeft from '../../component/SidebarLeft/SidebarLeft'
 import SidebarRight from '../../component/SidebarRight/SidebarRight'
 import FooterNav from '../../component/FooterNav/FooterNav'
+import FAQ from '../../component/FAQ/FAQ'
 
 
 const ProfilePage = () => {
