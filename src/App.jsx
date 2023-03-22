@@ -1,16 +1,21 @@
+
 import './App.css';
-import Database from './db/Database';
+import Player from './component/MusicPlayer/MusicPlayer';
+
 import RoutesPath from './routes/RoutesPath';
 
 
 function App() {
 
-  
+
   
   return (
     <>
-      <RoutesPath />
-      <Database/>
+      {/* <RoutesPath /> */}
+
+
+      <Player/>
+
     </>
   );
 }
