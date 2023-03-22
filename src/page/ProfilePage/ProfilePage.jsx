@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+// import ContactUs from '../../component/ContactUs/ContactUs'
 import Profile from '../../component/Profile/Profile'
 import SidebarLeft from '../../component/SidebarLeft/SidebarLeft'
 import SidebarRight from '../../component/SidebarRight/SidebarRight'
