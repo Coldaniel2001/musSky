@@ -6,7 +6,7 @@ import fito from '../../assets/images/fito.jpg'
 
 const RecomendationSong = () => {
   return (
-    <div className='flex overflow-x-scroll w-[100%] gap-5 whitespace-no-wrap '>
+    <div className='flex overflow-x-scroll scrollbar-hide w-[100%] gap-5 whitespace-no-wrap '>
       <div className='min-w-[18rem] text-center bg-[#8839E5] bg-opacity-20 py-3 rounded-xl'>
         <p className='text-xl font-bold'>THE BEATLES</p>
         <p className='text-gray-500'>Imagine</p>

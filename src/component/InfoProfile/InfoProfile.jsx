@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import Button from '../Button/Button';
+import UserContext from '../../context/UserContext';
 
 import addImageProfile from '../../assets/images/icons/addImageProfile.png'
 
 const InfoProfile = () => {
-
+	
+	const { inputChange } = useContext(UserContext)
+	
 	return (
 		<>
 			<div className='flex flex-col justify-between h-[11rem]'>
@@ -16,23 +19,23 @@ const InfoProfile = () => {
 				<div className='flex justify-between items-center w-[95%]'>
 					<div className='flex flex-col items-center justify-around h-[12rem]'>
 						<img className='w-[10rem]' src={addImageProfile} alt="add-profile" />
-						<span className='text-white text-[0.8rem]'>Jaurematado</span>
+						<span className='text-white text-[0.8rem]'>{inputChange.username}</span>
 					</div>
 					<div className='flex flex-col justify-around h-[6rem]'>
 						<span className='text-white font-semibold text-[1.2rem]'>NOMBRE</span>
-						<span className='text-white text-[0.8rem]'>Victor</span>
+						<span className='text-white text-[0.8rem]'>{inputChange.name}</span>
 					</div>
 					<div className='flex flex-col justify-around h-[6rem]'>
 						<span className='text-white font-semibold text-[1.2rem]'>APELLIDOS</span>
-						<span className='text-white text-[0.8rem]'>Jauregui Dominguez</span>
+						<span className='text-white text-[0.8rem]'>{inputChange.surname}</span>
 					</div>
 					<div className='flex flex-col justify-around h-[6rem]'>
 						<span className='text-white font-semibold text-[1.2rem]'>CORREO ELECTRÓNICO</span>
-						<span className='text-white text-[0.8rem]'>victorjauregui@gmail.com</span>
+						<span className='text-white text-[0.8rem]'>{inputChange.email}</span>
 					</div>
 					<div className='flex flex-col justify-around h-[6rem]'>
 						<span className='text-white font-semibold text-[1.2rem]'>FECHA DE SUBSCRIPCIÓN</span>
-						<span className='text-[#FFFFFF] text-[0.8rem]'>25 de mayo de 2023</span>
+						<span className='text-[#FFFFFF] text-[0.8rem]'>{inputChange.date}</span>
 					</div>
 				</div>
 			</div>

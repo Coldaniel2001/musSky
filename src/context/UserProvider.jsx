@@ -12,7 +12,8 @@ const UserProvider = ({ children }) => {
     username: "",
     email: "",
     password: "",
-    passwordrepeat: ""
+    passwordrepeat: "",
+    date: new Date(Date.now()).toLocaleDateString()
   });
 
   const [state, dispatch] = useReducer(userReducer, initialState);
