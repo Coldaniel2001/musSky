@@ -24,9 +24,6 @@ const Profile = () => {
 					<ContactUs />
 				</div>
 			</div>
-
-		<Preferences />
-        <ContactUs/>
 		</>
 	);
 };
