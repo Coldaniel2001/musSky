@@ -27,7 +27,7 @@ const MusicPlayed = ({audioElem,isPlaying,setIsPlaying,currentSong,setCurrentSon
 
   const skipBack = ()=>
   {
-    const index = songs.findIndex(x=>x.title == currentSong.title);
+    const index = songs.findIndex(x=>x.name == currentSong.name);
     if (index ==0)
     {
       setCurrentSong(songs[songs.length - 1])
@@ -43,7 +43,7 @@ const MusicPlayed = ({audioElem,isPlaying,setIsPlaying,currentSong,setCurrentSon
 
   const skiptoNext = ()=>
   {
-    const index = songs.findIndex(x=>x.title == currentSong.title);
+    const index = songs.findIndex(x=>x.name == currentSong.name);
 
     if (index === songs.length-1)
     {
@@ -56,7 +56,7 @@ const MusicPlayed = ({audioElem,isPlaying,setIsPlaying,currentSong,setCurrentSon
     audioElem.current.currentTime = 0;
     
   }
-  console.log(currentSong)
+  console.log(currentSong.name)
 
   return (
     <>
