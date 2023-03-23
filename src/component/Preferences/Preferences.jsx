@@ -5,9 +5,9 @@ import Toggle from '../Toggle/Toggle'
 const Preferences = () => {
     return (
         <>
-            <div className='flex flex-col w-1/2'>
+            <div className='flex flex-col sm:bg-transparent sm:w-full md:w-1/2 sm:mt-10 md:mt-0'>
                 <div className='mb-8'>
-                    <span className='text-white font-bold text-title '>PREFERENCIAS</span>
+                    <span className='text-white font-extrabold text-[1.5rem] 2xl:text-title '>PREFERENCIAS</span>
                 </div>
 
                 <div className='flex flex-col justify-between h-[15rem]'>

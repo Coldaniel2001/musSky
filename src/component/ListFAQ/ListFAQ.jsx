@@ -15,9 +15,9 @@ const ListFAQ = ({ list }) => {
 	}
 	return (
 		<>
-			<div className='flex justify-between' onClick={() => handleInformation(list.id)}>
+			<div className='flex justify-between items-center' onClick={() => handleInformation(list.id)}>
 				<span className='text-white font-semibold'>{list.text}</span>
-				{isActive === list.id ? <img src={arrowTop} alt="arrow-top" /> : <img src={arrowDown} alt="arrow-down" />}
+				{isActive === list.id ? <img src={arrowTop} alt="arrow-top" className='w-5 h-5 xl:w6 xl:h-6' /> : <img src={arrowDown} alt="arrow-down" className='w-5 h-5 xl:w-6 xl:h-6' />}
 			</div>
 			{isActive === list.id ? <div><span className='text-detailsGray text-sm'>{list.content}</span></div> : null}
 		</>

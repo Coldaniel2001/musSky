@@ -8,11 +8,11 @@ import shakira from '../../assets/images/shakira.jpg'
 
 const Top10Phone = () => {
   return (
-    <div>
-        <div className='pt-14  text-white bg-black  md:hidden lg:md'>
+    <div className='lg:hidden'>
+        <div className='pt-14  text-white bg-black  xl:hidden lg:md'>
         </div>
-        <img className=' hidden md:flex lg:hidden mx-auto pt-6' src={logo} alt="" />
-        <p className='mt-10 ml-5 lg:ml-0 text-3xl font-extrabold mb-5 text-white sm:text-4xl md:mt-0  2xl:hidden'>TOP 10</p>
+        <img className=' hidden mx-auto pt-6' src={logo} alt="" />
+        <p className='mt-10 md:mt-12 ml-5 lg:ml-0 text-3xl font-extrabold mb-5 text-white sm:text-4xl   2xl:hidden'>TOP 10</p>
         <div className=' bg-black mx-5 rounded-md text-white lg:mb-10 '>
             <div className="flex overflow-x-scroll w-full whitespace-no-wrap gap-5 ">
                 <div className='w-full min-w-[25rem] grid grid-cols-9  bg-[#D9D9D9] items-center rounded bg-opacity-20 m-2 mx-auto'>
