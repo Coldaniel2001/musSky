@@ -12,16 +12,25 @@ const Profile = () => {
 
 	return (
 		<>
-				<Search />
-			<div className='flex flex-col items-center'>
-				<div className=' mx-3 text-white lg:ml-10 lg:m-10  lg:h-[80vh] lg:w-[80%] lg:overflow-y-scroll lg:scrollbar-hide'>
-					<InfoProfile />
-					<div className='flex justify-around'>
-					<Preferences/>
+			<Search />
+			<div className='flex flex-col items-center '>
+				<div className='flex flex-col justify-between mx-3 text-white lg:ml-10 lg:m-10 lg:gap-[2rem] lg:h-[40rem] lg:w-[80%] lg-max-h-screen lg:overflow-y-scroll lg:scrollbar-hide'>
+					<div>
+						<InfoProfile />
+					</div>
+					{/* h-[24rem] */}
+					<div className='flex justify-between'>
+						<Preferences />
 						<FAQ />
 					</div>
-					<ChangePassword />
-					<ContactUs />
+					<div>
+						<ChangePassword />
+
+					</div>
+					<div>
+
+						<ContactUs />
+					</div>
 				</div>
 			</div>
 		</>

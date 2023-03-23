@@ -31,7 +31,7 @@ const ChangePassword = () => {
 
   return (
     <div>
-        <h2 className='text-white text-[2rem] font-extrabold'>CONFIGURATION</h2>
+        <h2 className='text-white text-[2rem] font-extrabold'>CONFIGURACIÓN</h2>
         <p className='font-bold text-xl mt-5'>Contraseña</p>
         <p className='text-[#a1a1a1]'>Si cambias tu contraseña, tendrás que volver a iniciar sesión en otros dispositivos.</p>
         <form onSubmit={handleSubmit} className='flex gap-5 mt-5'>
