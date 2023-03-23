@@ -1,18 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import arrowDown from '../../assets/images/icons/arrow-down.png'
 import arrowTop from '../../assets/images/icons/arrow-top.png'
 
-const ListFAQ = ({ list }) => {
-	const [isActive, setIsActive] = useState(null)
-
-	const handleInformation = (position) => {
-		if (isActive === position) {
-			setIsActive(null)
-		} else {
-			setIsActive(position)
-		}
-	}
+const ListFAQ = ({ list, handleInformation, isActive }) => {
+	
 	return (
 		<>
 			<div className='flex justify-between' onClick={() => handleInformation(list.id)}>

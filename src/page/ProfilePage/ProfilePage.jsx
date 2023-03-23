@@ -10,7 +10,7 @@ import FooterNav from '../../component/FooterNav/FooterNav'
 
 const ProfilePage = () => {
     return (
-        <div className='bg-gradient-to-tr from-black via-black to-[#7339E5] lg:h-screen  lg:flex'>
+        <div className='bg-gradient-to-tr from-black via-black to-mainPurple lg:flex'>
             <div className='hidden lg:block w-full lg:w-[15%] xl:w-[25%] 2xl:w-[18%] pt-10 border-r-2 border-gray-700'>
                 <SidebarLeft />
             </div>
