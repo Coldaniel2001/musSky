@@ -35,8 +35,8 @@ const FAQ = () => {
 
 
 	return (
-		<div className='w-[50%] h-[20rem] flex flex-col justify-between'>
-			<h1 className='text-white font-bold text-title'>PREGUNTAS FRECUENTES</h1>
+		<div className='w-1/2  flex flex-col justify-between'>
+			<h1 className='text-white font-bold text-title mb-8'>PREGUNTAS FRECUENTES</h1>
 			<div className='flex flex-col justify-between h-[15rem]'>
 				{item.map((list)=>{
 					return (
