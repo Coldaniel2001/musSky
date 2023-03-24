@@ -25,10 +25,12 @@ const SidebarLeft = () => {
 					<img className='lg:w-12 xl:w-12 col-span-2' src={iconGenero} alt="home icon" />
 					<p className='lg:hidden xl:grid xl:text-[1.5rem] col-span-4 font-semibold'>Géneros</p>
 				</div>
+				<NavLink to={"/playList"} className={({ isActive }) => isActive ? '  ' : ''}>
 				<div className='xl:grid grid-cols-8 lg:flex lg:justify-center lg:pl-0  items-center xl:pl-6 h-[3.5rem]  border-l-[0.5rem] border-transparent mt-5'>
 					<img className='lg:w-10 xl:w-12 col-span-2' src={iconPlayList} alt="home icon" />
 					<p className='lg:hidden xl:grid xl:text-[1.5rem] col-span-4 font-semibold'>PlayList</p>
 				</div>
+				</NavLink>
 				<div className='xl:grid xl:grid-cols-8 lg:flex lg:justify-center lg:pl-0  items-center xl:pl-6 h-[3.5rem]  border-l-[0.5rem] border-transparent mt-5'>
 					<img className='lg:w-10 xl:w-12 col-span-2' src={iconLiked} alt="home icon" />
 					<p className='lg:hidden xl:grid xl:text-[1.5rem] col-span-4 font-semibold'>Me gusta</p>

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import UserProvider from '../context/UserProvider'
 import HomePage from '../page/HomePage/HomePage'
 import LoginPage from '../page/LoginPage/LoginPage'
+import PlaylistPage from '../page/PlaylistPage/PlaylistPage'
 import ProfilePage from '../page/ProfilePage/ProfilePage'
 
 
@@ -13,6 +14,7 @@ const RoutesPath = () => {
             <Routes>
                 <Route path='/' element={<HomePage/>}/>
                 <Route path='/login' element={<LoginPage/>}/>
+                <Route path='/playlist' element={<PlaylistPage/>}/>
                 <Route path='/profile' element={<ProfilePage/>}/>
                 <Route path='/*' element={<Navigate to={'/login'}/>}/>
             </Routes>
