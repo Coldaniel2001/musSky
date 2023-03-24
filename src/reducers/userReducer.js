@@ -1,17 +1,13 @@
-export const initialState = {
-  isNewUser: false,
-  isLogged: false,
-  user: null,
-};
 
-export const userReducer = (state = initialState, action) => {
+
+export const userReducer = (state , action) => {
   switch (action.type) {
     case "REGISTER_USER":
-      return {isNewUser: true, isLogged:true, user: action.payload}
+      return {...state, isLogged:true, user: action.payload}
     case "LOGIN_USER":
       return {...state,  isLogged: true, user: action.payload };
     case "LOGOUT":
-      return {...initialState};
+      return {...state, isLogged:false, user:null};
     case "CHANGE_PASSWORD": 
       return {...state, user: action.payload}
     default:

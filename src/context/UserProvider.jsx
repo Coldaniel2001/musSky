@@ -1,8 +1,16 @@
 import React, { useState, useReducer } from "react";
 import { types } from "../reducers/types/types";
-import { initialState, userReducer } from "../reducers/userReducer";
+import { userReducer } from "../reducers/userReducer";
 
 import UserContext from "./UserContext";
+
+const init = () => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  return {
+    isLogged: !!user,
+    user
+  }
+};
 
 const UserProvider = ({ children }) => {
   const [isLoggin, setIsLoggin] = useState(true);
@@ -16,17 +24,31 @@ const UserProvider = ({ children }) => {
     date: new Date(Date.now()).toLocaleDateString()
   });
 
-  const [state, dispatch] = useReducer(userReducer, initialState);
+  const [state, dispatch] = useReducer(userReducer, {}, init);
 
-  const loginUser = (user) => {
+  const loginUser = (email, password) => {
+    const user = {
+      id: Date.now(),
+      email,
+      password
+    }
+    localStorage.setItem("user", JSON.stringify(user))
     dispatch({ type: types.login, payload: user });
   };
 
-  const register = (user) => {
+  const register = (User) => {
+    const user = {
+      id: Date.now(),
+      name: User.name,
+      surname: User.surname,
+      email: User.email,
+      password: User.password
+    }
     dispatch({ type: types.register, payload: user });
   };
 
   const logOutUser = () => {
+    localStorage.removeItem("user");
     dispatch({ type: types.logout });
   };
 
@@ -40,11 +62,12 @@ const UserProvider = ({ children }) => {
         isLoggin,
         setIsLoggin,
         loginUser,
-        state,
+        ...state,
         register,
         logOutUser,
         changePassword,
-        inputChange, setInputChange
+        inputChange,
+        setInputChange
       }}
     >
       {children}

@@ -5,13 +5,13 @@ import Toggle from '../Toggle/Toggle'
 const Preferences = () => {
     return (
         <>
-            <div className='flex flex-col justify-between h-[20rem]'>
-                <div className=''>
-                    <span className='text-white font-bold text-title'>PREFERENCIAS</span>
+            <div className='flex flex-col sm:bg-transparent sm:w-full md:w-1/2 sm:mt-10 md:mt-0'>
+                <div className='mb-8'>
+                    <span className='text-white font-extrabold text-[1.5rem] 2xl:text-title '>PREFERENCIAS</span>
                 </div>
 
                 <div className='flex flex-col justify-between h-[15rem]'>
-                    <div className=' flex justify-between w-[28rem] '>
+                    <div className=' flex justify-between '>
                         <div className='flex flex-col mb-2'>
                             <span className='text-white font-semibold'>Reproducción automática</span>
                             <span className='text-detailsGray text-sm'>La siguiente canción se reproducirá de forma automática</span>
