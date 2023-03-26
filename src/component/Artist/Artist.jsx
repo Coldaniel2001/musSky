@@ -1,45 +1,34 @@
-import React from 'react'
-import shakira from '../../assets/images/shakira.jpg'
-import antonioJose from '../../assets/images/antonio-jose-1.jpg'
-import melendi from '../../assets/images/melendi.jpg'
-import extremoduro from '../../assets/images/extremoduro.jpg'
+import React, { useEffect, useState } from 'react'
 
 const Artist = () => {
+    const MusicUrl = "http://localhost:3004/artists"
+    const [dataSong, setDataSong] = useState([])
+
+    useEffect(() => {
+        const musicTracks = async() => {
+            const data = await fetch(MusicUrl);
+            const json = await data.json();
+            setDataSong(json)
+        } 
+        musicTracks()
+    }, [MusicUrl])
+    console.log(dataSong)
+
   return (
-    <div className='flex overflow-x-scroll scrollbar-hide w-[100%] whitespace-no-wrap  mt-5 lg:mt-10 '>
-            <div className='mb-6  min-w-[12rem] xl:min-w-[20rem] sm:w-full'>
-                <img className='w-[90%] mx-auto rounded' src={antonioJose} alt="first artist" />
-                <p className='hidden lg:flex lg:text-[1.3rem] lg:mt-2 xl:text-[1.6rem] 2xl:text-[2rem] justify-center  font-semibold'>Antonio José</p>
-            </div>
-            <div className='mb-6 min-w-[12rem] xl:min-w-[20rem] sm:w-full'>
-                <img className='w-[90%] mx-auto rounded' src={shakira} alt="first artist" />
-                <p className='hidden lg:flex lg:text-[1.3rem] lg:mt-2 xl:text-[1.6rem] 2xl:text-[2rem] justify-center  font-semibold'>Shakira</p>
-            </div>
-            <div className='mb-6  min-w-[12rem] xl:min-w-[20rem] sm:w-full'>
-                <img className='w-[90%] mx-auto rounded' src={melendi} alt="first artist" />
-                <p className='hidden lg:flex lg:text-[1.3rem] lg:mt-2 xl:text-[1.6rem] 2xl:text-[2rem] justify-center  font-semibold'>Melendi</p>
-            </div>
-            <div className='mb-6 min-w-[12rem] xl:min-w-[20rem] sm:w-full'>
-                <img className='w-[90%] mx-auto rounded' src={extremoduro} alt="first artist" />
-                <p className='hidden lg:flex lg:text-[1.3rem] lg:mt-2 xl:text-[1.6rem] 2xl:text-[2rem] justify-center  font-semibold'>Extremoduro</p>
-            </div>
-            <div className='mb-6  min-w-[12rem] xl:min-w-[20rem] sm:w-full'>
-                <img className='w-[90%] mx-auto rounded' src={antonioJose} alt="first artist" />
-                <p className='hidden lg:flex lg:text-[1.3rem] lg:mt-2 xl:text-[1.6rem] 2xl:text-[2rem] justify-center  font-semibold'>Antonio José</p>
-            </div>
-            <div className='mb-6 min-w-[12rem] xl:min-w-[20rem] sm:w-full'>
-                <img className='w-[90%] mx-auto rounded' src={shakira} alt="first artist" />
-                <p className='hidden lg:flex lg:text-[1.3rem] lg:mt-2 xl:text-[1.6rem] 2xl:text-[2rem] justify-center  font-semibold'>Shakira</p>
-            </div>
-            <div className='mb-6  min-w-[12rem] xl:min-w-[20rem] sm:w-full'>
-                <img className='w-[90%] mx-auto rounded' src={melendi} alt="first artist" />
-                <p className='hidden lg:flex lg:text-[1.3rem] lg:mt-2 xl:text-[1.6rem] 2xl:text-[2rem] justify-center  font-semibold'>Melendi</p>
-            </div>
-            <div className='mb-6 min-w-[12rem] xl:min-w-[20rem] sm:w-full'>
-                <img className='w-[90%] mx-auto rounded' src={extremoduro} alt="first artist" />
-                <p className='hidden lg:flex lg:text-[1.3rem] lg:mt-2 xl:text-[1.6rem] 2xl:text-[2rem] justify-center  font-semibold'>Extremoduro</p>
-            </div>
-        </div>
+    <div className=' flex overflow-x-scroll scrollbar-hide w-full h-full whitespace-no-wrap  mt-5 lg:mt-10 '>
+    {
+        dataSong.map((song) => {
+            return (
+                <div>
+                   <div className='mb-6  min-w-[12rem]  xl:min-w-[15rem] '>
+                        <img className='w-[90%] mx-auto rounded h-[12rem]' src={song.photoUrl} alt="first artist" />
+                        <p className='hidden lg:flex lg:text-[1.3rem] lg:mt-2 xl:text-[1.6rem] 2xl:text-[1rem] justify-center  font-semibold'>{song.name}</p>
+                    </div>
+                </div>
+                )
+        })
+    }
+    </div>
   )
 }
 

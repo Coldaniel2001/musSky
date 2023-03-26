@@ -2,8 +2,8 @@
   "playlists": [
     {
       "id": 1,
-      "name": "Road trip! All the masters I need!",
-      "isFollowed": true,
+      "name": "Road trip!",
+      "isLiked": true,
       "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644625060/tracks-thumbnails-dev/car_yx6ld1.jpg",
       "description": "Get your mic on with this beats. You are going to sing all the way down",
       "publicAccessible": true,
@@ -12,7 +12,7 @@
     {
       "id": 2,
       "name": "Motorcycle Mama!",
-      "isFollowed": true,
+      "isLiked": true,
       "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644625058/tracks-thumbnails-dev/driving_g56eyw.jpg",
       "description": "Take it easy on the wheels with this hits",
       "publicAccessible": true,
@@ -21,7 +21,7 @@
     {
       "id": 3,
       "name": "Chillout with the beats",
-      "isFollowed": false,
+      "isLiked": false,
       "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644625056/tracks-thumbnails-dev/relax_coqdlx.jpg",
       "description": "Stressed? Don´t worry the final project will soon be over. Relax in the meantime with this hits.",
       "publicAccessible": true,
@@ -30,7 +30,7 @@
     {
       "id": 4,
       "name": "Boogie with the beats",
-      "isFollowed": true,
+      "isLiked": true,
       "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644625049/tracks-thumbnails-dev/boogie_rcl1zd.jpg",
       "description": "Take the dance floor and try to get your groove on with this beats",
       "publicAccessible": false,
@@ -39,7 +39,7 @@
     {
       "id": 5,
       "name": "Smile. You are beautiful",
-      "isFollowed": true,
+      "isLiked": true,
       "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644624690/tracks-thumbnails-dev/smile_kpfzj8.jpg",
       "description": "For those times when you are feeling down.",
       "publicAccessible": false,
@@ -48,7 +48,7 @@
     {
       "id": 6,
       "name": "Staying home",
-      "isFollowed": true,
+      "isLiked": true,
       "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644626587/tracks-thumbnails-dev/brennan-ehrhardt-HALe2SmkWAI-unsplash_c1yhnz.jpg",
       "description": "Feeling homey. Let´s keep it warm.",
       "publicAccessible": false,
@@ -57,7 +57,7 @@
     {
       "id": 7,
       "name": "Space hits!",
-      "isFollowed": true,
+      "isLiked": true,
       "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644626067/tracks-thumbnails-dev/fly_hx4xyp.jpg",
       "description": "Have no money for a space trip but you can have a space hit!",
       "publicAccessible": false,
@@ -66,30 +66,13 @@
     {
       "id": 8,
       "name": "Hits for the weekend",
-      "isFollowed": true,
+      "isLiked": true,
       "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644626096/tracks-thumbnails-dev/hits_nuk3qf.webp",
       "description": "Have no plans but will be happy to hear you are happy.",
       "publicAccessible": false,
       "primaryColor": "#fbdc00"
-    },
-    {
-      "id": 9,
-      "name": "Party time",
-      "isFollowed": true,
-      "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644626587/tracks-thumbnails-dev/amy-shamblen-lJt-3NUFng4-unsplash_z4icus.jpg",
-      "description": "Have you finished your master project? Let´s party!",
-      "publicAccessible": false,
-      "primaryColor": "#fbdc00"
-    },
-    {
-      "id": 10,
-      "name": "Glitter",
-      "isFollowed": true,
-      "thumbnail": "https://res.cloudinary.com/dmkdsujzh/image/upload/v1644627361/tracks-thumbnails-dev/glitter_ru5qsp.jpg",
-      "description": "Let´s get glittering.",
-      "publicAccessible": false,
-      "primaryColor": "#fbdc00"
     }
+
   ],
   "tracks": [
     {
@@ -344,67 +327,8 @@
         "name": "Ofiltrerad",
         "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d43759a300274388d5b3ac7d",
         "artist": "Steph K"
-      },
-      {
-        "id": 11,
-        "name": "Closer",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e04542a5b2f5c4e80b8043f9",
-        "artist": "Romeo"
-      },
-      {
-        "id": 12,
-        "name": "YOUNG",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27350414c15d3e534effd5840ab",
-        "artist": "SINAN"
-      },
-      {
-        "id": 13,
-        "name": "THE REAL",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273189b84e563687baf99c8d800",
-        "artist": "Chapee"
-      },
-      {
-        "id": 14,
-        "name": "Eternal Light Brigade",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732f4d9bfec9c13fc7979ed942",
-        "artist": "Les Big Byrd"
-      },
-      {
-        "id": 15,
-        "name": "Tombolo (Réédition)",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273966b2b28801e75d7d293c3a9",
-        "artist": "Kalash"
-      },
-      {
-        "id": 16,
-        "name": "KARIMO II",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273aa311f30a24a7002e089c379",
-        "artist": "Karim Alger"
-      },
-      {
-        "id": 17,
-        "name": "Midnight FM",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d62e4c88ec0df746317863af",
-        "artist": "Prof. Stranger"
-      },
-      {
-        "id": 18,
-        "name": "Jag såg en kvinna",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273897c8155c64e1436daf8a466",
-        "artist": "Ken Ring"
-      },
-      {
-        "id": 19,
-        "name": "Alltid varit här",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273940bcb3763667fa773d46a29",
-        "artist": "Rozh"
-      },
-      {
-        "id": 20,
-        "name": "38",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273a009515d20b39aa065540314",
-        "artist": "Arre"
       }
+      
     
   ],
   "artists": [
