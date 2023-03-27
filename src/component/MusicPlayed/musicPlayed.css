@@ -8,6 +8,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+    
   }
   
   .rhap_time {
@@ -15,6 +17,7 @@
     line-height: 13px;
     letter-spacing: 0.04em;
     color: white;
+    
   }
   
   .rhap_progress-container {
@@ -26,6 +29,7 @@
     margin: 0 calc(10px + 1%);
     cursor: pointer;
     -webkit-user-select: none;
+    
   }
   
   .rhap_progress-bar {
@@ -36,10 +40,12 @@
     height: 2px;
     background-color: #dddddd;
     border-radius: 2px;
+    
   }
   
   .rhap_progress-bar-show-download {
     background-color: white
+    
   }
   
   .rhap_progress-indicator {
@@ -52,10 +58,10 @@
     top: -4px;
     background-color: #7339E5;
     border-radius: 50px;
+    
   }
   
   .rhap_additional-controls {
-
     margin-top: 10px;
     margin-bottom: 10px;
     display: flex;
