@@ -1,0 +1,10 @@
+
+.mySwiper {
+    display: none; 
+  }
+  
+  @media (min-width: 1024px) { 
+    .mySwiper {
+      display: block;
+    }
+  }

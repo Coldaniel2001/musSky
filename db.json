@@ -671,5 +671,28 @@
       "id": 15,
       "name": "jazz"
     }
+  ],
+  "playlist": [
+    
+      {
+        "id": 1,
+        "name": "Musica de gym",
+        "imgUrl": "https://res.cloudinary.com/dfg3nr91y/image/upload/v1678375642/cld-sample-5.jpg"
+      },
+      {
+        "id": 2,
+        "name": "BSO",
+        "imgUrl": "https://res.cloudinary.com/dfg3nr91y/image/upload/v1678375624/samples/landscapes/architecture-signs.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Musica para trabajar",
+        "imgUrl": "https://res.cloudinary.com/dfg3nr91y/image/upload/v1678375629/samples/landscapes/nature-mountains.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Musica de relax",
+        "imgUrl": "https://res.cloudinary.com/dfg3nr91y/image/upload/v1678375623/samples/people/jazz.jpg"
+      }
   ]
 }
