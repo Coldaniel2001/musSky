@@ -12,14 +12,14 @@ const Artist = () => {
         } 
         musicTracks()
     }, [MusicUrl])
-    console.log(dataSong)
+
 
   return (
     <div className=' flex overflow-x-scroll scrollbar-hide w-full h-full whitespace-no-wrap  mt-5 lg:mt-10 '>
     {
         dataSong.map((song) => {
             return (
-                <div>
+                <div key={song.id}>
                    <div className='mb-6  min-w-[12rem]  xl:min-w-[15rem] '>
                         <img className='w-[90%] mx-auto rounded h-[12rem]' src={song.photoUrl} alt="first artist" />
                         <p className='hidden lg:flex lg:text-[1.3rem] lg:mt-2 xl:text-[1.6rem] 2xl:text-[1rem] justify-center  font-semibold'>{song.name}</p>

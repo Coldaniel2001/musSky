@@ -14,14 +14,14 @@ const RecentSong = () => {
         } 
         musicTracks()
     }, [MusicUrl])
-    console.log(dataSong)
+
   return (
     
         <div className='flex overflow-x-scroll scrollbar-hide w-full whitespace-no-wrap 2xl:grid 2xl:grid-cols-2'>
                 {
                     dataSong.map((song) => {
                         return (
-                    <div className='min-w-[25rem] flex justify-center mb-4 '>
+                    <div key={song.id} className='min-w-[25rem] flex justify-center mb-4 '>
                         <div className=' bg-[#7239e546] grid grid-cols-8 w-[90%] rounded'>
                             <img className='col-span-2 h-[5rem] rounded-l opacity-90' src={song.thumbnail} alt="first artist" />
                             <div className='col-span-4  grid items-center'>

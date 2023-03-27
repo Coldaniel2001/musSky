@@ -28,9 +28,7 @@ const Login = () => {
     if (email === "wilson@gmail.com" && password === "1234") {
       loginUser( email, password );
       navigate("/");
-    } else {
-      console.log("correo incorrecto");
-    }
+    } 
   };
 
   const handleRegister = () => {

@@ -13,7 +13,7 @@ const Top10 = () => {
       } 
       musicTracks()
   }, [MusicUrl])
-      console.log(dataSong)
+
 
   return (
     

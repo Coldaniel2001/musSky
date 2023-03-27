@@ -18,7 +18,7 @@ const Top10Phone = () => {
         } 
         musicTracks()
     }, [MusicUrl])
-        console.log(dataSong)
+
   return (
     <div className='lg:hidden'>
         <div className='pt-14  text-white bg-black  xl:hidden lg:md'>
@@ -30,7 +30,7 @@ const Top10Phone = () => {
         {
             dataSong.map((song) => {
                 return (   
-                    <div className='w-full min-w-[25rem] grid grid-cols-9  bg-[#D9D9D9] items-center rounded bg-opacity-20 m-2 mx-auto'>
+                    <div key={song.id} className='w-full min-w-[25rem] grid grid-cols-9  bg-[#D9D9D9] items-center rounded bg-opacity-20 m-2 mx-auto'>
                         <img className='col-span-2 w-3/4 ml-2 rounded-full' src={song.imageUrl} alt="" />
                             <div className='col-span-5 my-4'>
                                 <p className='text-xl font-bold'>{song.artist}</p>
