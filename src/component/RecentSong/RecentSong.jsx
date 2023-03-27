@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import antonioJose from '../../assets/images/antonio-jose-1.jpg'
 import more from '../../assets/images/icons/more.png'
-import blueHeart from '../../assets/images/icons/blue-heart.png'
 import purpleHeart from '../../assets/images/icons/purple-heart.png'
 
 const RecentSong = () => {
