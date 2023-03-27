@@ -28,11 +28,15 @@ const Search = () => {
 					<p className='text-white my-auto ml-3'>María Perez</p>
 					<img className='w-3 h-2 flex justify-end my-auto' src={arrowDown} alt="" />
 				</div>
+			{
+				showModal && 
 			<div className='w-[14rem] h-[6rem] bg-[#212121]  opacity-40 hover:opacity-100 float-right  flex justify-center flex-col absolute mt-[3rem] ml-[-3rem] rounded-md'>
-  <p className='text-white hover:bg-sky-700 ml-2 cursor-pointer'>Mi cuenta</p>
-  <p className='text-white hover:bg-sky-700 ml-2 cursor-pointer'>Ajustes</p>
- <Link to={"/login"}><p className='text-white hover:bg-sky-700 ml-2'>Salir</p></Link> 
-</div>
+			<p className='text-white hover:bg-sky-700 ml-2 cursor-pointer'>Mi cuenta</p>
+			<p className='text-white hover:bg-sky-700 ml-2 cursor-pointer'>Ajustes</p>
+			<Link to={"/login"}><p className='text-white hover:bg-sky-700 ml-2'>Salir</p></Link> 
+			</div>
+				
+			}
 			</div>
 				  
 </div>
