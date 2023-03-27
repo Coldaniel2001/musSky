@@ -41,37 +41,37 @@ const Playlist = () => {
 
             {/* <div className='bg-red-500 h-2/3 rounded relative flex justify-end items-end'>
                 <div className='bg-green-500 w-full h-10 absolute flex items-center justify-end'>
-                    <h2 className='mr-2'>mierda</h2>
+                    <h2 className='mr-2'>Ejemplo</h2>
                 </div>
             </div>
 
             <div className= 'bg-red-500 h-2/3 rounded relative flex justify-end items-end'>
                 <div className='bg-green-500 w-full h-10 absolute flex items-center justify-end'>
-                    <h2 className='mr-2'>mierda</h2>
+                    <h2 className='mr-2'>Ejemplo</h2>
                 </div>
             </div>
 
             <div className= 'bg-red-500 h-2/3 rounded relative flex justify-end items-end'>
                 <div className='bg-green-500 w-full h-10 absolute flex items-center justify-end'>
-                    <h2 className='mr-2'>mierda</h2>
+                    <h2 className='mr-2'>Ejemplo</h2>
                 </div>
             </div>
 
             <div className= 'bg-red-500 h-2/3 rounded relative flex justify-end items-end'>
                 <div className='bg-green-500 w-full h-10 absolute flex items-center justify-end'>
-                    <h2 className='mr-2'>mierda</h2>
+                    <h2 className='mr-2'>Ejemplo</h2>
                 </div>
             </div>
 
             <div className= 'bg-red-500 h-2/3 rounded relative flex justify-end items-end'>
                 <div className='bg-green-500 w-full h-10 absolute flex items-center justify-end'>
-                    <h2 className='mr-2'>mierda</h2>
+                    <h2 className='mr-2'>Ejemplo</h2>
                 </div>
             </div>
 
             <div className= 'bg-red-500 h-2/3 rounded relative flex justify-end items-end'>
                 <div className='bg-green-500 w-full h-10 absolute flex items-center justify-end'>
-                    <h2 className='mr-2'>mierda</h2>
+                    <h2 className='mr-2'>Ejemplo</h2>
                 </div>
             </div> */}
         </div>
