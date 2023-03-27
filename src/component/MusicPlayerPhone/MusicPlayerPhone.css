@@ -1,18 +1,18 @@
+
 .rhap_progress-section {
-    margin-top: 1rem;
+
+    margin-top: 3rem;
     display: flex;
+    width: 100%;
     justify-content: space-between;
-    align-items: center;
-    
-    
+    align-items: center;   
+
   }
   
   .rhap_time {
     font-size: 12px;
     line-height: 13px;
-    letter-spacing: 0.04em;
-    color: white;
-    
+    letter-spacing: 0.04em;  
   }
   
   .rhap_progress-container {
@@ -36,6 +36,7 @@
     height: 2px;
     background-color: #dddddd;
     border-radius: 2px;
+
     
   }
   
@@ -52,19 +53,19 @@
     height: 10px;
     margin-left: -10px;
     top: -4px;
-    background-color: #7339E5;
+    background-color: white;
     border-radius: 50px;
 
-    
   }
-  
+
+
   .rhap_additional-controls {
+    display: none;
     margin-top: 10px;
     margin-bottom: 10px;
-    display: flex;
     justify-content: center;
     align-items: center;
-
+    color: #7339E5
   }
   
   .button5 {
@@ -77,10 +78,12 @@
     color: #757575;
     margin-right: 10px;
     transition: all 0.3s ease 0s;
+
   }
   
   .button5:last-child {
     margin-right: 0;
+    
     
   }
   
@@ -88,24 +91,29 @@
     font-size: 12px;
     line-height: 14px;
     color: #e34f3f;
+    
   }
   
   .rhap_main-controls {
     color: white;
+    display: flex;
     width: 100%;
-    padding-left: 15px;
+
 
   }
   
   .rhap_main-controls-button {
-    width: 50px;
+    width: 100%;
     margin: 0;
     padding: 0;
     cursor: pointer;
+
   }
 
   .rhap_main-controls-button-play {
     color: red;
+    
+
   }
 
   .my-play-icon {

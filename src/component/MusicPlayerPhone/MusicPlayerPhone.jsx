@@ -33,12 +33,14 @@ const MusicPlayerPhone = () => {
 
 	return (
 		<>
-			<div className='bg-[#5A2AB9] '>
-				<div className='flex justify-around content-center items-center'>
+			<div className='bg-[#7339E5] pb-20 '>
+				<div className=' content-center items-center'>
+					<div className='flex justify-center gap-5 pt-5'>
 					<img className=' h-[2.5rem] w-[3rem] rounded-[5rem]' src={oneSong.thumbnail} alt={"img-music"} />
 					<div className='flex flex-col'>
 						<span className='text-white text-bold text-[1.4rem]'>{oneSong.name}</span>
 						<span className='text-white text-bold text-[0.6rem]'>{oneSong.artist}</span>
+					</div>
 					</div>
 
 					<div className='h-[7.5rem]'>
@@ -51,6 +53,7 @@ const MusicPlayerPhone = () => {
 								previous: <img className="w-7" src={previous} alt="play" />,
 								forward: <img className="my-forward-icon" src={previous} alt="play" />,
 								rewind: <img className="my-forward-icon" src={previous} alt="play" />,
+								volume: <img className="my-forward-icon" src={previous} alt="play" />,
 							}}
 							src={oneSong.url}
 							showSkipControls={true}
