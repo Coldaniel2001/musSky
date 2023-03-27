@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import AudioPlayer from 'react-h5-audio-player';
+
+import MusicPlayerContext from '../../context/MusicPlayer/MusicPlayerContext';
+
 import './musicPlayed.css'
+
 import play from '../../assets/images/icons/play.png'
 import next from '../../assets/images/icons/next.png'
 import previous from '../../assets/images/icons/previous.png'
 import pause from '../../assets/images/icons/pause.png'
+
 
 // import MusicSong from '../MusicSong/MusicSong';
 
@@ -13,32 +18,12 @@ import pause from '../../assets/images/icons/pause.png'
 
 
 const MusicPlayed = () => {
-  const[allSong, setAllSong] = useState([])
-  const [oneSong, setOneSong] = useState([])
-  const [currentSong, setCurrentSong] = useState(1);
-  const urlOneTracks = `http://localhost:3004/tracks/${currentSong}`;
-  const urlAllTracks = 'http://localhost:3004/tracks';
+  
+  const {allSong, oneSong, currentSong, setCurrentSong} = useContext(MusicPlayerContext)
 
 
 
-  useEffect(() => {
-    const fetchAllSong = async () => {
-      const response = await fetch(urlAllTracks)
-      const data = await response.json()
-      setAllSong(data);
-    }
-    fetchAllSong()
-    
-  }, [urlAllTracks])
-
-  useEffect(() => {
-    const fetchOneSong = async () => {
-      const response = await fetch(urlOneTracks)
-      const data = await response.json()
-      setOneSong(data);
-    }
-    fetchOneSong()
-  }, [urlOneTracks])
+ 
 
   const handlePrevious = () =>{
     if(allSong[0].id===currentSong){
