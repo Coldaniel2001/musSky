@@ -12,7 +12,7 @@ import flamenco from '../../assets/images/genders.artists/flamenco.png'
 
 const Genders = () => {
   return (
-    <div className='grid lg:grid-cols-3 2xl:grid-cols-5 mt-20 ml-10 mr-10 gap-8 pb-10 lg:h-[80vh] lg:overflow-y-scroll'>
+    <div className='grid lg:grid-cols-3 2xl:grid-cols-5 mt-20 ml-10 mr-10 gap-8 pb-10 lg:h-[85vh] lg:overflow-y-scroll'>
         <div>
             <div className='bg-gradient-to-t from-[#FFB61D] via-[#FFB61D] to-transparent flex justify-center rounded-xl h-[86%]'>
                 <img className='w-full' src={leiva} alt="" />
