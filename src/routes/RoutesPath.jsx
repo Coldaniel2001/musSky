@@ -7,6 +7,7 @@ import LoginPage from '../page/LoginPage/LoginPage'
 import PlayListPage from '../page/PlayListPage/PlayListPage'
 import ProfilePage from '../page/ProfilePage/ProfilePage'
 import PrivateRouter from './PrivateRouter'
+import GendersPage from '../page/GendersPage/GendersPage'
 
 
 const RoutesPath = () => {
@@ -21,6 +22,7 @@ const RoutesPath = () => {
                                 <Route path='/' element={<HomePage />} />
                                 <Route path='/profile' element={<ProfilePage />} />
                                 <Route path='/individual-playlist' element={<PlayListPage />} />
+                                <Route path='/genders' element={<GendersPage />} />
                                 <Route path='/*' element={<Navigate to={'/'} />} />
                             </Routes>
                         </PrivateRouter>
