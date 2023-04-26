@@ -10,7 +10,6 @@ const GendersPage = () => {
     <div className='bg-gradient-to-tr from-black via-black to-[#7339E5] lg:min-h-screen lg:flex'>
         <div className=''>
             <TopPhone />
-            <Top10Phone />
         </div>
         <div className='hidden lg:block w-full lg:w-[15%] xl:w-[25%] 2xl:w-[18%] pt-10 border-r-2 border-gray-700'>
             <SidebarLeft />
