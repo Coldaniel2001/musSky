@@ -8,7 +8,7 @@ import logo from "../../assets/images/logo/LogoMusSky.png";
 
 const Register = () => {
   const { setIsLoggin, register, inputChange, setInputChange,userRegister} = useContext(UserContext);
-  const [passwordRequest, setPasswordRequest, ] = useState({
+  const [passwordRequest, setPasswordRequest ] = useState({
     character: false,
     upperLower: false,
     number: false,
@@ -156,7 +156,7 @@ const Register = () => {
                   <input
                     className="text-white bg-transparent outline-none"
                     type="password"
-                    name="passwordrepeat"
+                    name="passwordRepeat"
                     placeholder="Repetir contraseña"
                     value={inputChange.passwordrepeat}
                     onChange={handleInputChange}

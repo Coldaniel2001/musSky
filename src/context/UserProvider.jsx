@@ -20,7 +20,7 @@ const UserProvider = ({ children }) => {
     username: "",
     email: "",
     password: "",
-    passwordrepeat: "",
+    passwordRepeat: "",
     // date: new Date(Date.now()).toLocaleDateString()
   });
 
@@ -38,28 +38,31 @@ const UserProvider = ({ children }) => {
 
   const register = (User) => {
     const user = {
-      id: Date.now(),
       name: User.name,
       surname: User.surname,
       email: User.email,
-      password: User.password
+      password: User.password,
+      passwordRepeat: User.passwordRepeat
     }
     dispatch({ type: types.register, payload: user });
   };
 
 
   const userRegister = async(user) => {
-    console.log(user)
-    const res = await fetch("", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify(user)
-    })
-    const data = await res.json()
-    console.log(data)
-  }
+
+   if(user.password === user.passwordRepeat){
+     const res = await fetch("http://localhost:4002/users", {
+       method: "POST",
+       headers: {
+         "Content-Type": "application/json"
+     },
+       body: JSON.stringify(user)
+     })
+     const data = await res.json()
+     console.log(data)
+   }
+
+   }
 
 
 
