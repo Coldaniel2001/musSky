@@ -6,6 +6,7 @@ import musicWoman from "../../assets/images/bgLoginRegister/modelPortada.png";
 import logo from "../../assets/images/logo/LogoMusSky.png";
 
 
+
 const Register = () => {
   const { setIsLoggin, register, inputChange, setInputChange,userRegister} = useContext(UserContext);
   const [passwordRequest, setPasswordRequest ] = useState({

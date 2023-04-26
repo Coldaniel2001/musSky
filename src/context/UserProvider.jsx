@@ -1,6 +1,7 @@
 import React, { useState, useReducer } from "react";
 import { types } from "../reducers/types/types";
 import { userReducer } from "../reducers/userReducer";
+import toast from 'react-hot-toast'
 
 import UserContext from "./UserContext";
 
@@ -60,6 +61,9 @@ const UserProvider = ({ children }) => {
      })
      const data = await res.json()
      console.log(data)
+   }else {
+     toast.error("Las contraseñas no coinciden");
+
    }
 
    }
