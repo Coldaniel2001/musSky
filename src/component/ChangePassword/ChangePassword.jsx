@@ -15,7 +15,7 @@ const ChangePassword = () => {
     }
 
     const handleSubmit = (e) => {
-        console.log(inputChange)
+
         e.preventDefault()
         if((inputChange.password === password.previousPassword) && (password.newPassword === password.confirmPassword)){
             inputChange.password = password.confirmPassword

@@ -18,7 +18,7 @@ const PlayListIndividual = () => {
         } 
         musicTracks()
     }, [MusicUrl])
-    console.log(dataSong)
+
 
   return (
     <div>

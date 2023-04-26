@@ -9,7 +9,7 @@ const Top10SingularSong = ({dataSong}) => {
         {
             dataSong.map((song) => {
                 return (
-                <div className='grid grid-cols-8 grid-rows-10 mt-4 ml-3 '>
+                <div key={song.id} className='grid grid-cols-8 grid-rows-10 mt-4 ml-3'>
                     <img className='col-span-2 w-3/4 rounded-full' src={song.imageUrl} alt="" />
                     <div className='col-span-5 text-white my-auto'>
                         <p className='font-bold text-xl'>{song.artist}</p>
