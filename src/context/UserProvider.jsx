@@ -21,7 +21,7 @@ const UserProvider = ({ children }) => {
     email: "",
     password: "",
     passwordrepeat: "",
-    date: new Date(Date.now()).toLocaleDateString()
+    // date: new Date(Date.now()).toLocaleDateString()
   });
 
   const [state, dispatch] = useReducer(userReducer, {}, init);
@@ -47,6 +47,22 @@ const UserProvider = ({ children }) => {
     dispatch({ type: types.register, payload: user });
   };
 
+
+  const userRegister = async(user) => {
+    console.log(user)
+    const res = await fetch("", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(user)
+    })
+    const data = await res.json()
+    console.log(data)
+  }
+
+
+
   const logOutUser = () => {
     localStorage.removeItem("user");
     dispatch({ type: types.logout });
@@ -67,7 +83,8 @@ const UserProvider = ({ children }) => {
         logOutUser,
         changePassword,
         inputChange,
-        setInputChange
+        setInputChange,
+        userRegister
       }}
     >
       {children}
