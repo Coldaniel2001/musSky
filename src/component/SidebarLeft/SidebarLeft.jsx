@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../assets/images/icons/logo.png'
 import iconHome from '../../assets/images/icons/icon-home.png'
 import iconGenero from '../../assets/images/icons/icon-genero.png'
 import iconPlayList from '../../assets/images/icons/icon-playlist.png'
 import iconLiked from '../../assets/images/icons/icon-liked.png'
 import iconAccount from '../../assets/images/icons/icon-account.png'
-import MusicPlayed from '../MusicPlayed/MusicPlayed';
 import { NavLink } from 'react-router-dom';
+import MusicPlayerContext from '../../context/MusicPlayer/MusicPlayerContext';
+
 
 const SidebarLeft = () => {
+	const { oneSong } = useContext(MusicPlayerContext)
 
 	return (
 		<div >
@@ -46,7 +48,21 @@ const SidebarLeft = () => {
 					</div>
 				</NavLink>
 			</div>
-			<MusicPlayed />
+			<div className='w-3/4 mx-auto text-red mt-6  rounded '>
+				<div className=' mt-10 rounded w-full mx-auto'>
+						{/* <h2 className='text-gray-300 lg:text-[1.2rem] '>Está sonando</h2> */}
+						<div className='w-full flex justify-center pb-4'>
+							<img className='rounded w-full'  src={oneSong.thumbnail} alt="" />
+						</div>
+						<p className=' text-white font-bold lg:text-[1.2rem] text-[2rem] w-[80%]'>{oneSong.artist}</p>
+       					 <p className='text-gray-500'>{oneSong.name}</p>
+				</div>
+			</div>
+			{/* <div className='w-full flex justify-center'>
+				<img className='w-4/5 mt-10 flex' src={womenSidebar} alt="" />
+
+			</div> */}
+			
 		</div >
 
 
