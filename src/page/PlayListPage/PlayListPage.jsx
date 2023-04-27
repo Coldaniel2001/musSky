@@ -5,7 +5,7 @@ import PlayListIndividual from '../../component/PlayListIndividual/PlayListIndiv
 
 const PlayListPage = () => {
   return (
-    <div className='bg-gradient-to-tr from-black via-black to-mainPurple lg:flex lg:h-screen'>
+    <div className='bg-gradient-to-tr from-black via-black to-mainPurple lg:flex lg:min-h-screen'>
     <div className='hidden lg:block w-full lg:w-[15%] xl:w-[25%] 2xl:w-[18%] pt-10 border-r-2 border-gray-700'>
         <SidebarLeft />
     </div>

@@ -1,6 +1,7 @@
 import React, { useState, useReducer } from "react";
 import { types } from "../reducers/types/types";
 import { userReducer } from "../reducers/userReducer";
+import toast from 'react-hot-toast'
 
 import UserContext from "./UserContext";
 
@@ -20,8 +21,8 @@ const UserProvider = ({ children }) => {
     username: "",
     email: "",
     password: "",
-    passwordrepeat: "",
-    date: new Date(Date.now()).toLocaleDateString()
+    passwordRepeat: "",
+    // date: new Date(Date.now()).toLocaleDateString()
   });
 
   const [state, dispatch] = useReducer(userReducer, {}, init);
@@ -38,14 +39,36 @@ const UserProvider = ({ children }) => {
 
   const register = (User) => {
     const user = {
-      id: Date.now(),
       name: User.name,
       surname: User.surname,
       email: User.email,
-      password: User.password
+      password: User.password,
+      passwordRepeat: User.passwordRepeat
     }
     dispatch({ type: types.register, payload: user });
   };
+
+
+  const userRegister = async(user) => {
+
+   if(user.password === user.passwordRepeat){
+     const res = await fetch("http://localhost:4002/users", {
+       method: "POST",
+       headers: {
+         "Content-Type": "application/json"
+     },
+       body: JSON.stringify(user)
+     })
+     const data = await res.json()
+     console.log(data)
+   }else {
+     toast.error("Las contraseñas no coinciden");
+
+   }
+
+   }
+
+
 
   const logOutUser = () => {
     localStorage.removeItem("user");
@@ -67,7 +90,8 @@ const UserProvider = ({ children }) => {
         logOutUser,
         changePassword,
         inputChange,
-        setInputChange
+        setInputChange,
+        userRegister
       }}
     >
       {children}
