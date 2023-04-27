@@ -4,6 +4,7 @@ import Button from '../Button/Button';
 import UserContext from '../../context/UserContext';
 
 import addImageProfile from '../../assets/images/icons/addImageProfile.png'
+import ProfileImg from '../ProfileImg/ProfileImg';
 
 const InfoProfile = () => {
 
@@ -20,6 +21,7 @@ const InfoProfile = () => {
 					<div className='flex 2xl:w-1/6 flex-col items-center justify-around h-[12rem] pb-5 sm:border-b border-gray-600 2xl:border-transparent'>
 						<img className='w-[10rem]' src={addImageProfile} alt="add-profile" />
 						<span className='text-xl font-semibold'>{inputChange.username}</span>
+						<ProfileImg />
 					</div>
 					<div className='sm:flex 2xl:w-5/6  justify-between 2xl:ml-10 mt-5'>
 						<div className='flex sm:flex-col sm:justify-around sm:h-[6rem]'>
