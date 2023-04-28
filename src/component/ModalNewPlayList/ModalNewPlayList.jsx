@@ -7,7 +7,7 @@ const ModalNewPlayList = () => {
   return (
     <div className="fixed z-10 inset-0 overflow-y-auto bg-black/70">
     <div className="flex items-center justify-center min-h-screen">
-      <div className="flex flex-col justify-center bg-gradient-to-tr from-black via-[#7339E5] to-[#7339E5] rounded-lg shadow-lg p-6 w-[90%] sm:w-2/3 md:w-3/5 xl:w-1/2 2xl:w-1/3 border-2 border-white">
+      <div className="flex flex-col justify-center bg-gradient-to-tr from-black via-[#7339E5] to-[#7339E5] rounded-lg shadow-lg p-6 w-[90%] sm:w-2/3 md:w-3/5 xl:w-1/2 2xl:w-1/2 border-2 border-white">
         <div className='flex justify-between text-white border-b pb-2'>
             <p className='font-light cursor-pointer'>Cancel</p>
             <p className='font-bold text-2xl'>Nueva PlayList</p>
