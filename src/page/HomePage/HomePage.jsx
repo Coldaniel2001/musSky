@@ -28,7 +28,7 @@ const HomePage = () => {
       <div className='lg:hidden'>
         <FooterNav />
       </div>
-    <ModalNewPlayList />
+    {/* <ModalNewPlayList /> */}
     </div>
     <MusicPlayerPhone />
 
