@@ -1,5 +1,6 @@
 import CenterSection from '../../component/CenterSection/CenterSection'
 import FooterNav from '../../component/FooterNav/FooterNav'
+import ModalNewPlayList from '../../component/ModalNewPlayList/ModalNewPlayList'
 import MusicPlayerPhone from '../../component/MusicPlayerPhone/MusicPlayerPhone'
 import SidebarLeft from '../../component/SidebarLeft/SidebarLeft'
 import SidebarRight from '../../component/SidebarRight/SidebarRight'
@@ -27,6 +28,7 @@ const HomePage = () => {
       <div className='lg:hidden'>
         <FooterNav />
       </div>
+    <ModalNewPlayList />
     </div>
     <MusicPlayerPhone />
 
