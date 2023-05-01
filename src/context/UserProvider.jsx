@@ -68,6 +68,22 @@ const UserProvider = ({ children }) => {
 
    }
 
+   const userChangeInformation = async(userChanged) => {
+    console.log(userChanged)
+
+      const res = await fetch("http://localhost:4002/users/changeinformation", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+      },
+        body: JSON.stringify(userChanged)
+      })
+      const data = await res.json()
+      console.log(data)
+    
+    }
+    
+
 
 
   const logOutUser = () => {
@@ -91,7 +107,8 @@ const UserProvider = ({ children }) => {
         changePassword,
         inputChange,
         setInputChange,
-        userRegister
+        userRegister,
+        userChangeInformation
       }}
     >
       {children}
