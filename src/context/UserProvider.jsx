@@ -79,6 +79,10 @@ const UserProvider = ({ children }) => {
     dispatch({ type: types.changePassword, payload: user });
   };
 
+  // const changeImage = (secure_url) => {  .....has dejado esto a medias....
+  //   dispatch
+  // }
+
   return (
     <UserContext.Provider
       value={{

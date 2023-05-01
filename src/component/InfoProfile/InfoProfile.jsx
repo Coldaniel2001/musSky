@@ -3,7 +3,6 @@ import React, { useContext } from 'react';
 import Button from '../Button/Button';
 import UserContext from '../../context/UserContext';
 
-import addImageProfile from '../../assets/images/icons/addImageProfile.png'
 import ProfileImg from '../ProfileImg/ProfileImg';
 
 const InfoProfile = () => {
@@ -19,9 +18,8 @@ const InfoProfile = () => {
 			<div className='sm:flex justify-center '>
 				<div className='2xl:flex 2xl:justify-between items-center w-[95%] -mb-8'>
 					<div className='flex 2xl:w-1/6 flex-col items-center justify-around h-[12rem] pb-5 sm:border-b border-gray-600 2xl:border-transparent'>
-						<img className='w-[10rem]' src={addImageProfile} alt="add-profile" />
-						<span className='text-xl font-semibold'>{inputChange.username}</span>
 						<ProfileImg />
+						<span className='text-xl font-semibold'>{inputChange.username}</span>
 					</div>
 					<div className='sm:flex 2xl:w-5/6  justify-between 2xl:ml-10 mt-5'>
 						<div className='flex sm:flex-col sm:justify-around sm:h-[6rem]'>
@@ -43,10 +41,9 @@ const InfoProfile = () => {
 					</div>
 				</div>
 			</div>
-						<div className='mt-12 flex justify-end 2xl:flex 2xl:justify-end 2xl:mb-4'>
-							<Button value={'Cambiar'} classButton={'bg-[#7C8BBF] mb-10 sm:mb-0 sm:mx-10 h-[2rem] sm:mx-0 px-3 rounded'} />
-						</div>
-
+			<div className='mt-12 flex justify-end 2xl:flex 2xl:justify-end 2xl:mb-4'>
+				<Button value={'Cambiar'} classButton={'bg-btnColor mb-10 sm:mb-0 sm:mx-10 h-[2rem] sm:mx-0 px-3 rounded'} />
+			</div>
 		</>
 	)
 };
