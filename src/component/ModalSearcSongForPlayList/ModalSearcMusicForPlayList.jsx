@@ -1,0 +1,40 @@
+import React, { useState } from 'react'
+import GendersModal from '../GendersModal/GendersModal'
+import SearchSongForPlayList from '../SearchSongForPlayList/SearchSongForPlayList'
+
+
+
+
+const ModalSearcMusicForPlayList = () => {
+const [searchSongToPlaylist, setfirstSearchSongToPlaylist] = useState(false)
+
+  return (
+    <div className="fixed z-10 inset-0 overflow-y-auto bg-black/30 ">
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="h-[75vh] flex flex-col bg-gradient-to-tr from-black via-[#7339E5] to-[#7339E5] rounded-lg shadow-lg p-6 w-[90%] sm:w-2/3 md:w-3/5 xl:w-1/2 2xl:w-1/2 border-2 border-white">
+        <div className='flex justify-between text-white '>
+            <p className='font-light cursor-pointer'>Cancel</p>
+            <p className='font-light cursor-pointer' >Ok</p>
+        </div>
+        <h2 className='text-3xl font-bold text-white mt-4 mb-3 '>Música</h2>
+        <div className="w-full lg:relative lg:block mb-4 ">
+          <input type="text" className="bg-gray-300 w-full py-2 pl-10 pr-4  rounded-lg border border-gray-400 placeholder-gray-400 text-gray-700 focus:outline-none focus:ring focus:border-gray-500" placeholder="Artistas, Música, PlayLists, Albums..."/>
+          <div className="absolute top-0 left-0 mt-2 ml-3">
+            <i className="fas fa-search text-gray-400"></i>
+          </div>
+		    </div>
+    {
+      searchSongToPlaylist ?
+      <GendersModal /> : 
+      <SearchSongForPlayList />
+
+      
+
+    }
+      </div>
+    </div>
+  </div>
+  )
+}
+
+export default ModalSearcMusicForPlayList

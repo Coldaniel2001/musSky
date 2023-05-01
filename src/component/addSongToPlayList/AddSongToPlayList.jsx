@@ -6,7 +6,7 @@ import play from '../../assets/images/play.png'
 import heart from '../../assets/images/heart.png'
 import mas from '../../assets/images/mas.png'
 
-const AddSongToPlayList = () => {
+const AddSongToPlayList = ({setopenSearchSong}) => {
   return (
     <div className='mt-[2vh] max-h-[35vh] lg:max-h-[25vh] overflow-y-scroll scrollbar-hide'>
         <div className=' h-14 w-full flex gap-8 lg:gap-4 sm:px-4 border-b border-gray-500 py-2'>

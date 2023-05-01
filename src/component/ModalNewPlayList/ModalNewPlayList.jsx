@@ -4,6 +4,9 @@ import plus from '../../assets/images/plus.png'
 import AddSongToPlayList from '../addSongToPlayList/AddSongToPlayList'
 
 const ModalNewPlayList = () => {
+
+
+
   return (
     <div className="fixed z-10 inset-0 overflow-y-auto bg-black/70">
     <div className="flex items-center justify-center min-h-screen">
@@ -19,7 +22,7 @@ const ModalNewPlayList = () => {
         <div className='w-full flex justify-center mt-[3vh]'>
             <input className='bg-transparent border-b w-1/2 text-center font-bold text-white focus:outline-none focus:ring-0' placeholder='Nombre de la Playlist' type="text"  />
         </div>
-        <div className='flex justify-center gap-3 items-center rounded-xl border-2 h-[2rem] border-white hover:bg-[#7339E5] hover:border-[#7339E5] text-white mt-[3vh] cursor-pointer '>
+        <div className='flex justify-center gap-3 items-center rounded-xl border-2 h-[2rem] border-white hover:bg-[#7339E5] hover:border-[#7339E5] text-white mt-[3vh] cursor-pointer' >
             <p className='font-bold'>Añadir canción</p>
             <img className='h-3/4' src={plus} alt="" />
         </div>
