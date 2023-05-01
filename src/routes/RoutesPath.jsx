@@ -10,6 +10,7 @@ import PlayListPage from '../page/PlayListPage/PlayListPage'
 import ProfilePage from '../page/ProfilePage/ProfilePage'
 import PrivateRouter from './PrivateRouter'
 import GendersPage from '../page/GendersPage/GendersPage'
+import Playlist from '../page/PlayList/Playlist'
 
 
 const RoutesPath = () => {
@@ -27,6 +28,7 @@ const RoutesPath = () => {
                                     <Route path='/profile' element={<ProfilePage />} />
                                 <Route path='/individual-playlist' element={<PlayListPage />} />
                                 <Route path='/genders' element={<GendersPage />} />
+                                <Route path='/playlist' element={<Playlist />} />
                                 <Route path='/*' element={<Navigate to={'/'} />} />
                             </Routes>
                         </PrivateRouter>
