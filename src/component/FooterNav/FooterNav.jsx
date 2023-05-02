@@ -13,7 +13,7 @@ const FooterNav = () => {
   return (
     <>
     {/* <MusicPlayerPhone/> */}
-    <div className='fixed bottom-0 w-screen bg-black grid grid-cols-5 py-3 border-t border-gray-700'>
+    <div className='fixed bottom-0 w-screen bg-black grid grid-cols-5 py-3 h-[80px] md:h-[90px] border-t border-gray-700'>
         <div className='cols-span-1'>
             <img className='mx-auto w-8 sm:w-10 md:w-12' src={home} alt="" />
             <p className='flex justify-center text-white font-bold text-sm md:text-lg'>Home</p>

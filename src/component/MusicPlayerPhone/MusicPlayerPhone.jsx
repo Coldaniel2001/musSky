@@ -1,17 +1,15 @@
 import React, { useContext } from 'react';
 import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
+
 
 import './MusicPlayerPhone.css'
 
 import MusicPlayerContext from '../../context/MusicPlayer/MusicPlayerContext';
 
-import play from '../../assets/images/icons/play.png'
-import next from '../../assets/images/icons/next.png'
-import previous from '../../assets/images/icons/previous.png'
-import pause from '../../assets/images/icons/pause.png'
-
 const MusicPlayerPhone = () => {
 	const { allSong, oneSong, currentSong, setCurrentSong } = useContext(MusicPlayerContext)
+
 
 	const handlePrevious = () => {
 		if (allSong[0].id === currentSong) {
@@ -33,26 +31,30 @@ const MusicPlayerPhone = () => {
 
 	return (
 		<>
-			<div className='bg-[#5A2AB9] fixed top-[41rem] '>
-				<div className='flex justify-around content-center items-center'>
-					<img className=' h-[2.5rem] w-[3rem] rounded-[5rem]' src={oneSong.thumbnail} alt={"img-music"} />
-					<div className='flex flex-col'>
-						<span className='text-white text-bold text-[1.4rem]'>{oneSong.name}</span>
-						<span className='text-white text-bold text-[0.6rem]'>{oneSong.artist}</span>
+			<div className=' bg-[#1d1d1d] fixed bottom-0 w-full h-[12vh] sm:flex items-center'>
+				<div className='sm:flex items-center w-full flex justify-center  '>
+					<div className='w-[100%] sm:w-[40%] xl:hidden sm:flex justify-center '>
+						<div className='mr-3 lg:mr-8 w-[50%] sm:w-[25%] rounded flex items-center justify-center ml-2'>
+							<img className='rounded-xl ml-3 w-[60px] sm:w-[100%] 2xl:w-[80%] sm:mr-3'  src={oneSong.thumbnail} alt={"img-music"} />
+						</div>
+						<div className='flex flex-col  w-[100%] sm:w-[50%] justify-center ml-5'>
+							<span className='text-white text-bold lg:text-[1.3rem]  xl:text-[1.4rem] 2xl:text-[1.5rem]'>{oneSong.artist}</span>
+							<span className='text-gray-500 text-bold text-[1rem]'>{oneSong.name}</span>
+						</div>
 					</div>
 
-					<div className='h-[7.5rem] w-[90%]'>
-						<AudioPlayer className='flex justify-center'
+					<div className=' sm:mr-0 md:w-[68%] lg:w-5/6 bg-[#282828]  '>
+						<AudioPlayer src={oneSong.url} layout="stacked-reverse" 
 							autoPlay={false}
 							customIcons={{
-								play: <img className="w-7" src={play} alt="play" />,
-								pause: <img className="w-7" src={pause} alt="play" />,
-								next: <img className="w-7" src={next} alt="play" />,
-								previous: <img className="w-7" src={previous} alt="play" />,
-								forward: <img className="my-forward-icon" src={previous} alt="play" />,
-								rewind: <img className="my-forward-icon" src={previous} alt="play" />,
+								// play: <img className="white" src={play} alt="play" />,
+								// pause: <img className="w-7" src={pause} alt="pause" />,
+								// next: <img className="w-7" src={next} alt="next" />,
+								// previous: <img className="w-7" src={previous} alt="play" />,
+								// forward: <img className="my-forward-icon" src={previous} alt="play" />,
+								// rewind: <img className="my-forward-icon" src={previous} alt="play" />,
 							}}
-							src={oneSong.url}
+							
 							showSkipControls={true}
 							onClickNext={(e) => handleNext()}
 							onClickPrevious={(e) => handlePrevious()}
