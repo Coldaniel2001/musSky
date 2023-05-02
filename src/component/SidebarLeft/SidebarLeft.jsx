@@ -16,7 +16,7 @@ const SidebarLeft = () => {
 				<img className='w-60' src={logo} alt="logo" />
 			</div>
 			<div className='text-white mt-14 md:hidden lg:block gap-5'>
-				<NavLink to={"/"} className={({ isActive }) => isActive ? 'grid border-l-[0.5rem] border-mainPurple' : "grid border-l-[0.5rem] border-transparent"}>
+				<NavLink to={"/home"} className={({ isActive }) => isActive ? 'grid border-l-[0.5rem] border-mainPurple' : "grid border-l-[0.5rem] border-transparent"}>
 					<div className='xl:grid grid-cols-8 lg:flex  lg:justify-center lg:pl-0 items-center   xl:pl-6 h-[3.5rem] '>
 						<img className='lg:w-12 xl:w-12 col-span-2' src={iconHome} alt="home icon" />
 						<p className='lg:hidden xl:grid xl:text-[1.5rem] col-span-4 font-semibold'>Home</p>
