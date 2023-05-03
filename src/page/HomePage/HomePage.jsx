@@ -1,5 +1,9 @@
+// import { useState } from 'react'
 import CenterSection from '../../component/CenterSection/CenterSection'
 import FooterNav from '../../component/FooterNav/FooterNav'
+// import ModalNewPlayList from '../../component/ModalNewPlayList/ModalNewPlayList'
+// import ModalSearcMusicForPlayList from '../../component/ModalSearcSongForPlayList/ModalSearcMusicForPlayList'
+import MusicPlayerPhone from '../../component/MusicPlayerPhone/MusicPlayerPhone'
 import SidebarLeft from '../../component/SidebarLeft/SidebarLeft'
 import SidebarRight from '../../component/SidebarRight/SidebarRight'
 import Top10Phone from '../../component/Top10Phone/Top10Phone'
@@ -7,6 +11,8 @@ import TopPhone from '../../component/TopPhone/TopPhone'
 
 
 const HomePage = () => {
+// const [openSearchSong, setOpenSearchSong] = useState(false)
+
   return (
     <div className='bg-gradient-to-tr from-black via-black to-[#7339E5] lg:min-h-screen lg:flex'>
       <div className=''>
@@ -25,6 +31,12 @@ const HomePage = () => {
       <div className='lg:hidden'>
         <FooterNav />
       </div>
+      {/* {
+        openSearchSong ?
+        <ModalNewPlayList />
+        :
+        <ModalSearcMusicForPlayList   />
+      } */}
     </div>
     
   )
