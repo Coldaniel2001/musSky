@@ -27,7 +27,7 @@ const Login = () => {
     event.preventDefault();
     if (email === "wilson@gmail.com" && password === "1234") {
       loginUser( email, password );
-      navigate("/");
+      navigate("/home");
     } 
   };
 

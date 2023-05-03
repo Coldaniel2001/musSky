@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Button = ({ type=false, value=null, classButton=null }) => {
+const Button = ({ type=false, value=null, classButton=null, handleSubmit }) => {
 return (
 	<>
-	<button className={classButton} type={type}>{value}</button>
+	<button onClick={handleSubmit} className={classButton} type={type}>{value} </button>
 	</>
 )
 };
