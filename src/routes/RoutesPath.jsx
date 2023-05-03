@@ -11,6 +11,7 @@ import ProfilePage from '../page/ProfilePage/ProfilePage'
 import PrivateRouter from './PrivateRouter'
 import GendersPage from '../page/GendersPage/GendersPage'
 import Playlist from '../page/PlayList/Playlist'
+import AdminPage from '../page/AdminPage/AdminPage'
 
 
 const RoutesPath = () => {
@@ -29,6 +30,8 @@ const RoutesPath = () => {
                                 <Route path='/individual-playlist' element={<PlayListPage />} />
                                 <Route path='/genders' element={<GendersPage />} />
                                 <Route path='/playlist' element={<Playlist />} />
+                                <Route path='/admin' element={<AdminPage />} />
+                                
                                 <Route path='/*' element={<Navigate to={'/'} />} />
                             </Routes>
                         </PrivateRouter>
