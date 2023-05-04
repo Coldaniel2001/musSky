@@ -49,7 +49,9 @@ const UserProvider = ({ children }) => {
             body: JSON.stringify(user)
           })
           const data = await response.json()
-          console.log(data)
+          if (data.status === "OK") {
+            dispatch({  type: types.login, payload: data.newUser })
+          }
 
         }
       } catch (error) {
@@ -132,6 +134,9 @@ const UserProvider = ({ children }) => {
     dispatch({ type: types.changePassword, payload: user });
   };
 
+  const editImage = (url) => {
+    dispatch({ type: types.editImage, payload: url })
+  }
 
   return (
     <UserContext.Provider
@@ -146,7 +151,8 @@ const UserProvider = ({ children }) => {
         inputChange,
         setInputChange,
         userRegister,
-        userChangeInformation
+        userChangeInformation,
+        editImage
       }}
     >
       {children}

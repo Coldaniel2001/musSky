@@ -9,7 +9,9 @@ export const userReducer = (state , action) => {
     case "LOGOUT":
       return {...state, isLogged:false, user:null};
     case "CHANGE_PASSWORD": 
-      return {...state, user: action.payload}
+      return {...state, user: action.payload};
+      case "EDIT_IMAGE":
+        return {...state, user: {...state.user, picture: action.payload}}
     default:
       return state;
   }

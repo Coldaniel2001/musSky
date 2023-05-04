@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import addImageProfile from '../../assets/images/icons/addImageProfile.png'
 import axios from 'axios';
+import UserContext from '../../context/UserContext';
 
 function ProfileImg() {
-  const [imageUrl, setImageUrl] = useState('');
+  const { user, editImage } = useContext(UserContext)
 
   const handleEditImage = async (e) => {
     const data = new FormData();
     data.append("file", e.target.files[0]);
-    data.append("userId", "644b941645c5236fe10b1557"); // si se almacene la sesion del usuario en localstorage sacaremos la id de ahi y guardaremos la imagen...
-                                                      // o, sacamos la id del token (ver wilson) y hacemos un get para traer la imagen
-                                                      // luego guardamos estos datos en el context (ver con squad)
+    data.append("userId", user._id); 
+                                    // luego guardamos estos datos en el context (ver con squad)
     try {
         const res = await editImgFetch(data);
-        setImageUrl(res.data.img); 
+        editImage(res.data.img); 
     } catch (error) {
         console.error(error);
     }
@@ -30,12 +30,13 @@ function ProfileImg() {
   return (
     <div>
       <label>
-        {
-          !imageUrl ? 
+        <img className='w-[10rem] cursor-pointer rounded-full' src={ user.picture } alt="UP" />
+        {/* {
+          !user.picture ? 
           <img className='w-[10rem] cursor-pointer' src={addImageProfile} alt="add-profile" />
           :
-          <img className='w-[10rem] cursor-pointer rounded-full' src={imageUrl} alt="uploaded" />
-        }
+          <img className='w-[10rem] cursor-pointer rounded-full' src={user.picture} alt="uploaded" />
+        } */}
         <input type="file" className='hidden' onChange={handleEditImage} />
  		  </label>
     </div>
