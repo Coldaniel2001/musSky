@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import rihanna from '../../assets/images/rihanna.png'
+// import rihanna from '../../assets/images/rihanna.png'
 import more from '../../assets/images/icons/more.png'
 import bluePlay from '../../assets/images/icons/blue-play.png'
 import logo from '../../assets/images/icons/logo.png'
-import melendi from '../../assets/images/melendi.jpg'
-import shakira from '../../assets/images/shakira.jpg'
+// import melendi from '../../assets/images/melendi.jpg'
+// import shakira from '../../assets/images/shakira.jpg'
 
 const Top10Phone = () => {
     const MusicUrl = "http://localhost:3004/albums"

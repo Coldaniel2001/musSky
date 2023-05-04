@@ -30,7 +30,7 @@ const ArtistInformation = () => {
                     <img className='w-32' src={logo} alt="" />
                 </div>
                 <div className='flex p-4'>
-                    <img className='w-20 rounded-full mr-3' src={shakira} alt="" />
+                    {/* <img className='w-20 rounded-full mr-3' src={shakira} alt="" /> */}
                     <div className='block text-white'>
                         <p>¿Estás seguro que quieres borrar a Shakira de la base de datos?</p>
                         <div className='flex justify-center items-center mt-3 gap-3'>
@@ -101,7 +101,7 @@ const ArtistInformation = () => {
                                         <p className='text-white span-col-2 text-xl font-thin justify-center'>{song.id}</p>
                                     </div>
                                     {
-                                        !editSong ?
+                                        git
                                         <img className='ml-2 md:ml-0 w-[9%] sm:w-[6%] md:w-[5%] lg:w-[4%] rounded' src={song.thumbnail} alt="" />
                                         :
                                          <img className='ml-2 md:ml-0 w-[9%] sm:w-[6%] md:w-[5%] lg:w-[4%] rounded border-2 border-[#7339E5] opacity-50' src={song.thumbnail} alt="" />

@@ -1,5 +1,5 @@
 import React from 'react'
-import rihanna from '../../../assets/images/rihanna.png'
+// import rihanna from '../../../assets/images/rihanna.png'
 import more from '../../../assets/images/icons/more.png'
 
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import TopPhone from '../../component/TopPhone/TopPhone'
-import Top10Phone from '../../component/Top10Phone/Top10Phone'
 import SidebarLeft from '../../component/SidebarLeft/SidebarLeft'
 import FooterNav from '../../component/FooterNav/FooterNav'
 import GendersSection from '../../component/GendersSection/GendersSection'
