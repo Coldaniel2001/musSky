@@ -96,12 +96,12 @@ const ArtistInformation = () => {
             {
                         dataSong.map((song) => {
                             return (
-                                <div className='relative flex text-white items-center mb-3 gap-3  '>
+                                <div className='relative flex text-white items-center mb-3 gap-3 hover:bg-[#7239e575] rounded cursor-pointer '>
                                     <div className='w-[3%] flex justify-center'>
                                         <p className='text-white span-col-2 text-xl font-thin justify-center'>{song.id}</p>
                                     </div>
                                     {
-                                        git
+                                        !editSong ?
                                         <img className='ml-2 md:ml-0 w-[9%] sm:w-[6%] md:w-[5%] lg:w-[4%] rounded' src={song.thumbnail} alt="" />
                                         :
                                          <img className='ml-2 md:ml-0 w-[9%] sm:w-[6%] md:w-[5%] lg:w-[4%] rounded border-2 border-[#7339E5] opacity-50' src={song.thumbnail} alt="" />

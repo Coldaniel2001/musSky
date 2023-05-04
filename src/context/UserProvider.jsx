@@ -64,6 +64,7 @@ const UserProvider = ({ children }) => {
     return <span>...Loading</span>
   }
 
+  
   const loginUser = (email, password) => {
     const user = {
       id: Date.now(),
@@ -132,8 +133,7 @@ const UserProvider = ({ children }) => {
     dispatch({ type: types.changePassword, payload: user });
   };
 
-
-
+console.log(inputChange)
 
 
 
