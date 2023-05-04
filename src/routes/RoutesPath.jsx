@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 import MusicPlayerProvider from '../context/MusicPlayer/MusicPlayerProvider'
 import UserProvider from '../context/UserProvider'
+import SongProvider from '../context/song/SongProvider'
+
 import Skeleton from '../Skeleton/Skeleton'
 
 
@@ -44,41 +46,42 @@ const GendersPage = lazy(() => {
 const RoutesPath = () => {
     return (
         <UserProvider>
-            <MusicPlayerProvider>
+            <SongProvider>
+                <MusicPlayerProvider>
 
-                <BrowserRouter>
-                    <Routes>
-                        {/* <Route path='/' element={
+                    <BrowserRouter>
+                        <Routes>
+                            {/* <Route path='/' element={
                             <Suspense fallback={<Skeleton/>}>
                                 <LoginPage />
                             </Suspense>
                         } /> */}
-                        <Route path='/home' element={
-                            <Suspense fallback={<Skeleton/>}>
-                                <HomePage />
-                            </Suspense>
-                        } />
-                        <Route path='/profile' element={
-                            <Suspense fallback={<Skeleton/>}>
-                                <ProfilePage />
-                            </Suspense>
-                        } />
-                        <Route path='/individual-playlist' element={
-                            <Suspense fallback={<Skeleton/>}>
-                                <PlayListPage />
-                            </Suspense>
-                        } />
-                        <Route path='/genders' element={
-                            <Suspense fallback={<Skeleton/>}>
-                                <GendersPage />
-                            </Suspense>
-                        } />
-                        <Route path='/*' element={<Navigate to={'/home'} />} />
-                    </Routes>
-                </BrowserRouter>
-
-            </MusicPlayerProvider>
-        </UserProvider>
+                            <Route path='/home' element={
+                                <Suspense fallback={<Skeleton />}>
+                                    <HomePage />
+                                </Suspense>
+                            } />
+                            <Route path='/profile' element={
+                                <Suspense fallback={<Skeleton />}>
+                                    <ProfilePage />
+                                </Suspense>
+                            } />
+                            <Route path='/individual-playlist' element={
+                                <Suspense fallback={<Skeleton />}>
+                                    <PlayListPage />
+                                </Suspense>
+                            } />
+                            <Route path='/genders' element={
+                                <Suspense fallback={<Skeleton />}>
+                                    <GendersPage />
+                                </Suspense>
+                            } />
+                            <Route path='/*' element={<Navigate to={'/home'} />} />
+                        </Routes>
+                    </BrowserRouter>
+                </MusicPlayerProvider>
+            </SongProvider>
+        </UserProvider >
     )
 }
 
