@@ -29,6 +29,7 @@ function ProfileImg() {
 
   return (
     <div>
+      {/* condicional si no hay imagen cogemos la de auth0 y si la hay la cojo de localstorage para hacerla persistente */}
       <label>
         <img className='w-[10rem] cursor-pointer rounded-full' src={ user.picture } alt="UP" />
         {/* {
