@@ -35,6 +35,7 @@ const UserProvider = ({ children }) => {
             rol: "users",
             liked: []
           }
+          
           const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/`, {
             method: "POST",
             headers: {
@@ -45,7 +46,8 @@ const UserProvider = ({ children }) => {
           })
           const data = await response.json()
           if (data.status === "OK") {
-            dispatch({  type: types.login, payload: data.newUser })
+            setUserLogged(data.newUser)
+            console.log(data.newUser)
           }
 
         }
@@ -67,7 +69,9 @@ const UserProvider = ({ children }) => {
               }
             })
             const data = await response.json()
-           setUserLogged(data.user)
+            if(data.ok){
+              setUserLogged(data.user)
+            }
         }
       } catch (error) {
         console.log(error)
@@ -82,7 +86,6 @@ const UserProvider = ({ children }) => {
   if (isLoading) {
     return <span>...Loading</span>
   }
-
 
 
 
@@ -123,18 +126,6 @@ const UserProvider = ({ children }) => {
 
 
 
-  const logOutUser = () => {
-    localStorage.removeItem("user");
-    dispatch({ type: types.logout });
-  };
-
-  const changePassword = (user) => {
-    dispatch({ type: types.changePassword, payload: user });
-  };
-
-  const editImage = (url) => {
-    dispatch({ type: types.editImage, payload: url })
-  }
 
   return (
     <UserContext.Provider
@@ -145,10 +136,8 @@ const UserProvider = ({ children }) => {
         setInputChange,
         userRegister,
         userChangeInformation,
-        editImage,
         setUserLogged,
         userLogged
-
       }}
     >
       {children}

@@ -4,16 +4,16 @@ import axios from 'axios';
 import UserContext from '../../context/UserContext';
 
 function ProfileImg() {
-  const { user, editImage } = useContext(UserContext)
+  const { userLogged, setUserLogged } = useContext(UserContext)
 
   const handleEditImage = async (e) => {
     const data = new FormData();
     data.append("file", e.target.files[0]);
-    data.append("userId", user._id); 
+    data.append("userId", userLogged._id); 
                                     // luego guardamos estos datos en el context (ver con squad)
     try {
         const res = await editImgFetch(data);
-        editImage(res.data.img); 
+        setUserLogged({ ...userLogged, picture: res.data.img }); 
     } catch (error) {
         console.error(error);
     }
@@ -31,7 +31,7 @@ function ProfileImg() {
     <div>
       {/* condicional si no hay imagen cogemos la de auth0 y si la hay la cojo de localstorage para hacerla persistente */}
       <label>
-        <img className='w-[10rem] cursor-pointer rounded-full' src={ user.picture } alt="UP" />
+        <img className='w-[10rem] cursor-pointer rounded-full' src={ userLogged.picture } alt="UP" />
         {/* {
           !user.picture ? 
           <img className='w-[10rem] cursor-pointer' src={addImageProfile} alt="add-profile" />
