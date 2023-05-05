@@ -12,17 +12,8 @@ import UserContext from '../../context/UserContext'
 
 const PlayListIndividual = () => {
 
-    const { dataSong, setDataSong, MusicUrl } = useContext(SongContext)
-    // const { userLogged } = useContext(UserContext)
-
-
-    // const filterLikes = userLogged.liked.filter((likesTracks)=>{
-    //     return [likesTracks]===[dataSong._id]
-    // })
-  
-    // console.log(filterLikes)
-    // console.log([dataSong[0]._id])
-    // console.log(userLogged.liked)
+    const { dataSong, setDataSong } = useContext(SongContext)
+    
     return (
         <div>
             <Search />
