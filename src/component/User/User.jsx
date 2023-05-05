@@ -17,7 +17,6 @@ const User = () => {
     setModal(!modal)
   }
   const { isLoading, user, loginWithRedirect } = useAuth0()
-
   if (isLoading) {
     return <span>...Loading</span>
   }

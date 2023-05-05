@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 import MusicPlayerProvider from '../context/MusicPlayer/MusicPlayerProvider'
 import UserProvider from '../context/UserProvider'
+import SongProvider from '../context/song/SongProvider'
+
 import Skeleton from '../Skeleton/Skeleton'
 
 
@@ -52,11 +54,12 @@ const GendersPage = lazy(() => {
 const RoutesPath = () => {
     return (
         <UserProvider>
-            <MusicPlayerProvider>
+            <SongProvider>
+                <MusicPlayerProvider>
 
-                <BrowserRouter>
-                    <Routes>
-                        {/* <Route path='/' element={
+                    <BrowserRouter>
+                        <Routes>
+                            {/* <Route path='/' element={
                             <Suspense fallback={<Skeleton/>}>
                                 <LoginPage />
                             </Suspense>

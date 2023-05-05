@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 
 import Button from '../Button/Button';
 
+import ProfileImg from '../ProfileImg/ProfileImg';
 import addPicture from '../../assets/images/icons/addImageProfile.png'
 
 import { useAuth0 } from "@auth0/auth0-react"
@@ -52,7 +53,9 @@ const InfoProfile = () => {
 			<div className='sm:flex justify-center '>
 				<form className='2xl:flex 2xl:justify-between items-center w-[95%] -mb-8' action="">
 					<div className='flex 2xl:w-1/6 flex-col items-center justify-around h-[12rem] pb-5 sm:border-b border-gray-600 2xl:border-transparent'>
-						<img className='w-[10rem]' src={user ? user.picture : addPicture} alt="add-profile" />
+						<ProfileImg />
+						{/* <span className='text-xl font-semibold'>{inputChange.username}</span> */}
+						{/* <img className='w-[10rem]' src={user ? user.picture : addPicture} alt="add-profile" /> */}
 						{
 							changeInformation ?
 								<span className='text-xl font-semibold'>{user?user.nickname:""}</span>
@@ -106,8 +109,6 @@ const InfoProfile = () => {
 					</div>
 				</form>
 			</div>
-
-
 		</>
 	)
 };

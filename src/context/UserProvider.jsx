@@ -1,21 +1,9 @@
-import React, { useState, useReducer, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react"
 
-import { types } from "../reducers/types/types";
-import { userReducer } from "../reducers/userReducer";
 import toast from 'react-hot-toast'
 
 import UserContext from "./UserContext";
-
-
-
-const init = () => {
-  const user = JSON.parse(localStorage.getItem('user'));
-  return {
-    isLogged: !!user,
-    user
-  }
-};
 
 const UserProvider = ({ children }) => {
   const [isLoggin, setIsLoggin] = useState(true);
@@ -29,62 +17,76 @@ const UserProvider = ({ children }) => {
     // date: new Date(Date.now()).toLocaleDateString()
   });
 
-  const [state, dispatch] = useReducer(userReducer, {}, init);
   const { isLoading, user, getIdTokenClaims } = useAuth0()
+  const [userLogged, setUserLogged] = useState(null)
 
   useEffect(() => {
-    const fetchData = async () => {
+    const createUsers = async () => {
 
       try {
         if (user) {
-
           const token = await getIdTokenClaims()
-
+          const infoUsers = {
+            name: user.name,
+            nickname: user.nickname,
+            email: user.email,
+            picture: user.picture,
+            updated_at: user.updated_at,
+            rol: "users",
+            liked: []
+          }
+          
           const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/`, {
             method: "POST",
             headers: {
               'Authorization': 'Bearer ' + token.__raw,
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(infoUsers)
           })
           const data = await response.json()
-          console.log(data)
+          if (data.status === "OK") {
+            setUserLogged(data.newUser)
+            console.log(data.newUser)
+          }
 
         }
       } catch (error) {
         console.log(error)
       }
     }
-    fetchData()
+    createUsers()
 
-  }, [getIdTokenClaims, user])
+    const getUser = async () => {
+
+      try {
+        if (user) {
+            const token = await getIdTokenClaims()
+            const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/${user.email}`, {
+              headers: {
+                'Authorization': 'Bearer ' + token.__raw,
+                'Content-Type': 'application/json'
+              }
+            })
+            const data = await response.json()
+            if(data.ok){
+              setUserLogged(data.user)
+            }
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    getUser()
+
+
+  }, [user, getIdTokenClaims])
 
   if (isLoading) {
     return <span>...Loading</span>
   }
 
-  
-  const loginUser = (email, password) => {
-    const user = {
-      id: Date.now(),
-      email,
-      password
-    }
-    localStorage.setItem("user", JSON.stringify(user))
-    dispatch({ type: types.login, payload: user });
-  };
-
-  const register = (User) => {
-    const user = {
-      name: User.name,
-      surname: User.surname,
-      email: User.email,
-      password: User.password,
-      passwordRepeat: User.passwordRepeat
-    }
-    dispatch({ type: types.register, payload: user });
-  };
 
 
 
@@ -107,13 +109,13 @@ const UserProvider = ({ children }) => {
 
   }
 
-   const userChangeInformation = async(userChanged) => {
+  const userChangeInformation = async (userChanged) => {
     console.log(userChanged)
 
-      const res = await fetch("http://localhost:4002/users/changeinformation", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
+    const res = await fetch("http://localhost:4002/users/changeinformation", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
       },
         body: JSON.stringify(userChanged)
       })
@@ -144,15 +146,12 @@ console.log(inputChange)
       value={{
         isLoggin,
         setIsLoggin,
-        loginUser,
-        ...state,
-        register,
-        logOutUser,
-        changePassword,
         inputChange,
         setInputChange,
         userRegister,
-        userChangeInformation
+        userChangeInformation,
+        setUserLogged,
+        userLogged
       }}
     >
       {children}
