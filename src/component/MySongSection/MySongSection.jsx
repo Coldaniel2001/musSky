@@ -11,7 +11,7 @@ const MySongSection = () => {
   const [dataSong, setDataSong] = useState([])
 
 
-  console.log(uploadSong)
+
 
   useEffect(() => {
     const musicTracks = async() => {

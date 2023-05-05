@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useAuth0 } from "@auth0/auth0-react"
+import { useAuth0 } from "@auth0/auth0-react";
 
-import toast from 'react-hot-toast'
+import toast from "react-hot-toast";
 
 import UserContext from "./UserContext";
 
@@ -17,15 +17,14 @@ const UserProvider = ({ children }) => {
     // date: new Date(Date.now()).toLocaleDateString()
   });
 
-  const { isLoading, user, getIdTokenClaims } = useAuth0()
-  const [userLogged, setUserLogged] = useState(null)
+  const { isLoading, user, getIdTokenClaims } = useAuth0();
+  const [userLogged, setUserLogged] = useState(false);
 
   useEffect(() => {
     const createUsers = async () => {
-
       try {
         if (user) {
-          const token = await getIdTokenClaims()
+          const token = await getIdTokenClaims();
           const infoUsers = {
             name: user.name,
             nickname: user.nickname,
@@ -33,114 +32,101 @@ const UserProvider = ({ children }) => {
             picture: user.picture,
             updated_at: user.updated_at,
             rol: "users",
-            liked: []
-          }
-          
-          const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/`, {
-            method: "POST",
-            headers: {
-              'Authorization': 'Bearer ' + token.__raw,
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(infoUsers)
-          })
-          const data = await response.json()
-          if (data.status === "OK") {
-            setUserLogged(data.newUser)
-            console.log(data.newUser)
-          }
+            liked: [],
+          };
 
+          const response = await fetch(
+            `${process.env.REACT_APP_SERVER_URL}/users/`,
+            {
+              method: "POST",
+              headers: {
+                Authorization: "Bearer " + token.__raw,
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(infoUsers),
+            }
+          );
+          const data = await response.json();
+          if (data.status === "OK") {
+            setUserLogged(data.newUser);
+            console.log(data.newUser);
+          }
         }
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
-    createUsers()
+    };
+    createUsers();
 
     const getUser = async () => {
-
       try {
         if (user) {
-            const token = await getIdTokenClaims()
-            const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/${user.email}`, {
+          const token = await getIdTokenClaims();
+          const response = await fetch(
+            `${process.env.REACT_APP_SERVER_URL}/users/getuser/${user.email}`,
+            {
               headers: {
-                'Authorization': 'Bearer ' + token.__raw,
-                'Content-Type': 'application/json'
-              }
-            })
-            const data = await response.json()
-            if(data.ok){
-              setUserLogged(data.user)
+                Authorization: "Bearer " + token.__raw,
+                "Content-Type": "application/json",
+              },
             }
+          );
+          const data = await response.json();
+          console.log(data);
+          if (data.ok) {
+            setUserLogged(data.user);
+          }
         }
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
+    };
 
-    getUser()
-
-
-  }, [user, getIdTokenClaims])
+    getUser();
+  }, [user, getIdTokenClaims]);
 
   if (isLoading) {
-    return <span>...Loading</span>
+    return <span>...Loading</span>;
   }
 
-
-
-
   const userRegister = async (user) => {
-
     if (user.password === user.passwordRepeat) {
       const res = await fetch("http://localhost:4002/users", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(user)
-      })
-      const data = await res.json()
-      console.log(data)
+        body: JSON.stringify(user),
+      });
+      const data = await res.json();
+      console.log(data);
     } else {
       toast.error("Las contraseñas no coinciden");
-
     }
-
-  }
+  };
 
   const userChangeInformation = async (userChanged) => {
-    console.log(userChanged)
+    console.log(userChanged);
 
     const res = await fetch("http://localhost:4002/users/changeinformation", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-        body: JSON.stringify(userChanged)
-      })
-      const data = await res.json()
-      console.log(data)
-    
-    }
-    
-
-
-
-  const logOutUser = () => {
-    localStorage.removeItem("user");
-    dispatch({ type: types.logout });
+      body: JSON.stringify(userChanged),
+    });
+    const data = await res.json();
+    console.log(data);
   };
 
-  const changePassword = (user) => {
-    dispatch({ type: types.changePassword, payload: user });
-  };
+  // const logOutUser = () => {
+  //   localStorage.removeItem("user");
+  //   dispatch({ type: types.logout });
+  // };
 
-console.log(inputChange)
-
-
-
-
+  // const changePassword = (user) => {
+  //   dispatch({ type: types.changePassword, payload: user });
+  // };
   return (
     <UserContext.Provider
       value={{
@@ -151,7 +137,7 @@ console.log(inputChange)
         userRegister,
         userChangeInformation,
         setUserLogged,
-        userLogged
+        userLogged,
       }}
     >
       {children}

@@ -91,6 +91,7 @@ const RoutesPath = () => {
                 </BrowserRouter>
 
             </MusicPlayerProvider>
+            </SongProvider>
         </UserProvider>
     )
 }

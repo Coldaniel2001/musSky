@@ -29,15 +29,8 @@ function ProfileImg() {
 
   return (
     <div>
-      {/* condicional si no hay imagen cogemos la de auth0 y si la hay la cojo de localstorage para hacerla persistente */}
       <label>
         <img className='w-[10rem] cursor-pointer rounded-full' src={ userLogged.picture } alt="UP" />
-        {/* {
-          !user.picture ? 
-          <img className='w-[10rem] cursor-pointer' src={addImageProfile} alt="add-profile" />
-          :
-          <img className='w-[10rem] cursor-pointer rounded-full' src={user.picture} alt="uploaded" />
-        } */}
         <input type="file" className='hidden' onChange={handleEditImage} />
  		  </label>
     </div>
