@@ -1,8 +1,34 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import updateImgSong from '../../assets/images/updateImgSong.png'
 
+import UserContext from '../../context/UserContext';
+
 const ModalAddNewSong = ({setUploadSong}) => {
-   
+    const currentDate = new Date(); const day = currentDate.getDate(); const month = currentDate.getMonth() + 1; const year = currentDate.getFullYear();
+    const {user} = useContext(UserContext)
+
+    const formattedDate = `${day}/${month}/${year}`;
+ 
+
+    const [uploadNewSong,setUploadNewSong] = useState({
+        nameArtist: user.email,
+        nameSong: "",
+        picture: "",
+        song: "",
+        genres: "Pop español",
+        update_at: formattedDate,
+        liked: false
+      })
+
+    const handleChangeFormData = (e) => {
+        setUploadNewSong({...uploadNewSong, [e.target.name]: e.target.value})
+    }  
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(uploadNewSong)
+    }
+
 
   return (
     <div className="fixed z-10 inset-0 overflow-y-auto bg-black/70">
@@ -12,24 +38,33 @@ const ModalAddNewSong = ({setUploadSong}) => {
         <div className='w-full flex justify-center mt-[3vh]'>
             <img className='w-[30%] cursor-pointer rounded' src={updateImgSong} alt="" />
         </div>
-        <form action="">
+        <form onSubmit={handleSubmit} action="">
             <div className='flex flex-col mt-4'>
                 <label className='text-xl font-bold'>Nombre de la canción</label>
-                <input className='rounded h-[2rem] text-black' type="text" />
+                <input className='rounded h-[2rem] text-black' 
+                type="text"
+                name="nameSong"
+                id="nameSong"
+                value={uploadNewSong.nameSong}
+                onChange={handleChangeFormData} />
             </div>
             <div className='flex flex-col mt-4'>
                 <label className='text-xl font-bold'>Género</label>
-                <select className='text-black h-[2rem] rounded' name="" id="">
-                    <option value="pop español">Pop Español</option>
-                    <option value="urbano latino">Urbano latino</option>
-                    <option value="rock español">Rock español</option>
-                    <option value="hip hop">Hip hop</option>
-                    <option value="electrónica">Electrónica</option>
-                    <option value="reggae">Reggae</option>
-                    <option value="pop latino">Pop latino</option>
-                    <option value="jazz">Jazz</option>
-                    <option value="rock">Rock</option>
-                    <option value="flamenco">Flamenco</option>
+                <select className='text-black h-[2rem] rounded' 
+                value={uploadNewSong.genres}
+                name="genres" 
+                id="genres"
+                onChange={handleChangeFormData}>
+                    <option value="Pop español">Pop Español</option>
+                    <option value="Urbano latino">Urbano latino</option>
+                    <option value="Rock español">Rock español</option>
+                    <option value="Hip hop">Hip hop</option>
+                    <option value="Electronica">Electrónica</option>
+                    <option value="Reggae">Reggae</option>
+                    <option value="Pop latino">Pop latino</option>
+                    <option value="Jazz">Jazz</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Flamenco">Flamenco</option>
                 </select>
             </div>
             <div className='bg-[#7C8BBF] py-2 px-4 rounded cursor-pointer mt-6 w-[150px] flex justify-center'>
@@ -39,7 +74,7 @@ const ModalAddNewSong = ({setUploadSong}) => {
                 <div className='bg-transparent border py-2 px-4 rounded cursor-pointer  w-[130px] flex justify-center hover:bg-[#f34545]' onClick={()=> setUploadSong(false)}>
                     <p >Cancelar</p>
                 </div>
-                <button className='bg-[#7339E5] px-4 py-2 rounded border hover:bg-[#2ca72c] '>Subir canción</button>
+                <button className='bg-[#7339E5] px-4 py-2 rounded border hover:bg-[#2ca72c]' >Subir canción</button>
             </div>
         </form>
 
