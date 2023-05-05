@@ -18,6 +18,7 @@ const Top10Phone = () => {
         } 
         musicTracks()
     }, [MusicUrl])
+  
 
   return (
     <div className='lg:hidden'>
@@ -42,6 +43,7 @@ const Top10Phone = () => {
                 )
                 })
                 }
+                
         </div> 
         </div>
     </div>

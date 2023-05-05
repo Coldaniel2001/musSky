@@ -1,0 +1,9 @@
+.canvas{
+    
+        width: 0;
+        height: 0;
+        border-right: 0.5rem solid transparent;
+        border-top: 0.5rem solid transparent;
+        border-left: 0.5rem solid transparent;
+        border-bottom: 0.5rem solid #7C8BBF;
+   }
