@@ -6,6 +6,20 @@ import toast from "react-hot-toast";
 import UserContext from "./UserContext";
 
 const UserProvider = ({ children }) => {
+  const allUsers = "http://localhost:4002/users"
+  const [dataUsers, setDataUsers] = useState([])
+  
+
+  useEffect(() => {
+    const musicTracks = async () => {
+        const response = await fetch(allUsers);
+        const data = await response.json();
+        setDataUsers(data.allUsers)
+    }
+    musicTracks()
+}, [allUsers, setDataUsers])
+
+
   const [isLoggin, setIsLoggin] = useState(true);
   const [inputChange, setInputChange] = useState({
     name: "",
@@ -140,6 +154,8 @@ const UserProvider = ({ children }) => {
         userChangeInformation,
         setUserLogged,
         userLogged,
+        dataUsers, 
+        setDataUsers
       }}
     >
       {children}
