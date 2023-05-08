@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import updateImgSong from '../../assets/images/updateImgSong.png'
 
 import UserContext from '../../context/UserContext';
@@ -22,28 +22,33 @@ const ModalAddNewSong = ({setUploadSong}) => {
         update_at: formattedDate,
         liked: false
       })
+    
 
-      
+    // const handleChangeFile = (e) => {
+    //     setDataNewSong(dataNewSong.append("file", e.target.files[0]))  
+    // }
 
-    const handleChangeFormData = (e) => {
-        setUploadNewSong({...uploadNewSong, [e.target.name]: e.target.value})
-    }  
+    // const handleChangeFormData = (e) => {   
+    //     setUploadNewSong({...uploadNewSong, [e.target.name]: e.target.value})
+    // }  
+
+    const form = useRef(null)
 
     const handleSubmit = (e) => {
+        
         e.preventDefault()
-        editSongImageFetch(uploadNewSong)
+        const formdata = new FormData(form.current)
+        formdata.append("nameArtist", userLogged.email)
+        formdata.append("update_at", formattedDate)
+        console.log(form)
+        editSongImageFetch(formdata)
         
     }
-
-
-
+  
     const editSongImageFetch = async (data)=> {
         const res = await fetch('http://localhost:4002/tracks/imagesong', {
         method: "POST",    
-        headers: {
-                "Content-Type": "application/json",
-            },
-        body: JSON.stringify(data)
+        body: data
         });
         const newData = await res.json()
         console.log(newData)
@@ -62,33 +67,36 @@ const ModalAddNewSong = ({setUploadSong}) => {
     <div className="flex items-center justify-center min-h-screen">
       <div className="flex flex-col justify-center bg-gradient-to-tr from-black via-[#7339E5] to-[#7339E5] rounded-lg shadow-lg p-6 w-[90%] sm:w-2/3 md:w-3/6 lg:w-2/6 2xl:w-1/4 border-2 border-white">
         <p className='font-bold text-3xl mx-auto'>Añadir canción</p>
+        <form onSubmit={handleSubmit} ref={form} enctype="multipart/form-data">
         <div className='w-full flex justify-center mt-[3vh]' >
             <label>
                 <img className='w-[10rem] cursor-pointer rounded-full '  src={ updateImgSong } alt="UP" />
                 <input type="file" className='hidden' 
                 required
-                onChange={handleChangeFormData}
+                // onChange={handleChangeFile}
                 name="picture"
-                value={uploadNewSong.picture} />
+                // value={uploadNewSong.picture} 
+                />
             </label>
         </div>
-        <form onSubmit={handleSubmit} action="">
             <div className='flex flex-col mt-4'>
                 <label className='text-xl font-bold'>Nombre de la canción</label>
                 <input className='rounded h-[2rem] text-black' 
                 type="text"
                 name="nameSong"
                 id="nameSong"
-                value={uploadNewSong.nameSong}
-                onChange={handleChangeFormData} />
+                // value={uploadNewSong.nameSong}
+                // onChange={handleChangeFormData} 
+                />
             </div>
             <div className='flex flex-col mt-4'>
                 <label className='text-xl font-bold'>Género</label>
                 <select className='text-black h-[2rem] rounded' 
-                value={uploadNewSong.genre}
+                // value={uploadNewSong.genre}
                 name="genre" 
-                id="genres"
-                onChange={handleChangeFormData}>
+                id="genre"
+                // onChange={handleChangeFormData}
+                >
                     <option value="Pop español">Pop Español</option>
                     <option value="Urbano latino">Urbano latino</option>
                     <option value="Rock español">Rock español</option>
@@ -106,8 +114,9 @@ const ModalAddNewSong = ({setUploadSong}) => {
                 >
                 <input type="file" className='hidden' 
                     name="song"
-                    value={uploadNewSong.song}
-                    onChange={handleChangeFormData} />
+                    // value={uploadNewSong.song}
+                    // onChange={handleChangeFile}
+                    />
                     <p>Subir canción</p>
                 </div>
             </label>

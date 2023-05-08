@@ -28,7 +28,7 @@ const Search = () => {
 				</div>
 				<div className='flex flex-col justify-evenly justify-items-end'>
 
-					{user?<div className="bg-[#212121] w-3/4 mx-auto mt-8 flex rounded-lg mr-10 2xl:hidden" onClick={() => toggleModal(true)}>
+					{user?<div className="bg-[#212121] w-3/4 mx-auto mt-8 flex rounded-lg mr-10 2xl:hidden truncate" onClick={() => toggleModal(true)}>
 						<img className='w-10 h-10 rounded-full my-2 ml-3' src={user.picture} alt="img-profile" />
 						<div className='w-full flex justify-between mr-3'>
 							<p className='text-white my-auto ml-3'>{user.nickname}</p>
@@ -36,10 +36,10 @@ const Search = () => {
 						</div>
 						{
 							showModal &&
-							<div className='w-[14rem] h-[6rem] bg-[#212121]  opacity-40 hover:opacity-100 float-right  flex justify-center flex-col absolute mt-[3rem] ml-[-3rem] rounded-md'>
-								<p className='text-white hover:bg-sky-700 ml-2 cursor-pointer'>Mi cuenta</p>
-								<p className='text-white hover:bg-sky-700 ml-2 cursor-pointer'>Ajustes</p>
-								<p onClick={() => logout({ logoutParams: { returnTo: window.location.origin + '/home' } })} className='text-white hover:bg-sky-700 ml-2'>Salir</p>
+							<div className='w-[14rem]  bg-white  hover:opacity-100 float-right  flex justify-center flex-col absolute mt-[3rem] ml-[-3rem] rounded-md text-black '>
+								<p className=' hover:bg-[#7239e526] pl-2 cursor-pointer rounded'>Mi cuenta</p>
+      							<p className=' hover:bg-[#7239e526] pl-2 cursor-pointer rounded'>Ajustes</p>
+     							<p onClick={()=>logout({logoutParams:{returnTo: window.location.origin + '/home'}})} className='hover:bg-[#7239e526] pl-2 cursor-pointer rounded'>Salir</p>
 							</div>
 
 						}
