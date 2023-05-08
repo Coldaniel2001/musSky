@@ -3,6 +3,7 @@ import updateImgSong from '../../assets/images/updateImgSong.png'
 
 import UserContext from '../../context/UserContext';
 import SongContext from '../../context/song/SongContext';
+import { toast } from 'react-hot-toast';
 
 const ModalAddNewSong = ({setUploadSong}) => {
     const currentDate = new Date(); const day = currentDate.getDate(); const month = currentDate.getMonth() + 1; const year = currentDate.getFullYear();
@@ -22,7 +23,7 @@ const ModalAddNewSong = ({setUploadSong}) => {
         liked: false
       })
 
-
+      
 
     const handleChangeFormData = (e) => {
         setUploadNewSong({...uploadNewSong, [e.target.name]: e.target.value})
@@ -31,6 +32,7 @@ const ModalAddNewSong = ({setUploadSong}) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         editSongImageFetch(uploadNewSong)
+        
     }
 
 
@@ -45,6 +47,11 @@ const ModalAddNewSong = ({setUploadSong}) => {
         });
         const newData = await res.json()
         console.log(newData)
+
+        if(newData.ok) {
+            toast.success(`Enhorabuena. Tu canción "${uploadNewSong.nameSong}" ha sido subida con éxito`)
+            setUploadSong(false)
+        } else{toast.error("Por favor, rellena todos los campos correctamente")}
     }   
 
 
@@ -78,8 +85,8 @@ const ModalAddNewSong = ({setUploadSong}) => {
             <div className='flex flex-col mt-4'>
                 <label className='text-xl font-bold'>Género</label>
                 <select className='text-black h-[2rem] rounded' 
-                value={uploadNewSong.genres}
-                name="genres" 
+                value={uploadNewSong.genre}
+                name="genre" 
                 id="genres"
                 onChange={handleChangeFormData}>
                     <option value="Pop español">Pop Español</option>

@@ -17,6 +17,8 @@ const UserProvider = ({ children }) => {
     // date: new Date(Date.now()).toLocaleDateString()
   });
 
+  
+
   const { isLoading, user, getIdTokenClaims } = useAuth0();
   const [userLogged, setUserLogged] = useState(false);
 
