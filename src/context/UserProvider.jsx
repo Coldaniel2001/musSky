@@ -34,7 +34,7 @@ const UserProvider = ({ children }) => {
   
 
   const { isLoading, user, getIdTokenClaims } = useAuth0();
-  const [userLogged, setUserLogged] = useState(false);
+  const [userLogged, setUserLogged] = useState(null);
 
   useEffect(() => {
     const createUsers = async () => {
@@ -48,24 +48,20 @@ const UserProvider = ({ children }) => {
             picture: user.picture,
             updated_at: user.updated_at,
             rol: "users",
-            liked: [],
-          };
-
-          const response = await fetch(
-            `${process.env.REACT_APP_SERVER_URL}/users/`,
-            {
-              method: "POST",
-              headers: {
-                Authorization: "Bearer " + token.__raw,
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(infoUsers),
-            }
-          );
-          const data = await response.json();
+          }
+          
+          const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/`, {
+            method: "POST",
+            headers: {
+              'Authorization': 'Bearer ' + token.__raw,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(infoUsers)
+          })
+          const data = await response.json()
           if (data.status === "OK") {
             setUserLogged(data.newUser);
-            console.log(data.newUser);
+
           }
         }
       } catch (error) {
@@ -79,19 +75,18 @@ const UserProvider = ({ children }) => {
         if (user) {
           const token = await getIdTokenClaims();
           const response = await fetch(
-            `${process.env.REACT_APP_SERVER_URL}/users/getuser/${user.email}`,
+            `${process.env.REACT_APP_SERVER_URL}/users/${user.email}`,
             {
               headers: {
-                Authorization: "Bearer " + token.__raw,
-                "Content-Type": "application/json",
-              },
+                'Authorization': 'Bearer ' + token.__raw,
+                'Content-Type': 'application/json'
+              }
+            })
+            const data = await response.json()
+            console.log(data)
+            if(data.status==="OK"){
+              setUserLogged(data.user)
             }
-          );
-          const data = await response.json();
-          console.log(data);
-          if (data.ok) {
-            setUserLogged(data.user);
-          }
         }
       } catch (error) {
         console.log(error);

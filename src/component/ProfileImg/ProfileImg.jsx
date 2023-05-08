@@ -12,7 +12,9 @@ function ProfileImg() {
     data.append("userId", userLogged._id); 
                                     // luego guardamos estos datos en el context (ver con squad)
     try {
+      console.log("hola")
         const res = await editImgFetch(data);
+        console.log(res)
         setUserLogged({ ...userLogged, picture: res.data.img }); 
     } catch (error) {
         console.error(error);
@@ -30,7 +32,7 @@ function ProfileImg() {
   return (
     <div>
       <label>
-        <img className='w-[10rem] cursor-pointer rounded-full' src={ userLogged.picture } alt="UP" />
+        <img className='w-[10rem] cursor-pointer rounded-full' src="" alt="UP" />
         <input type="file" className='hidden' onChange={handleEditImage} />
  		  </label>
     </div>
