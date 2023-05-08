@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import Search from '../Search/Search'
 import background from '../../assets/images/background.png'
 import playWhite from '../../assets/images/icons/play-white.png'
@@ -12,8 +12,13 @@ import UserContext from '../../context/UserContext'
 
 const PlayListIndividual = () => {
 
-    const { dataSong, setDataSong } = useContext(SongContext)
-    
+    const { dataSong, handleLikes } = useContext(SongContext)
+    const { userLogged } = useContext(UserContext)
+
+    const musicLikesToTracks = dataSong.filter((listToLike) => {
+        return listToLike.likedBy.toString() === userLogged._id
+    })
+
     return (
         <div>
             <Search />
@@ -29,24 +34,29 @@ const PlayListIndividual = () => {
                     <div className='lg:h-[27vh] lg:overflow-y-scroll lg:scrollbar-hide' >
 
                         {
-                            dataSong.map((song) => {
-                            
+                            musicLikesToTracks.map((song) => {
+
                                 return (
-                                    <div className='relative flex text-white items-center mb-3 mx-10 '>
-                                        <div className='w-[3%] flex justify-center'>
-                                            <p className='text-white span-col-2 text-xl font-thin justify-center'>1</p>
+
+                                        <div key={song._id} className='relative flex text-white items-center mb-3 mx-10 '>
+                                            <div className='w-[3%] flex justify-center'>
+                                                <p className='text-white span-col-2 text-xl font-thin justify-center'>1</p>
+                                            </div>
+                                            <img className='w-[3%]' src={song.picture} alt="images-song" />
+                                            <p className='font-semibold text-xl w-[42%] pl-10 ' >{song.nameSong}</p>
+                                            <p className='w-[42%] text-xl font-thin'>{song.nameArtist}</p>
+                                            <img className='w-[3%]' src={playWhite} alt="" />
+                                            <img onClick={()=>handleLikes(song)} className='w-[2%] mx-5' src={redHeart} alt="" />
+                                            <img className='w-[3%] mr-5' src={addList} alt="" />
+                                            <img className='w-[2%]' src={seeMore} alt="" />
                                         </div>
-                                        <img className='w-[3%]' src={song.picture} alt="" />
-                                        <p className='font-semibold text-xl w-[42%] pl-10 ' >{song.nameSong}</p>
-                                        <p className='w-[42%] text-xl font-thin'>{song.nameArtist}</p>
-                                        <img className='w-[3%]' src={playWhite} alt="" />
-                                        <img className='w-[2%] mx-5' src={redHeart} alt="" />
-                                        <img className='w-[3%] mr-5' src={addList} alt="" />
-                                        <img className='w-[2%]' src={seeMore} alt="" />
-                                    </div>
+
                                 )
                             })
                         }
+
+
+
                     </div>
                 </div>
             </div>
