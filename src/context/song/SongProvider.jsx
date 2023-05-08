@@ -10,30 +10,31 @@ const SongProvider = ({ children }) => {
   const [dataSong, setDataSong] = useState([])
   const { userLogged } = useContext(UserContext)
 
-
   const { getIdTokenClaims } = useAuth0()
 
   const handleLikes = async (liked) => {
+
+    const token = await getIdTokenClaims()
+    const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/tracks/addToLike${userLogged&&userLogged._id}`, {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token ? token.__raw : "Not Auth"}`,
+      },
+      body: JSON.stringify({ liked })
+    })
+    const data = await response.json()
     try {
-      const token = await getIdTokenClaims()
-      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/tracks/addToLike${userLogged._id}`, {
-        method: "PUT",
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token ? token.__raw : "Not Auth"}`,
-        },
-        body: JSON.stringify({ liked })
-      })
-      const data = await response.json()
 
       const updateFilter = dataSong.filter((update) => {
         return update._id !== data.updateLike._id
       })
-      const dataAllSongs = [...updateFilter, data.updateLike].sort((a,b) => a._id.localeCompare(b._id))
+      const dataAllSongs = [...updateFilter, data.updateLike].sort((a, b) => a._id.localeCompare(b._id))
       setDataSong([...dataAllSongs])
 
     } catch (error) {
       console.log(error)
+      console.log(data)
     }
   }
 
@@ -41,10 +42,12 @@ const SongProvider = ({ children }) => {
     const musicTracks = async () => {
       const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/tracks`);
       const data = await response.json();
+      console.log(data)
       setDataSong(data.allSong)
     }
     musicTracks()
   }, [setDataSong])
+
 
 
 

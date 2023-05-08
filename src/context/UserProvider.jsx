@@ -33,7 +33,6 @@ const UserProvider = ({ children }) => {
             picture: user.picture,
             updated_at: user.updated_at,
             rol: "users",
-            liked: []
           }
           
           const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/`, {
@@ -69,7 +68,8 @@ const UserProvider = ({ children }) => {
               }
             })
             const data = await response.json()
-            if(data.ok){
+  
+            if(data.status==="OK"){
               setUserLogged(data.user)
             }
         }

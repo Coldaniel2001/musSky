@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import more from '../../assets/images/icons/more.png'
 import purpleHeart from '../../assets/images/icons/purple-heart.png'
 import redHeart from '../../assets/images/icons/red-heart.png'
