@@ -1,17 +1,9 @@
 import React, { useContext, useState } from 'react'
-import beatles from '../../assets/images/beatles.jpg'
-import antonioJose from '../../assets/images/antonio-jose-1.jpg'
-import melendi from '../../assets/images/melendi.jpg'
-import fito from '../../assets/images/fito.jpg'
-import shakira from '../../assets/images/shakira.jpg'
-import lodv from '../../assets/images/lodvg.jpg'
-import estopa from '../../assets/images/estopa.jpg'
 import UserContext from '../../context/UserContext'
 
 const ArtistModeAdmin = () => {
     const [hovered, setHovered] = useState(false);
     const {dataUsers} = useContext(UserContext)
-    const [showArtist, setshowArtist] = useState(true)
 
   return (
     <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 2xl:grid-cols-9   mx-[8vh]  justify-center gap-6 h-[70vh] overflow-y-scroll scrollbar-hide  '>
