@@ -14,7 +14,7 @@ const Genders = () => {
   return (
     <>
     <h2 className='text-white text-[2rem] font-extrabold mt-10 ml-10 mr-10'>GÉNEROS</h2>
-    <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 2xl:grid-cols-5 mt-10 ml-10 mr-10 gap-8 pb-10 lg:h-[85vh] lg:overflow-y-scroll '>
+    <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 2xl:grid-cols-5 mt-10 ml-10 mr-10 gap-8 pb-10 lg:h-[85vh] lg:overflow-y-scroll '>
         <div className='h-[95%]'>
             <div className='bg-gradient-to-t from-[#FFB61D] via-[#FFB61D] to-transparent hover:bg-[#FFB61D] hover:border-yellow-600 transition-all duration-500 hover:h-[90%] cursor-pointer flex justify-center rounded-xl h-[86%] '>
                 <img className='w-full ' src={leiva} alt="" />

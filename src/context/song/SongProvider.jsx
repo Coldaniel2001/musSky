@@ -24,6 +24,7 @@ const SongProvider = ({ children }) => {
       body: JSON.stringify({ liked })
     })
     const data = await response.json()
+    console.log(data)
     try {
 
       const updateFilter = dataSong.filter((update) => {

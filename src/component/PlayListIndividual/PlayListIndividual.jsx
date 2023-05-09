@@ -16,7 +16,7 @@ const PlayListIndividual = () => {
     const { userLogged } = useContext(UserContext)
 
     const musicLikesToTracks = dataSong.filter((listToLike) => {
-        return listToLike.likedBy.toString() === userLogged._id
+        return listToLike.likedBy.includes(userLogged._id)
     })
 
     return (
@@ -35,7 +35,6 @@ const PlayListIndividual = () => {
 
                         {
                             musicLikesToTracks.map((song) => {
-
                                 return (
 
                                         <div key={song._id} className='relative flex text-white items-center mb-3 mx-10 '>

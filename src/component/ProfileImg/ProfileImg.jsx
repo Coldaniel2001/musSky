@@ -20,7 +20,9 @@ function ProfileImg() {
     data.append("file", e.target.files[0]);
     data.append("userId", userLogged._id); 
     try {
+      console.log("hola")
         const res = await editImgFetch(data);
+        console.log(res)
         setUserLogged({ ...userLogged, picture: res.data.img }); 
     } catch (error) {
         console.error(error);

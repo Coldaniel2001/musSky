@@ -8,6 +8,15 @@ import SongProvider from '../context/song/SongProvider'
 import Skeleton from '../Skeleton/Skeleton'
 
 
+
+
+// import PrivateRouter from './PrivateRouter'
+
+// import Playlist from '../page/PlayList/Playlist'
+import AdminPage from '../page/AdminPage/AdminPage'
+import Mysongs from '../page/MySongs/Mysongs'
+import { AdminUserPage } from '../page/AdminUserPage/AdminUserPage'
+
 // import PrivateRouter from './PrivateRouter'
 
 const HomePage = lazy(() => {
@@ -56,32 +65,36 @@ const RoutesPath = () => {
                                 <LoginPage />
                             </Suspense>
                         } /> */}
-                            <Route path='/home' element={
-                                <Suspense fallback={<Skeleton />}>
-                                    <HomePage />
-                                </Suspense>
-                            } />
-                            <Route path='/profile' element={
-                                <Suspense fallback={<Skeleton />}>
-                                    <ProfilePage />
-                                </Suspense>
-                            } />
-                            <Route path='/individual-playlist' element={
-                                <Suspense fallback={<Skeleton />}>
-                                    <PlayListPage />
-                                </Suspense>
-                            } />
-                            <Route path='/genders' element={
-                                <Suspense fallback={<Skeleton />}>
-                                    <GendersPage />
-                                </Suspense>
-                            } />
-                            <Route path='/*' element={<Navigate to={'/home'} />} />
-                        </Routes>
-                    </BrowserRouter>
-                </MusicPlayerProvider>
+                        <Route path='/home' element={
+                            <Suspense fallback={<Skeleton/>}>
+                                <HomePage />
+                            </Suspense>
+                        } />
+                        <Route path='/profile' element={
+                            <Suspense fallback={<Skeleton/>}>
+                                <ProfilePage />
+                            </Suspense>
+                        } />
+                        <Route path='/individual-playlist' element={
+                            <Suspense fallback={<Skeleton/>}>
+                                <PlayListPage />
+                            </Suspense>
+                        } />
+                        <Route path='/genders' element={
+                            <Suspense fallback={<Skeleton/>}>
+                                <GendersPage />
+                            </Suspense>
+                        } />
+                        <Route path='/*' element={<Navigate to={'/home'} />} />
+                        <Route path='/admin' element={<AdminPage />} />
+                        <Route path='/admin/:userId' element={<AdminUserPage />} />
+                        <Route path='/mis-canciones' element={<Mysongs />} /> 
+                    </Routes>
+                </BrowserRouter>
+
+            </MusicPlayerProvider>
             </SongProvider>
-        </UserProvider >
+        </UserProvider>
     )
 }
 
