@@ -17,7 +17,7 @@ const TopPhone = () => {
   }
   return (
     <>
-      <div className='flex justify-between pl-5 pr-5 w-full bg-black bg-opacity-30  fixed top-0  lg:hidden '>
+      <div className='flex justify-between pl-5 pr-5 w-full bg-black bg-opacity-30  fixed top-0  xl:hidden '>
         <img className='w-40 ' src={logo} alt="" />
         {user ?
           <>

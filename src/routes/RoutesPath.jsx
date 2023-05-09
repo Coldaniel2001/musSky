@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 import MusicPlayerProvider from '../context/MusicPlayer/MusicPlayerProvider'
 import UserProvider from '../context/UserProvider'
+import Skeleton from '../Skeleton/Skeleton'
 
 import HomePage from '../page/HomePage/HomePage'
 import LoginPage from '../page/LoginPage/LoginPage'
@@ -11,40 +12,80 @@ import ProfilePage from '../page/ProfilePage/ProfilePage'
 import PrivateRouter from './PrivateRouter'
 import GendersPage from '../page/GendersPage/GendersPage'
 
-import FinalRegister from '../Final Register/FinalRegister'
-import UserDetail from "../Detail Modal/UserDetailModal"
-import Ejemplo from '../BorrarLuego/Ejemplo'
+// import PrivateRouter from './PrivateRouter'
+
+const HomePage = lazy(() => {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(import('../page/HomePage/HomePage')), 2000);
+    });
+});
+
+// const LoginPage = lazy(() => {
+//     return new Promise((resolve) => {
+//         setTimeout(() => resolve(import('../page/LoginPage/LoginPage')), 2000);
+//     });
+// });
+
+const PlayListPage = lazy(() => {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(import('../page/PlayListPage/PlayListPage')), 2000);
+    });
+});
+
+const ProfilePage = lazy(() => {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(import('../page/ProfilePage/ProfilePage')), 2000);
+    });
+});
+
+const GendersPage = lazy(() => {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(import('../page/GendersPage/GendersPage')), 2000);
+    });
+});
+
+
+
 
 const RoutesPath = () => {
     return (
         <UserProvider>
-            <MusicPlayerProvider>
+            <SongProvider>
+                <MusicPlayerProvider>
 
                 <BrowserRouter>
                     <Routes>
-                        <Route path='/login' element={<LoginPage />} />
-                        <Route path='/*' element={
-                            <PrivateRouter>
-                                <Routes>
-                                    <Route path='/' element={<HomePage />} />
-                                    <Route path='/profile' element={<ProfilePage />} />
-                                <Route path='/individual-playlist' element={<PlayListPage />} />
-                                <Route path='/genders' element={<GendersPage />} />
-                                <Route path='/*' element={<Navigate to={'/'} />} />
-                                
+                        {/* <Route path='/' element={
+                            <Suspense fallback={<Skeleton/>}>
+                                <LoginPage />
+                            </Suspense>
+                        } /> */}
+                        <Route path='/home' element={
+                            <Suspense fallback={<Skeleton/>}>
+                                <HomePage />
+                            </Suspense>
+                        } />
+                        <Route path='/profile' element={
+                            <Suspense fallback={<Skeleton/>}>
+                                <ProfilePage />
+                            </Suspense>
+                        } />
+                        <Route path='/individual-playlist' element={
+                            <Suspense fallback={<Skeleton/>}>
+                                <PlayListPage />
+                            </Suspense>
+                        } />
+                        <Route path='/genders' element={
+                            <Suspense fallback={<Skeleton/>}>
+                                <GendersPage />
+                            </Suspense>
+                        } />
+                        <Route path='/*' element={<Navigate to={'/home'} />} />
+                    </Routes>
+                </BrowserRouter>
 
-                            <Route path='/modal' element={<FinalRegister/>} />
-                            <Route path='/ejemplo' element={<Ejemplo/>} />
-
-
-                            </Routes>
-                        </PrivateRouter>
-                    } />
-                    <Route path='/*' element={<Navigate to={'/login'} />} />
-                </Routes>
-            </BrowserRouter>        
-                
             </MusicPlayerProvider>
+            </SongProvider>
         </UserProvider>
     )
 }
