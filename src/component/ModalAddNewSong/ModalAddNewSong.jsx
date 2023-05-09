@@ -9,7 +9,6 @@ const ModalAddNewSong = ({setUploadSong}) => {
     const currentDate = new Date(); const day = currentDate.getDate(); const month = currentDate.getMonth() + 1; const year = currentDate.getFullYear();
     const {userLogged} = useContext(UserContext)
     const {dataSong, setDataSong} = useContext(SongContext)
-
     const formattedDate = `${day}/${month}/${year}`;
  
 
@@ -20,7 +19,8 @@ const ModalAddNewSong = ({setUploadSong}) => {
         song: "",
         genre: "Pop español",
         update_at: formattedDate,
-        liked: false
+        likedBy: []
+
       })
     
 

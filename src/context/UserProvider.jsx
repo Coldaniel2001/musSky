@@ -6,19 +6,17 @@ import toast from "react-hot-toast";
 import UserContext from "./UserContext";
 
 const UserProvider = ({ children }) => {
-  const allUsers = "http://localhost:4002/users"
-  const [dataUsers, setDataUsers] = useState([])
-  
+  const allUsers = "http://localhost:4002/users";
+  const [dataUsers, setDataUsers] = useState([]);
 
   useEffect(() => {
     const musicTracks = async () => {
-        const response = await fetch(allUsers);
-        const data = await response.json();
-        setDataUsers(data.allUsers)
-    }
-    musicTracks()
-}, [allUsers, setDataUsers])
-
+      const response = await fetch(allUsers);
+      const data = await response.json();
+      setDataUsers(data.allUsers);
+    };
+    musicTracks();
+  }, [allUsers, setDataUsers]);
 
   const [isLoggin, setIsLoggin] = useState(true);
   const [inputChange, setInputChange] = useState({
@@ -30,8 +28,6 @@ const UserProvider = ({ children }) => {
     passwordRepeat: "",
     // date: new Date(Date.now()).toLocaleDateString()
   });
-
-  
 
   const { isLoading, user, getIdTokenClaims } = useAuth0();
   const [userLogged, setUserLogged] = useState(null);
@@ -48,20 +44,22 @@ const UserProvider = ({ children }) => {
             picture: user.picture,
             updated_at: user.updated_at,
             rol: "users",
-          }
-          
-          const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/`, {
-            method: "POST",
-            headers: {
-              'Authorization': 'Bearer ' + token.__raw,
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(infoUsers)
-          })
-          const data = await response.json()
+          };
+
+          const response = await fetch(
+            `${process.env.REACT_APP_SERVER_URL}/users/`,
+            {
+              method: "POST",
+              headers: {
+                Authorization: "Bearer " + token.__raw,
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(infoUsers),
+            }
+          );
+          const data = await response.json();
           if (data.status === "OK") {
             setUserLogged(data.newUser);
-
           }
         }
       } catch (error) {
@@ -78,15 +76,16 @@ const UserProvider = ({ children }) => {
             `${process.env.REACT_APP_SERVER_URL}/users/${user.email}`,
             {
               headers: {
-                'Authorization': 'Bearer ' + token.__raw,
-                'Content-Type': 'application/json'
-              }
-            })
-            const data = await response.json()
-            console.log(data)
-            if(data.status==="OK"){
-              setUserLogged(data.user)
+                Authorization: "Bearer " + token.__raw,
+                "Content-Type": "application/json",
+              },
             }
+          );
+          const data = await response.json();
+          console.log(data);
+          if (data.status === "OK") {
+            setUserLogged(data.user);
+          }
         }
       } catch (error) {
         console.log(error);
@@ -149,8 +148,8 @@ const UserProvider = ({ children }) => {
         userChangeInformation,
         setUserLogged,
         userLogged,
-        dataUsers, 
-        setDataUsers
+        dataUsers,
+        setDataUsers,
       }}
     >
       {children}

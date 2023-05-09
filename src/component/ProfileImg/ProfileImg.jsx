@@ -32,7 +32,7 @@ function ProfileImg() {
   return (
     <div>
       <label>
-        <img className='w-[10rem] cursor-pointer rounded-full' src="" alt="UP" />
+        <img className='w-[10rem] cursor-pointer rounded-full' src={userLogged.picture} alt="UP" />
         <input type="file" className='hidden' onChange={handleEditImage} />
  		  </label>
     </div>
