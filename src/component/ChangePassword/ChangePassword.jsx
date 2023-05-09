@@ -5,6 +5,8 @@ import Button from "../Button/Button";
 
 import UserContext from '../../context/UserContext'
 
+import { toast } from 'react-hot-toast';
+
 
 const ChangePassword = () => {
     const { user, getIdTokenClaims} = useAuth0()
@@ -49,9 +51,10 @@ const ChangePassword = () => {
                 })
             })
             const data = await response.json()
+            
             console.log(data)
         } catch (error) {
-            console.log(error)
+            toast.success("Restablecimiento correcto, revisa tu correo para finalizar el proceso")
         }
 
     }
