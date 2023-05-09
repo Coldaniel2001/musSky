@@ -16,7 +16,7 @@ const PlayListIndividual = () => {
     const { userLogged } = useContext(UserContext)
 
     const musicLikesToTracks = dataSong.filter((listToLike) => {
-        return listToLike.likedBy.toString() === userLogged._id
+        return listToLike.likedBy.includes(userLogged._id)
     })
 
     return (

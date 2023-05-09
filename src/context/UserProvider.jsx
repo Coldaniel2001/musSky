@@ -122,27 +122,23 @@ const UserProvider = ({ children }) => {
       console.log(data)
     
     }
-    
-
-
-
-
-  return (
-    <UserContext.Provider
-      value={{
-        isLoggin,
-        setIsLoggin,
-        inputChange,
-        setInputChange,
-        userRegister,
-        userChangeInformation,
-        setUserLogged,
-        userLogged
-      }}
-    >
-      {children}
-    </UserContext.Provider>
-  );
+  
+    return (
+      <UserContext.Provider
+        value={{
+          isLoggin,
+          setIsLoggin,
+          inputChange,
+          setInputChange,
+          userRegister,
+          userChangeInformation,
+          setUserLogged,
+          userLogged
+        }}
+      >
+        {children}
+      </UserContext.Provider>
+    );
 };
 
 export default UserProvider;
