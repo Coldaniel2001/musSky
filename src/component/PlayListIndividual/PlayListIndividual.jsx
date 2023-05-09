@@ -35,7 +35,6 @@ const PlayListIndividual = () => {
 
                         {
                             musicLikesToTracks.map((song) => {
-
                                 return (
 
                                         <div key={song._id} className='relative flex text-white items-center mb-3 mx-10 '>
