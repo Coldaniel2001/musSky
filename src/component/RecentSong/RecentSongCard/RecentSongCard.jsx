@@ -29,7 +29,7 @@ function RecentSongCard(song) {
   return (
     <>
    <div
-              key={song._id}
+              key={song.id}
               className="min-w-[25rem] flex justify-center mb-4 relative"
 
             >
