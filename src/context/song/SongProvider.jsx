@@ -43,7 +43,6 @@ const SongProvider = ({ children }) => {
     const musicTracks = async () => {
       const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/tracks`);
       const data = await response.json();
-      console.log(data)
       setDataSong(data.allSong)
     }
     musicTracks()

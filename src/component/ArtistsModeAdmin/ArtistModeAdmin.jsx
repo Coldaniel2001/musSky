@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react'
 import UserContext from '../../context/UserContext'
+import { Link } from 'react-router-dom'
 
 const ArtistModeAdmin = () => {
-    const [hovered, setHovered] = useState(false);
+
     const {dataUsers} = useContext(UserContext)
 
   return (
@@ -10,22 +11,12 @@ const ArtistModeAdmin = () => {
             {
                 dataUsers.map((user) => {
                 return (
-                // !hovered ?
-                <div className='h-[14vh] flex flex-col items-center mt-[5vh] '>
-                    <img className='rounded-full cursor-pointer w-[160px] h-[160px] border-2 hover:border-4 hover:border-green-400 ' onMouseEnter={() => setHovered(true)}
-                    onMouseLeave={() => setHovered(false)} src={user.picture} alt="" />
-                    <p className='text-white mt-2 font-bold text-xl'>{user.nickname}</p>
-                </div> 
-                // <div className=' h-[14vh] flex flex-col items-center mt-[5vh]   '>
-                //     <div className='relative cursor-pointer' onMouseEnter={() => setHovered(true)}
-                //         onMouseLeave={() => setHovered(false)} >
-                //         <img className='rounded-full  opacity-50 border-4 border-white-900 w-[160px] h-[160px]  ' src={user.picture} alt="" />
-                //         <div className='absolute inset-0 flex items-center justify-center'>
-                //             <p className='text-gray-400 text-2xl font-bold'>Ver mas</p>
-                //         </div>
-                //     </div>
-                // <p className='text-white mt-2 font-bold text-xl'>{user.nickname}</p>
-            // </div> )
+                <Link to={`/admin/${user._id}`} >
+                    <div className='h-[14vh] flex flex-col items-center mt-[5vh]' >
+                        <img className='rounded-full cursor-pointer w-[160px] h-[160px] border-2 hover:border-4 hover:border-green-400 ' src={user.picture} alt="" />
+                        <p className='text-white mt-2 font-bold text-xl'>{user.nickname}</p>
+                    </div> 
+                </Link>
                 )
 
                    })

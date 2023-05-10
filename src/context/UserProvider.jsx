@@ -68,31 +68,31 @@ const UserProvider = ({ children }) => {
     };
     createUsers();
 
-    const getUser = async () => {
-      try {
-        if (user) {
-          const token = await getIdTokenClaims();
-          const response = await fetch(
-            `${process.env.REACT_APP_SERVER_URL}/users/${user.email}`,
-            {
-              headers: {
-                Authorization: "Bearer " + token.__raw,
-                "Content-Type": "application/json",
-              },
-            }
-          );
-          const data = await response.json();
-          console.log(data);
-          if (data.status === "OK") {
-            setUserLogged(data.user);
-          }
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    // const getUser = async () => {
+    //   try {
+    //     if (user) {
+    //       const token = await getIdTokenClaims();
+    //       const response = await fetch(
+    //         `${process.env.REACT_APP_SERVER_URL}/users/${user.email}`,
+    //         {
+    //           headers: {
+    //             Authorization: "Bearer " + token.__raw,
+    //             "Content-Type": "application/json",
+    //           },
+    //         }
+    //       );
+    //       const data = await response.json();
+    //       console.log(data);
+    //       if (data.status === "OK") {
+    //         setUserLogged(data.user);
+    //       }
+    //     }
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };
 
-    getUser();
+    // getUser();
   }, [user, getIdTokenClaims]);
 
   if (isLoading) {

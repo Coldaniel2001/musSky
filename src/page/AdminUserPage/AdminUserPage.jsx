@@ -5,29 +5,29 @@ import NavBarAdmin from '../../component/NavBarAdmin/NavBarAdmin'
 
 export const AdminUserPage = () => {
 const {userId} = useParams()
-const [user, setUser] = useState(null);
+const [infoUser, setInfoUser] = useState(null);
 
 useEffect(() => {
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:4002/users/${userId}`, {
-        method: 'GET',
-      });
+      const response = await fetch(`http://localhost:4002/users/${userId}`)
       const data = await response.json();
-      setUser(data);
+      console.log(data)
+      setInfoUser(data.user);
     } catch (error) {
       console.error(error);
     }
+console.log(infoUser)
   }
   fetchData();
-}, [userId]);
+}, []);
 
 
 //fetch al back usando el userId de los params
   return (
     <div className='bg-gradient-to-tr from-black via-black to-[#7339E5] w-full min-h-screen'>
       <NavBarAdmin/>
-      <ArtistInformation /> 
+      <ArtistInformation infoUser={infoUser} setInfoUser={setInfoUser} /> 
     </div>
   )
 }

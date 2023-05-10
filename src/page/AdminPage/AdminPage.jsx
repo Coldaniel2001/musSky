@@ -18,7 +18,7 @@ import NavBarAdmin from '../../component/NavBarAdmin/NavBarAdmin'
 
 const AdminPage = () => {
 
-  const [showArtist, setshowArtist] = useState(false)
+  const [showArtist, setshowArtist] = useState(true)
 
 
 
