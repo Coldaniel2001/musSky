@@ -16,6 +16,7 @@ import Skeleton from '../Skeleton/Skeleton'
 import AdminPage from '../page/AdminPage/AdminPage'
 import Mysongs from '../page/MySongs/Mysongs'
 import { AdminUserPage } from '../page/AdminUserPage/AdminUserPage'
+import MusicPlayerPhone from '../component/MusicPlayerPhone/MusicPlayerPhone'
 import RealPlaylistPage from '../page/RealPlaylistPage/RealPlaylistPage'
 
 // import PrivateRouter from './PrivateRouter'
@@ -74,11 +75,18 @@ const RoutesPath = () => {
                         <Route path='/home' element={
                             <Suspense fallback={<Skeleton/>}>
                                 <HomePage />
+                                <MusicPlayerPhone/>
                             </Suspense>
                         } />
                         <Route path='/profile' element={
                             <Suspense fallback={<Skeleton/>}>
                                 <ProfilePage />
+                                <MusicPlayerPhone/>
+                            </Suspense>
+                        } />
+                        <Route path='/real-playlist' element={
+                            <Suspense fallback={<Skeleton/>}>
+                                <RealPlaylistPage />
                             </Suspense>
                         } />
                         <Route path='/real-playlist' element={
@@ -89,11 +97,13 @@ const RoutesPath = () => {
                         <Route path='/individual-playlist' element={
                             <Suspense fallback={<Skeleton/>}>
                                 <PlayListPage />
+                                <MusicPlayerPhone/>
                             </Suspense>
                         } />
                         <Route path='/genders' element={
                             <Suspense fallback={<Skeleton/>}>
                                 <GendersPage />
+                                <MusicPlayerPhone/>
                             </Suspense>
                         } />
                         <Route path='/*' element={<Navigate to={'/home'} />} />

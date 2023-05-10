@@ -13,7 +13,7 @@ import UserContext from '../../context/UserContext'
 
 const PlayListIndividual = () => {
 
-    const { dataSong, handleLikes } = useContext(SongContext)
+    const { dataSong, handleLikes, handleOpenSong } = useContext(SongContext)
     const { userLogged } = useContext(UserContext)
 
     const musicLikesToTracks = dataSong.filter((listToLike) => {
@@ -48,8 +48,8 @@ const PlayListIndividual = () => {
                                             <img className='w-[3%]' src={song.picture} alt="images-song" />
                                             <p className='font-semibold text-xl w-[42%] pl-10 ' >{song.nameSong}</p>
                                             <p className='w-[42%] text-xl font-thin'>{song.nameArtist}</p>
-                                            <img className='w-[3%] cursor-pointer' src={playWhite} alt="" />
-                                            <img onClick={()=>handleLikes(song)} className='w-[2%] mx-5 cursor-pointer' src={purpleHeart} alt="" />
+                                            <img onClick={() => handleOpenSong(song)} className='w-[3%] cursor-pointer' src={playWhite} alt="" />
+                                            <img onClick={() => handleLikes(song)} className='w-[2%] mx-5 cursor-pointer' src={purpleHeart} alt="" />
                                             <img className='w-[3%] mr-5 cursor-pointer' src={addList} alt="" />
                                             <img className='w-[2%] cursor-pointer' src={seeMore} alt="" />
                                         </div>

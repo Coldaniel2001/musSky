@@ -31,7 +31,6 @@ const MusicPlayerPhone = () => {
 	}
 
 
-
 	return (
 		<>
 			<div className=' bg-[#1d1d1d] fixed bottom-0 w-full h-[12vh] sm:flex items-center'>
@@ -47,21 +46,23 @@ const MusicPlayerPhone = () => {
 					</div>
 
 					<div className=' sm:mr-0 md:w-[68%] lg:w-5/6 bg-[#282828]  '>
-						<AudioPlayer src={onePlayListSong.song} layout="stacked-reverse"
-							autoPlay={false}
-							customIcons={{
-								// play: <img className="white" src={play} alt="play" />,
-								// pause: <img className="w-7" src={pause} alt="pause" />,
-								// next: <img className="w-7" src={next} alt="next" />,
-								// previous: <img className="w-7" src={previous} alt="play" />,
-								// forward: <img className="my-forward-icon" src={previous} alt="play" />,
-								// rewind: <img className="my-forward-icon" src={previous} alt="play" />,
-							}}
-
-							showSkipControls={true}
-							onClickNext={(e) => handleNext()}
-							onClickPrevious={(e) => handlePrevious()}
-						/>
+						{Object.entries(onePlayListSong).length!==0 &&
+							<AudioPlayer src={onePlayListSong.song} layout="stacked-reverse"
+								autoPlay={false}
+								customIcons={{
+									// play: <img className="white" src={play} alt="play" />,
+									// pause: <img className="w-7" src={pause} alt="pause" />,
+									// next: <img className="w-7" src={next} alt="next" />,
+									// previous: <img className="w-7" src={previous} alt="play" />,
+									// forward: <img className="my-forward-icon" src={previous} alt="play" />,
+									// rewind: <img className="my-forward-icon" src={previous} alt="play" />,
+								}}
+								
+								showSkipControls={true}
+								onClickNext={(e) => handleNext()}
+								onClickPrevious={(e) => handlePrevious()}
+							/>
+						}
 					</div>
 				</div>
 			</div>

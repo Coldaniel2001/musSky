@@ -16,7 +16,7 @@ const SongProvider = ({ children }) => {
   const [onePlayListSong, setOnePlayListSong] = useState({})
   const [recentSong, setRecentSong] = useState({})
 
-  const { userLogged } = useContext(UserContext)
+  const { userLogged, dataUsers } = useContext(UserContext)
 
   const { getIdTokenClaims } = useAuth0()
 
@@ -57,6 +57,10 @@ const SongProvider = ({ children }) => {
     setOnePlayListSong(song)
   }
 
+  const filterArtist = dataUsers.filter((artist) => {
+    return artist.rol === "artist"
+  })
+
 
   useEffect(() => {
     const musicTracks = async () => {
@@ -65,10 +69,8 @@ const SongProvider = ({ children }) => {
       setDataSong(data.allSong)
     }
     musicTracks()
+
   }, [setDataSong])
-
-
-
 
 
 

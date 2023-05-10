@@ -37,7 +37,6 @@ const HomePage = () => {
         :
         <ModalSearcMusicForPlayList   />
       } */}
-      <MusicPlayerPhone />
     </div>
     
   )
