@@ -19,8 +19,8 @@ function ProfileImg() {
     const data = new FormData();
     data.append("file", e.target.files[0]);
     data.append("userId", userLogged._id); 
+    
     try {
-      console.log("hola")
         const res = await editImgFetch(data);
         console.log(res)
         setUserLogged({ ...userLogged, picture: res.data.img }); 
@@ -33,7 +33,7 @@ function ProfileImg() {
   return (
     <div>
       <label>
-        {userLogged && userLogged.picture ? 
+        {userLogged  ? 
         <img className='w-[10rem] cursor-pointer rounded-full' src={userLogged.picture} alt="uploaded" />
         :
         <img className='w-[10rem] cursor-pointer' src={addImageProfile} alt="add-profile" />

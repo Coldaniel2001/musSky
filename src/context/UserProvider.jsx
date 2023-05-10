@@ -30,7 +30,7 @@ const UserProvider = ({ children }) => {
   });
 
   const { isLoading, user, getIdTokenClaims } = useAuth0();
-  const [userLogged, setUserLogged] = useState(null);
+  const [userLogged, setUserLogged] = useState("");
 
   useEffect(() => {
     const createUsers = async () => {

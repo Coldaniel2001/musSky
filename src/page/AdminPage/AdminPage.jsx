@@ -16,7 +16,7 @@ import { useState } from 'react'
 
 const AdminPage = () => {
 
-  const [showArtist, setshowArtist] = useState(true)
+  const [showArtist, setshowArtist] = useState(false)
 
 
 
@@ -30,7 +30,7 @@ const AdminPage = () => {
           <div className="absolute top-0 left-0 mt-2 ml-3">
             <i className="fas fa-search text-gray-400"></i>
           </div>
-		</div>
+		    </div>
         <div className=' text-white flex gap-20 justify-center mt-10 mb-5'>
             <div className='flex items-center font-bold text-xl gap-3'>
                 <img className='w-10 h-8' src={artist} alt="" />

@@ -7,7 +7,10 @@ console.log(userId)
 //fetch al back usando el userId de los params
 
 
+
+
   return (
-    <div>AdminUserPage</div>
+    
+<p>hola</p>
   )
 }
