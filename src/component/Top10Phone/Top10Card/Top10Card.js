@@ -5,7 +5,7 @@ import Top10ModalDetail from '../Top10ModalDetail/Top10ModalDetail'
 
 function Top10Card(song) {
     const [toogleModal,setToogleModal]=useState(false)
-console.log(song.imageUrl)
+
     const handleToogle=()=>{
         setToogleModal(!toogleModal)
         console.log(toogleModal)

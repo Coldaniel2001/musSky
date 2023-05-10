@@ -12,7 +12,7 @@ import SongContext from "../../../context/song/SongContext";
 import DetailModal from "../../../Detail Modal/DetailModal";
 
 
-function RecentSongCard(song) {
+function RecentSongCard({song}) {
     const { userLogged } = useContext(UserContext);
     const {  handleLikes } = useContext(SongContext);
   const[toogleModal,setToogleModal] = useState(true)
@@ -29,7 +29,7 @@ function RecentSongCard(song) {
   return (
     <>
    <div
-              key={song.id}
+              key={song._id}
               className="min-w-[25rem] flex justify-center mb-4 relative"
 
             >

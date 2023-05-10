@@ -29,7 +29,7 @@ const RecentSong = () => {
       {dataSong &&
         dataSong.map((song) => {
           return (
-            <RecentSongCard key={song.id} song={song}/>
+            <RecentSongCard key={song._id} song={song}/>
           );
         })}
     </div>
