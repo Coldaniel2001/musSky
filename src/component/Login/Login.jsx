@@ -14,7 +14,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const { setIsLoggin, loginUser } = useContext(UserContext);
-
+console.log(loginUser)
   const navigate = useNavigate();
 
   const handleEmail = ({ target }) => {
