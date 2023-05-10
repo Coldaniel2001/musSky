@@ -38,6 +38,12 @@ const PlayListPage = lazy(() => {
     });
 });
 
+// const RealPlaylistPage = lazy(() => {
+//     return new Promise((resolve) => {
+//         setTimeout(() => resolve(import('../page/RealPlaylistPage/RealPlaylistPage')), 2000);
+//     });
+// });
+
 const ProfilePage = lazy(() => {
     return new Promise((resolve) => {
         setTimeout(() => resolve(import('../page/ProfilePage/ProfilePage')), 2000);

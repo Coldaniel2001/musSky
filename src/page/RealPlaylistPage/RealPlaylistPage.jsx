@@ -3,6 +3,7 @@ import SidebarLeft from '../../component/SidebarLeft/SidebarLeft'
 import SidebarRight from '../../component/SidebarRight/SidebarRight'
 import FooterNav from '../../component/FooterNav/FooterNav'
 import RealPlaylist from '../../component/RealPlaylist/RealPlaylist'
+import Search from '../../component/Search/Search'
 
 const RealPlaylistPage = () => {
   return (
@@ -11,6 +12,7 @@ const RealPlaylistPage = () => {
                 <SidebarLeft />
             </div>
             <div className='w-full pt-10 sm:pt-10 lg:pt-0 lg:w-[85%] xl:w-[75%] 2xl:w-[67%]'>
+                <Search />
                 <RealPlaylist />
             </div>
             {/* <div className='hidden w-full lg:hidden xl:hidden 2xl:block 2xl:w-[15%]'>
