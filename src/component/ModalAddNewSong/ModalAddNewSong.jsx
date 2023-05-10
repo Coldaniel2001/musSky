@@ -1,5 +1,6 @@
 import React, { useContext, useRef, useState } from 'react'
 import updateImgSong from '../../assets/images/updateImgSong.png'
+import greenCheck from '../../assets/images/icons/greenCheck.png'
 
 import UserContext from '../../context/UserContext';
 import SongContext from '../../context/song/SongContext';
@@ -10,28 +11,24 @@ const ModalAddNewSong = ({setUploadSong}) => {
     const {userLogged} = useContext(UserContext)
     const {dataSong, setDataSong} = useContext(SongContext)
     const formattedDate = `${day}/${month}/${year}`;
+    const [previewImg, setPreviewImg] = useState(null);
  
+    const [songUpload, setSongUpload] = useState(false);
 
-    const [uploadNewSong,setUploadNewSong] = useState({
-        nameArtist: userLogged.email,
-        nameSong: "",
-        picture: "",
-        song: "",
-        genre: "Pop español",
-        update_at: formattedDate,
-        likedBy: []
+    const handlePreviewImg = (e) =>{
+    const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+        setPreviewImg(reader.result);
+        };
+    }
 
-      })
+    const uploadSong = () => {
+        setSongUpload(true)
+    }
+
     
-
-    // const handleChangeFile = (e) => {
-    //     setDataNewSong(dataNewSong.append("file", e.target.files[0]))  
-    // }
-
-    // const handleChangeFormData = (e) => {   
-    //     setUploadNewSong({...uploadNewSong, [e.target.name]: e.target.value})
-    // }  
-
     const form = useRef(null)
 
     const handleSubmit = (e) => {
@@ -54,9 +51,9 @@ const ModalAddNewSong = ({setUploadSong}) => {
         console.log(newData)
 
         if(newData.ok) {
-            toast.success(`Enhorabuena. Tu canción "${uploadNewSong.nameSong}" ha sido subida con éxito`)
+            toast.success(`Enhorabuena. Tu canción ha sido subida con éxito`)
             setUploadSong(false)
-        } else{toast.error("Por favor, rellena todos los campos correctamente")}
+        } else{toast.error("Ha surgido un error. Por favor, intentelo de nuevo")}
     }   
 
 
@@ -70,10 +67,10 @@ const ModalAddNewSong = ({setUploadSong}) => {
         <form onSubmit={handleSubmit} ref={form} enctype="multipart/form-data">
         <div className='w-full flex justify-center mt-[3vh]' >
             <label>
-                <img className='w-[10rem] cursor-pointer rounded-full '  src={ updateImgSong } alt="UP" />
+                <img className='w-[10rem] cursor-pointer rounded-full border-2 h-[10rem] '  src={ previewImg ? previewImg : updateImgSong } alt="UP" />
                 <input type="file" className='hidden' 
                 required
-                // onChange={handleChangeFile}
+                onChange={handlePreviewImg}
                 name="picture"
                 // value={uploadNewSong.picture} 
                 />
@@ -110,21 +107,30 @@ const ModalAddNewSong = ({setUploadSong}) => {
                 </select>
             </div>
             <label>
-                <div className='bg-[#7C8BBF] py-2 px-4 rounded cursor-pointer mt-6 w-[150px] flex justify-center' 
-                >
-                <input type="file" className='hidden' 
-                    name="song"
-                    // value={uploadNewSong.song}
-                    // onChange={handleChangeFile}
-                    />
-                    <p>Subir canción</p>
-                </div>
+                
+                    
+                        <div className='bg-[#7C8BBF] py-2 px-4 rounded cursor-pointer mt-6 w-[150px] flex justify-center' 
+                        >
+                        <input type="file" className='hidden' 
+                            name="song"
+                            // value={uploadNewSong.song}
+                            onChange={uploadSong}
+                            />
+                            <p>Subir canción</p>
+                        </div> 
+                {  songUpload &&
+                        <div className='flex mt-5 w-full justify-center gap-2 items-center'>
+                                <img className='w-[30px] h-[30px]' src={greenCheck} alt="" />
+                                <p>Canción añadida con éxito</p>
+                            </div>
+
+                }
             </label>
             <div className='mt-20 flex justify-center gap-3'>
                 <div className='bg-transparent border py-2 px-4 rounded cursor-pointer  w-[130px] flex justify-center hover:bg-[#f34545]' onClick={()=> setUploadSong(false)}>
                     <p >Cancelar</p>
                 </div>
-                <button className='bg-[#7339E5] px-4 py-2 rounded border hover:bg-[#2ca72c]' >Subir canción</button>
+                <button className='bg-[#7339E5] px-4 py-2 rounded border hover:bg-[#2ca72c]' >Añadir nueva canción</button>
             </div>
         </form>
 

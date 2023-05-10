@@ -27,12 +27,13 @@ const InfoProfile = () => {
   // const {  userChangeInformation } = useContext(UserContext)
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    if (e && e.preventDefault) { e.preventDefault(); }
     setchangeInformation(false);
   };
 
   const handleChangeInput = (e) => {
     setInfoUser({ ...infoUser, [e.target.name]: e.target.value });
+
   };
 
   const handlesubmitOff = (e) => {
@@ -121,23 +122,22 @@ const InfoProfile = () => {
             </div>
           </div>
           <div className="mt-12 flex justify-end 2xl:flex 2xl:justify-end 2xl:mb-4">
-            {changeInformation ? (
+            {changeInformation ? 
               <Button
-                handleSubmit={handleSubmit}
-                type="submit"
+                handleSubmit={(e)=>handleSubmit(e)}
                 value={"Cambiar"}
                 classButton={
                   "bg-[#7C8BBF] mb-10 sm:mb-0 sm:mx-10 h-[2rem] sm:mx-0 px-3 rounded"
                 }
               />
-            ) : (
+             : 
               <button
                 className="bg-[#53b55c] sm:mx-10 h-[2rem] mt-4 mb-6 sm:mt-0 sm:mb-0  px-3 rounded"
                 onClick={(e) => handlesubmitOff(e)}
               >
                 Guardar
               </button>
-            )}
+            }
           </div>
         </form>
       </div>

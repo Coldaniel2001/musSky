@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 import arrowDown from '../../assets/images/icons/arrow-down.png'
 
 import { useAuth0 } from "@auth0/auth0-react"
+import UserContext from '../../context/UserContext';
 
 
 const Search = () => {
 	const [showModal, setShowModal] = useState(false);
+	const {userLogged} = useContext(UserContext)
 
 	const toggleModal = () => {
 
@@ -28,10 +30,10 @@ const Search = () => {
 				</div>
 				<div className='flex flex-col justify-evenly justify-items-end'>
 
-					{user?<div className="bg-[#212121] w-3/4 mx-auto mt-8 flex rounded-lg mr-10 2xl:hidden truncate" onClick={() => toggleModal(true)}>
-						<img className='w-10 h-10 rounded-full my-2 ml-3' src={user.picture} alt="img-profile" />
+					{userLogged?<div className="bg-[#212121] w-3/4 mx-auto mt-8 flex rounded-lg mr-10 2xl:hidden truncate" onClick={() => toggleModal(true)}>
+						<img className='w-10 h-10 rounded-full my-2 ml-3' src={userLogged?.picture} alt="img-profile" />
 						<div className='w-full flex justify-between mr-3'>
-							<p className='text-white my-auto ml-3'>{user.nickname}</p>
+							<p className='text-white my-auto ml-3'>{userLogged?.nickname}</p>
 							<img className='w-3 h-2 flex justify-end my-auto' src={arrowDown} alt="arrow" />
 						</div>
 						{
