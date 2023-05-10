@@ -48,11 +48,7 @@ const SongProvider = ({ children }) => {
       }
     }
   }
-  const likesByUser = (song) => {
-    if (userLogged) {
-      return song.likedBy?.includes(userLogged._id)
-    }
-  };
+
   const handleOpenSong = (song) => {
     setOnePlayListSong(song)
   }
@@ -78,7 +74,15 @@ const SongProvider = ({ children }) => {
 
 
   return (
-    <SongContext.Provider value={{ dataSong, setDataSong, handleLikes: handleLikes,likesByUser }}>
+    <SongContext.Provider value={{
+      dataSong, setDataSong,
+      allPlaylistSong, setAllPlaylistSong,
+      onePlayListSong, setOnePlayListSong,
+      recentSong, setRecentSong,
+      handleLikes: handleLikes,
+      likesByUser: likesByUser,
+      handleOpenSong: handleOpenSong
+    }}>
       {children}
     </SongContext.Provider>
   )
