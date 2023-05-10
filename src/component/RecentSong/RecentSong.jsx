@@ -15,7 +15,7 @@ const RecentSong = () => {
 
   const likesByUser = (song) => {
     if (userLogged) {
-      return song.likedBy.includes(userLogged._id) 
+      return song.likedBy?.includes(userLogged._id) 
     }
   };
 

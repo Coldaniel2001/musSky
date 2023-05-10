@@ -31,7 +31,7 @@ const SidebarLeft = () => {
 				</div>
 				</NavLink>
 				<NavLink to={"/real-playlist"} className={({ isActive }) => isActive ? 'grid border-l-[0.5rem] border-mainPurple mt-[2vh]' : "grid border-l-[0.5rem] border-transparent mt-[2vh]"}>
-				<div className='xl:grid grid-cols-8 lg:flex lg:justify-center lg:pl-0  items-center xl:pl-6 h-[5vh]  border-l-[0.5rem] border-transparent mt-[2vh]'>
+				<div className='xl:grid grid-cols-8 lg:flex  lg:justify-center lg:pl-0 items-center   xl:pl-6 h-[5vh] '>
 					<img className='lg:w-10 xl:w-12 col-span-2' src={iconPlayList} alt="home icon" />
 					<p className='lg:hidden xl:grid xl:text-[1.5rem] col-span-4 font-semibold'>PlayList</p>
 				</div>
