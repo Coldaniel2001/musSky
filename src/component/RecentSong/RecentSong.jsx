@@ -12,12 +12,6 @@ const RecentSong = () => {
 
   const { dataSong, handleLikes, likesByUser, handleOpenSong } = useContext(SongContext);
 
-  // const likesByUser = (song) => {
-  //   if (userLogged) {
-  //     return song.likedBy?.includes(userLogged._id) 
-  //   }
-  // };
-
   return (
     <div  className="flex overflow-x-scroll scrollbar-hide w-full whitespace-no-wrap 2xl:grid 2xl:grid-cols-2">
       {dataSong &&
