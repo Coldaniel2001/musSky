@@ -6,21 +6,20 @@ import redHeart from "../../assets/images/icons/red-heart.png";
 import UserContext from "../../context/UserContext";
 import SongContext from "../../context/song/SongContext";
 
+
 // import { AiOutlineHeart } from "react-icons/ai";
 // import { AiTwotoneHeart } from "react-icons/ai";
 
 const RecentSong = () => {
   const { userLogged } = useContext(UserContext);
-  const { dataSong, handleLikes } = useContext(SongContext);
+  const { dataSong, handleLikes, setOnePlayListSong, likesByUser, handleOpenSong } = useContext(SongContext);
+  // const { oneSong, setOneSong } = useContext(MusicPlayerContext);
+  
 
-  const likesByUser = (song) => {
-    if (userLogged) {
-      return song.likedBy.includes(userLogged._id) 
-    }
-  };
+
 
   return (
-    <div className="flex overflow-x-scroll scrollbar-hide w-full whitespace-no-wrap 2xl:grid 2xl:grid-cols-2">
+    <div  className="flex overflow-x-scroll scrollbar-hide w-full whitespace-no-wrap 2xl:grid 2xl:grid-cols-2">
       {dataSong &&
         dataSong.map((song) => {
           return (
@@ -31,6 +30,7 @@ const RecentSong = () => {
               <div className=" bg-[#7239e546] grid grid-cols-8 w-[90%] rounded">
                 <img
                   className="col-span-2 h-[5rem] rounded-l opacity-90"
+                  onClick={()=>{handleOpenSong(song)}}
                   src={song.picture}
                   alt="first artist"
                 />

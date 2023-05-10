@@ -4,10 +4,18 @@ import SongContext from './SongContext'
 import UserContext from '../UserContext'
 
 import { useAuth0 } from '@auth0/auth0-react'
+import { toast } from 'react-hot-toast'
+
+
 
 const SongProvider = ({ children }) => {
 
   const [dataSong, setDataSong] = useState([])
+
+  const [allPlaylistSong, setAllPlaylistSong] = useState([])
+  const [onePlayListSong, setOnePlayListSong] = useState({})
+  const [recentSong, setRecentSong] = useState({})
+
   const { userLogged } = useContext(UserContext)
 
   const { getIdTokenClaims } = useAuth0()
@@ -15,7 +23,7 @@ const SongProvider = ({ children }) => {
   const handleLikes = async (liked) => {
 
     const token = await getIdTokenClaims()
-    const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/tracks/addToLike${userLogged&&userLogged._id}`, {
+    const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/tracks/addToLike${userLogged && userLogged._id}`, {
       method: "PUT",
       headers: {
         'Content-Type': 'application/json',
@@ -35,15 +43,25 @@ const SongProvider = ({ children }) => {
 
     } catch (error) {
       console.log(error)
-      console.log(data)
+      if (data.error === "InvalidTokenError: Invalid Compact JWS") {
+        toast.error("Tienes que iniciar sesión para poder añadir me gusta")
+      }
     }
   }
+  const likesByUser = (song) => {
+    if (userLogged) {
+      return song.likedBy.includes(userLogged._id)
+    }
+  };
+  const handleOpenSong = (song) => {
+    setOnePlayListSong(song)
+  }
+
 
   useEffect(() => {
     const musicTracks = async () => {
       const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/tracks`);
       const data = await response.json();
-      console.log(data)
       setDataSong(data.allSong)
     }
     musicTracks()
@@ -55,7 +73,15 @@ const SongProvider = ({ children }) => {
 
 
   return (
-    <SongContext.Provider value={{ dataSong, setDataSong, handleLikes: handleLikes }}>
+    <SongContext.Provider value={{
+      dataSong, setDataSong,
+      allPlaylistSong, setAllPlaylistSong,
+      onePlayListSong, setOnePlayListSong,
+      recentSong, setRecentSong,
+      handleLikes: handleLikes,
+      likesByUser: likesByUser,
+      handleOpenSong: handleOpenSong
+    }}>
       {children}
     </SongContext.Provider>
   )
