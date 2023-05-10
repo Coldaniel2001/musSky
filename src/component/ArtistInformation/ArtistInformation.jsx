@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
-import shakira from '../../assets/images/shakira.jpg'
+import React, { useContext, useState } from 'react'
 
 import rubish from '../../assets/images/icons/rubish.png'
 import edit from '../../assets/images/icons/edit.png'
@@ -10,7 +9,6 @@ import SongContext from '../../context/song/SongContext'
 
 
 const ArtistInformation = ({ infoUser}) => {
-    const MusicUrl = "http://localhost:3004/tracks"
     const [editArtist, setEditArtist] = useState(false)
     const [editSong, setEditSong] = useState(false)
     const {dataSong} = useContext(SongContext)

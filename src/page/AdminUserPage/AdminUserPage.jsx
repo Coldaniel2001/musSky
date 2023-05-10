@@ -10,7 +10,7 @@ const [infoUser, setInfoUser] = useState(null);
 useEffect(() => {
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:4002/users/${userId}`)
+      const response = await fetch(`http://localhost:4002/users/typeuser/${userId}`)
       const data = await response.json();
       console.log(data)
       setInfoUser(data.user);
