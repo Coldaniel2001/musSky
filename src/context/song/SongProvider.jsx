@@ -57,9 +57,7 @@ const SongProvider = ({ children }) => {
     setOnePlayListSong(song)
   }
 
-  const filterArtist = dataUsers.filter((artist) => {
-    return artist.rol === "artist"
-  })
+
 
 
   useEffect(() => {
