@@ -12,12 +12,12 @@ import SongContext from "../../../context/song/SongContext";
 import DetailModal from "../../../Detail Modal/DetailModal";
 
 
-function RecentSongCard(song) {
+function RecentSongCard({song}) {
   console.log(song)
     const { userLogged } = useContext(UserContext);
     const {  handleLikes } = useContext(SongContext);
   const[toogleModal,setToogleModal] = useState(true)
-  const { dataSong, handleOpenSong } = useContext(SongContext);
+  const {  handleOpenSong } = useContext(SongContext);
 
   const handleModal=()=>{
         setToogleModal(!toogleModal)
