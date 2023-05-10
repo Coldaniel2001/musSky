@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
-import MusicPlayerProvider from '../context/MusicPlayer/MusicPlayerProvider'
+
 import UserProvider from '../context/UserProvider'
 import SongProvider from '../context/song/SongProvider'
 
@@ -56,7 +56,6 @@ const RoutesPath = () => {
     return (
         <UserProvider>
             <SongProvider>
-                <MusicPlayerProvider>
 
                     <BrowserRouter>
                         <Routes>
@@ -92,7 +91,6 @@ const RoutesPath = () => {
                     </Routes>
                 </BrowserRouter>
 
-            </MusicPlayerProvider>
             </SongProvider>
         </UserProvider>
     )

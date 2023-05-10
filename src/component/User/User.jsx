@@ -17,7 +17,7 @@ const User = () => {
   const showModal = () => {
     setModal(!modal)
   }
-  const { isLoading, user, loginWithRedirect } = useAuth0()
+  const { isLoading, loginWithRedirect } = useAuth0()
   if (isLoading) {
     return <span>...Loading</span>
   }
@@ -30,7 +30,7 @@ const User = () => {
           <div className="bg-[#212121] w-3/4 mx-auto mt-8 flex rounded-lg cursor-pointer " onClick={showModal} >
             <img className="w-10 h-10 rounded-full my-2 ml-3" alt="" src={userLogged.picture} />
             <div className="w-full flex justify-between mr-3 truncate ">
-              <p className="text-white my-auto ml-3 ">{user.nickname}</p>
+              <p className="text-white my-auto ml-3 ">{userLogged.nickname}</p>
               <img
                 className="w-3 h-2 flex justify-end my-auto"
                 src={arrowDown}
