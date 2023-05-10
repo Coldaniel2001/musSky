@@ -16,6 +16,7 @@ import Skeleton from '../Skeleton/Skeleton'
 import AdminPage from '../page/AdminPage/AdminPage'
 import Mysongs from '../page/MySongs/Mysongs'
 import { AdminUserPage } from '../page/AdminUserPage/AdminUserPage'
+import FinalRegister from '../FinalRegister/FinalRegister'
 
 // import PrivateRouter from './PrivateRouter'
 
@@ -89,6 +90,7 @@ const RoutesPath = () => {
                         <Route path='/admin' element={<AdminPage />} />
                         <Route path='/admin/:userId' element={<AdminUserPage />} />
                         <Route path='/mis-canciones' element={<Mysongs />} /> 
+                        <Route path='/final-register' element={<FinalRegister />} />
                     </Routes>
                 </BrowserRouter>
 
