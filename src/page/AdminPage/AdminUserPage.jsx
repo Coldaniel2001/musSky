@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ArtistInformation from '../../component/ArtistInformation/ArtistInformation'
 import NavBarAdmin from '../../component/NavBarAdmin/NavBarAdmin'
@@ -6,6 +6,8 @@ import NavBarAdmin from '../../component/NavBarAdmin/NavBarAdmin'
 export const AdminUserPage = () => {
 const {userId} = useParams()
 const [infoUser, setInfoUser] = useState(null);
+
+
 
 useEffect(() => {
   const fetchData = async () => {

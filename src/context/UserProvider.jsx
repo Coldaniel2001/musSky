@@ -9,6 +9,8 @@ const UserProvider = ({ children }) => {
   const allUsers = "http://localhost:4002/users";
   const [dataUsers, setDataUsers] = useState([]);
 
+  const [artist, setArtist] = useState(true)
+
   useEffect(() => {
     const musicTracks = async () => {
       const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users`);
@@ -40,6 +42,7 @@ const UserProvider = ({ children }) => {
           const infoUsers = {
             name: user.name,
             nickname: user.nickname,
+            surname: "en proceso",
             email: user.email,
             picture: user.picture,
             updated_at: user.updated_at,
@@ -113,6 +116,20 @@ const UserProvider = ({ children }) => {
     }
   };
 
+  const updateUser = async (userId, newValue) => {
+    console.log(userId, newValue)
+    
+    const res = await fetch("http://localhost:4002/users/update-user", {
+        method: "PATCH", 
+        headers: {
+        "Content-Type": "application/json",
+      },
+        body: JSON.stringify({userId, newValue})
+    })
+    const data = await res.json()
+    return data
+}
+
   const userChangeInformation = async (userChanged) => {
     console.log(userChanged);
 
@@ -148,6 +165,10 @@ const UserProvider = ({ children }) => {
         userLogged,
         dataUsers,
         setDataUsers,
+        updateUser,
+        artist, 
+        setArtist
+        
       }}
     >
       {children}

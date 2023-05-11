@@ -33,6 +33,7 @@ const MusicPlayerPhone = () => {
 
 	return (
 		<>
+		{Object.entries(onePlayListSong).length!==0 &&
 			<div className=' bg-[#1d1d1d] fixed bottom-0 w-full h-[12vh] sm:flex items-center'>
 				<div className='sm:flex items-center w-full flex justify-center  '>
 					<div className='w-[100%] sm:w-[40%] xl:hidden sm:flex justify-center '>
@@ -46,7 +47,7 @@ const MusicPlayerPhone = () => {
 					</div>
 
 					<div className=' sm:mr-0 md:w-[68%] lg:w-5/6 bg-[#282828]  '>
-						{Object.entries(onePlayListSong).length!==0 &&
+						
 							<AudioPlayer src={onePlayListSong.song} layout="stacked-reverse"
 								autoPlay={true}
 								customIcons={{
@@ -62,11 +63,11 @@ const MusicPlayerPhone = () => {
 								onClickNext={(e) => handleNext()}
 								onClickPrevious={(e) => handlePrevious()}
 							/>
-						}
+						
 					</div>
 				</div>
 			</div>
-
+}
 
 		</>
 	)

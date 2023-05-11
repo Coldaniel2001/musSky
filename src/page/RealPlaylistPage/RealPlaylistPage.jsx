@@ -4,6 +4,7 @@ import SidebarRight from '../../component/SidebarRight/SidebarRight'
 import FooterNav from '../../component/FooterNav/FooterNav'
 import RealPlaylist from '../../component/RealPlaylist/RealPlaylist'
 import Search from '../../component/Search/Search'
+import ModalNewPlayList from '../../component/ModalNewPlayList/ModalNewPlayList'
 
 const RealPlaylistPage = () => {
   return (
@@ -21,6 +22,7 @@ const RealPlaylistPage = () => {
             <div className='lg:hidden'>
                 <FooterNav />
             </div>
+
         </div>
   )
 }

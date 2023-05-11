@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import logo from '../../assets/images/icons/logo.png'
-import user from '../../assets/images/icons/icon-account.png'
-import artist from '../../assets/images/icons/icon-playlist.png'
+import UserContext from '../../context/UserContext'
 
 const NavBarAdmin = () => {
+
+    const {artist, setArtist} = useContext(UserContext)
+    
+    
+
   return (
     <div>
         <div className='flex justify-center'>
@@ -15,16 +19,36 @@ const NavBarAdmin = () => {
                 <i className="fas fa-search text-gray-400"></i>
             </div>
         </div>
-        <div className=' text-white flex gap-20 justify-center mt-10 mb-5'>
-            <div className='flex items-center font-bold text-xl gap-3'>
-                <img className='w-10 h-8' src={artist} alt="" />
-                <h2>Artistas</h2>
-            </div>
-            <div className='flex items-center font-bold text-xl gap-3'>
-                <img className='w-10 h-8' src={user} alt="" />
-                <h2>Usuarios</h2>
-            </div>      
+            {
+                artist ?
+        <div className=' flex gap-20 justify-center mt-10 mb-5'>
+                
+                    <div className='flex items-center font-bold text-xl gap-3'>
+                        {/* <img className='w-10 h-8' src={artist} alt="" /> */}
+                        <h2 className='text-white text-[2rem] border-b-2 pb-2 cursor-pointer' onClick={() => setArtist(true)}>Artistas</h2>
+                    </div>
+                    <div className=' flex items-center font-bold text-xl gap-3'>
+                        {/* <img className='w-10 h-8' src={user} alt="" /> */}
+                        <h2 className='text-gray-500 cursor-pointer' onClick={() => setArtist(false)}>Usuarios</h2>
+                    </div> 
+                    
         </div>
+        
+                 : 
+                 <div className=' flex gap-20 justify-center mt-10 mb-5'>
+                
+                    <div className='flex items-center font-bold text-xl gap-3'>
+                        {/* <img className='w-10 h-8' src={artist} alt="" /> */}
+                        <h2 className='text-gray-500 cursor-pointer ' onClick={() => setArtist(true)}>Artistas</h2>
+                    </div>
+                    <div className=' flex items-center font-bold text-xl gap-3'>
+                        {/* <img className='w-10 h-8' src={user} alt="" /> */}
+                        <h2 className='text-white text-[2rem] border-b-2 pb-2 cursor-pointer' onClick={() => setArtist(false)}>Usuarios</h2>
+                    </div> 
+                    
+        </div>
+
+            }
     </div>
   )
 }
