@@ -48,7 +48,7 @@ const MusicPlayerPhone = () => {
 					<div className=' sm:mr-0 md:w-[68%] lg:w-5/6 bg-[#282828]  '>
 						{Object.entries(onePlayListSong).length!==0 &&
 							<AudioPlayer src={onePlayListSong.song} layout="stacked-reverse"
-								autoPlay={false}
+								autoPlay={true}
 								customIcons={{
 									// play: <img className="white" src={play} alt="play" />,
 									// pause: <img className="w-7" src={pause} alt="pause" />,

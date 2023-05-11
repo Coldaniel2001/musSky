@@ -29,7 +29,7 @@ const UserProvider = ({ children }) => {
     // date: new Date(Date.now()).toLocaleDateString()
   });
 
-  const { isLoading, user, getIdTokenClaims } = useAuth0();
+  const { user, getIdTokenClaims } = useAuth0();
   const [userLogged, setUserLogged] = useState("");
 
   useEffect(() => {
@@ -88,6 +88,7 @@ const UserProvider = ({ children }) => {
           }
         }
       } catch (error) {
+      
         console.log(error);
       }
     };
@@ -95,9 +96,6 @@ const UserProvider = ({ children }) => {
     getUser();
   }, [user, getIdTokenClaims]);
 
-  if (isLoading) {
-    return <span>...Loading</span>;
-  }
 
   const userRegister = async (user) => {
     if (user.password === user.passwordRepeat) {

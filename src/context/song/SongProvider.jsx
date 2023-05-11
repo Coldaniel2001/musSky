@@ -16,7 +16,7 @@ const SongProvider = ({ children }) => {
   const [onePlayListSong, setOnePlayListSong] = useState({})
   const [recentSong, setRecentSong] = useState({})
 
-  const { userLogged, dataUsers } = useContext(UserContext)
+  const { userLogged } = useContext(UserContext)
 
   const { getIdTokenClaims } = useAuth0()
 
