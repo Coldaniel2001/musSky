@@ -12,13 +12,17 @@ import SongContext from "../../../context/song/SongContext";
 import DetailModal from "../../../Detail Modal/DetailModal";
 
 
-function RecentSongCard({song}) {
+function RecentSongCard({song,isDropdownActive,
+  setActiveDropdown, activeDropdown }) {
     const { userLogged } = useContext(UserContext);
     const {  handleLikes,handleOpenSong } = useContext(SongContext);
-  const[toogleModal,setToogleModal] = useState(true)
 
-  const handleModal=()=>{
-        setToogleModal(!toogleModal)
+
+  const handleModal = () =>{
+    if(activeDropdown===song.id){
+      setActiveDropdown(null)
+    }else
+        setActiveDropdown(song.id)
   }
     const likesByUser = (song) => {
       if (userLogged) {
@@ -57,7 +61,7 @@ function RecentSongCard({song}) {
                   onClick={handleModal}
                 />
 {
-    !toogleModal && <DetailModal/>
+    isDropdownActive ? <DetailModal/> : null
 }
               </div>
             </div>
