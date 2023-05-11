@@ -49,7 +49,7 @@ const ArtistInformation = ({ infoUser}) => {
         <div className='text-white flex  w-full mt-20 '>
             <div className='w-3/4  mx-auto lg:flex lg:w-full'>
                 { !editArtist ?
-                    <img className='w-52 sm:w-52 md:w-60 lg:w-52 lg:h-52 xl:h-auto xl:w-60 rounded-full mx-auto' src={infoUser?.picture} alt="" />
+                    <img className='w-52 sm:w-52 md:w-60 lg:w-52 lg:h-52 xl:h-60 xl:w-60 rounded-full mx-auto' src={infoUser?.picture} alt="" />
                     :
                     <div className='relative cursor-pointer '>
                         <img className='w-52 sm:w-52 md:w-60 lg:w-52 lg:h-52 xl:h-auto xl:w-60 rounded-full border-2 border-[#7339E5] opacity-40 mx-auto' src={infoUser?.picture} alt="" />

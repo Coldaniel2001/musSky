@@ -12,8 +12,8 @@ const ArtistModeAdmin = () => {
                 dataUsers.map((user) => {
                 return (
                 <Link to={`/admin/${user._id}`} >
-                    <div className='h-[14vh] flex flex-col items-center mt-[5vh]' >
-                        <img className='rounded-full cursor-pointer w-[160px] h-[160px] border-2 hover:border-4 hover:border-green-400 ' src={user.picture} alt="" />
+                    <div className=' flex flex-col items-center mt-[5vh]' >
+                        <img className='rounded-full cursor-pointer w-[160px] h-[160px] border-2 hover:border-4 hover:border-green-400 object-cover' src={user.picture} alt="" />
                         <p className='text-white mt-2 font-bold text-xl'>{user.nickname}</p>
                     </div> 
                 </Link>
