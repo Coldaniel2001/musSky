@@ -16,11 +16,11 @@ function FinalRegister() {
      }
     }
   return (
-    
+    // absolute left-[25rem] top-[5rem] scale-150 min-xl:w-[100vh]  min-xl:block
 
     <div className=' bg-black  bg-gradient-to-b from-[#7339E5] from-10% via-black via-30% to-black to-90% h-screen flex flex-col justify-center items-center object-cover  relative overflow-hidden w-full h-full '> 
 
-    <img src={chica} className=' h-screen w-screen absolute left-[25rem] top-[5rem] scale-150 min-xl:w-[100vh]  min-xl:block ' alt='noimage'/>
+    <img src={chica} className='   translate-x-1/4 translate-y-1/4 scale-150 w-full h-full' alt='noimage'/>
     
     <form className=' gap-y-5 rounded-lg border-2 border-[#7339E5]  h-fit absolute flex flex-col items-center justify-center bg-[#7339E5] bg-opacity-25 justify-between w-[19rem] '>
         
