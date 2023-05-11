@@ -28,21 +28,22 @@ const SidebarLeft = () => {
 					</div>
 				</NavLink>
 				<NavLink to={"/genders"} className={({ isActive }) => isActive ? 'grid border-l-[0.5rem] border-mainPurple mt-[2vh]' : "grid border-l-[0.5rem] border-transparent mt-[2vh]"}>
-				<div className='xl:grid grid-cols-8 lg:flex  lg:justify-center lg:pl-0 items-center   xl:pl-6 h-[5vh] '>
-					<img className='lg:w-12 xl:w-12 col-span-2' src={iconGenero} alt="home icon" />
-					<p className='lg:hidden xl:grid xl:text-[1.5rem] col-span-4 font-semibold'>Géneros</p>
-				</div>
+					<div className='xl:grid grid-cols-8 lg:flex  lg:justify-center lg:pl-0 items-center   xl:pl-6 h-[5vh] '>
+						<img className='lg:w-12 xl:w-12 col-span-2' src={iconGenero} alt="home icon" />
+						<p className='lg:hidden xl:grid xl:text-[1.5rem] col-span-4 font-semibold'>Géneros</p>
+					</div>
 				</NavLink>
-				
-				<div className='xl:grid grid-cols-8 lg:flex lg:justify-center lg:pl-0  items-center xl:pl-6 h-[5vh]  border-l-[0.5rem] border-transparent mt-[2vh]'>
+				<NavLink to={"/real-playlist"} className={({ isActive }) => isActive ? 'grid border-l-[0.5rem] border-mainPurple mt-[2vh]' : "grid border-l-[0.5rem] border-transparent mt-[2vh]"}>
+				<div className='xl:grid grid-cols-8 lg:flex  lg:justify-center lg:pl-0 items-center   xl:pl-6 h-[5vh] '>
 					<img className='lg:w-10 xl:w-12 col-span-2' src={iconPlayList} alt="home icon" />
 					<p className='lg:hidden xl:grid xl:text-[1.5rem] col-span-4 font-semibold'>PlayList</p>
 				</div>
+				</NavLink>
 				<NavLink to={"/individual-playlist"} className={({ isActive }) => isActive ? 'grid border-l-[0.5rem] border-mainPurple mt-[2vh]' : "grid border-l-[0.5rem] border-transparent mt-[2vh]"}>
-				<div className='xl:grid grid-cols-8 lg:flex  lg:justify-center lg:pl-0 items-center   xl:pl-6 h-[5vh] '>
-					<img className='lg:w-10 xl:w-12 col-span-2' src={iconLiked} alt="home icon" />
-					<p className='lg:hidden xl:grid xl:text-[1.5rem] col-span-4 font-semibold'>Me gusta</p>
-				</div>
+					<div className='xl:grid grid-cols-8 lg:flex  lg:justify-center lg:pl-0 items-center   xl:pl-6 h-[5vh] '>
+						<img className='lg:w-10 xl:w-12 col-span-2' src={iconLiked} alt="home icon" />
+						<p className='lg:hidden xl:grid xl:text-[1.5rem] col-span-4 font-semibold'>Me gusta</p>
+					</div>
 				</NavLink>
 				<NavLink to={"/profile"} className={({ isActive }) => isActive ? 'grid  mt-[2vh] border-l-[0.5rem] border-mainPurple' : 'grid border-l-[0.5rem] border-transparent mt-[2vh]'}>
 					<div className=' xl:grid xl:grid-cols-8 lg:flex lg:justify-center lg:pl-0  items-center xl:pl-6 h-[5vh]  '>
@@ -51,21 +52,23 @@ const SidebarLeft = () => {
 					</div>
 				</NavLink>
 			</div>
-			<div className='w-3/4 mx-auto text-red rounded '>
-				<div className=' mt-[5vh] rounded w-full mx-auto'>
+			{Object.entries(onePlayListSong).length !== 0 &&
+				<div className='w-3/4 mx-auto text-red rounded '>
+					<div className=' mt-[5vh] rounded w-full mx-auto'>
 						{/* <h2 className='text-gray-300 lg:text-[1.2rem] '>Está sonando</h2> */}
 						<div className='w-full flex justify-center pb-4'>
-							<img className='rounded w-full h-[25vh]'  src={onePlayListSong.picture} alt="" />
+							<img className='rounded w-full h-[25vh]' src={onePlayListSong.picture} alt="" />
 						</div>
 						<p className=' text-white font-bold lg:text-[2vh] text-[2rem] w-[80%]'>{onePlayListSong.nameArtist}</p>
-       					 <p className='text-gray-500 text-[1.5vh]'>{onePlayListSong.nameSong}</p>
+						<p className='text-gray-500 text-[1.5vh]'>{onePlayListSong.nameSong}</p>
+					</div>
 				</div>
-			</div>
+			}
 			{/* <div className='w-full flex justify-center'>
 				<img className='w-4/5 mt-10 flex' src={womenSidebar} alt="" />
 
 			</div> */}
-			
+
 		</div >
 
 

@@ -11,7 +11,7 @@ const UserProvider = ({ children }) => {
 
   useEffect(() => {
     const musicTracks = async () => {
-      const response = await fetch(allUsers);
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users`);
       const data = await response.json();
       setDataUsers(data.allUsers);
     };

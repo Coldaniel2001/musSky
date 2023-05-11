@@ -16,7 +16,7 @@ const SongProvider = ({ children }) => {
   const [onePlayListSong, setOnePlayListSong] = useState({})
   const [recentSong, setRecentSong] = useState({})
 
-  const { userLogged } = useContext(UserContext)
+  const { userLogged, dataUsers } = useContext(UserContext)
 
   const { getIdTokenClaims } = useAuth0()
 
@@ -54,6 +54,8 @@ const SongProvider = ({ children }) => {
   }
 
 
+
+
   useEffect(() => {
     const musicTracks = async () => {
       const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/tracks`);
@@ -61,6 +63,7 @@ const SongProvider = ({ children }) => {
       setDataSong(data.allSong)
     }
     musicTracks()
+
   }, [setDataSong])
 
 

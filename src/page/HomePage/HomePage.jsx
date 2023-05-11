@@ -24,10 +24,10 @@ const HomePage = () => {
         <TopPhone />
         <Top10Phone />
       </div>
-      <div className='hidden xl:block w-full  xl:w-[25%] 2xl:w-[20%] pt-10 border-r-2 border-gray-700'>
+      <div className='hidden xl:block w-full  xl:w-[25%] 2xl:w-[18%] pt-10 border-r-2 border-gray-700'>
         <SidebarLeft />
       </div>
-      <div className='w-full pt-10 lg:pt-0 lg:w-full xl:w-[75%] 2xl:w-[62%]'>
+      <div className='w-full pt-10 lg:pt-0 lg:w-full xl:w-[75%] 2xl:w-[64%]'>
         <CenterSection />
       </div>
       <div className='hidden w-full lg:hidden xl:hidden 2xl:block 2xl:w-[18%]'>
@@ -42,7 +42,6 @@ const HomePage = () => {
         :
         <ModalSearcMusicForPlayList   />
       } */}
-      <MusicPlayerPhone />
     </div>
     
   )
