@@ -5,6 +5,11 @@ import iconGenero from '../../assets/images/icons/icon-genero.png'
 import iconPlayList from '../../assets/images/icons/icon-playlist.png'
 import iconLiked from '../../assets/images/icons/icon-liked.png'
 import iconAccount from '../../assets/images/icons/icon-account.png'
+// import iconHomeViolet from '../../assets/images/icons/homeViolet.png'
+// import iconGeneroViolet from '../../assets/images/icons/GenreViolet.png'
+// import iconPlayListViolet from '../../assets/images/icons/MYViolet.png'
+// import iconLikedViolet from '../../assets/images/icons/bytesize_heartViolet.png'
+// import iconAccountViolet from '../../assets/images/icons/codicon_accountViolet.png'
 import { NavLink } from 'react-router-dom';
 
 import SongContext from '../../context/song/SongContext';
