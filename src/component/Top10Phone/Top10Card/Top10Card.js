@@ -8,7 +8,7 @@ function Top10Card(song) {
 
     const handleToogle=()=>{
         setToogleModal(!toogleModal)
-        console.log(toogleModal)
+      
     }
   return (
     <div key={song.id}className='grid grid-cols-8 grid-rows-10 mt-4 ml-3 relative'>

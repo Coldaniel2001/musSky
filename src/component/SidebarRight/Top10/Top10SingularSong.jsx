@@ -9,7 +9,7 @@ const Top10SingularSong = ({dataSong}) => {
         {
         
             dataSong && dataSong.map((song) => {
-                console.log(song.imageUrl)
+                
                 return (
              <Top10Card key={song.id} name={song.name} imageUrl={song.imageUrl} artist={song.artist}/>
                 )

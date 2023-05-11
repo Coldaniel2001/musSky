@@ -1,4 +1,5 @@
 // import { useState } from 'react'
+import { useContext } from 'react'
 import CenterSection from '../../component/CenterSection/CenterSection'
 import FooterNav from '../../component/FooterNav/FooterNav'
 // import ModalNewPlayList from '../../component/ModalNewPlayList/ModalNewPlayList'
@@ -10,11 +11,15 @@ import Top10Phone from '../../component/Top10Phone/Top10Phone'
 import TopPhone from '../../component/TopPhone/TopPhone'
 
 
+
 const HomePage = () => {
 // const [openSearchSong, setOpenSearchSong] = useState(false)
 
+
   return (
-    <div className='bg-gradient-to-tr from-black via-black to-[#7339E5] lg:min-h-screen xl:flex'>
+    
+    <div className='bg-gradient-to-tr from-black via-black to-[#7339E5] lg:min-h-screen xl:flex' >
+      
       <div className=''>
         <TopPhone />
         <Top10Phone />
