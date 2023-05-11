@@ -19,6 +19,7 @@ import { AdminUserPage } from '../page/AdminUserPage/AdminUserPage'
 import MusicPlayerPhone from '../component/MusicPlayerPhone/MusicPlayerPhone'
 import RealPlaylistPage from '../page/RealPlaylistPage/RealPlaylistPage'
 import FinalRegister from '../FinalRegister/FinalRegister'
+import IconsImg from '../component/IconsImg'
 
 // import PrivateRouter from './PrivateRouter'
 
@@ -111,7 +112,7 @@ const RoutesPath = () => {
                         <Route path='/admin' element={<AdminPage />} />
                         <Route path='/admin/:userId' element={<AdminUserPage />} />
                         <Route path='/mis-canciones' element={<Mysongs />} /> 
-                        <Route path='/final-register' element={<FinalRegister />} />
+                        <Route path='/final-register' element={<IconsImg />} />
                     </Routes>
                 </BrowserRouter>
 
