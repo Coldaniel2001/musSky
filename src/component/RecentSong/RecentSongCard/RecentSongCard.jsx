@@ -21,7 +21,7 @@ function RecentSongCard({song, isDropdownActive,
     if (activeDropdown === song._id) {
       setActiveDropdown(null)
     } else {
-      setActiveDropdown(song.id)
+      setActiveDropdown(song._id)
     }
   }
     const likesByUser = (song) => {
