@@ -4,12 +4,16 @@
 // import artist from '../../assets/images/icons/icon-playlist.png'
 import ArtistModeAdmin from '../../component/ArtistsModeAdmin/ArtistModeAdmin'
 import ArtistInformation from '../../component/ArtistInformation/ArtistInformation'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import NavBarAdmin from '../../component/NavBarAdmin/NavBarAdmin'
+import UserModeAdmin from '../../component/UserModeAdmin/UserModeAdmin'
+import UserContext from '../../context/UserContext'
 
 const AdminPage = () => {
 
-  const [showArtist, setshowArtist] = useState(true)
+  const {artist, setArtist} = useContext(UserContext)
+
+  console.log(artist)
 
 
 
@@ -17,10 +21,10 @@ const AdminPage = () => {
     <div className='bg-gradient-to-tr from-black via-black to-[#7339E5] w-full min-h-screen  '>
       <NavBarAdmin />
         {
-            showArtist ?
+            artist ?
             <ArtistModeAdmin />
             :
-            <ArtistInformation />
+            <UserModeAdmin />
         }
         
     </div>

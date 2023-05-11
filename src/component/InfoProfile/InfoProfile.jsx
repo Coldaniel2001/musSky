@@ -9,17 +9,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 import UserContext from "../../context/UserContext";
 
 const InfoProfile = () => {
-  const { userChangeInformation, userLogged } = useContext(UserContext);
+  const { userChangeInformation, userLogged, setUserLogged } = useContext(UserContext);
   const [changeInformation, setchangeInformation] = useState(true);
   const { isLoading, user } = useAuth0();
-  const [infoUser, setInfoUser] = useState({
-    name: "Victor",
-    surname: "Jauregui",
-    username: "Jaurewin",
-    email: "vicjaudom@gmail.com",
-    password: "1234",
-    passwordRepeat: "1234",
-  });
+
   console.log(userLogged);
   if (isLoading) {
     return <span>...Loading</span>;
@@ -32,14 +25,14 @@ const InfoProfile = () => {
   };
 
   const handleChangeInput = (e) => {
-    setInfoUser({ ...infoUser, [e.target.name]: e.target.value });
+    setUserLogged({ ...userLogged, [e.target.name]: e.target.value });
 
   };
 
   const handlesubmitOff = (e) => {
     e.preventDefault();
     setchangeInformation(true);
-    userChangeInformation(infoUser);
+    userChangeInformation(userLogged);
   };
 
   return (
@@ -63,14 +56,14 @@ const InfoProfile = () => {
             {/* <img className='w-[10rem]' src={user ? user.picture : addPicture} alt="add-profile" /> */}
             {changeInformation ? (
               <span className="text-xl font-semibold">
-                {user ? user.nickname : ""}
+                {userLogged ? userLogged.nickname : ""}
               </span>
             ) : (
               <input
                 className="bg-[#7239e57a] border-2 border-[#7339E5] rounded text-center"
                 type="text"
-                placeholder="Jaurewin"
-                value={user.nickname}
+                placeholder={userLogged.nickname}
+                value={userLogged.nickname}
                 name="username"
                 onChange={handleChangeInput}
               />
@@ -82,7 +75,7 @@ const InfoProfile = () => {
                 NOMBRE
               </span>
               <span className="text-detailsGray w-[35%] sm:w-full text-lg ml-10 sm:ml-0">
-                {user ? user.given_name : ""}
+                {userLogged ? userLogged.name : ""}
               </span>
             </div>
             <div className="flex sm:flex-col sm:justify-around sm:h-[6rem]">
@@ -90,7 +83,7 @@ const InfoProfile = () => {
                 APELLIDOS
               </span>
               <span className="text-detailsGray  w-[35%] sm:w-full text-lg ml-10 sm:ml-0">
-                {user ? user.family_name : ""}
+                {userLogged ? userLogged.surname : ""}
               </span>
             </div>
             <div className="flex sm:flex-col sm:justify-around sm:h-[6rem]">
