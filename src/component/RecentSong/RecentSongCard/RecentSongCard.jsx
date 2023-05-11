@@ -14,7 +14,7 @@ import DetailModal from "../../../Detail Modal/DetailModal";
 
 function RecentSongCard({song}) {
     const { userLogged } = useContext(UserContext);
-    const {  handleLikes } = useContext(SongContext);
+    const {  handleLikes,handleOpenSong } = useContext(SongContext);
   const[toogleModal,setToogleModal] = useState(true)
 
   const handleModal=()=>{
@@ -36,6 +36,7 @@ function RecentSongCard({song}) {
               <div className=" bg-[#7239e546] grid grid-cols-8 w-[90%] rounded ">
                 <img
                   className="col-span-2 h-[5rem] w-[90px] rounded-l opacity-90"
+                  onClick={()=>handleOpenSong(song)}
                   src={song.picture}
                   alt="first artist"
                 />

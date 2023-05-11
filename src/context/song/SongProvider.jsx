@@ -74,12 +74,9 @@ const SongProvider = ({ children }) => {
       return song.likedBy?.includes(userLogged._id) 
     }
   };
-  const [toogleModal,setToogleModal]=useState(false)
+ 
 
-  const handleToogle=()=>{
-      setToogleModal(!toogleModal)
-    
-  }
+
 
   return (
     <SongContext.Provider value={{
@@ -90,7 +87,7 @@ const SongProvider = ({ children }) => {
       handleLikes: handleLikes,
       likesByUser: likesByUser,
       handleOpenSong: handleOpenSong,
-      toogleModal
+      
     }}>
       {children}
     </SongContext.Provider>
