@@ -5,15 +5,15 @@ import SearchSongForPlayList from '../SearchSongForPlayList/SearchSongForPlayLis
 
 
 
-const ModalSearcMusicForPlayList = () => {
+const ModalSearcMusicForPlayList = ({setSearchSong, playListComplete, setPlayListComplete}) => {
 const [searchSongToPlaylist, setfirstSearchSongToPlaylist] = useState(false)
 
   return (
-    <div className="fixed z-10 inset-0 overflow-y-auto bg-black/30 ">
+    <div className="fixed z-10 inset-0 overflow-y-auto bg-black/30  ">
     <div className="flex items-center justify-center min-h-screen">
       <div className="h-[75vh] flex flex-col bg-gradient-to-tr from-black via-[#7339E5] to-[#7339E5] rounded-lg shadow-lg p-6 w-[90%] sm:w-2/3 md:w-3/5 xl:w-1/2 2xl:w-1/2 border-2 border-white">
         <div className='flex justify-between text-white '>
-            <p className='font-light cursor-pointer'>Cancel</p>
+            <p className='font-light cursor-pointer' onClick={()=> setSearchSong(false)}>Cancel</p>
             <p className='font-light cursor-pointer' >Ok</p>
         </div>
         <h2 className='text-3xl font-bold text-white mt-4 mb-3 '>Música</h2>
@@ -23,16 +23,19 @@ const [searchSongToPlaylist, setfirstSearchSongToPlaylist] = useState(false)
             <i className="fas fa-search text-gray-400"></i>
           </div>
 		    </div>
+        <div className=' h-[75%] overflow-y-scroll scrollbar-hide'>
     {
       searchSongToPlaylist ?
       <GendersModal /> : 
-      <SearchSongForPlayList />
+      <SearchSongForPlayList playListComplete={playListComplete} setPlayListComplete={setPlayListComplete}/>
 
       
 
     }
+          
       </div>
     </div>
+  </div>
   </div>
   )
 }

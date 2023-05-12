@@ -1,10 +1,9 @@
 import React from 'react'
 import SidebarLeft from '../../component/SidebarLeft/SidebarLeft'
-import SidebarRight from '../../component/SidebarRight/SidebarRight'
 import FooterNav from '../../component/FooterNav/FooterNav'
 import RealPlaylist from '../../component/RealPlaylist/RealPlaylist'
 import Search from '../../component/Search/Search'
-import ModalNewPlayList from '../../component/ModalNewPlayList/ModalNewPlayList'
+
 
 const RealPlaylistPage = () => {
   return (
@@ -16,9 +15,6 @@ const RealPlaylistPage = () => {
                 <Search />
                 <RealPlaylist />
             </div>
-            {/* <div className='hidden w-full lg:hidden xl:hidden 2xl:block 2xl:w-[15%]'>
-                <SidebarRight />
-            </div> */}
             <div className='lg:hidden'>
                 <FooterNav />
             </div>

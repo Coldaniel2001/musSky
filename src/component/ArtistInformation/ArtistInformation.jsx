@@ -18,7 +18,7 @@ const ArtistInformation = ({ infoUser}) => {
         return song?.nameArtist === infoUser?.email
     })
 
-    console.log(tracksUser)
+
 
 
 

@@ -24,6 +24,8 @@ const ModalAddNewSong = ({ setUploadSong }) => {
         };
     }
 
+
+
     const uploadSong = () => {
         setSongUpload(true)
     }
@@ -39,19 +41,19 @@ const ModalAddNewSong = ({ setUploadSong }) => {
         formdata.append("update_at", formattedDate)
 
         editSongImageFetch(formdata)
-        addSongArtist(formdata)
+        // addSongArtist(formdata)
     }
 
-    const addSongArtist = async (data) => {
-        console.log(data)
-        const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/artist`, {
-            method: "POST",
-            body: data
-        });
-        const newSong = await res.json()
-        console.log(newSong)
+    // const addSongArtist = async (data) => {
+    //     console.log(data)
+    //     const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/artist`, {
+    //         method: "POST",
+    //         body: data
+    //     });
+    //     const newSong = await res.json()
+    //     console.log(newSong)
 
-    }
+    // }
 
     const editSongImageFetch = async (data) => {
         console.log(data)
