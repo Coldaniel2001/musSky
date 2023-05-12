@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
-import melendi from '../../assets/images/melendi.jpg'
+import React, { useContext,  useState } from 'react'
 import rubish from '../../assets/images/icons/rubish.png'
 import edit from '../../assets/images/icons/edit.png'
 import ModalAddNewSong from '../ModalAddNewSong/ModalAddNewSong'
@@ -9,27 +8,19 @@ import SongContext from '../../context/song/SongContext'
 
 const MySongSection = () => {
   const [uploadSong, setUploadSong] = useState(false)
-  const MusicUrl = "http://localhost:3004/tracks"
   const [editSong, setEditSong] = useState(false)
-  const [dataSong1, setDataSong1] = useState([])
+
   const {userLogged} = useContext(UserContext)
-  const {dataSong} = useContext(SongContext)
-  const { user } = useAuth0();
+  const {dataSong } = useContext(SongContext)
+  // const { user } = useAuth0();
 
   const SongUploaded = dataSong.filter((song) => {
-    return song.nameArtist === user.email
+    return song.nameArtist === userLogged.nickname
     
   })
-  console.log(SongUploaded)
 
-  useEffect(() => {
-    const musicTracks = async() => {
-        const data = await fetch(MusicUrl);
-        const json = await data.json();
-        setDataSong1(json)
-    } 
-    musicTracks()
-}, [MusicUrl])
+
+
 
   return (
     <div className='text-white px-10 py-10'>
@@ -43,8 +34,10 @@ const MySongSection = () => {
            </div>
         </div>
       </div>
-      <div className='xl:mx-10 lg:h-[45vh] lg:overflow-y-scroll lg:scrollbar-hide '>
-      {
+      
+      <div className='xl:mx-10 lg:h-[40vh] lg:overflow-y-scroll lg:scrollbar-hide '>
+      { 
+        SongUploaded.length ?
                         SongUploaded.map((song) => {
                             return (
                                 <div className='relative flex text-white items-center mb-3 gap-3 hover:bg-[#7239e575] rounded cursor-pointer'>
@@ -81,18 +74,27 @@ const MySongSection = () => {
                                     }
                                 </div>
                             )
-                        })
-                    }
+                        }) 
+                        : 
+                    <div className='w-3/5  bg-[#F1F5F9] mx-auto rounded-lg border-2 border-[#E2E8F0] flex flex-col items-center'>
+                      <h3 className='text-4xl font-bold text-black text-center p-10 '>Oops parece que todavia no has creado ninguna canción</h3>
+                      <h4 className='text-gray-500 font-bold mb-6'>¡Comienza tu viaje en musSky subiendo la primera!</h4>
+                      <button className='bg-[#7339E5] px-4 py-2 w-1/3 text-white rounded hover:border-2 border-[#fff] mb-6' onClick={()=>setUploadSong(true)}>Añadir primera canción</button>
+                    </div>
+      }
+
+          <div className='flex justify-end mr-10 mt-10 mb-20 '>
+                <button className='bg-[#7339E5] px-4 py-2 text-white rounded hover:border-2 border-[#fff]' onClick={()=>setUploadSong(true)}>Añadir canción</button>
+          </div>
       </div>
-      <div className='flex justify-end mr-10 mt-10 mb-20 '>
-        <button className='bg-[#7339E5] px-4 py-2 text-white rounded hover:border-2 border-[#fff]' onClick={()=>setUploadSong(true)}>Añadir canción</button>
-      </div>
+      
       {
         uploadSong &&
         <ModalAddNewSong setUploadSong={setUploadSong} />
         
       }
     </div>
+
   )
 }
 

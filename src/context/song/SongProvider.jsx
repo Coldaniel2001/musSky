@@ -15,7 +15,8 @@ const SongProvider = ({ children }) => {
 
   const { userLogged, dataUsers } = useContext(UserContext);
 
-  const { getIdTokenClaims } = useAuth0();
+
+  const { getIdTokenClaims } = useAuth0()
 
   const handleLikes = async (liked) => {
     const token = await getIdTokenClaims();

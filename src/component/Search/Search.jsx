@@ -14,11 +14,9 @@ const Search = () => {
 
 		setShowModal(!showModal);
 	}
-	const { isLoading, user, logout } = useAuth0()
+	const { logout } = useAuth0()
 
-	if (isLoading) {
-		return <span>...Loading</span>
-	}
+
 	return (
 		<>
 			<div className='hidden xl:flex '>

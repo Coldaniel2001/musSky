@@ -35,7 +35,7 @@ const ModalAddNewSong = ({ setUploadSong }) => {
 
         e.preventDefault()
         const formdata = new FormData(form.current)
-        formdata.append("nameArtist", userLogged.email)
+        formdata.append("nameArtist", userLogged.nickname)
         formdata.append("update_at", formattedDate)
 
         editSongImageFetch(formdata)
