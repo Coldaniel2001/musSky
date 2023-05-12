@@ -15,7 +15,7 @@ const MySongSection = () => {
   const { user } = useAuth0();
 
   const SongUploaded = dataSong.filter((song) => {
-    return song.nameArtist === user.email
+    return song.nameArtist === userLogged.nickname
     
   })
 

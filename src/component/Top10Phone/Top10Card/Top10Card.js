@@ -6,21 +6,21 @@ function Top10Card({ song, isDropdownActive,
   setActiveDropdown, activeDropdown }) {
 
   const handleToogle = () => {
-    if (activeDropdown === song.id) {
+    if (activeDropdown === song._id) {
       setActiveDropdown(null)
     } else {
-      setActiveDropdown(song.id)
+      setActiveDropdown(song._id)
     }
   }
 
   return (
     <div key={song.id} className='grid grid-cols-8 grid-rows-10 mt-4 ml-3 relative'>
 
-      <img className='col-span-2 w-3/4 rounded-full' src={song.imageUrl} alt="a" />
+      <img className='col-span-2 w-3/4 rounded-full' src={song.picture} alt="images-song" />
 
       <div className='col-span-5 text-white my-auto'>
-        <p className='font-bold text-xl'>{song.artist}</p>
-        <p className=''>{song.name}</p>
+        <p className='font-bold text-xl truncate'>{song.nameArtist}</p>
+        <p className=''>{song.nameSong}</p>
       </div>
       <div className='relative flex flex-col '>
 

@@ -24,6 +24,9 @@ import HomePage from '../page/HomePage/HomePage'
 import ProfilePage from '../page/ProfilePage/ProfilePage'
 import PlayListPage from '../page/PlayListPage/PlayListPage'
 import GendersPage from '../page/GendersPage/GendersPage'
+
+import ArtistIdPage from '../page/ArtistIdPage/ArtistIdPage'
+
 // import PrivateRouter from './PrivateRouter'
 
 
@@ -82,6 +85,12 @@ const RoutesPath = () => {
                         <Route path='/*' element={<Navigate to={'/home'} />} />
                         <Route path='/admin' element={<AdminPage />} />
                         <Route path='/admin/:userId' element={<AdminUserPage />} />
+                        <Route path='/artist/:userId' element={
+                            <>
+                                <ArtistIdPage/>
+                                <MusicPlayerPhone />
+                            </>
+                        } />
                         <Route path='/mis-canciones' element={<Mysongs />} />
                         <Route path='/final-register' element={<FinalRegister />} />
                     </Routes>
