@@ -1,0 +1,15 @@
+/* .mySwiper {
+    display: none; 
+  }
+  
+  @media (min-width: 1024px) { 
+    .mySwiper {
+      display: block;
+    }
+  } */
+
+
+  .swiper-button-prev,
+.swiper-button-next {
+  color: #7C8BBF;
+}
