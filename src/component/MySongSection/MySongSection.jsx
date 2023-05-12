@@ -12,7 +12,7 @@ const MySongSection = () => {
 
   const {userLogged} = useContext(UserContext)
   const {dataSong } = useContext(SongContext)
-  const { user } = useAuth0();
+  // const { user } = useAuth0();
 
   const SongUploaded = dataSong.filter((song) => {
     return song.nameArtist === userLogged.nickname

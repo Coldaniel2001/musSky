@@ -14,7 +14,7 @@ const ArtistInformationUser = ({ infoUser }) => {
 
 
     const tracksUser = dataSong.filter((song) => {
-        return song?.nameArtist === infoUser?.email
+        return song?.nameArtist === infoUser?.nickname
     })
 
     console.log(tracksUser)
