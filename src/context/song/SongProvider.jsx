@@ -5,24 +5,40 @@ import UserContext from "../UserContext";
 
 import { useAuth0 } from "@auth0/auth0-react";
 import { toast } from "react-hot-toast";
+import RecentSong from "../../component/RecentSong/RecentSong";
 
 const SongProvider = ({ children }) => {
   const [dataSong, setDataSong] = useState([]);
 
-  const [allPlaylistSong, setAllPlaylistSong] = useState([]);
+
   const [onePlayListSong, setOnePlayListSong] = useState({});
+  const [allPlaylistSong, setAllPlaylistSong] = useState([]);
   const [recentSong, setRecentSong] = useState([]);
-
-  const { userLogged, dataUsers } = useContext(UserContext);
-
-
+  const { userLogged } = useContext(UserContext);
   const { getIdTokenClaims } = useAuth0()
+
+  // Recient
+  useEffect(() => {
+    const getAllRecient = async () => {
+      try {
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/recents/${userLogged._id}`)
+        const data = await response.json();
+        setRecentSong(data.allRecent.tracks)
+
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getAllRecient()
+
+  }, [userLogged])
+
+  //song
 
   const handleLikes = async (liked) => {
     const token = await getIdTokenClaims();
     const response = await fetch(
-      `${process.env.REACT_APP_SERVER_URL}/tracks/addToLike${
-        userLogged && userLogged._id
+      `${process.env.REACT_APP_SERVER_URL}/tracks/addToLike${userLogged && userLogged._id
       }`,
       {
         method: "PUT",
@@ -52,10 +68,7 @@ const SongProvider = ({ children }) => {
   };
 
   const handleOpenSong = (song) => {
-    setOnePlayListSong(song);
-    const dateAt = Date.now();
-    song.dateAt = dateAt;
-    console.log(song);
+
     const addSongRecent = async () => {
       const token = await getIdTokenClaims();
       const response = await fetch(
@@ -72,6 +85,8 @@ const SongProvider = ({ children }) => {
       const data = await response.json();
       console.log(data);
       try {
+        setOnePlayListSong(song);
+        updateRecent(song)
       } catch (error) {
         console.log(error);
         if (data.error === "InvalidTokenError: Invalid Compact JWS") {
@@ -81,6 +96,27 @@ const SongProvider = ({ children }) => {
     };
     addSongRecent();
   };
+
+  const updateRecent = (song) => {
+    const repeatRecent = recentSong.find((tracks) => {
+      return tracks.nameSong === song.nameSong
+    })
+
+    if (!repeatRecent) {
+      if (recentSong.length === 8) {
+        const deleteRecent = recentSong.slice(0, 1)
+
+        const filterRecentDelete = recentSong.filter((recent) => {
+          return recent.nameSong !== deleteRecent[0].nameSong
+        })
+        setRecentSong([...filterRecentDelete, song])
+      }
+      if (recentSong.length < 8) {
+        setRecentSong([...recentSong, song])
+      }
+
+    }
+  }
 
   useEffect(() => {
     const musicTracks = async () => {
