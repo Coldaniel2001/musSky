@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import MyPlaylists from '../MyPlaylists/MyPlaylists'
 import plusWhite from '../../assets/images/plusWhite.png'
 import ModalNewPlayList from '../ModalNewPlayList/ModalNewPlayList'
+import FreePlaylists from '../FreePlaylists/FreePlaylists'
 
 
 const RealPlaylist = () => {
@@ -50,7 +51,7 @@ const RealPlaylist = () => {
         MyPlaylist ? 
         <MyPlaylists />
      :
-    ""
+    <FreePlaylists />
     }
 
 

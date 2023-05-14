@@ -13,17 +13,20 @@ const MySongSection = () => {
   const {userLogged} = useContext(UserContext)
   const {dataSong } = useContext(SongContext)
   const { user } = useAuth0();
+  const [mySongs, setMysongs] = useState() 
 
   const SongUploaded = dataSong.filter((song) => {
-    return song.nameArtist === user.email
+    return song.nameArtist === user?.email
     
   })
+
+  
 
 
 
 
   return (
-    <div className='text-white px-10 py-10'>
+    <div className='text-white px-10 py-10 min-h-screen'>
       <div className='border-b border-[#374151]  pb-10 mb-10'>
         <h2 className='text-white text-[2rem] font-extrabold'>MIS CANCIONES</h2> 
         <div className='flex flex-col items-center justify-center lg:flex lg:flex-row lg:items-end lg:justify-start'>

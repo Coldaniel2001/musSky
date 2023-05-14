@@ -5,7 +5,7 @@ import SearchSongForPlayList from '../SearchSongForPlayList/SearchSongForPlayLis
 
 
 
-const ModalSearcMusicForPlayList = ({setSearchSong, playListComplete, setPlayListComplete}) => {
+const ModalSearcMusicForPlayList = ({setSearchSong, playListComplete, setPlayListComplete, setPlaylistToShow, playlistToShow}) => {
 const [searchSongToPlaylist, setfirstSearchSongToPlaylist] = useState(false)
 
   return (
@@ -27,7 +27,7 @@ const [searchSongToPlaylist, setfirstSearchSongToPlaylist] = useState(false)
     {
       searchSongToPlaylist ?
       <GendersModal /> : 
-      <SearchSongForPlayList playListComplete={playListComplete} setPlayListComplete={setPlayListComplete}/>
+      <SearchSongForPlayList playListComplete={playListComplete} setPlayListComplete={setPlayListComplete} setPlaylistToShow={setPlaylistToShow} playlistToShow={playlistToShow}/>
 
       
 

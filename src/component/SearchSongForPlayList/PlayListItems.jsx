@@ -3,14 +3,17 @@ import React, { useEffect, useState } from 'react'
 import addSongToPlayListWhite from '../../assets/images/addSongToPlayListWhite.png'
 import checkWhite from '../../assets/images/checkWhite.png'
 
-const PlayListItems = ({song, playListComplete, setPlayListComplete}) => {
+const PlayListItems = ({song, playListComplete, setPlayListComplete, setPlaylistToShow, playlistToShow}) => {
 
     const [songAdd, setsongAdd] = useState(true)
 
   const handleClick = () => {
     setsongAdd(false)
     setPlayListComplete([...playListComplete, song._id])
+    setPlaylistToShow([...playlistToShow, song])
+
   }
+
 
   console.log(playListComplete)
 

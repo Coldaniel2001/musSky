@@ -27,14 +27,14 @@ const PlayListIndividual = () => {
             <Search />
             <div className='mt-10 mx-10'>
                 <h2 className='text-white text-[2rem] font-extrabold'>PLAYLIST</h2>
-                <div className='relative w-full h-[45vh]'>
-                    <img className='w-full h-[45vh] opacity-20 absolute top-0 left-0' src={background} alt="" />
-                    <img className='relative inset-0 m-auto pt-10 h-[30vh] w-[26vw] ' src={background} alt="" />
-                    <p className='text-white relative flex justify-center font-bold text-3xl mt-7'>Canciones que me gustan</p>
+                <div className='relative w-full h-[40vh]'>
+                    <img className='w-full h-[35vh] opacity-20 absolute top-0 left-0' src={background} alt="" />
+                    <img className='relative inset-0 m-auto pt-10 h-[25vh] w-[26vw] ' src={background} alt="" />
+                    <p className='text-white relative flex justify-center font-bold text-3xl mt-1'>Canciones que me gustan</p>
                 </div>
                 <div  >
                     <p className='relative text-white font-bold text-2xl mt-6 my-5'>Canciones</p>
-                    <div className='lg:h-[27vh] lg:overflow-y-scroll lg:scrollbar-hide' >
+                    <div className='lg:h-[35vh]  lg:overflow-y-scroll lg:scrollbar-hide' >
 
                         {
                             userLogged ?

@@ -6,11 +6,13 @@ import ModalSearcSongForPlayList from '../../component/ModalSearcSongForPlayList
 import PlaylistsContext from '../../context/playlists/PlaylistsContexts'
 import { useAuth0 } from '@auth0/auth0-react'
 import UserContext from '../../context/UserContext'
+import AddSongToPlayList from '../../component/addSongToPlayList/AddSongToPlayList'
 
 
 
 const ModalNewPlayList = ({setAddNewPlayList}) => {
   const [playListComplete, setPlayListComplete] = useState([])
+  const [playlistToShow, setPlaylistToShow] = useState([])
   const {addPlayList} = useContext(PlaylistsContext)
   const {user} = useAuth0()
   const {userLogged} = useContext(UserContext)
@@ -23,6 +25,8 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
     liked:"yes",
     private: ""
   })
+
+  console.log(playlistToShow)
 
 
   const form = useRef(null)
@@ -118,19 +122,17 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
                   <p className='font-bold' >Añadir canción</p>
                   <img className='h-3/4' src={plus} alt="" />
               </div>
-              <div className=' w-[90%] mx-10'>
-
-              {/* <AddSongToPlayList /> */}
-              </div>
-              {/* <button>Crear playlist</button> */}
               </form>
+              <div className=' w-[90%] mx-10'>
+                <AddSongToPlayList playlistToShow={playlistToShow}  />
+              </div>
             </div>
           </div>
         </div> 
         {
           searchSong &&
           <div >
-            <ModalSearcSongForPlayList setSearchSong={setSearchSong} playListComplete={playListComplete} setPlayListComplete={setPlayListComplete} handleInputChange={handleInputChange}/>
+            <ModalSearcSongForPlayList setSearchSong={setSearchSong} playListComplete={playListComplete} setPlayListComplete={setPlayListComplete} handleInputChange={handleInputChange} setPlaylistToShow={setPlaylistToShow} playlistToShow={playlistToShow}/>
           </div>
 
         }

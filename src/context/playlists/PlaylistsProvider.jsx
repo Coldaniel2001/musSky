@@ -1,14 +1,12 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 
-// import SongContext from '../song/SongContext'
-// import UserContext from '../UserContext'
 import PlayListsContexts from './PlaylistsContexts'
 
-// import { useAuth0 } from '@auth0/auth0-react'
-// import { toast } from 'react-hot-toast'
 
 
 const PlaylistsProvider = ({children}) => {
+
+  const [dataPlayLists, setDataPlayLists] = useState([])
 
     const addPlayList = async (playlist) => {
       console.log(playlist)
@@ -19,10 +17,25 @@ const PlaylistsProvider = ({children}) => {
         const data = await res.json();
         console.log(data);
       }
+
+        useEffect(() => {
+          const fetchPlaylists = async () => {
+            const res = await fetch("http://localhost:4002/playlists/");
+            const data = await res.json();
+
+            setDataPlayLists(data.allPlaylists);
+          };
+          fetchPlaylists();
+        }, []);
+        console.log(dataPlayLists);
    
     return (
-      <PlayListsContexts.Provider value={{
+      <PlayListsContexts.Provider 
+      value={{
         addPlayList,
+        dataPlayLists,
+        setDataPlayLists,
+
         
       }}>
         {children}
