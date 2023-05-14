@@ -2,11 +2,10 @@ import React, { useContext } from 'react';
 import RecentSong from '../RecentSong/RecentSong';
 
 import SongContext from '../../context/song/SongContext';
-import UserContext from '../../context/UserContext';
+
 
 const Recents = () => {
 	const { recentSong } = useContext(SongContext)
-	const { userLogged } = useContext(UserContext);
 	console.log(recentSong.length)
 	return (
 		<>
