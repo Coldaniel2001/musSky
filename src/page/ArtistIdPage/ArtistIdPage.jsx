@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-import NavBarAdmin from '../../component/NavBarAdmin/NavBarAdmin'
 import ArtistInformationUser from '../../component/ArtistInformation/ArtistInformationUser'
 
 const ArtistIdPage = () => {

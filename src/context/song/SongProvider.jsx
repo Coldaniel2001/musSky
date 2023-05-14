@@ -31,7 +31,7 @@ const SongProvider = ({ children }) => {
     };
     getAllRecient()
 
-  }, [userLogged])
+  }, [userLogged, dataSong])
 
   //song
 
@@ -50,15 +50,15 @@ const SongProvider = ({ children }) => {
       }
     );
     const data = await response.json();
-    console.log(data);
+
     try {
-      const updateFilter = dataSong.filter((update) => {
+      const updateDataSongFilter = dataSong.filter((update) => {
         return update._id !== data.updateLike._id;
       });
-      const dataAllSongs = [...updateFilter, data.updateLike].sort((a, b) =>
-        a._id.localeCompare(b._id)
+
+      setDataSong([...updateDataSongFilter, data.updateLike].sort((a, b) => a._id.localeCompare(b._id))
       );
-      setDataSong([...dataAllSongs]);
+
     } catch (error) {
       console.log(error);
       if (data.error === "InvalidTokenError: Invalid Compact JWS") {
@@ -115,6 +115,11 @@ const SongProvider = ({ children }) => {
         setRecentSong([...recentSong, song])
       }
 
+    } else {
+      const filterTop = recentSong.filter((deleteSong) => {
+        return deleteSong.nameSong !== song.nameSong
+      })
+      setRecentSong([...filterTop, song])
     }
   }
 
