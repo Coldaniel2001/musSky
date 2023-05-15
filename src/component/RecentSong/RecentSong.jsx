@@ -1,35 +1,39 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 
 
 import SongContext from "../../context/song/SongContext";
 import RecentSongCard from "./RecentSongCard/RecentSongCard";
-
+import UserContext from "../../context/UserContext";
 
 
 const RecentSong = () => {
 
-  const { dataSong} = useContext(SongContext);
-const[activeDropdown,setActiveDropdown]=useState(null)
+  const { recentSong } = useContext(SongContext);
+  const [activeDropdown, setActiveDropdown] = useState(null)
+  const { userLogged } = useContext(UserContext);
 
-
-
+  const likesByUser = (song) => {
+    if (userLogged) {
+      return song.likedBy?.includes(userLogged._id)
+    }
+  }
 
   return (
-    <div  className="flex overflow-x-scroll scrollbar-hide w-full whitespace-no-wrap 2xl:grid 2xl:grid-cols-2">
-         
+    <div className="flex overflow-x-scroll scrollbar-hide w-full whitespace-no-wrap 2xl:grid 2xl:grid-cols-2">
+
       {
-        dataSong &&
-          dataSong.map((song) => {
-            const isDropdownActive=activeDropdown===song._id
-            return (
+        recentSong &&
+        recentSong.map((song) => {
+          const isDropdownActive = activeDropdown === song._id
+          return (
 
-              <RecentSongCard key={song._id} song={song} activeDropdown={activeDropdown} setActiveDropdown={setActiveDropdown}
-              isDropdownActive={isDropdownActive}/>
+            <RecentSongCard key={song._id} song={song} activeDropdown={activeDropdown} setActiveDropdown={setActiveDropdown}
+              isDropdownActive={isDropdownActive} likesByUser={likesByUser} />
 
-              );
-            })
-          }
+          );
+        }).reverse()
+      }
     </div>
   );
 };

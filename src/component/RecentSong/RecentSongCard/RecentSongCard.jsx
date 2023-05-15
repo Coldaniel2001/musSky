@@ -6,15 +6,15 @@ import purpleHeart from "../../../assets/images/icons/purple-heart-stroke.png";
 
 import purpleHeartStroke from "../../../assets/images/icons/purple-heart.png";
 
-import UserContext from "../../../context/UserContext";
+
 
 import SongContext from "../../../context/song/SongContext";
 import DetailModal from "../../../Detail Modal/DetailModal";
 
 
 function RecentSongCard({song, isDropdownActive,
-  setActiveDropdown, activeDropdown }) {
-    const { userLogged } = useContext(UserContext);
+  setActiveDropdown, activeDropdown, likesByUser}) {
+
     const {  handleLikes,handleOpenSong } = useContext(SongContext);
 
  const handleToogle = () => {
@@ -24,11 +24,7 @@ function RecentSongCard({song, isDropdownActive,
       setActiveDropdown(song._id)
     }
   }
-    const likesByUser = (song) => {
-      if (userLogged) {
-        return song.likedBy?.includes(userLogged._id) 
-      }
-    };
+  
     
   return (
     <>
@@ -51,7 +47,7 @@ function RecentSongCard({song, isDropdownActive,
                 <img
                   onClick={() => handleLikes(song)}
                   className="hidden 2xl:grid my-auto w-[50%] mx-auto"
-                  src={likesByUser(song) ? purpleHeartStroke : purpleHeart}
+                  src={likesByUser(song) ? purpleHeartStroke  : purpleHeart}
                   alt="play music"
                 />
                 <img
