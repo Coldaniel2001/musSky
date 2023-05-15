@@ -19,7 +19,7 @@ import { AdminUserPage } from '../page/AdminPage/AdminUserPage'
 import MusicPlayerPhone from '../component/MusicPlayerPhone/MusicPlayerPhone'
 import RealPlaylistPage from '../page/RealPlaylistPage/RealPlaylistPage'
 import FinalRegister from '../FinalRegister/FinalRegister'
-import IconsImg from '../component/IconsImg'
+
 
 import HomePage from '../page/HomePage/HomePage'
 import ProfilePage from '../page/ProfilePage/ProfilePage'
@@ -28,12 +28,9 @@ import GendersPage from '../page/GendersPage/GendersPage'
 
 import ArtistIdPage from '../page/ArtistIdPage/ArtistIdPage'
 
-import HomePage from '../page/HomePage/HomePage'
-import ProfilePage from '../page/ProfilePage/ProfilePage'
-import PlayListPage from '../page/PlayListPage/PlayListPage'
-import GendersPage from '../page/GendersPage/GendersPage'
 
-import ArtistIdPage from '../page/ArtistIdPage/ArtistIdPage'
+
+
 
 // import PrivateRouter from './PrivateRouter'
 

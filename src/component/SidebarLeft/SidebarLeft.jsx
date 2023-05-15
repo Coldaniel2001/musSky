@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext} from 'react';
 import logo from '../../assets/images/icons/logo.png'
 import iconHome from '../../assets/images/icons/icon-home.png'
 import iconGenders from '../../assets/images/icons/icon-genero.png'
@@ -12,7 +12,7 @@ import iconLikedViolet from '../../assets/images/icons/bytesize_heartViolet.png'
 import iconAccountViolet from '../../assets/images/icons/codicon_accountViolet.png'
 import { NavLink,useLocation } from 'react-router-dom';
 import mySong from '../../assets/images/icons/mySong.png'
-import { NavLink } from 'react-router-dom';
+
 
 import SongContext from '../../context/song/SongContext';
 import UserContext from '../../context/UserContext';
