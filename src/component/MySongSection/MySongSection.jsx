@@ -55,11 +55,11 @@ const MySongSection = () => {
       <div className='border-b border-[#374151]  pb-10 mb-10'>
         <h2 className='text-white text-[2rem] font-extrabold'>MIS CANCIONES</h2>
         <div className='flex flex-col items-center justify-center lg:flex lg:flex-row lg:items-end lg:justify-start'>
-          <img className='rounded-full w-40 sm:w-60 2xl:w-60 mt-10 mr-6' src={userLogged.picture} alt="" />
-          <div className='flex flex-col justify-end gap-5 mt-5 lg:mt-0 items-center lg:items-start'>
-            <h3 className='text-2xl md:text-5xl font-bold'>Hola {userLogged.nickname},</h3>
-            <p className='text-lg 2xl:text-2xl'>Estas son las canciones que has subido</p>
-          </div>
+           <img className='rounded-full w-40 h-40 sm:w-48 sm:h-48 2xl:w-60 2xl:h-60 mt-10 mr-6' src={userLogged.picture} alt="" />   
+           <div className='flex flex-col justify-end gap-5 mt-5 lg:mt-0 items-center lg:items-start'>
+              <h3 className='text-2xl md:text-5xl font-bold'>Hola {userLogged.nickname},</h3>
+              <p className='text-lg 2xl:text-2xl'>Estas son las canciones que has subido</p>
+           </div>
         </div>
       </div>
 
