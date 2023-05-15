@@ -25,7 +25,7 @@ const SidebarLeft = () => {
 	const location = useLocation();
 	const { onePlayListSong, setCurrentSong, allPlaylistSong, setAllPlaylistSong } = useContext(SongContext)
 
-	const artist = userLogged.rol === "artist" 
+	const artist = userLogged?.rol === "artist" 
 
 	return (
 		<div>

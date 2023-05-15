@@ -16,8 +16,8 @@ function FinalRegister() {
       name: "",
       surname: "",
       nickname: "",
-      email: user.email,
-      picture: user.picture,
+      email: user?.email,
+      picture: user?.picture,
       update_at: formattedDate,
       rol: "",
     })

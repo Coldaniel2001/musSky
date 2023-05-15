@@ -7,6 +7,7 @@ import GendersSection from '../../component/GendersSection/GendersSection'
 
 
 const GendersPage = () => {
+
     return (
         <div className='bg-gradient-to-tr from-black via-black to-[#7339E5] md:min-h-screen xl:flex'>
             <div className=''>

@@ -20,7 +20,7 @@ const Top10Phone = () => {
     }, [MusicUrl])
 
   return (
-    <div className='lg:hidden'>
+    <div className='xl:hidden'>
         <div className='pt-14  text-white bg-black  xl:hidden lg:md'>
         </div>
         <img className=' hidden mx-auto pt-6' src={logo} alt="" />

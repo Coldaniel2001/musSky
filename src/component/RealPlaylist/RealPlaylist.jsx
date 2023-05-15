@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import MyPlaylists from '../MyPlaylists/MyPlaylists'
 import plusWhite from '../../assets/images/plusWhite.png'
-// import ModalNewPlayList from '../ModalNewPlayList/ModalNewPlayList'
+import ModalNewPlayList from '../ModalNewPlayList/ModalNewPlayList'
+import FreePlaylists from '../FreePlaylists/FreePlaylists'
 
 
 const RealPlaylist = () => {
 
     const [MyPlaylist, setMyPlaylist] = useState(true)
-    const [addNewPlayList, setAddNewPlayList] = useState(true)
+    const [addNewPlayList, setAddNewPlayList] = useState(false)
+
+    console.log(addNewPlayList)
 
 
 
@@ -31,15 +34,15 @@ const RealPlaylist = () => {
                     }
                 </div>
                 <div className='flex mt-10 ml-10 mr-10 mb-6 gap-5 h-[4rem] items-center justify-end w-1/2'>
-                    <div className='flex px-5 py-1 border-2 rounded-xl gap-5 items-center justify-end hover:bg-btnColor cursor-pointer' onClick={setAddNewPlayList(true)}>
+                    <div className='flex px-5 py-1 border-2 rounded-xl gap-5 items-center justify-end hover:bg-btnColor cursor-pointer' onClick={()=>setAddNewPlayList(true)}>
                         <p className='font-bold text-white text-[1.5rem]'>Nueva Playlist</p>
                         <img className='w-[15px] h-[15px]' src={plusWhite} alt="upload playlist" />
                     </div>
 
                 </div>
             </div>
-            : ""
-            // <ModalNewPlayList />
+            : 
+            <ModalNewPlayList addNewPlayList={addNewPlayList} setAddNewPlayList={setAddNewPlayList} />
 
     }
 
@@ -48,7 +51,7 @@ const RealPlaylist = () => {
         MyPlaylist ? 
         <MyPlaylists />
      :
-    ""
+    <FreePlaylists />
     }
 
 
