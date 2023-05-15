@@ -9,20 +9,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 import UserContext from "../../context/UserContext";
 
 const InfoProfile = () => {
-  const { userChangeInformation, setUserLogged, userLogged } = useContext(UserContext);
+  const { setUserLogged, userLogged, updateUser } = useContext(UserContext);
   const [changeInformation, setchangeInformation] = useState(true);
   const { user } = useAuth0();
-  
-  const [infoUser, setInfoUser] = useState({
-    name: "Victor",
-    surname: "Jauregui",
-    username: "Jaurewin",
-    email: "vicjaudom@gmail.com",
-    password: "1234",
-    passwordRepeat: "1234",
-  });
 
-  // const {  userChangeInformation } = useContext(UserContext)
 
   const handleSubmit = (e) => {
     if (e && e.preventDefault) { e.preventDefault(); }
@@ -30,14 +20,14 @@ const InfoProfile = () => {
   };
 
   const handleChangeInput = (e) => {
-    setUserLogged({ ...userLogged, [e.target.name]: e.target.value });
+    setUserLogged({...userLogged, [e.target.name]: e.target.value });
 
   };
 
   const handlesubmitOff = (e) => {
     e.preventDefault();
     setchangeInformation(true);
-    userChangeInformation(userLogged);
+    updateUser(userLogged._id ,userLogged);
   };
 
   return (
@@ -57,8 +47,6 @@ const InfoProfile = () => {
         >
           <div className="flex 2xl:w-1/6 flex-col items-center justify-around h-[12rem] pb-5 sm:border-b border-gray-600 2xl:border-transparent">
             <ProfileImg />
-            {/* <span className='text-xl font-semibold'>{inputChange.username}</span> */}
-            {/* <img className='w-[10rem]' src={user ? user.picture : addPicture} alt="add-profile" /> */}
             {changeInformation ? (
               <span className="text-xl font-semibold">
                 {userLogged ? userLogged.nickname : ""}
@@ -69,7 +57,7 @@ const InfoProfile = () => {
                 type="text"
                 placeholder={userLogged.nickname}
                 value={userLogged.nickname}
-                name="username"
+                name="nickname"
                 onChange={handleChangeInput}
               />
             )}
@@ -79,17 +67,39 @@ const InfoProfile = () => {
               <span className="text-white w-[45%] sm:w-full font-semibold sm:text-[0.9rem] md:text-[1rem] lg:text-[1.2rem]">
                 NOMBRE
               </span>
-              <span className="text-detailsGray w-[35%] sm:w-full text-lg ml-10 sm:ml-0">
-                {userLogged ? userLogged.name : ""}
-              </span>
+              {
+                changeInformation ?
+                <span className="text-detailsGray w-[35%] sm:w-full text-lg ml-10 sm:ml-0">
+                  {userLogged ? userLogged.name : ""}
+                </span> :
+                <input
+                className="bg-[#7239e57a] border-2 border-[#7339E5] rounded text-center"
+                type="text"
+                placeholder={userLogged?.name}
+                value={userLogged?.name}
+                name="name"
+                onChange={handleChangeInput}
+              />
+              }
             </div>
             <div className="flex sm:flex-col sm:justify-around sm:h-[6rem]">
               <span className="text-white w-[45%] sm:w-full font-semibold sm:text-[0.9rem] md:text-[1rem] lg:text-[1.2rem]">
                 APELLIDOS
               </span>
-              <span className="text-detailsGray  w-[35%] sm:w-full text-lg ml-10 sm:ml-0">
-                {userLogged ? userLogged.surname : ""}
-              </span>
+              {
+                changeInformation ?
+                <span className="text-detailsGray  w-[35%] sm:w-full text-lg ml-10 sm:ml-0">
+                  {userLogged ? userLogged.surname : ""}
+                </span> :
+                <input
+                className="bg-[#7239e57a] border-2 border-[#7339E5] rounded text-center"
+                type="text"
+                placeholder={userLogged?.surname}
+                value={userLogged?.surname}
+                name="surname"
+                onChange={handleChangeInput}
+              />
+              }
             </div>
             <div className="flex sm:flex-col sm:justify-around sm:h-[6rem]">
               <span className="text-white w-[45%] sm:w-full font-semibold sm:text-[0.9rem] md:text-[1rem] lg:text-[1.2rem]">
@@ -101,10 +111,10 @@ const InfoProfile = () => {
                 </span>
               ) : (
                 <input
-                  className="bg-[#7239e57a] border-2 border-[#7339E5] rounded"
+                  className="bg-[#7239e57a] border-2 border-[#7339E5] rounded text-center"
                   type="text"
-                  placeholder={user.email}
-                  value={user.email}
+                  placeholder={userLogged?.email}
+                  value={userLogged?.email}
                   name="email"
                   onChange={handleChangeInput}
                 />

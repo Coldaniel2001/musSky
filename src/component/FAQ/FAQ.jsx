@@ -10,24 +10,24 @@ const FAQ = () => {
 		{
 			id:1,
 			text:"¿A qué puedo acceder si no estoy suscrito?",
-			content:"Victor mariquitaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+			content:"Si no estás suscrito solo podrás acceder a la plataforma visualmente. Para escuchar musica y crear contenido, debes registrarte"
 		},{
 			id:2,
 			text:"¿Cual es el precio de la suscripción?",
-			content:"Victor mariquita 2"
+			content:"La plataforma es totalmente gratuita como usuario y como artista."
 		},{
 			id:3,
 			text:"¿Tiene costo descargar playlist?",
-			content:"Victor mariquita 3"
+			content:"Todas las playlist públicas serás gratuitas."
 		},{
 			id:4,
 			text:"¿Puedo cancelar cuando quiera?",
-			content:"Victor mariquita 4"
+			content:"Por supuesto. Podrás cancelar la suscripción cuando desees."
 		},
 		{
 			id:5,
 			text:"¿Puéden entrar más personas a la cuenta?",
-			content:"Victor mariquita 5"
+			content:"No. Cada cuenta es para un usuario."
 		}
 	])
 
