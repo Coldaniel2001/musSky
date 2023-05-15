@@ -27,6 +27,7 @@ import GendersPage from '../page/GendersPage/GendersPage'
 import PlaylistsProvider from '../context/playlists/PlaylistsProvider'
 import ArtistIdPage from '../page/ArtistIdPage/ArtistIdPage'
 
+import PlaylistIdPage from '../page/PlaylistIdPage/PlaylistIdPage'
 // import PrivateRouter from './PrivateRouter'
 
 
@@ -85,6 +86,12 @@ const RoutesPath = () => {
                             <Route path='/artist/:userId' element={
                             <>
                                 <ArtistIdPage/>
+                                <MusicPlayerPhone />
+                            </>
+                        } />
+                            <Route path='/playlist/:userId' element={
+                            <>
+                                <PlaylistIdPage/>
                                 <MusicPlayerPhone />
                             </>
                         } />
