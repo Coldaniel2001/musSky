@@ -132,7 +132,26 @@ const SongProvider = ({ children }) => {
       setDataSong(data.allSong);
     };
     musicTracks();
+
   }, [setDataSong]);
+
+  const deleteSong = async (song) => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/tracks/${song._id}`,{
+        method: "DELETE"
+      }
+      )
+      const data = await response.json();
+      console.log(data)
+      const deleteSong = dataSong.filter((song)=>{
+        return song._id !== data.deleteTracks._id
+      })
+      setDataSong(deleteSong)
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const likesByUser = (song) => {
     if (userLogged) {
@@ -140,11 +159,6 @@ const SongProvider = ({ children }) => {
       return song.likedBy?.includes(userLogged._id);
     }
   };
-
-  
- 
-
-
 
   return (
     <SongContext.Provider
@@ -160,6 +174,7 @@ const SongProvider = ({ children }) => {
         handleLikes: handleLikes,
         likesByUser: likesByUser,
         handleOpenSong: handleOpenSong,
+        deleteSong: deleteSong
       }}
     >
       {children}
