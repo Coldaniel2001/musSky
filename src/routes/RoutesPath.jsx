@@ -25,7 +25,8 @@ import ProfilePage from '../page/ProfilePage/ProfilePage'
 import PlayListPage from '../page/PlayListPage/PlayListPage'
 import GendersPage from '../page/GendersPage/GendersPage'
 import PlaylistsProvider from '../context/playlists/PlaylistsProvider'
-import ArtistIdPage from '../component/ArtistInformation/ArtistIdPage'
+import ArtistIdPage from '../page/ArtistIdPage/ArtistIdPage'
+
 // import PrivateRouter from './PrivateRouter'
 
 

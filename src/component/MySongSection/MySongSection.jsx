@@ -6,24 +6,19 @@ import UserContext from '../../context/UserContext'
 import { useAuth0 } from '@auth0/auth0-react'
 import SongContext from '../../context/song/SongContext'
 
+
 const MySongSection = () => {
   const [uploadSong, setUploadSong] = useState(false)
   const [editSong, setEditSong] = useState(false)
 
   const {userLogged} = useContext(UserContext)
   const {dataSong } = useContext(SongContext)
-  const { user } = useAuth0();
-  const [mySongs, setMysongs] = useState() 
+ 
 
   const SongUploaded = dataSong.filter((song) => {
-    return song.nameArtist === user?.email
+    return song.nameArtist === userLogged?.nickname
     
   })
-
-  
-
-
-
 
   return (
     <div className='text-white px-10 py-10 min-h-screen'>
@@ -39,11 +34,12 @@ const MySongSection = () => {
       </div>
       
       <div className='xl:mx-10 lg:h-[40vh] lg:overflow-y-scroll lg:scrollbar-hide '>
+
       { 
         SongUploaded.length ?
                         SongUploaded.map((song) => {
                             return (
-                                <div className='relative flex text-white items-center mb-3 gap-3 hover:bg-[#7239e575] rounded cursor-pointer'>
+                                <div key={song._id} className='relative flex text-white items-center mb-3 gap-3 hover:bg-[#7239e575] rounded cursor-pointer'>
                                     <div className='w-[3%] flex justify-center'>
                                         <p className='text-white span-col-2 text-xl font-thin justify-center'>{song.id}</p>
                                     </div>
@@ -93,7 +89,7 @@ const MySongSection = () => {
       
       {
         uploadSong &&
-        <ModalAddNewSong setUploadSong={setUploadSong} />
+        <ModalAddNewSong setUploadSong={setUploadSong} SongUploaded={SongUploaded} />
         
       }
     </div>
