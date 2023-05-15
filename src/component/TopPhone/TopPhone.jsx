@@ -10,11 +10,9 @@ const TopPhone = () => {
     setModal(!modal)
   }
 
-  const { isLoading, user, logout } = useAuth0()
+  const {  user, logout } = useAuth0()
 
-  if (isLoading) {
-    return <span>...Loading</span>
-  }
+  
   return (
     <>
       <div className='flex justify-between pl-5 pr-5 w-full bg-black bg-opacity-30  fixed top-0  xl:hidden '>
