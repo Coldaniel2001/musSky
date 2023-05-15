@@ -20,6 +20,7 @@ import MusicPlayerPhone from '../component/MusicPlayerPhone/MusicPlayerPhone'
 import RealPlaylistPage from '../page/RealPlaylistPage/RealPlaylistPage'
 import FinalRegister from '../FinalRegister/FinalRegister'
 
+
 import HomePage from '../page/HomePage/HomePage'
 import ProfilePage from '../page/ProfilePage/ProfilePage'
 import PlayListPage from '../page/PlayListPage/PlayListPage'
