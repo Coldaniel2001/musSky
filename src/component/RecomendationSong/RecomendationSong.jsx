@@ -18,7 +18,7 @@ const RecomendationSong = () => {
       {
         dataPlayLists.map((playlist) => {
           return (
-            <SingularPlaylist playlist={playlist} />
+            <SingularPlaylist key={playlist._id} playlist={playlist} />
            
 
 )

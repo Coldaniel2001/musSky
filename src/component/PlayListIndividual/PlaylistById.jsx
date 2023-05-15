@@ -19,12 +19,9 @@ const PlaylistById = () => {
 
     const { userLogged } = useContext(PlaylistsContext)
     const { handleLikes, handleOpenSong } = useContext(SongContext)
-    const {dataSong} = useContext(SongContext)
 
     const {userId} = useParams()
     const [infoPlaylist, setInfoPlaylist] = useState(null);
-
-    console.log(dataSong)
 
 
 
@@ -35,7 +32,6 @@ useEffect(() => {
     try {
       const response = await fetch(`http://localhost:4002/playlists/id/${userId}`)
       const data = await response.json();
-      console.log(data)
       setInfoPlaylist(data.playlist);
     } catch (error) {
       console.error(error);
@@ -44,6 +40,7 @@ useEffect(() => {
   }
   fetchData();
 }, [userId]);
+
 
 
     return (
@@ -67,8 +64,8 @@ useEffect(() => {
                     <div className='lg:h-[35vh] overflow-y-scroll scrollbar-hide pb-60 lg:pb-0' >
 
                         {
-                            dataSong ?
-                                dataSong.map((song) => {
+                            infoPlaylist ?
+                            infoPlaylist.songs.map((song) => {
                                     return (
 
                                         <div key={song._id} className='relative flex text-white items-center mb-3 sm:mx-10 hover:bg-[#7239e526] pl-2 cursor-pointer rounded'>
