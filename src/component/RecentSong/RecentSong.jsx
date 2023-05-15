@@ -20,7 +20,7 @@ const RecentSong = () => {
   }
 
   return (
-    <div className="flex overflow-x-scroll scrollbar-hide w-full whitespace-no-wrap 2xl:grid 2xl:grid-cols-2">
+    <div className="flex overflow-x-scroll scrollbar-hide w-full whitespace-no-wrap 2xl:grid 2xl:grid-cols-2  h-[10vh] ">
 
       {
         recentSong &&

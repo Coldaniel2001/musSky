@@ -30,12 +30,12 @@ function RecentSongCard({song, isDropdownActive,
     <>
    <div
               key={song._id}
-              className="min-w-[25rem] flex justify-center mb-4 relative"
+              className="min-w-[25rem] flex justify-center mb-4 relative "
 
             >
-              <div className=" bg-[#7239e546] grid grid-cols-8 w-[90%] rounded ">
+              <div className=" bg-[#7239e546] grid grid-cols-8 h-[90%] w-[90%] rounded ">
                 <img
-                  className="col-span-2 h-[5rem] w-[90px] rounded-l opacity-90"
+                  className="col-span-2 h-[90%] w-[90px] rounded-l opacity-90"
                   onClick={()=>handleOpenSong(song)}
                   src={song.picture}
                   alt="first artist"

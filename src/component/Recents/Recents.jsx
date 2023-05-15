@@ -6,7 +6,7 @@ import SongContext from '../../context/song/SongContext';
 
 const Recents = () => {
 	const { recentSong } = useContext(SongContext)
-	console.log(recentSong.length)
+
 	return (
 		<>
 			{recentSong.length !== 0 ?

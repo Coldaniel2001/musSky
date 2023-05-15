@@ -4,7 +4,7 @@ import Artist from '../Artist/Artist';
 const Artists = () => {
 	return (
 		<div>
-			<h2 className='text-white text-[2rem] font-extrabold'>ARTISTAS</h2>
+			<h2 className='text-white text-[2rem] font-extrabold mb-6'>ARTISTAS</h2>
 			<div >
 				<Artist />
 			</div>

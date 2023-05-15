@@ -79,8 +79,8 @@ const Artist = () => {
                     return (
                         <SwiperSlide>
                         <Link to={`/artist/${artist._id}`} >
-                            <div key={artist._id} >
-                            <div className='mb-6  min-w-[12rem]  xl:min-w-[15rem]'>
+                            <div key={artist._id} className='py-5 ' >
+                            <div className='mb-6  min-w-[12rem]  xl:min-w-[15rem] hover:scale-105 transition duration-500 x'>
                                 <img className='w-[90%] mx-auto rounded h-[12rem]' src={artist.picture} alt="first artist" />
                                 <p className='hidden lg:flex lg:text-[1.3rem] lg:mt-2 xl:text-[1.6rem] 2xl:text-[1rem] justify-center  font-semibold'>{artist.name}</p>
                             </div>

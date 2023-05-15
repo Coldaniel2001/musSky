@@ -34,15 +34,15 @@ const MusicPlayerPhone = () => {
 	return (
 		<>
 		{Object.entries(onePlayListSong).length!==0 &&
-			<div className=' bg-[#1d1d1d] fixed bottom-0 w-full h-[12vh] sm:flex items-center'>
-				<div className='sm:flex items-center w-full flex justify-center  '>
-					<div className='w-[100%] sm:w-[40%] xl:hidden sm:flex justify-center '>
-						<div className='mr-3 lg:mr-8 w-[50%] sm:w-[25%] rounded flex items-center justify-center ml-2'>
-							<img className='rounded-xl ml-3 w-[60px] sm:w-[100%] 2xl:w-[80%] sm:mr-3' src={onePlayListSong.picture} alt={"img-music"} />
+			<div className=' bg-[#1d1d1d] fixed bottom-0 w-full mb-20 xl:mb-0  sm:flex items-center z-10'>
+				<div className='sm:flex items-center w-full justify-center  '>
+					<div className='w-[100%] sm:w-[45%] xl:hidden flex justify-center py-2 gap-5 border-b border-gray-800   '>
+						<div className=' lg:mr-8 w-[40%] sm:w-[25%] rounded flex items-center justify-end  '>
+							<img className='rounded  w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] 2xl:w-[80%] sm:mr-3' src={onePlayListSong.picture} alt={"img-music"} />
 						</div>
-						<div className='flex flex-col  w-[100%] sm:w-[50%] justify-center ml-5'>
-							<span className='text-white text-bold lg:text-[1.3rem]  xl:text-[1.4rem] 2xl:text-[1.5rem]'>{onePlayListSong.nameArtist}</span>
-							<span className='text-gray-500 text-bold text-[1rem]'>{onePlayListSong.nameSong}</span>
+						<div className='flex flex-col  w-[55%] sm:w-[50%] justify-left '>
+							<span className='text-white text-bold text-[1.4rem] lg:text-[1.3rem]  xl:text-[1.4rem] 2xl:text-[1.5rem]'>{onePlayListSong.nameArtist}</span>
+							<span className='text-gray-500 text-bold text-[1rem] truncate'>{onePlayListSong.nameSong}</span>
 						</div>
 					</div>
 
@@ -50,15 +50,6 @@ const MusicPlayerPhone = () => {
 						
 							<AudioPlayer src={onePlayListSong.song} layout="stacked-reverse"
 								autoPlay={true}
-								customIcons={{
-									// play: <img className="white" src={play} alt="play" />,
-									// pause: <img className="w-7" src={pause} alt="pause" />,
-									// next: <img className="w-7" src={next} alt="next" />,
-									// previous: <img className="w-7" src={previous} alt="play" />,
-									// forward: <img className="my-forward-icon" src={previous} alt="play" />,
-									// rewind: <img className="my-forward-icon" src={previous} alt="play" />,
-								}}
-								
 								showSkipControls={true}
 								onClickNext={(e) => handleNext()}
 								onClickPrevious={(e) => handlePrevious()}

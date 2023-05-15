@@ -16,11 +16,11 @@ function Top10Card({ song, isDropdownActive,
   return (
     <div key={song.id} className='grid grid-cols-8 grid-rows-10 mt-4 ml-3 relative'>
 
-      <img className='col-span-2 w-3/4 rounded-full' src={song.picture} alt="images-song" />
+      <img className='col-span-2 w-[50px] h-[50px] rounded-full' src={song.picture} alt="images-song" />
 
       <div className='col-span-5 text-white my-auto'>
         <p className='font-bold text-xl truncate'>{song.nameArtist}</p>
-        <p className=''>{song.nameSong}</p>
+        <p className='text-gray-500'>{song.nameSong}</p>
       </div>
       <div className='relative flex flex-col '>
 
