@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import logo from '../../assets/images/icons/logo.png'
 
 
 import { useAuth0 } from "@auth0/auth0-react"
+import UserContext from '../../context/UserContext'
 
 const TopPhone = () => {
+  const {userLogged} = useContext(UserContext)
   const [modal, setModal] = useState(false)
   // const showModal = () => {
   //   setModal(!modal)
@@ -19,7 +21,7 @@ const TopPhone = () => {
         <img className='w-40 ' src={logo} alt="" />
         {user ?
           <>
-            <img className='w-10 h-10 rounded-full my-auto border-2 boder-white mx-end' onClick={()=>setModal(true)} src={user.picture} alt="" />
+            <img className='w-10 h-10 rounded-full my-auto border-2 boder-white mx-end' onClick={()=>setModal(true)} src={userLogged?.picture} alt="" />
             {
               modal && 
               <div className='w-[13rem]   h-[6rem] bg-[#f4f1f7] mt-[2rem]   hover:opacity-100  rounded-md   modal'>

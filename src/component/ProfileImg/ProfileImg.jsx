@@ -6,6 +6,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 function ProfileImg() {
   const { userLogged, setUserLogged } = useContext(UserContext)
+  const [hovered, setHovered] = useState(false)
+  console.log(hovered)
 
   
   const editImgFetch = async (data) => {
@@ -34,9 +36,9 @@ function ProfileImg() {
     <div>
       <label>
         {userLogged  ? 
-        <img className='w-[10rem] cursor-pointer rounded-full' src={userLogged.picture} alt="uploaded" />
+          <img className={hovered ? 'opacity-50 w-[10rem] h-[10rem] border-4 border-[#7C8BBF] cursor-pointer rounded-full' : ' w-[10rem] h-[10rem] border-4 border-[#7C8BBF] cursor-pointer rounded-full'} src={userLogged.picture} alt="uploaded" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} />
         :
-        <img className='w-[10rem] cursor-pointer' src={addImageProfile} alt="add-profile" />
+        <img className='w-[10rem] h-[10rem] cursor-pointer' src={addImageProfile} alt="add-profile" />
         }
         <input type="file" className='hidden' onChange={handleEditImage} />
  		  </label>

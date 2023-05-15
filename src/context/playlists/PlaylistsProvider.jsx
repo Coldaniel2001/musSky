@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import PlayListsContexts from './PlaylistsContexts'
+import { toast } from 'react-hot-toast'
 
 
 
@@ -16,6 +17,9 @@ const PlaylistsProvider = ({children}) => {
         })
         const data = await res.json();
         console.log(data);
+        if(data.ok){
+          toast.success("Playlist creada con éxito")
+        }
       }
 
         useEffect(() => {

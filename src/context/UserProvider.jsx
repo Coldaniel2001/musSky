@@ -117,7 +117,6 @@ const UserProvider = ({ children }) => {
   };
 
   const updateUser = async (userId, newValue) => {
-    console.log(userId, newValue)
     
     const res = await fetch("http://localhost:4002/users/update-user", {
         method: "PATCH", 

@@ -1,5 +1,5 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
-import imgPlayList from '../../assets/images/imgPlayList.png'
+import imgPlayList from '../../assets/images/uploadPictureSong.png'
 import plus from '../../assets/images/plus.png'
 
 import ModalSearcSongForPlayList from '../../component/ModalSearcSongForPlayList/ModalSearcMusicForPlayList'
@@ -7,6 +7,7 @@ import PlaylistsContext from '../../context/playlists/PlaylistsContexts'
 import { useAuth0 } from '@auth0/auth0-react'
 import UserContext from '../../context/UserContext'
 import AddSongToPlayList from '../../component/addSongToPlayList/AddSongToPlayList'
+import { toast } from 'react-hot-toast'
 
 
 
@@ -33,6 +34,7 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
 
     
     const handleSubmit = (e) => {
+      e.preventDefault()
      
         const formdata = new FormData(form.current)
         formdata.append("author", userLogged.email)
@@ -42,8 +44,8 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
         
 
         addPlayList(formdata)
-        console.log(formdata)
-      e.preventDefault()
+        setAddNewPlayList(false)
+
 
     }
 
@@ -80,7 +82,7 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
               </div>
               
               <label className='w-full flex justify-center mt-[3vh]'>
-                    <img className='w-[200px]  lg:w-[250px] lg:h-[250px] border  cursor-pointer rounded' src={previewImg ? previewImg : imgPlayList} alt="UP" />
+                    <img className='w-[200px]  lg:w-[270px] lg:h-[250px]  cursor-pointer rounded' src={previewImg ? previewImg : imgPlayList} alt="UP" />
                     <input type="file" className='hidden'
                         required
                         name="imagePlaylist"
