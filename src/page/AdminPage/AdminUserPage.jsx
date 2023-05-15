@@ -19,7 +19,7 @@ useEffect(() => {
     } catch (error) {
       console.error(error);
     }
-console.log(infoUser)
+
   }
   fetchData();
 }, []);

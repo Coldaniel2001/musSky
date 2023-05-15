@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import Search from '../Search/Search'
 import background from '../../assets/images/background.png'
 import playWhite from '../../assets/images/icons/play-white.png'
-import redHeart from '../../assets/images/icons/red-heart.png'
+
 import purpleHeart from '../../assets/images/icons/purple-heart.png'
 import addList from '../../assets/images/icons/add-list.png'
 import seeMore from '../../assets/images/icons/see-more.png'
