@@ -16,12 +16,10 @@ const ArtistIdPage = () => {
       try {
         const response = await fetch(`http://localhost:4002/users/id/${userId}`)
         const data = await response.json();
-        console.log(data)
         setInfoUser(data.user);
       } catch (error) {
         console.error(error);
       }
-
     }
     fetchData();
   }, [userId]);

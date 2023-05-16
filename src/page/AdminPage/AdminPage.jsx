@@ -13,7 +13,6 @@ const AdminPage = () => {
 
   const {artist, setArtist} = useContext(UserContext)
 
-  console.log(artist)
 
 
 

@@ -12,10 +12,11 @@ const SongProvider = ({ children }) => {
 
 
   const [onePlayListSong, setOnePlayListSong] = useState({});
-  const [allPlaylistSong, setAllPlaylistSong] = useState([]);
   const [recentSong, setRecentSong] = useState([]);
+  const [artistSong, setArtistSong] = useState([])
   const { userLogged } = useContext(UserContext);
   const { getIdTokenClaims } = useAuth0()
+  
 
   // Recient
   useEffect(() => {
@@ -165,8 +166,6 @@ const SongProvider = ({ children }) => {
       value={{
         dataSong,
         setDataSong,
-        allPlaylistSong,
-        setAllPlaylistSong,
         onePlayListSong,
         setOnePlayListSong,
         recentSong,

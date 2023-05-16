@@ -9,9 +9,7 @@ import SongContext from '../../context/song/SongContext'
 
 const AddSongToPlayList = ({playListComplete, playlistToShow}) => {
     const {dataSong} = useContext(SongContext)
-    console.log(playListComplete)
-    console.log(dataSong)
-    console.log(playlistToShow)
+
 
     
   return (

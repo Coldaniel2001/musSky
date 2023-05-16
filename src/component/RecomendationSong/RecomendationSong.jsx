@@ -9,14 +9,16 @@ import SingularPlaylist from './SingularPlaylist'
 const RecomendationSong = () => {
   const {dataPlayLists} = useContext(PlaylistsContext)
 
+  const publicFilter = dataPlayLists.filter((publicPlaylist)=>{
+    return  publicPlaylist.private === false
+  })
 
 
-  console.log(dataPlayLists)
   return (
 
       <div className='flex overflow-x-scroll scrollbar-hide w-[100%] gap-5 whitespace-no-wrap py-5 px-5'>
       {
-        dataPlayLists.map((playlist) => {
+        publicFilter.map((playlist) => {
           return (
             <SingularPlaylist key={playlist._id} playlist={playlist} />
            
