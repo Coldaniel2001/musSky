@@ -10,16 +10,25 @@ import likesPlaylists from '../../assets/images/likesPlaylists.jpg'
 
 import SongContext from '../../context/song/SongContext'
 import UserContext from '../../context/UserContext'
+import ModalAddSongToPLaylist from '../ModalAddSongToPlyalist/ModalAddSongToPlaylist'
 
 
 const PlayListIndividual = () => {
 
+    const [addSongToPlaylist, setAddSongToPlaylist] = useState(false)
     const { dataSong, handleLikes, handleOpenSong } = useContext(SongContext)
     const { userLogged } = useContext(UserContext)
+
 
     const musicLikesToTracks = dataSong.filter((listToLike) => {
         return listToLike.likedBy?.includes(userLogged._id)
     })
+
+    const addToPlaylist = () => {
+        setAddSongToPlaylist(true)
+    }
+
+    console.log(addSongToPlaylist)
 
 
 
@@ -51,7 +60,7 @@ const PlayListIndividual = () => {
                                             <p className='w-[42%] font-thin hidden md:block'>{song.nameArtist}</p>
                                             <img onClick={() => handleOpenSong(song)} className='w-[6%] md:w-[4%] lg:w-[3%] cursor-pointer' src={playWhite} alt="" />
                                             <img onClick={() => handleLikes(song)} className='w-[6%] md:w-[4%] lg:w-[2%] mx-5 cursor-pointer' src={purpleHeart} alt="" />
-                                            <img className='w-[6%] md:w-[4%] lg:w-[3%] mr-5 cursor-pointer' src={addList} alt="" />
+                                            <img className='w-[6%] md:w-[4%] lg:w-[3%] mr-5 cursor-pointer' onClick={()=>addToPlaylist()} src={addList} alt="" />
                                             <img className='w-[6%] md:w-[4%] lg:w-[2%] cursor-pointer' src={seeMore} alt="" />
                                         </div>
 
@@ -65,6 +74,10 @@ const PlayListIndividual = () => {
                     </div>
                 </div>
             </div>
+                        {
+                            addSongToPlaylist &&
+                            <ModalAddSongToPLaylist setAddSongToPlaylist={setAddSongToPlaylist}/>
+                        }
         </div>
     )
 }
