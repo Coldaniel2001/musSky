@@ -22,9 +22,11 @@ const SidebarLeft = () => {
 
 	return (
 		<div>
+			<NavLink to={"/home"}>
 			<div className='text-white flex flex-col items-center h-[6vh]'>
 				<img className='h-full ' src={logo} alt="logo" />
 			</div>
+			</NavLink>
 			<div className='text-white mt-[3vh] md:hidden lg:block gap-5'>
 				<NavLink to={"/home"} className={({ isActive }) => isActive ? 'grid border-l-[0.5rem] border-mainPurple' : "grid border-l-[0.5rem] border-transparent"}>
 					<div className='xl:grid grid-cols-8 lg:flex  lg:justify-center lg:pl-0 items-center   xl:pl-6 h-[5vh] '>

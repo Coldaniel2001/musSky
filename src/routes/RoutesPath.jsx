@@ -16,6 +16,7 @@ import Skeleton from '../Skeleton/SkeletonSidebarRight'
 import AdminPage from '../page/AdminPage/AdminPage'
 import Mysongs from '../page/MySongs/Mysongs'
 import { AdminUserPage } from '../page/AdminPage/AdminUserPage'
+
 import MusicPlayerPhone from '../component/MusicPlayerPhone/MusicPlayerPhone'
 import RealPlaylistPage from '../page/RealPlaylistPage/RealPlaylistPage'
 import FinalRegister from '../FinalRegister/FinalRegister'
@@ -28,6 +29,8 @@ import PlaylistsProvider from '../context/playlists/PlaylistsProvider'
 import ArtistIdPage from '../page/ArtistIdPage/ArtistIdPage'
 
 import PlaylistIdPage from '../page/PlaylistIdPage/PlaylistIdPage'
+import MusicReproductionLive from '../page/MusicReproductionLive/MusicReproductionLive'
+import { AdminArtistPage } from '../page/AdminPage/AdminArtistsPage'
 // import PrivateRouter from './PrivateRouter'
 
 
@@ -98,8 +101,10 @@ const RoutesPath = () => {
                             <Route path='/*' element={<Navigate to={'/home'} />} />
                             <Route path='/admin' element={<AdminPage />} />
                             <Route path='/admin/:userId' element={<AdminUserPage />} />
+                            <Route path='/admin/:userId' element={<AdminArtistPage />} />
                             <Route path='/mis-canciones' element={<Mysongs />} />
                             <Route path='/final-register' element={<FinalRegister />} />
+                            <Route path='/reproduction-live' element={<MusicReproductionLive/>} />
                         </Routes>
                     </BrowserRouter>
                 </PlaylistsProvider>

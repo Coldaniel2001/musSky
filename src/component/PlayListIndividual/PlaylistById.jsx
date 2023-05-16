@@ -14,15 +14,19 @@ import seeMore from '../../assets/images/icons/see-more.png'
 import SongContext from '../../context/song/SongContext'
 import { useParams } from 'react-router-dom'
 import { data } from 'autoprefixer'
+import ModalAddSongToPLaylist from '../ModalAddSongToPlyalist/ModalAddSongToPlaylist'
 
 const PlaylistById = () => {
+    const [addSongToPlaylist, setAddSongToPlaylist] = useState(false)
 
-    const { userLogged } = useContext(PlaylistsContext)
     const { handleLikes, handleOpenSong } = useContext(SongContext)
 
     const {userId} = useParams()
     const [infoPlaylist, setInfoPlaylist] = useState(null);
 
+    const addToPlaylist = () => {
+        setAddSongToPlaylist(true)
+    }
 
 
 
@@ -68,16 +72,16 @@ useEffect(() => {
                             infoPlaylist.songs.map((song) => {
                                     return (
 
-                                        <div key={song._id} className='relative flex text-white items-center mb-3 sm:mx-10 hover:bg-[#7239e526] pl-2 cursor-pointer rounded'>
+                                        <div key={song._id} className='relative flex text-white items-center mb-3 sm:mx-10 hover:bg-[#7239e575] cursor-pointer rounded'>
                                             {/* <div className='w-[3%] flex justify-center'>
                                                 <p className='text-white span-col-2 text-xl font-thin justify-center'>1</p>
                                             </div> */}
-                                            <img className='w-[50px] h-[50px]' src={song.picture} alt="images-song" />
+                                            <img className='w-[40px] h-[40px] lg:w-[70px] lg:h-[70px] rounded' src={song.picture} alt="images-song" />
                                             <p className='font-semibold text-xl w-full md:w-[42%] pl-10 ' >{song.nameSong}</p>
                                             <p className='w-[42%] text-xl font-thin hidden md:block'>{song.nameArtist}</p>
                                             <img onClick={() => handleOpenSong(song)} className='w-[6%] md:w-[4%] lg:w-[3%] cursor-pointer' src={playWhite} alt="" />
                                             <img onClick={() => handleLikes(song)} className='w-[6%] md:w-[4%] lg:w-[2%] mx-5 cursor-pointer' src={purpleHeart} alt="" />
-                                            <img className='w-[6%] md:w-[4%] lg:w-[3%] mr-5 cursor-pointer' src={addList} alt="" />
+                                            <img className='w-[6%] md:w-[4%] lg:w-[3%] mr-5 cursor-pointer' onClick={()=>addToPlaylist()}  src={addList} alt="" />
                                             <img className='w-[6%] md:w-[4%] lg:w-[2%] cursor-pointer' src={seeMore} alt="" />
                                         </div>
 
@@ -91,6 +95,10 @@ useEffect(() => {
                     </div>
                 </div>
             </div>
+            {
+                            addSongToPlaylist &&
+                            <ModalAddSongToPLaylist setAddSongToPlaylist={setAddSongToPlaylist}/>
+                        }
         </div>
     )
 }
