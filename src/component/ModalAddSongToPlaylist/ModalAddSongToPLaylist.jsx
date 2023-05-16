@@ -33,9 +33,6 @@ const ModalAddSongToPLaylist = ({setAddSongToPlaylist}) => {
                             }
                             </select>
                         </div>
-                        <label>
-
-                        </label>
                         <div className='mt-20 flex justify-center gap-3'>
                             <div className='bg-transparent border py-2 px-4 rounded cursor-pointer  w-[130px] flex justify-center hover:bg-[#f34545]' onClick={() => setAddSongToPlaylist(false)}>
                                 <p >Cancelar</p>
