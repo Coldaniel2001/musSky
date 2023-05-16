@@ -15,9 +15,10 @@ import ModalAddSongToPLaylist from '../ModalAddSongToPlyalist/ModalAddSongToPlay
 
 const PlayListIndividual = () => {
 
+    const [addSongToPlaylist, setAddSongToPlaylist] = useState(false)
     const { dataSong, handleLikes, handleOpenSong } = useContext(SongContext)
     const { userLogged } = useContext(UserContext)
-    const [addSongToPlaylist, setAddSongToPlaylist] = useState(false)
+
 
     const musicLikesToTracks = dataSong.filter((listToLike) => {
         return listToLike.likedBy?.includes(userLogged._id)
