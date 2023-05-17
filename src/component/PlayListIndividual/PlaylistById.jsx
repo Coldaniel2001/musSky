@@ -19,14 +19,26 @@ import ModalAddSongToPLaylist from '../ModalAddSongToPlyalist/ModalAddSongToPlay
 
 
 const PlaylistById = () => {
+    const [addSongToPlaylist, setAddSongToPlaylist] = useState(false)
 
-    const { infoPlaylist, setInfoPlaylist } = useContext(PlaylistsContext)
+    const { userLogged } = useContext(PlaylistsContext)
     const { handleLikes, handleOpenSong, likesByUser, dataSong} = useContext(SongContext)
 
     const [addSongToPlaylist, setAddSongToPlaylist] = useState(false)
     const [sendSong, setSendSong] = useState()
 
     const {userId} = useParams()
+    const [infoPlaylist, setInfoPlaylist] = useState(null);
+
+    const addToPlaylist = () => {
+        setAddSongToPlaylist(true)
+    }
+
+
+    const addToPlaylist = (song) => {
+        setAddSongToPlaylist(true)
+        setSendSong(song)
+    }
 
     const addToPlaylist = (song) => {
         setAddSongToPlaylist(true)
@@ -75,11 +87,12 @@ useEffect(() => {
                             infoPlaylist ?
                             infoPlaylist.songs.map((song) => {
                                     return (
-                                        <div key={song._id} className='relative flex text-white items-center mb-3 sm:mx-10 hover:bg-[#7239e526] pl-2 cursor-pointer rounded'>
+
+                                        <div key={song._id} className='relative flex text-white items-center mb-3 sm:mx-10 hover:bg-[#7239e575] cursor-pointer rounded'>
                                             {/* <div className='w-[3%] flex justify-center'>
                                                 <p className='text-white span-col-2 text-xl font-thin justify-center'>1</p>
                                             </div> */}
-                                            <img className='w-[50px] h-[50px]' src={song.picture} alt="images-song" />
+                                            <img className='w-[40px] h-[40px] lg:w-[70px] lg:h-[70px] rounded' src={song.picture} alt="images-song" />
                                             <p className='font-semibold text-xl w-full md:w-[42%] pl-10 ' >{song.nameSong}</p>
                                             <p className='w-[42%] text-xl font-thin hidden md:block'>{song.nameArtist}</p>
                                             <img onClick={() => handleOpenSong(song)} className='w-[6%] md:w-[4%] lg:w-[3%] cursor-pointer' src={playWhite} alt="" />
@@ -101,6 +114,10 @@ useEffect(() => {
                     </div>
                 </div>
             </div>
+            {
+                            addSongToPlaylist &&
+                            <ModalAddSongToPLaylist setAddSongToPlaylist={setAddSongToPlaylist}/>
+                        }
         </div>
     )
 }

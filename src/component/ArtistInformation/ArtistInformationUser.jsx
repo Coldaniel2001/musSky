@@ -40,17 +40,17 @@ const ArtistInformationUser = ({ infoUser }) => {
     return (
         <div>
             <Search />
-            <div className='mt-10 mx-10'>
-                <div className='w-3/4  mx-auto lg:flex lg:w-full'>
-                    <img className='w-52 sm:w-52 md:w-60 lg:w-52 lg:h-52 xl:h-60 xl:w-60 rounded-full mx-auto' src={infoUser?.picture} alt="" />
+            <div className='mt-10 xl:mx-10 '>
+                <div className='w-3/4  mx-auto lg:flex lg:w-full border-b border-gray-700 pb-10'>
+                    <img className='w-40 h-40 lg:w-52 lg:h-52 xl:h-60 xl:w-60 rounded-full mx-auto' src={infoUser?.picture} alt="" />
 
-                    <div className='lg:ml-10 xl:ml-20 lg:w-[70%]  flex flex-col items-center lg:block '>
+                    <div className='lg:ml-10 w-ful xl:ml-20 lg:w-[70%]  flex flex-col items-center lg:block '>
 
                         <div className='flex justify-center lg:block'>
                             <h2 className='text-white lg:text-4xl text-4xl xl:text-6xl 2xl:text-7xl font-bold mb-10 mx-auto'>{infoUser?.name}</h2>
                         </div>
 
-                        <div className=' flex flex-col justify-end items-center lg:items-start '>
+                        <div className=' flex flex-col justify-end items-center lg:items-start  w-full'>
                             <p className='lg:text-xl xl:text-2xl 2xl:text-3xl text-[#989898] font-semibold'>Nickname:<span className='text-white'>{infoUser?.nickname}</span> </p>
                             <p className='lg:text-xl xl:text-2xl 2xl:text-3xl text-[#989898] font-semibold'>Email: <span className='text-white'>{infoUser?.email}</span>  </p>
                             <p className='lg:text-xl xl:text-2xl 2xl:text-3xl text-[#989898] font-semibold'>Fecha Suscripcion: <span className='text-white'>22/02/2021</span></p>
@@ -59,7 +59,7 @@ const ArtistInformationUser = ({ infoUser }) => {
                 </div>
             </div>
             <div className='flex flex-col' >
-                <p className='relative text-white font-bold text-2xl mt-6 my-5  mb-3 mx-10'>Canciones</p>
+                <p className='relative text-white font-bold text-3xl mt-10 mb-6 mx-10 '>Canciones del artista</p>
                 <div className='lg:h-[35vh]  lg:overflow-y-scroll lg:scrollbar-hide' >
 
                     {
@@ -67,17 +67,17 @@ const ArtistInformationUser = ({ infoUser }) => {
                             tracksUser.map((song) => {
                                 return (
 
-                                    <div key={song._id} className='relative flex text-white items-center mb-3 mx-10 '>
+                                    <div key={song._id} className='relative flex text-white items-center mb-3 mx-10 hover:bg-[#7239e575] cursor-pointer rounded  '>
                                         {/* <div className='w-[3%] flex justify-center'>
                                             <p className='text-white span-col-2 text-xl font-thin justify-center'>1</p>
                                         </div> */}
-                                        <img className='w-[3%]' src={song.picture} alt="images-song" />
-                                        <p className='font-semibold text-xl w-[42%] pl-10 ' >{song.nameSong}</p>
-                                        <p className='w-[42%] text-xl font-thin'>{song.nameArtist}</p>
-                                        <img onClick={() => handleOpenSong(song)} className='w-[3%] cursor-pointer' src={playWhite} alt="" />
-                                        <img onClick={() => handleLikes(song)} className='w-[2%] mx-5 cursor-pointer' src={likesByUser(song) ? purpleHeart : purpleHeartStroke} alt="" />
-                                        <img  onClick={()=>addToPlaylist(song)} className='w-[3%] mr-5 cursor-pointer' src={addList} alt="" />
-                                        <img className='w-[2%] cursor-pointer' src={seeMore} alt="" />
+                                        <img className='w-[40px] h-[40px] lg:w-[70px] lg:h-[70px] rounded' src={song.picture} alt="images-song" />
+                                        <p className='font-semibold text-xl w-full md:w-[42%] pl-10 ' >{song.nameSong}</p>
+                                        <p className='hidden sm:block w-[42%] text-xl font-thin'>{song.nameArtist}</p>
+                                        <img onClick={() => handleOpenSong(song)} className='w-[6%] md:w-[4%] lg:w-[3%] cursor-pointer' src={playWhite} alt="" />
+                                        <img onClick={() => handleLikes(song)} className='w-[6%] md:w-[4%] lg:w-[2%] mx-5 cursor-pointer' src={likesByUser(song) ? purpleHeart : purpleHeartStroke} alt="" />
+                                        <img  onClick={()=>addToPlaylist(song)} className='w-[6%] md:w-[4%] lg:w-[3%] mr-5 cursor-pointer' src={addList} alt="" />
+                                        <img className='w-[6%] md:w-[4%] lg:w-[2%] cursor-pointer' src={seeMore} alt="" />
                                     </div>
 
                                 )

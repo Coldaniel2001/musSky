@@ -14,12 +14,14 @@ const PlaylistsProvider = ({ children }) => {
   const [sendSongToPlaylist, setSendSongToPlaylist] = useState()
   const { userLogged } = useContext(UserContext)
   
-  const addPlayList = async (playlist) => {
-    const res = await fetch("http://localhost:4002/playlists/newplaylist", {
-      method: "POST",
-      body: playlist
-    })
-    const data = await res.json();
+
+    const addPlayList = async (playlist) => {
+        const res = await fetch("http://localhost:4002/playlists/newplaylist", {
+          method: "POST",
+          body: playlist
+        })
+        const data = await res.json();
+        setDataPlayLists([...dataPlayLists, data.newPlaylist])
 
     if (data.ok) {
       toast.success("Playlist creada con éxito")

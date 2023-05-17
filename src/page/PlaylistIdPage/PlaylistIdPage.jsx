@@ -8,7 +8,7 @@ import TopPhone from '../../component/TopPhone/TopPhone'
 
 const PlaylistIdPage = () => {
     return (
-      <div className='bg-gradient-to-tr from-black via-black to-mainPurple xl:flex lg:min-h-screen'>
+      <div className='bg-gradient-to-tr from-black via-black to-mainPurple xl:flex min-h-screen'>
           <div>
           <TopPhone />
           </div>

@@ -142,14 +142,15 @@ const UserProvider = ({ children }) => {
     console.log(data);
   };
 
-  // const logOutUser = () => {
-  //   localStorage.removeItem("user");
-  //   dispatch({ type: types.logout });
-  // };
+  const deleteUser = async (id) => {
+    await fetch(`http://localhost:4002/users/delete-user/${id}`,{
+        method: "DELETE", 
+      })  
+      
+    
+    
+}
 
-  // const changePassword = (user) => {
-  //   dispatch({ type: types.changePassword, payload: user });
-  // };
   return (
     <UserContext.Provider
       value={{
@@ -165,7 +166,8 @@ const UserProvider = ({ children }) => {
         setDataUsers,
         updateUser,
         artist, 
-        setArtist
+        setArtist,
+        deleteUser
         
       }}
     >
