@@ -36,7 +36,7 @@ const InfoProfile = () => {
         <span className="text-white font-extrabold text-[2.5rem] mt-10 mb-5">
           MI CUENTA
         </span>
-        <h2 className="text-white font-extrabold text-[1.5rem] 2xl:text-title mb-8">
+        <h2 className="ml-4 text-white font-extrabold text-[1.5rem] 2xl:text-title mb-8">
           INFORMACIÓN
         </h2>
       </div>
