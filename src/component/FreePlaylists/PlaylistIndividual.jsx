@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 
 const PlaylistIndividual = ({playlist}) => {
     const[hovered, setHovered] = useState(false)
-    console.log(hovered)
+
 
   
   return (

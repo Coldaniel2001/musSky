@@ -27,7 +27,6 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
     private: ""
   })
 
-  console.log(playlistToShow)
 
 
   const form = useRef(null)

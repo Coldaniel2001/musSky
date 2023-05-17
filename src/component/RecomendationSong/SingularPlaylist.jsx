@@ -7,7 +7,6 @@ import PlaylistsContext from '../../context/playlists/PlaylistsContexts'
 
 const SingularPlaylist = ({playlist}) => {
   const {dataPlayLists} = useContext(PlaylistsContext)
-  console.log(dataPlayLists)
 
   return (
 

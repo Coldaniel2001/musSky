@@ -17,7 +17,6 @@ const FooterNav = () => {
 
     const artist = userLogged?.rol === "artist"
 
-    console.log(userLogged)
   return (
     <>
     {/* <MusicPlayerPhone/> */}

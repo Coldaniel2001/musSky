@@ -7,7 +7,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 function ProfileImg() {
   const { userLogged, setUserLogged } = useContext(UserContext)
   const [hovered, setHovered] = useState(false)
-  console.log(hovered)
 
   
   const editImgFetch = async (data) => {
@@ -24,7 +23,6 @@ function ProfileImg() {
     
     try {
         const res = await editImgFetch(data);
-        console.log(res)
         setUserLogged({ ...userLogged, picture: res.data.img }); 
     } catch (error) {
         console.error(error);

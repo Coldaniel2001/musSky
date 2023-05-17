@@ -130,7 +130,6 @@ const UserProvider = ({ children }) => {
 }
 
   const userChangeInformation = async (userChanged) => {
-    console.log(userChanged);
 
     const res = await fetch("http://localhost:4002/users/changeinformation", {
       method: "POST",

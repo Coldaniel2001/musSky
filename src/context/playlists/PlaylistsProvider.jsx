@@ -8,15 +8,17 @@ import { toast } from 'react-hot-toast'
 const PlaylistsProvider = ({children}) => {
 
   const [dataPlayLists, setDataPlayLists] = useState([])
+  const [infoPlaylist, setInfoPlaylist] = useState(null);
+  const [currentPlaylist, setCurrentPlaylist] = useState(0)
+  
 
     const addPlayList = async (playlist) => {
-      console.log(playlist)
         const res = await fetch("http://localhost:4002/playlists/newplaylist", {
           method: "POST",
           body: playlist
         })
         const data = await res.json();
-        console.log(data);
+
         if(data.ok){
           toast.success("Playlist creada con éxito")
         }
@@ -31,7 +33,6 @@ const PlaylistsProvider = ({children}) => {
           };
           fetchPlaylists();
         }, []);
-        console.log(dataPlayLists);
    
     return (
       <PlayListsContexts.Provider 
@@ -39,8 +40,10 @@ const PlaylistsProvider = ({children}) => {
         addPlayList,
         dataPlayLists,
         setDataPlayLists,
-
-        
+        infoPlaylist,
+        setInfoPlaylist,
+        currentPlaylist, 
+        setCurrentPlaylist
       }}>
         {children}
       </PlayListsContexts.Provider>
