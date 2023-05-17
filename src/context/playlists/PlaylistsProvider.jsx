@@ -38,7 +38,7 @@ const PlaylistsProvider = ({ children }) => {
         body: JSON.stringify({ song, playlist }),
       });
       const data = await res.json();
-    
+      toast.success("Esta cancion ya ha sido enviado en la playlist")
       const filterAuthor = dataPlayLists.find((author) => {
         return author === playlist
       })

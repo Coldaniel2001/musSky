@@ -29,7 +29,7 @@ const falseState = () => {
                         myPlaylist.map((playlist) => {
                             
                         return(
-                                <ModalSingularPlaylist playlist={playlist} sendSong={sendSong} />
+                                <ModalSingularPlaylist playlist={playlist} sendSong={sendSong} setAddSongToPlaylist={setAddSongToPlaylist}/>
                                 )
                             })
                         }

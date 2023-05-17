@@ -2,10 +2,11 @@ import React, { useContext } from 'react'
 
 import PlaylistsContext from '../../context/playlists/PlaylistsContexts'
 
-const ModalSingularPlaylist = ({ playlist, sendSong }) => {
+const ModalSingularPlaylist = ({ playlist, sendSong, setAddSongToPlaylist}) => {
   const { addSongInPlaylist } = useContext(PlaylistsContext)
   const sendSongToPlaylist = () => {
     addSongInPlaylist(sendSong, playlist)
+    setAddSongToPlaylist(false)
   }
   return (
     <div key={playlist._id} onClick={() => sendSongToPlaylist()} className=' relative flex flex-col justify-end items-center  hover:scale-105 transition duration-500 cursor-pointer'>
