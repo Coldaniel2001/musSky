@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Search from '../Search/Search'
 import PlaylistsContext from '../../context/playlists/PlaylistsContexts'
-import background from '../../assets/images/background.png'
+
 import plusWhite from '../../assets/images/plusWhite.png'
 
 
@@ -9,18 +9,29 @@ import plusWhite from '../../assets/images/plusWhite.png'
 import playWhite from '../../assets/images/icons/play-white.png'
 
 import purpleHeart from '../../assets/images/icons/purple-heart.png'
+import purpleHeartStroke from "../../assets/images/icons/purple-heart-stroke.png"
+
 import addList from '../../assets/images/icons/add-list.png'
 import seeMore from '../../assets/images/icons/see-more.png'
 import SongContext from '../../context/song/SongContext'
 import { useParams } from 'react-router-dom'
+import ModalAddSongToPLaylist from '../ModalAddSongToPlyalist/ModalAddSongToPlaylist'
 
 
 const PlaylistById = () => {
 
     const { infoPlaylist, setInfoPlaylist } = useContext(PlaylistsContext)
-    const { handleLikes, handleOpenSong } = useContext(SongContext)
+    const { handleLikes, handleOpenSong, likesByUser, dataSong} = useContext(SongContext)
+
+    const [addSongToPlaylist, setAddSongToPlaylist] = useState(false)
+    const [sendSong, setSendSong] = useState()
 
     const {userId} = useParams()
+
+    const addToPlaylist = (song) => {
+        setAddSongToPlaylist(true)
+        setSendSong(song)
+    }
 
 
 
@@ -36,7 +47,7 @@ useEffect(() => {
 
   }
   fetchData();
-}, [userId, setInfoPlaylist]);
+}, [userId, setInfoPlaylist, dataSong]);
 
 
 
@@ -64,7 +75,6 @@ useEffect(() => {
                             infoPlaylist ?
                             infoPlaylist.songs.map((song) => {
                                     return (
-
                                         <div key={song._id} className='relative flex text-white items-center mb-3 sm:mx-10 hover:bg-[#7239e526] pl-2 cursor-pointer rounded'>
                                             {/* <div className='w-[3%] flex justify-center'>
                                                 <p className='text-white span-col-2 text-xl font-thin justify-center'>1</p>
@@ -73,8 +83,8 @@ useEffect(() => {
                                             <p className='font-semibold text-xl w-full md:w-[42%] pl-10 ' >{song.nameSong}</p>
                                             <p className='w-[42%] text-xl font-thin hidden md:block'>{song.nameArtist}</p>
                                             <img onClick={() => handleOpenSong(song)} className='w-[6%] md:w-[4%] lg:w-[3%] cursor-pointer' src={playWhite} alt="" />
-                                            <img onClick={() => handleLikes(song)} className='w-[6%] md:w-[4%] lg:w-[2%] mx-5 cursor-pointer' src={purpleHeart} alt="" />
-                                            <img className='w-[6%] md:w-[4%] lg:w-[3%] mr-5 cursor-pointer' src={addList} alt="" />
+                                            <img onClick={() => handleLikes(song)} className='w-[6%] md:w-[4%] lg:w-[2%] mx-5 cursor-pointer' src={likesByUser(song) ? purpleHeart : purpleHeartStroke} alt="" />
+                                            <img  onClick={()=>addToPlaylist(song)} className='w-[6%] md:w-[4%] lg:w-[3%] mr-5 cursor-pointer' src={addList} alt="" />
                                             <img className='w-[6%] md:w-[4%] lg:w-[2%] cursor-pointer' src={seeMore} alt="" />
                                         </div>
 
@@ -83,7 +93,10 @@ useEffect(() => {
                                 : ""
                         }
 
-
+{
+                            addSongToPlaylist &&
+                            <ModalAddSongToPLaylist setAddSongToPlaylist={setAddSongToPlaylist} sendSong={sendSong}/>
+                        }
 
                     </div>
                 </div>

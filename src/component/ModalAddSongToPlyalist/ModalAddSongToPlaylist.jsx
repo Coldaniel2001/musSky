@@ -5,7 +5,7 @@ import UserContext from '../../context/UserContext'
 import ModalSingularPlaylist from './ModalSingularPlaylist'
 import close from '../../assets/images/icons/close.png'
 
-const ModalAddSongToPLaylist = ({setAddSongToPlaylist}) => {
+const ModalAddSongToPLaylist = ({setAddSongToPlaylist, sendSong}) => {
     const {dataPlayLists} = useContext(PlaylistsContext)
     const { userLogged } = useContext(UserContext)
     const myPlaylist = dataPlayLists.filter((playlist) => {
@@ -29,7 +29,7 @@ const falseState = () => {
                         myPlaylist.map((playlist) => {
                             
                         return(
-                                <ModalSingularPlaylist playlist={playlist}  />
+                                <ModalSingularPlaylist playlist={playlist} sendSong={sendSong} />
                                 )
                             })
                         }

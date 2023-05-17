@@ -10,13 +10,15 @@ import purpleHeartStroke from "../../../assets/images/icons/purple-heart.png";
 
 import SongContext from "../../../context/song/SongContext";
 import DetailModal from "../../../Detail Modal/DetailModal";
+import ModalAddSongToPLaylist from "../../ModalAddSongToPlyalist/ModalAddSongToPlaylist";
 
 
 function RecentSongCard({ song, isDropdownActive,
-  setActiveDropdown, activeDropdown,  }) {
+  setActiveDropdown, activeDropdown, }) {
 
-  const { handleLikes, handleOpenSong,likesByUser } = useContext(SongContext);
-
+  const { handleLikes, handleOpenSong, likesByUser } = useContext(SongContext);
+  const [addSongToPlaylist, setAddSongToPlaylist] = useState(false)
+  const [ sendSong, setSendSong ] = useState()
   const handleToogle = () => {
     if (activeDropdown === song._id) {
       setActiveDropdown(null)
@@ -24,6 +26,15 @@ function RecentSongCard({ song, isDropdownActive,
       setActiveDropdown(song._id)
     }
   }
+
+  const addToPlaylist = (song) => {
+    setSendSong(song)
+  }
+
+  const handleModal = () =>{
+    setAddSongToPlaylist(true)
+  }
+
 
 
   return (
@@ -54,14 +65,20 @@ function RecentSongCard({ song, isDropdownActive,
             className="col-span-2 2xl:col-span-1 justify-end w-[25%] 2xl:w-[40%] mx-auto my-auto"
             src={more}
             alt=""
-            onClick={handleToogle}
+            onClick={() => {
+              handleToogle()
+              addToPlaylist(song)
+            }}
           />
           {
-            isDropdownActive ? <DetailModal /> : null
+            isDropdownActive ? <DetailModal handleModal={handleModal} /> : null
           }
         </div>
       </div>
-
+      {
+        addSongToPlaylist &&
+      <ModalAddSongToPLaylist setAddSongToPlaylist={setAddSongToPlaylist} sendSong={sendSong} />
+  }
     </>
   )
 }

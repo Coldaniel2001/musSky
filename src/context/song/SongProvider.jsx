@@ -13,7 +13,6 @@ const SongProvider = ({ children }) => {
 
   const [onePlayListSong, setOnePlayListSong] = useState({});
   const [recentSong, setRecentSong] = useState([]);
-  const [artistSong, setArtistSong] = useState([])
   const { userLogged } = useContext(UserContext);
   const { getIdTokenClaims } = useAuth0()
   
@@ -156,7 +155,6 @@ const SongProvider = ({ children }) => {
 
   const likesByUser = (song) => {
     if (userLogged) {
-      console.log(song);
       return song.likedBy?.includes(userLogged._id);
     }
   };

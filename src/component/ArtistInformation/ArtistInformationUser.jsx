@@ -11,6 +11,10 @@ import { toast } from 'react-hot-toast'
 import SongContext from '../../context/song/SongContext'
 import UserContext from '../../context/UserContext'
 
+import ModalAddSongToPLaylist from '../ModalAddSongToPlyalist/ModalAddSongToPlaylist'
+
+
+
 
 
 const ArtistInformationUser = ({ infoUser }) => {
@@ -18,13 +22,18 @@ const ArtistInformationUser = ({ infoUser }) => {
 
     const { dataSong, handleOpenSong, handleLikes, likesByUser } = useContext(SongContext)
     const { userLogged } = useContext(UserContext)
+    const [addSongToPlaylist, setAddSongToPlaylist] = useState(false)
+    const [sendSong, setSendSong] = useState()
 
     const tracksUser = dataSong.filter((song) => {
         return song?.nameArtist === infoUser?.nickname
     })
 
 
-
+    const addToPlaylist = (song) => {
+        setAddSongToPlaylist(true)
+        setSendSong(song)
+    }
 
 
 
@@ -67,7 +76,7 @@ const ArtistInformationUser = ({ infoUser }) => {
                                         <p className='w-[42%] text-xl font-thin'>{song.nameArtist}</p>
                                         <img onClick={() => handleOpenSong(song)} className='w-[3%] cursor-pointer' src={playWhite} alt="" />
                                         <img onClick={() => handleLikes(song)} className='w-[2%] mx-5 cursor-pointer' src={likesByUser(song) ? purpleHeart : purpleHeartStroke} alt="" />
-                                        <img className='w-[3%] mr-5 cursor-pointer' src={addList} alt="" />
+                                        <img  onClick={()=>addToPlaylist(song)} className='w-[3%] mr-5 cursor-pointer' src={addList} alt="" />
                                         <img className='w-[2%] cursor-pointer' src={seeMore} alt="" />
                                     </div>
 
@@ -77,7 +86,10 @@ const ArtistInformationUser = ({ infoUser }) => {
                     }
 
 
-
+{
+                            addSongToPlaylist &&
+                            <ModalAddSongToPLaylist setAddSongToPlaylist={setAddSongToPlaylist} sendSong={sendSong}/>
+                        }
                 </div>
             </div>
         </div>
