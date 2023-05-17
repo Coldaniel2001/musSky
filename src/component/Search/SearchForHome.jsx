@@ -51,7 +51,7 @@ const [searchValue, setSearchValue] = useState("");
 
 	return (
 		<>
-			<div className='hidden sm:hidden xl:flex mr-10 '>
+			<div className='hidden xl:flex mr-10 '>
 			<div className=" relative hidden w-[100%] lg:block lg:mt-10 ml-10">
             <>
               <input

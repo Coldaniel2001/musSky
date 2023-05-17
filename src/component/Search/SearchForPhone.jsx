@@ -34,7 +34,7 @@ const SearchForPhone = () => {
 	  };	
 
   return (
-    <div className='w-full xl:flex   '>
+    <div className='w-full xl:flex'>
 		<div className="w-[90%] xl:hidden  ml-10 pr-20">
 		<input
                 value={searchValue}
