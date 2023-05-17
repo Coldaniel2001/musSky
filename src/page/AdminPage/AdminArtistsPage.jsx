@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import ArtistInformation from '../../component/ArtistInformation/ArtistInformation'
+import NavBarAdmin from '../../component/NavBarAdmin/NavBarAdmin'
 
-import ArtistInformationUser from '../../component/ArtistInformation/ArtistInformationUser'
-
-const ArtistIdPage = () => {
+export const AdminArtistPage = () => {
 const {userId} = useParams()
 const [infoUser, setInfoUser] = useState(null);
 
@@ -22,15 +22,14 @@ useEffect(() => {
 
   }
   fetchData();
-}, [userId]);
+}, []);
 
 
 //fetch al back usando el userId de los params
   return (
-    <div className='bg-gradient-to-tr from-black via-black to-[#7339E5] w-full h-screen'>
-      <ArtistInformationUser infoUser={infoUser} setInfoUser={setInfoUser} /> 
+    <div className='bg-gradient-to-tr from-black via-black to-[#7339E5] w-full min-h-screen'>
+      <NavBarAdmin/>
+      <ArtistInformation infoUser={infoUser} setInfoUser={setInfoUser} /> 
     </div>
   )
 }
-
-export default ArtistIdPage

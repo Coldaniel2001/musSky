@@ -9,14 +9,20 @@ import camilo from '../../assets/images/genders.artists/camilo.png'
 import jazz from '../../assets/images/genders.artists/jazz.png'
 import avril from '../../assets/images/genders.artists/avril.png'
 import flamenco from '../../assets/images/genders.artists/flamenco.png'
+import Search from '../Search/Search'
+import SearchForPhone from '../Search/SearchForPhone'
+
 
 
 const Genders = () => {
 
   return (
-    <div className=''>
+
+    <div className='w-full'>
+    <h3 className='text-white ml-10 text-[1.5rem] font-semibold xl:hidden'>Buscar </h3>
+    <SearchForPhone />
     <h2 className='text-white text-[2rem] font-extrabold mt-10 ml-10 mr-10'>GÉNEROS</h2>
-    <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 2xl:grid-cols-5 mt-10 ml-10 mr-10 gap-x-8 xl:gap-x-8 pb-10 lg:h-[75vh] lg:overflow-y-scroll  '>
+    <div className='grid grid-cols-2 pb-60 sm:grid-cols-3 md:grid-cols-4 2xl:grid-cols-5 mt-10 ml-10 mr-10 gap-x-8 xl:gap-x-8 sm:pb-40 xl:pb-10 lg:h-[75vh] lg:overflow-y-scroll  '>
         <div className='h-[80%]'>
             <div className='bg-gradient-to-t from-[#FFB61D] via-[#FFB61D] to-transparent hover:bg-[#FFB61D] hover:border-yellow-600 transition-all duration-500 hover:h-[90%] cursor-pointer flex justify-center rounded-xl h-[86%] '>
                 <img className='w-full ' src={leiva} alt="" />

@@ -12,7 +12,7 @@ import iconLikedViolet from '../../assets/images/icons/bytesize_heartViolet.png'
 import iconAccountViolet from '../../assets/images/icons/codicon_accountViolet.png'
 import { NavLink,useLocation } from 'react-router-dom';
 import mySong from '../../assets/images/icons/mySong.png'
-
+import { Link, NavLink } from 'react-router-dom';
 
 import SongContext from '../../context/song/SongContext';
 import UserContext from '../../context/UserContext';
@@ -29,9 +29,11 @@ const SidebarLeft = () => {
 
 	return (
 		<div>
+			<NavLink to={"/home"}>
 			<div className='text-white flex flex-col items-center h-[6vh]'>
 				<img className='h-full ' src={logo} alt="logo" />
 			</div>
+			</NavLink>
 			<div className='text-white mt-[3vh] md:hidden lg:block gap-5'>
 				<NavLink to={"/home"} className={({ isActive }) => isActive ? 'grid border-l-[0.5rem] border-mainPurple' : "grid border-l-[0.5rem] border-transparent"}>
 					<div className='xl:grid grid-cols-8 lg:flex  lg:justify-center lg:pl-0 items-center   xl:pl-6 h-[5vh] '>
@@ -77,6 +79,7 @@ const SidebarLeft = () => {
 				</NavLink>
 			</div>
 			
+			<Link to='/reproduction-live' >
 			{
 				artist ?
 				Object.entries(onePlayListSong).length !== 0 &&
@@ -101,8 +104,10 @@ const SidebarLeft = () => {
 							<p className='text-gray-500 text-[1.5vh] truncate'>{onePlayListSong.nameSong}</p>
 						</div>
 					</div>	
+					
 				
 			}
+			</Link>
 
 			
 			{/* <div className='w-full flex justify-center'>

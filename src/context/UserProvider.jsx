@@ -117,7 +117,6 @@ const UserProvider = ({ children }) => {
   };
 
   const updateUser = async (userId, newValue) => {
-    console.log(userId, newValue)
     
     const res = await fetch("http://localhost:4002/users/update-user", {
         method: "PATCH", 
@@ -131,7 +130,6 @@ const UserProvider = ({ children }) => {
 }
 
   const userChangeInformation = async (userChanged) => {
-    console.log(userChanged);
 
     const res = await fetch("http://localhost:4002/users/changeinformation", {
       method: "POST",
@@ -144,14 +142,15 @@ const UserProvider = ({ children }) => {
     console.log(data);
   };
 
-  // const logOutUser = () => {
-  //   localStorage.removeItem("user");
-  //   dispatch({ type: types.logout });
-  // };
+  const deleteUser = async (id) => {
+    await fetch(`http://localhost:4002/users/delete-user/${id}`,{
+        method: "DELETE", 
+      })  
+      
+    
+    
+}
 
-  // const changePassword = (user) => {
-  //   dispatch({ type: types.changePassword, payload: user });
-  // };
   return (
     <UserContext.Provider
       value={{
@@ -167,7 +166,8 @@ const UserProvider = ({ children }) => {
         setDataUsers,
         updateUser,
         artist, 
-        setArtist
+        setArtist,
+        deleteUser
         
       }}
     >

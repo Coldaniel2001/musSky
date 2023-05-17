@@ -4,6 +4,7 @@ import arrowDown from '../../assets/images/icons/arrow-down.png'
 
 import { useAuth0 } from "@auth0/auth0-react"
 import UserContext from '../../context/UserContext';
+import user from "../../assets/images/icons/user.png";
 
 
 const Search = () => {
@@ -15,20 +16,21 @@ const Search = () => {
 		setShowModal(!showModal);
 	}
 	const { logout } = useAuth0()
+	const {  loginWithRedirect } = useAuth0()
 
 
 	return (
 		<>
-			<div className='hidden xl:flex '>
-				<div className="hidden w-[100%] lg:relative lg:block lg:mt-10 ml-10">
+			<div className='hidden xl:flex mr-10 '>
+				<div className="hidden w-[80%] lg:relative lg:block lg:mt-10 ml-10">
 					<input type="text" className="w-3/4 py-2 pl-10 pr-4 bg-white rounded-lg border border-gray-400 placeholder-gray-400 text-gray-700 focus:outline-none focus:ring focus:border-gray-500" placeholder="Artistas, Música, PlayLists, Albums..." />
 					<div className="absolute top-0 left-0 mt-2 ml-3">
 						<i className="fas fa-search text-gray-400"></i>
 					</div>
 				</div>
-				<div className='flex flex-col justify-evenly justify-items-end'>
+				<div className='flex flex-col items-end w-[20%]  '>
 
-					{userLogged?<div className="bg-[#212121] w-3/4 mx-auto mt-8 flex rounded-lg mr-10 2xl:hidden truncate" onClick={() => toggleModal(true)}>
+					{userLogged?<div className="bg-[#212121] w-[240px] mt-8 flex rounded-lg  truncate" onClick={() => toggleModal(true)}>
 						<img className='w-10 h-10 rounded-full my-2 ml-3' src={userLogged?.picture} alt="img-profile" />
 						<div className='w-full flex justify-between mr-3'>
 							<p className='text-white my-auto ml-3'>{userLogged?.nickname}</p>
@@ -43,7 +45,17 @@ const Search = () => {
 							</div>
 
 						}
-					</div>:null}
+					</div>:
+					<>
+                    <div className="bg-green-600 w-[240px] mt-8 flex rounded-lg  truncate hover:bg-[#7339E5] cursor-pointer" onClick={() => loginWithRedirect()}>
+						<img className='w-10 h-10 rounded-full my-2 ml-3' src={user} alt="img-profile" />
+						<div className='w-full flex justify-between mr-3'>
+							<p className='text-white my-auto ml-3'>Inicia Sesión</p>
+						</div>
+
+                     </div>
+
+                   </>}
 
 				</div>
 			</div>

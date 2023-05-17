@@ -4,16 +4,28 @@ import greenCheck from '../../assets/images/icons/greenCheck.png'
 
 import UserContext from '../../context/UserContext';
 import SongContext from '../../context/song/SongContext';
-import { toast } from 'react-hot-toast';
 
-const ModalAddNewSong = ({ setUploadSong }) => {
+import { toast } from 'react-hot-toast';
+// import ClipLoader from "react-spinners/ClipLoader";
+import { RingLoader } from 'react-spinners';
+
+
+const ModalAddNewSong = ({ setUploadSong , SongUploaded}) => {
     const currentDate = new Date(); const day = currentDate.getDate(); const month = currentDate.getMonth() + 1; const year = currentDate.getFullYear();
     const { userLogged } = useContext(UserContext)
-    const { dataSong, setDataSong } = useContext(SongContext)
     const formattedDate = `${day}/${month}/${year}`;
     const [previewImg, setPreviewImg] = useState(null);
 
+    const {dataSong, setDataSong} = useContext(SongContext);
+
+    const [loading, setLoading] = useState(false);
+
+    const isLoading = (isActive) =>{
+        setLoading(isActive)
+    }
+
     const [songUpload, setSongUpload] = useState(false);
+
 
     const handlePreviewImg = (e) => {
         const file = e.target.files[0];
@@ -31,10 +43,13 @@ const ModalAddNewSong = ({ setUploadSong }) => {
     }
 
 
+    
     const form = useRef(null)
+    const dataNameSong = useRef(null)
 
     const handleSubmit = (e) => {
-
+        isLoading(true)
+        setSongUpload(false)
         e.preventDefault()
         const formdata = new FormData(form.current)
         formdata.append("nameArtist", userLogged.nickname)
@@ -56,18 +71,30 @@ const ModalAddNewSong = ({ setUploadSong }) => {
     // }
 
     const editSongImageFetch = async (data) => {
-        console.log(data)
-        const res = await fetch('http://localhost:4002/tracks/imagesong', {
-            method: "POST",
-            body: data
-        });
-        const newData = await res.json()
-        console.log(newData)
+        
+        const filterSongRepeat = SongUploaded.find((songRepeat)=>{
+            return songRepeat.nameSong===dataNameSong.current.value
+        })
+        if (!filterSongRepeat){
 
-        if (newData.ok) {
-            toast.success(`Enhorabuena. Tu canción ha sido subida con éxito`)
-            setUploadSong(false)
-        } else { toast.error("Ha surgido un error. Por favor, intentelo de nuevo") }
+            const res = await fetch('http://localhost:4002/tracks/imagesong', {
+                method: "POST",
+                body: data
+            });
+            const newData = await res.json()
+            setDataSong([...dataSong,newData.newSong])
+    
+            if (newData.ok) {
+                toast.success(`Enhorabuena. Tu canción ha sido subida con éxito`)
+                setUploadSong(false)
+                isLoading(false)
+            } else { toast.error("Ha surgido un error. Por favor, intentelo de nuevo") }
+        }else{
+            toast.error("Esta canción ya existe, por favor cambia el nombre")
+            isLoading(false)
+
+        }
+        
     }
 
 
@@ -92,7 +119,7 @@ const ModalAddNewSong = ({ setUploadSong }) => {
                         </div>
                         <div className='flex flex-col mt-4'>
                             <label className='text-xl font-bold'>Nombre de la canción</label>
-                            <input className='rounded h-[2rem] text-black'
+                            <input ref={dataNameSong} className='rounded h-[2rem] text-black'
                                 type="text"
                                 name="nameSong"
                                 id="nameSong"
@@ -132,15 +159,23 @@ const ModalAddNewSong = ({ setUploadSong }) => {
                                 />
                                 <p>Subir canción</p>
                             </div>
-                            {songUpload &&
+                            {songUpload ?
                                 <div className='flex mt-5 w-full justify-center gap-2 items-center'>
                                     <img className='w-[30px] h-[30px]' src={greenCheck} alt="" />
                                     <p>Canción añadida con éxito</p>
                                 </div>
 
-                            }
+                            :<div className='flex mt-5 w-full justify-center gap-2 items-center'>
+                            <RingLoader
+                                color="#ffff"
+                                loading={loading}
+                                cssOverride={{}}
+                                size={60}
+                            />
+                        </div>}
                         </label>
                         <div className='mt-20 flex justify-center gap-3'>
+                            
                             <div className='bg-transparent border py-2 px-4 rounded cursor-pointer  w-[130px] flex justify-center hover:bg-[#f34545]' onClick={() => setUploadSong(false)}>
                                 <p >Cancelar</p>
                             </div>

@@ -9,9 +9,7 @@ import SongContext from '../../context/song/SongContext'
 
 const AddSongToPlayList = ({playListComplete, playlistToShow}) => {
     const {dataSong} = useContext(SongContext)
-    console.log(playListComplete)
-    console.log(dataSong)
-    console.log(playlistToShow)
+
 
     
   return (
@@ -24,7 +22,7 @@ const AddSongToPlayList = ({playListComplete, playlistToShow}) => {
                             <div className=' h-14 w-full flex gap-8 lg:gap-4 sm:px-4 border-b border-gray-500 py-2'>
                                 <div className='flex h-full items-center w-[15%] gap-2'>
                                     <img className='h-2/5' src={deleteSong} alt="" />
-                                    <img className='h-[60%] md:h-full rounded' src={songs.picture} alt="" />
+                                    <img className='h-[40px] w-[50px]  rounded' src={songs.picture} alt="" />
                                 </div>
                                 <div className='w-[60%] flex flex-col justify-center'>
                                     <p className='text-white text-[0.8rem] sm:text-[1rem] font-bold'>{songs.nameArtist}</p>

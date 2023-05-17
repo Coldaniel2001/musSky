@@ -12,10 +12,10 @@ const SongProvider = ({ children }) => {
 
 
   const [onePlayListSong, setOnePlayListSong] = useState({});
-  const [allPlaylistSong, setAllPlaylistSong] = useState([]);
   const [recentSong, setRecentSong] = useState([]);
   const { userLogged } = useContext(UserContext);
   const { getIdTokenClaims } = useAuth0()
+  
 
   // Recient
   useEffect(() => {
@@ -132,27 +132,38 @@ const SongProvider = ({ children }) => {
       setDataSong(data.allSong);
     };
     musicTracks();
+
   }, [setDataSong]);
 
-  const likesByUser = (song) => {
-    if (userLogged) {
-      console.log(song);
-      return song.likedBy?.includes(userLogged._id);
+  const deleteSong = async (song) => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/tracks/${song._id}`,{
+        method: "DELETE"
+      }
+      )
+      const data = await response.json();
+      console.log(data)
+      const deleteSong = dataSong.filter((song)=>{
+        return song._id !== data.deleteTracks._id
+      })
+      setDataSong(deleteSong)
+
+    } catch (error) {
+      console.log(error);
     }
   };
 
-  
- 
-
-
+  const likesByUser = (song) => {
+    if (userLogged) {
+      return song.likedBy?.includes(userLogged._id);
+    }
+  };
 
   return (
     <SongContext.Provider
       value={{
         dataSong,
         setDataSong,
-        allPlaylistSong,
-        setAllPlaylistSong,
         onePlayListSong,
         setOnePlayListSong,
         recentSong,
@@ -160,6 +171,7 @@ const SongProvider = ({ children }) => {
         handleLikes: handleLikes,
         likesByUser: likesByUser,
         handleOpenSong: handleOpenSong,
+        deleteSong: deleteSong
       }}
     >
       {children}
