@@ -4,17 +4,16 @@ import arrowDown from "../../assets/images/icons/arrow-down.png";
 
 import { useAuth0 } from "@auth0/auth0-react";
 import UserContext from "../../context/UserContext";
-import { useLocation } from "react-router-dom";
 import ArtistResult from "./ArtistResult/ArtistResult";
 import TracksResult from "./TracksResult/TracksResult";
 import PlaylistResult from "./PlaylistResult/PlaylistResult";import user from "../../assets/images/icons/user.png";
 
 
 const Search = () => {
-  const location = useLocation();
-  const { userLogged } = useContext(UserContext);
-
   const [showModal, setShowModal] = useState(false);
+  const { userLogged } = useContext(UserContext);
+  const {  loginWithRedirect } = useAuth0()
+
 
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState({
@@ -28,11 +27,17 @@ const Search = () => {
   };
   const { logout } = useAuth0();
 
-//   const isSearchBarVisible = location.pathname === "/search";
-
   const handleSearch = async (e) => {
-    setSearchValue(e.target.value);
-    // if (searchValue.length > 2) {
+    const value = e.target.value;
+    setSearchValue(value);
+
+    if (value.trim() === "") {
+      setSearchResults({
+        playlists: [],
+        artists: [],
+        tracks: [],
+      });
+    } else {
       const response = await fetch(
         `http://localhost:4002/search/${searchValue}`
       );
@@ -40,18 +45,14 @@ const Search = () => {
       if (data.ok) {
         setSearchResults(data.data);
       }
-      // if (searchValue.length === 0) {
-      //   return null
-      // }
-    // }
-  };	const {  loginWithRedirect } = useAuth0()
+    }
+  };	
 
 
   return (
     <>
       <div className="hidden xl:flex ">
         <div className=" relative hidden w-[100%] lg:block lg:mt-10 ml-10">
-          {/* {isSearchBarVisible ? ( */}
             <>
               <input
                 value={searchValue}
@@ -64,7 +65,7 @@ const Search = () => {
                 <i className="fas fa-search text-gray-400"></i>
               </div>
               <div className="bg-btnColor rounded w-2/5 absolute z-10 max-h-[30vh] overflow-y-scroll scrollbar-hide">
-                {searchResults.tracks.length && 
+                {searchResults.tracks.length >0 && 
                 <div className="font-bold text-[1.5rem] mt-5 border-b border-gray-600 mb-2 mx-3">
                 <p>Canciones</p>
                 </div>
@@ -77,7 +78,7 @@ const Search = () => {
                   ''
                   )}
 
-              {searchResults.playlists.length && 
+              {searchResults.playlists.length >0 && 
 					<div className="font-bold text-[1.5rem] mt-5 border-b border-gray-600 mb-2 mx-3">
 					<p>Playlist</p>
 					</div>
@@ -89,7 +90,7 @@ const Search = () => {
                 ) : (
                   ''
                 )}
-				{searchResults.artists.length && 
+				{searchResults.artists.length >0 && 
 					<div className="font-bold text-[1.5rem] mt-5 border-b border-gray-600 mb-2 mx-3">
 					<p>Artistas</p>
 					</div>
@@ -103,7 +104,6 @@ const Search = () => {
 				  )}
 						</div>
             </>
-           {/*) : null} */}
         </div>
         <div className="flex flex-col justify-evenly justify-items-end">
           {userLogged ? (

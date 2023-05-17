@@ -26,7 +26,7 @@ const Top10Phone = () => {
         <img className=' hidden mx-auto pt-6' src={logo} alt="" />
         <p className='mt-10 md:mt-12 ml-5 lg:ml-0 text-3xl font-extrabold mb-5 text-white sm:text-4xl   2xl:hidden'>TOP 10</p>
         <div className=' bg-black mx-5 rounded-md text-white lg:mb-10 '>
-        <div className="flex overflow-x-scroll w-full whitespace-no-wrap gap-5 ">
+        <div className=" hidden overflow-x-scroll w-full whitespace-no-wrap gap-5 ">
            
  
         </div> 
