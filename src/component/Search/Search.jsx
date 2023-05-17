@@ -106,50 +106,32 @@ const Search = () => {
             </>
         </div>
         <div className="flex flex-col justify-evenly justify-items-end">
-          {userLogged ? (
-            <div
-              className="bg-[#212121] w-3/4 mx-auto mt-8 flex rounded-lg mr-10 2xl:hidden truncate"
-              onClick={() => toggleModal(true)}
-            >
-              <img
-                className="w-10 h-10 rounded-full my-2 ml-3"
-                src={userLogged?.picture}
-                alt="img-profile"
-              />
-              <div className="w-full flex justify-between mr-3">
-                <p className="text-white my-auto ml-3">
-                  {userLogged?.nickname}
-                </p>
-                <img
-                  className="w-3 h-2 flex justify-end my-auto"
-                  src={arrowDown}
-                  alt="arrow"
-                />
-              </div>
-              {showModal && (
-                <div className="w-[14rem]  bg-white  hover:opacity-100 float-right  flex justify-center flex-col absolute mt-[3rem] ml-[-3rem] rounded-md text-black ">
-                  <p className=" hover:bg-[#7239e526] pl-2 cursor-pointer rounded">
-                    Mi cuenta
-                  </p>
-                  <p className=" hover:bg-[#7239e526] pl-2 cursor-pointer rounded">
-                    Ajustes
-                  </p>
-                  <p
-                    onClick={() =>
-                      logout({
-                        logoutParams: {
-                          returnTo: window.location.origin + "/home",
-                        },
-                      })
-                    }
-                    className="hover:bg-[#7239e526] pl-2 cursor-pointer rounded"
-                  >
-                    Salir
-                  </p>
-                </div>
-              )}
+        {userLogged?<div className="bg-[#212121] w-[240px] mt-8 flex rounded-lg mr-10 truncate" onClick={() => toggleModal(true)}>
+            <img className='w-10 h-10 rounded-full my-2 ml-3' src={userLogged?.picture} alt="img-profile" />
+            <div className='w-full flex justify-between mr-3'>
+              <p className='text-white my-auto ml-3'>{userLogged?.nickname}</p>
+              <img className='w-3 h-2 flex justify-end my-auto' src={arrowDown} alt="arrow" />
             </div>
-          ) : null}
+            {
+              showModal &&
+              <div className='w-[14rem]  bg-white  hover:opacity-100 float-right  flex justify-center flex-col absolute mt-[3rem] ml-[-3rem] rounded-md text-black '>
+                <p className=' hover:bg-[#7239e526] pl-2 cursor-pointer rounded'>Mi cuenta</p>
+                    <p className=' hover:bg-[#7239e526] pl-2 cursor-pointer rounded'>Ajustes</p>
+                  <p onClick={()=>logout({logoutParams:{returnTo: window.location.origin + '/home'}})} className='hover:bg-[#7239e526] pl-2 cursor-pointer rounded'>Salir</p>
+              </div>
+
+            }
+          </div>:
+          <>
+                    <div className="bg-green-600 w-[240px] mt-8 flex rounded-lg  truncate hover:bg-[#7339E5] cursor-pointer" onClick={() => loginWithRedirect()}>
+            <img className='w-10 h-10 rounded-full my-2 ml-3' src={user} alt="img-profile" />
+            <div className='w-full flex justify-between mr-3'>
+              <p className='text-white my-auto ml-3'>Inicia Sesión</p>
+            </div>
+
+                     </div>
+
+                   </>}
         </div>
       </div>
     </>

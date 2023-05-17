@@ -8,7 +8,7 @@ const Top10SingularSong = () => {
   const [activeDropdown, setActiveDropdown] = useState(null)
   const {dataSong} = useContext(SongContext)
 
-const top10SongByLiked = dataSong.sort((a, b) => (a.likedBy.length > b.likedBy.length ? -1 : a.likedBy.length < b.likedBy.length ? 1 : 0)).slice(0,10)
+const top10SongByLiked = dataSong.sort((a, b) => (a.likedBy?.length > b.likedBy?.length ? -1 : a.likedBy?.length < b.likedBy?.length ? 1 : 0)).slice(0,10)
 
   return (
 
