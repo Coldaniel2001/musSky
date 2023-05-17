@@ -83,7 +83,6 @@ useEffect(() => {
                                             <img onClick={() => handleOpenSong(song)} className='w-[6%] md:w-[4%] lg:w-[3%] cursor-pointer' src={playWhite} alt="" />
                                             <img onClick={() => handleLikes(song)} className='w-[6%] md:w-[4%] lg:w-[2%] mx-5 cursor-pointer' src={purpleHeart} alt="" />
                                             <img className='w-[6%] md:w-[4%] lg:w-[3%] mr-5 cursor-pointer' onClick={()=>addToPlaylist()}  src={addList} alt="" />
-                                            <img className='w-[6%] md:w-[4%] lg:w-[2%] cursor-pointer' src={seeMore} alt="" />
                                         </div>
 
                                     )

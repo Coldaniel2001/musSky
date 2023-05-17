@@ -60,7 +60,7 @@ const ChangePassword = () => {
     }
 
     return (
-        <div>
+        <div className='ml-4'>
             <h2 className='text-white mt-16 sm:mt-12 md:mt-24 lg:mt-10 xl:mt-0 text-[1.5rem] 2xl:text-[2rem] font-extrabold'>CONFIGURACIÓN</h2>
             <div className='sm:flex items-end w-full'>
                 <div className='flex flex-col w-full'>

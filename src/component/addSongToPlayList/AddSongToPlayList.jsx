@@ -7,8 +7,22 @@ import heart from '../../assets/images/heart.png'
 import mas from '../../assets/images/mas.png'
 import SongContext from '../../context/song/SongContext'
 
-const AddSongToPlayList = ({playListComplete, playlistToShow}) => {
+const AddSongToPlayList = ({playListComplete, playlistToShow, setPlaylistToShow, setPlayListComplete}) => {
     const {dataSong} = useContext(SongContext)
+
+    console.log(playlistToShow)
+
+    const deleteSongForPlaylist = (songs) => {
+        const deleteSong = playlistToShow.filter((song)=>{
+            return song._id !== songs._id
+        })
+        setPlaylistToShow(deleteSong)
+        setPlayListComplete(deleteSong)
+    }
+
+
+    
+
 
 
     
@@ -21,7 +35,7 @@ const AddSongToPlayList = ({playListComplete, playlistToShow}) => {
                         return (
                             <div className=' h-14 w-full flex gap-8 lg:gap-4 sm:px-4 border-b border-gray-500 py-2'>
                                 <div className='flex h-full items-center w-[15%] gap-2'>
-                                    <img className='h-2/5' src={deleteSong} alt="" />
+                                    <img className='h-2/5' src={deleteSong} onClick={()=>deleteSongForPlaylist(songs)} alt="" />
                                     <img className='h-[40px] w-[50px]  rounded' src={songs.picture} alt="" />
                                 </div>
                                 <div className='w-[60%] flex flex-col justify-center'>

@@ -11,7 +11,7 @@ const CenterSection = () => {
 		<div >
 			<SearchForHome/>
 			<div className='mx-3 lg:ml-10 lg:m-10 text-white lg:h-[80vh] lg:overflow-y-scroll lg:scrollbar-hide'>
-				<div className='hidden lg:block 2xl:hidden'>
+				<div className='hidden '>
 					<Top10Phone />
 				</div>
 				<Artists />	

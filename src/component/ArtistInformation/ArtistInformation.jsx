@@ -243,12 +243,7 @@ const ArtistInformation = ({ infoUser}) => {
                 </div> : ""
             }
         </div>
-        {
-            goOutsidePage &&
-            <NavLink to="/admin" />
 
-
-        }
     </div>
   )
 }

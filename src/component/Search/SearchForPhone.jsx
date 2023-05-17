@@ -43,7 +43,7 @@ const SearchForPhone = () => {
                 placeholder="Artistas, Música, PlayLists, Albums..."
                 onChange={handleSearch}
               />
-              <div className="absolute top-0 left-0 mt-2 ml-3">
+              <div className="hidden absolute top-0 left-0 mt-2 ml-3">
                 <i className="fas fa-search text-gray-400"></i>
               </div>
               <div className="bg-btnColor rounded w-2/5 absolute z-10 max-h-[30vh] overflow-y-scroll scrollbar-hide">
