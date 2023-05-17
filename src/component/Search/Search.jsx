@@ -7,7 +7,8 @@ import UserContext from "../../context/UserContext";
 import { useLocation } from "react-router-dom";
 import ArtistResult from "./ArtistResult/ArtistResult";
 import TracksResult from "./TracksResult/TracksResult";
-import PlaylistResult from "./PlaylistResult/PlaylistResult";
+import PlaylistResult from "./PlaylistResult/PlaylistResult";import user from "../../assets/images/icons/user.png";
+
 
 const Search = () => {
   const location = useLocation();
@@ -43,7 +44,8 @@ const Search = () => {
       //   return null
       // }
     // }
-  };
+  };	const {  loginWithRedirect } = useAuth0()
+
 
   return (
     <>

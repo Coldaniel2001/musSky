@@ -7,6 +7,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import SongContext from '../../context/song/SongContext'
 
 import { toast } from "react-hot-toast";
+import Search from '../Search/Search'
 
 
 const MySongSection = () => {
@@ -52,6 +53,8 @@ const MySongSection = () => {
   }
 
   return (
+    <div>
+    <Search />
     <div className='text-white px-10 py-10 min-h-screen'>
       <div className='border-b border-[#374151]  pb-10 mb-10'>
         <h2 className='text-white text-[2rem] font-extrabold'>MIS CANCIONES</h2>
@@ -76,7 +79,7 @@ const MySongSection = () => {
                   </div>
                   {
                     !editSong ?
-                      <img className='ml-2 md:ml-0 w-[9%] sm:w-[6%] md:w-[5%] lg:w-[4%] rounded' src={song.picture} alt="" />
+                      <img className='ml-2 md:ml-0 w-[70px] h-[70px] sm:w-[6%] md:w-[5%] lg:w-[4%] rounded' src={song.picture} alt="" />
                       :
                       <img className='ml-2 md:ml-0 w-[9%] sm:w-[6%] md:w-[5%] lg:w-[4%] rounded border-2 border-[#7339E5] opacity-50' src={song.thumbnail} alt="" />
                   }
@@ -124,6 +127,7 @@ const MySongSection = () => {
 
       }
 
+    </div>
     </div>
 
 

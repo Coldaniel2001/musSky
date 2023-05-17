@@ -18,6 +18,7 @@ const PlaylistsProvider = ({children}) => {
           body: playlist
         })
         const data = await res.json();
+        setDataPlayLists([...dataPlayLists, data.newPlaylist])
 
         if(data.ok){
           toast.success("Playlist creada con éxito")

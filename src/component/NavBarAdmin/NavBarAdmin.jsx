@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import logo from '../../assets/images/icons/logo.png'
 import UserContext from '../../context/UserContext'
+import { NavLink } from 'react-router-dom'
 
 const NavBarAdmin = () => {
 
@@ -21,6 +22,7 @@ const NavBarAdmin = () => {
         </div>
             {
                 artist ?
+                <NavLink to="/admin" >
         <div className=' flex gap-20 justify-center mt-10 mb-5'>
                 
                     <div className='flex items-center font-bold text-xl gap-3'>
@@ -33,8 +35,10 @@ const NavBarAdmin = () => {
                     </div> 
                     
         </div>
+        </NavLink>
         
                  : 
+                 <NavLink to="/admin" >
                  <div className=' flex gap-20 justify-center mt-10 mb-5'>
                 
                     <div className='flex items-center font-bold text-xl gap-3'>
@@ -47,6 +51,7 @@ const NavBarAdmin = () => {
                     </div> 
                     
         </div>
+        </NavLink>
 
             }
     </div>

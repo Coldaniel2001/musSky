@@ -23,8 +23,8 @@ function Top10Card({ song, isDropdownActive,
       <img onClick={()=>handleOpenSong(song)} className='col-span-2 w-[50px] h-[50px] rounded-full' src={song.picture} alt="images-song" />
 
       <div onClick={()=>handleOpenSong(song)} className='col-span-5 text-white my-auto cursor-pointer'>
-        <p className='font-bold text-xl truncate'>{song.nameArtist}</p>
-        <p className='text-gray-500'>{song.nameSong}</p>
+        <p className='font-bold text-xl truncate'>{song.nameSong}</p>
+        <p className='text-gray-500'>{song.nameArtist}</p>
       </div>
       <div className='relative flex flex-col '>
 
