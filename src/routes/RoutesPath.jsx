@@ -28,6 +28,7 @@ import PlaylistsProvider from '../context/playlists/PlaylistsProvider'
 import ArtistIdPage from '../page/ArtistIdPage/ArtistIdPage'
 
 import PlaylistIdPage from '../page/PlaylistIdPage/PlaylistIdPage'
+import SearchPage from '../page/SearchPage/SearchPage'
 // import PrivateRouter from './PrivateRouter'
 
 
@@ -95,6 +96,11 @@ const RoutesPath = () => {
                                 <MusicPlayerPhone />
                             </>
                         } />
+                            <Route path='/search' element={
+                            <>
+                                    <SearchPage />
+                                </>
+                            } />
                             <Route path='/*' element={<Navigate to={'/home'} />} />
                             <Route path='/admin' element={<AdminPage />} />
                             <Route path='/admin/:userId' element={<AdminUserPage />} />

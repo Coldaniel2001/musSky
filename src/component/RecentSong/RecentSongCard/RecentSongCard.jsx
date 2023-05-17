@@ -30,7 +30,7 @@ function RecentSongCard({ song, isDropdownActive,
     <>
       <div
         key={song._id}
-        className="min-w-[25rem] flex justify-center mb-4 relative"
+        className="min-w-[25rem] flex justify-center mb-4 relative h-[8vh]"
 
       >
         <div className=" bg-[#7239e546] grid grid-cols-8 h-[90%] w-[90%] rounded ">

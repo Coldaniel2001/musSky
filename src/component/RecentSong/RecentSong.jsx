@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 
 
-
 import SongContext from "../../context/song/SongContext";
 import RecentSongCard from "./RecentSongCard/RecentSongCard";
 import UserContext from "../../context/UserContext";
@@ -15,7 +14,7 @@ const RecentSong = () => {
 
 
   return (
-    <div className="flex overflow-x-scroll scrollbar-hide w-full whitespace-no-wrap 2xl:grid 2xl:grid-cols-2  h-[10vh] ">
+    <div className="flex overflow-x-scroll scrollbar-hide w-full whitespace-no-wrap 2xl:grid 2xl:grid-cols-2  ">
 
       {
         recentSong &&

@@ -10,9 +10,8 @@ const RealPlaylistPage = () => {
   return (
     <div className='bg-gradient-to-tr from-black via-black to-mainPurple min-h-screen  xl:flex'>
               <div className=''>
-        <TopPhone />
-
-      </div>
+                <TopPhone />
+          </div>
         <div className='hidden xl:block w-full lg:w-[15%] xl:w-[25%] 2xl:w-[18%] pt-10 border-r-2 border-gray-700'>
                 <SidebarLeft />
             </div>
