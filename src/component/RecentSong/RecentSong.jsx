@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 
 
 
@@ -12,7 +12,6 @@ const RecentSong = () => {
   const { recentSong } = useContext(SongContext);
   const [activeDropdown, setActiveDropdown] = useState(null)
   const { userLogged } = useContext(UserContext);
-
   const likesByUser = (song) => {
     if (userLogged) {
       return song.likedBy?.includes(userLogged._id)
@@ -26,6 +25,8 @@ const RecentSong = () => {
         recentSong &&
         recentSong.map((song) => {
           const isDropdownActive = activeDropdown === song._id
+          console.log(song)
+
           return (
 
             <RecentSongCard key={song._id} song={song} activeDropdown={activeDropdown} setActiveDropdown={setActiveDropdown}

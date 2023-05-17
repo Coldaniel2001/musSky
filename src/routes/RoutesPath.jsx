@@ -27,6 +27,17 @@ import PlayListPage from '../page/PlayListPage/PlayListPage'
 import GendersPage from '../page/GendersPage/GendersPage'
 import PlaylistsProvider from '../context/playlists/PlaylistsProvider'
 import ArtistIdPage from '../component/ArtistInformation/ArtistIdPage'
+import PopSpanish from '../component/Genders/PopSpanish/PopSpanish'
+import UrbanLatin from '../component/Genders/UrbanLatin/UrbanLatin'
+import Reggae from '../component/Genders/Reggae/Reggae'
+import Rock from '../component/Genders/Rock/Rock'
+import Flamenco from '../component/Genders/Flamenco/Flamenco'
+import RockSpanish from '../component/Genders/RockSpanish/RockSpanish'
+import Electronic from '../component/Genders/Electronic/Electronic'
+import PopLatin from '../component/Genders/PopLatin/PopLatin'
+import Jazz from '../component/Genders/Jazz/Jazz'
+import HipHop from '../component/Genders/HipHop/HipHop'
+import SpanishPop from '../component/Genders/PopSpanish/SpanishPop'
 // import PrivateRouter from './PrivateRouter'
 
 
@@ -88,11 +99,27 @@ const RoutesPath = () => {
                                 <MusicPlayerPhone />
                             </>
                         } />
+                   
                             <Route path='/*' element={<Navigate to={'/home'} />} />
                             <Route path='/admin' element={<AdminPage />} />
                             <Route path='/admin/:userId' element={<AdminUserPage />} />
                             <Route path='/mis-canciones' element={<Mysongs />} />
                             <Route path='/final-register' element={<FinalRegister />} />
+                            <Route path='/1' element={<PopSpanish/>} />
+                            <Route path='/2' element={<UrbanLatin/>} />
+                            <Route path='/3' element={<RockSpanish/>} />
+                            <Route path='/4' element={<HipHop/>} />
+                            <Route path='/5' element={<Electronic/>} />
+                            <Route path='/6' element={
+<>
+                            <SpanishPop/>
+                            <MusicPlayerPhone />
+</>}/>
+                            
+                            <Route path='/7' element={<PopLatin/>} />
+                            <Route path='/8' element={<Jazz/>} />
+                            <Route path='/9' element={<Rock/>} />
+                            <Route path='/10' element={<Flamenco/>} />
                         </Routes>
                     </BrowserRouter>
                 </PlaylistsProvider>

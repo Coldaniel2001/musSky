@@ -5,7 +5,7 @@ import UserContext from '../../context/UserContext'
 const PlaylistIndividual = ({playlist}) => {
     const[hovered, setHovered] = useState(false)
     console.log(hovered)
-
+console.log({playlist})
   
   return (
 
