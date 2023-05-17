@@ -42,7 +42,7 @@ const UserProvider = ({ children }) => {
           const infoUsers = {
             name: user.name,
             nickname: user.nickname,
-            surname: user.surname,
+            surname: "en proceso",
             email: user.email,
             picture: user.picture,
             updated_at: user.updated_at,

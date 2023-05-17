@@ -21,7 +21,7 @@ const PlayListIndividual = () => {
 
 
     const musicLikesToTracks = dataSong.filter((listToLike) => {
-        return listToLike.likedBy?.includes(userLogged._id)
+        return listToLike.likedBy?.includes(userLogged?._id)
     })
 
     const addToPlaylist = () => {
