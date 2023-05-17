@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import playWhite from '../../assets/images/icons/play-white.png'
 import addList from '../../assets/images/icons/add-list.png'
@@ -12,6 +12,7 @@ import SongContext from '../../context/song/SongContext'
 import UserContext from '../../context/UserContext'
 
 
+
 const ArtistInformationUser = ({ infoUser }) => {
 
 
@@ -21,6 +22,11 @@ const ArtistInformationUser = ({ infoUser }) => {
     const tracksUser = dataSong.filter((song) => {
         return song?.nameArtist === infoUser?.nickname
     })
+
+
+
+
+
 
     return (
         <div>

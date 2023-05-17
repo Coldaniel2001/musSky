@@ -90,12 +90,16 @@ const ArtistInformation = ({ infoUser}) => {
         updateUser(userId, formData)
     }
 
+
+      
     const deleteNewUser = () => {
         deleteUser(userId)
         toast.success(`El usuario ${name.join("")} ha sido borrado con éxito`)
         setGoOutsidePage(true)
     }
-    console.log(goOutsidePage)
+
+
+
 
 
     const handleDeleteUser = () => {

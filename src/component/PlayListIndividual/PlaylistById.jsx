@@ -13,12 +13,13 @@ import addList from '../../assets/images/icons/add-list.png'
 import seeMore from '../../assets/images/icons/see-more.png'
 import SongContext from '../../context/song/SongContext'
 import { useParams } from 'react-router-dom'
-import { data } from 'autoprefixer'
 import ModalAddSongToPLaylist from '../ModalAddSongToPlyalist/ModalAddSongToPlaylist'
+
 
 const PlaylistById = () => {
     const [addSongToPlaylist, setAddSongToPlaylist] = useState(false)
 
+    const { userLogged } = useContext(PlaylistsContext)
     const { handleLikes, handleOpenSong } = useContext(SongContext)
 
     const {userId} = useParams()
@@ -43,7 +44,7 @@ useEffect(() => {
 
   }
   fetchData();
-}, [userId]);
+}, [userId, setInfoPlaylist]);
 
 
 

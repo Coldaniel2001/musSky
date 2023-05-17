@@ -10,7 +10,6 @@ const RealPlaylist = () => {
     const [MyPlaylist, setMyPlaylist] = useState(true)
     const [addNewPlayList, setAddNewPlayList] = useState(false)
 
-    console.log(addNewPlayList)
 
 
 

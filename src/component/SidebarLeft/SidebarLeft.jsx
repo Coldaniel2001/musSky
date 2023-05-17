@@ -6,7 +6,7 @@ import iconPlayList from '../../assets/images/icons/icon-playlist.png'
 import iconLiked from '../../assets/images/icons/icon-liked.png'
 import iconAccount from '../../assets/images/icons/icon-account.png'
 import mySong from '../../assets/images/icons/mySong.png'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import SongContext from '../../context/song/SongContext';
 import UserContext from '../../context/UserContext';
@@ -69,6 +69,7 @@ const SidebarLeft = () => {
 				</NavLink>
 			</div>
 			
+			<Link to='/reproduction-live' >
 			{
 				artist ?
 				Object.entries(onePlayListSong).length !== 0 &&
@@ -93,8 +94,10 @@ const SidebarLeft = () => {
 							<p className='text-gray-500 text-[1.5vh] truncate'>{onePlayListSong.nameSong}</p>
 						</div>
 					</div>	
+					
 				
 			}
+			</Link>
 
 			
 			{/* <div className='w-full flex justify-center'>
