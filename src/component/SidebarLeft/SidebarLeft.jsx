@@ -10,9 +10,9 @@ import iconGendersViolet from '../../assets/images/icons/GenreViolet.png'
 import iconPlayListViolet from '../../assets/images/icons/MYViolet.png'
 import iconLikedViolet from '../../assets/images/icons/bytesize_heartViolet.png'
 import iconAccountViolet from '../../assets/images/icons/codicon_accountViolet.png'
-import { NavLink,useLocation } from 'react-router-dom';
+import { NavLink,useLocation, Link } from 'react-router-dom';
 import mySong from '../../assets/images/icons/mySong.png'
-import { Link, NavLink } from 'react-router-dom';
+
 
 import SongContext from '../../context/song/SongContext';
 import UserContext from '../../context/UserContext';
