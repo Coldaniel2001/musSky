@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import UserProvider from '../context/UserProvider'
 import SongProvider from '../context/song/SongProvider'
 
+
+
 import Skeleton from '../Skeleton/SkeletonSidebarRight'
 
 
@@ -31,6 +33,16 @@ import ArtistIdPage from '../page/ArtistIdPage/ArtistIdPage'
 import PlaylistIdPage from '../page/PlaylistIdPage/PlaylistIdPage'
 import MusicReproductionLive from '../page/MusicReproductionLive/MusicReproductionLive'
 import { AdminArtistPage } from '../page/AdminPage/AdminArtistsPage'
+
+import FinalRegisterRouter from './FinalRegisterRouter'
+import HomePrivateRouter from './HomePrivateRouter'
+import ArtistPrivateRouter from './ArtistPrivateRouter'
+import AdminPrivateRouter from './AdminPrivateRouter'
+
+
+
+
+
 // import PrivateRouter from './PrivateRouter'
 
 
@@ -48,6 +60,7 @@ import { AdminArtistPage } from '../page/AdminPage/AdminArtistsPage'
 
 
 const RoutesPath = () => {
+
     return (
         <UserProvider>
             <SongProvider>
@@ -55,56 +68,84 @@ const RoutesPath = () => {
                     <BrowserRouter>
                         <Routes>
                             <Route path='/home' element={
-                                <>
+                                <HomePrivateRouter>
                                     <HomePage />
                                     <MusicPlayerPhone />
-                                </>
+                                </HomePrivateRouter>
                             } />
                             <Route path='/profile' element={
-                                <>
+                                <HomePrivateRouter>
                                     <ProfilePage />
                                     <MusicPlayerPhone />
-                                </>
-
+                                </HomePrivateRouter>
                             } />
                             <Route path='/real-playlist' element={
                                 <Suspense fallback={<Skeleton />}>
-                                    <RealPlaylistPage />
+                                    <HomePrivateRouter>
+                                        <RealPlaylistPage />
+                                        <MusicPlayerPhone />
+                                    </HomePrivateRouter>
                                 </Suspense>
                             } />
                             <Route path='/individual-playlist' element={
-                                <>
+
+                                <HomePrivateRouter>
                                     <PlayListPage />
                                     <MusicPlayerPhone />
-                                </>
-
+                                </HomePrivateRouter>
                             } />
                             <Route path='/genders' element={
-                                <>
+                                <HomePrivateRouter>
                                     <GendersPage />
                                     <MusicPlayerPhone />
-                                </>
-
+                                </HomePrivateRouter>
                             } />
                             <Route path='/artist/:userId' element={
-                            <>
-                                <ArtistIdPage/>
-                                <MusicPlayerPhone />
-                            </>
-                        } />
+                                <HomePrivateRouter>
+                                    <ArtistIdPage />
+                                    <MusicPlayerPhone />
+                                </HomePrivateRouter>
+                            } />
                             <Route path='/playlist/:userId' element={
-                            <>
-                                <PlaylistIdPage/>
-                                <MusicPlayerPhone />
-                            </>
-                        } />
+                                <HomePrivateRouter>
+                                    <PlaylistIdPage />
+                                    <MusicPlayerPhone />
+                                </HomePrivateRouter>
+                            } />
                             <Route path='/*' element={<Navigate to={'/home'} />} />
-                            <Route path='/admin' element={<AdminPage />} />
-                            <Route path='/admin/:userId' element={<AdminUserPage />} />
-                            <Route path='/admin/:userId' element={<AdminArtistPage />} />
-                            <Route path='/mis-canciones' element={<Mysongs />} />
-                            <Route path='/final-register' element={<FinalRegister />} />
-                            <Route path='/reproduction-live' element={<MusicReproductionLive/>} />
+
+                            <Route path='/admin/:userId' element={
+                                <AdminPrivateRouter>
+                                    <AdminUserPage />
+                                </AdminPrivateRouter>
+                            } />
+                            <Route path='/admin/:userId' element={
+                                <AdminPrivateRouter>
+                                    <AdminArtistPage />
+                                </AdminPrivateRouter>
+                            } />
+                            <Route path='/admin' element={
+                                <AdminPrivateRouter>
+                                    <AdminPage />
+                                </AdminPrivateRouter>
+                            } />
+                            <Route path='/mis-canciones' element={
+                                <ArtistPrivateRouter>
+                                    <Mysongs />
+                                    <MusicPlayerPhone />
+                                </ArtistPrivateRouter>
+                            } />
+                            <Route path='/final-register' element={
+                                <FinalRegisterRouter>
+                                    <FinalRegister />
+                                </FinalRegisterRouter>
+                            } />
+                            <Route path='/reproduction-live' element={
+                                <HomePrivateRouter>
+                                    <MusicReproductionLive />
+                                    <MusicPlayerPhone />
+                                </HomePrivateRouter>
+                            } />
                         </Routes>
                     </BrowserRouter>
                 </PlaylistsProvider>

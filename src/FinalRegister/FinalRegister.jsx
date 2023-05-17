@@ -1,4 +1,6 @@
 import React, { useContext, useState } from 'react'
+import {useNavigate} from 'react-router-dom'
+
 import chica from "../assets/images/bgLoginRegister/MusSkyModel.png"
 import logo from "../assets/images/logo/LogoMusSky.png"
 import UserContext from '../context/UserContext';
@@ -8,6 +10,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 function FinalRegister() {
     const { updateUser, userLogged } = useContext(UserContext);
     const { user } = useAuth0();
+
+    const navigate = useNavigate()
 
     const currentDate = new Date(); const day = currentDate.getDate(); const month = currentDate.getMonth() + 1; const year = currentDate.getFullYear();
     const formattedDate = `${day}/${month}/${year}`;
@@ -29,7 +33,7 @@ function FinalRegister() {
     const handleSubmit = (e) => {
     e.preventDefault()
     updateUser(userLogged._id, userComplete)
-    // updateUser(userComplete)
+    toast.success("El registro ha sido todo un exito")
     }
 
 
@@ -80,10 +84,9 @@ function FinalRegister() {
                 <p className='text-white text-sm none'>Escuchar musica y subir mis canciones</p>
               </label>
             </div>
-            <button className='rounded-md text-white bg-[#7339E5] w-[12rem] h-[2rem] mb-10'>Acceder</button>       
+            <button type='submit' className='rounded-md text-white bg-[#7339E5] w-[12rem] h-[2rem] mb-10'>Acceder</button>
     </form>
     </div>
-    
   )
 }
 

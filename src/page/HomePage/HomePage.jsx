@@ -10,16 +10,21 @@ import SidebarRight from '../../component/SidebarRight/SidebarRight'
 import Top10Phone from '../../component/Top10Phone/Top10Phone'
 import TopPhone from '../../component/TopPhone/TopPhone'
 
+import { useNavigate } from 'react-router-dom'
+
+import UserContext from '../../context/UserContext'
+
 
 
 const HomePage = () => {
-// const [openSearchSong, setOpenSearchSong] = useState(false)
-
-
+  // const [openSearchSong, setOpenSearchSong] = useState(false)
+  const navigate = useNavigate()
+  const { userLogged } = useContext(UserContext)
+  if(userLogged.rol==='admin') navigate("/admin")
   return (
-    
+
     <div className='bg-gradient-to-tr from-black via-black to-[#7339E5] lg:min-h-screen xl:flex' >
-      
+
       <div className=''>
         <TopPhone />
         <Top10Phone />
@@ -43,7 +48,7 @@ const HomePage = () => {
         <ModalSearcMusicForPlayList   />
       } */}
     </div>
-    
+
   )
 }
 
