@@ -24,7 +24,6 @@ const PlaylistById = () => {
     const { userLogged } = useContext(PlaylistsContext)
     const { handleLikes, handleOpenSong, likesByUser, dataSong} = useContext(SongContext)
 
-    const [addSongToPlaylist, setAddSongToPlaylist] = useState(false)
     const [sendSong, setSendSong] = useState()
 
     const {userId} = useParams()
@@ -34,16 +33,6 @@ const PlaylistById = () => {
         setAddSongToPlaylist(true)
     }
 
-
-    const addToPlaylist = (song) => {
-        setAddSongToPlaylist(true)
-        setSendSong(song)
-    }
-
-    const addToPlaylist = (song) => {
-        setAddSongToPlaylist(true)
-        setSendSong(song)
-    }
 
 
 
