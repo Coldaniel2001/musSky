@@ -86,6 +86,7 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
                         required
                         name="imagePlaylist"
                         onChange={handlePreviewImg}
+                        
                         // value={PlayList.imagePlaylist}
                     />
               </label>
@@ -95,6 +96,7 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
                   placeholder='Nombre de la Playlist' 
                   type="text"
                   name="namePlaylist"
+                  required
                   // onChange={handleInputChange}  
                   // value={PlayList.namePlaylist}
                   />
@@ -105,6 +107,7 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
                     type="radio"
                     name="private"
                     value="no"
+                    required
                     // onChange={handleInputChange} 
                     />
                   <p>Playlist pública</p>
@@ -114,6 +117,7 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
                   type="radio"
                   name="private" 
                   value="yes"
+                  required
                   // onChange={handleInputChange} 
                   />
                   <p>Playlist privada</p>
@@ -125,7 +129,7 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
               </div>
               </form>
               <div className=' w-[90%] mx-10'>
-                <AddSongToPlayList playlistToShow={playlistToShow}  />
+                <AddSongToPlayList playlistToShow={playlistToShow} setPlaylistToShow={setPlaylistToShow} playListComplete={playListComplete} setPlayListComplete={setPlayListComplete} />
               </div>
             </div>
           </div>
