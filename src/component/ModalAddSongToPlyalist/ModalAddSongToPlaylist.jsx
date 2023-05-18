@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useContext } from 'react'
 import PlaylistsContext from '../../context/playlists/PlaylistsContexts'
 import UserContext from '../../context/UserContext'
@@ -35,12 +35,6 @@ const falseState = () => {
                         }
                         
                     </div>
-                {/* <div className='mt-20 flex justify-center gap-3'>
-                    <div className='bg-transparent border py-2 px-4 rounded cursor-pointer  w-[130px] flex justify-center hover:bg-[#f34545]' onClick={() => setAddSongToPlaylist(false)}>
-                        <p >Cancelar</p>
-                    </div>
-                    <button className='bg-[#7339E5] px-4 py-2 rounded border hover:bg-[#2ca72c]'>Añadir a playlist</button>
-                </div> */}
                 </div>
             </div>
     </div>

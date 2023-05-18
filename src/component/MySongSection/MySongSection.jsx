@@ -2,9 +2,7 @@ import React, { useContext, useState } from 'react'
 
 import ModalAddNewSong from '../ModalAddNewSong/ModalAddNewSong'
 import UserContext from '../../context/UserContext'
-import { useAuth0 } from '@auth0/auth0-react'
 import SongContext from '../../context/song/SongContext'
-
 
 
 import { toast } from "react-hot-toast";
@@ -27,7 +25,6 @@ const MySongSection = () => {
   })
 
   const ConfirmDeleteSong = (song) => {
-    console.log(song)
     deleteSong(song)
   }
 
@@ -38,7 +35,6 @@ const MySongSection = () => {
           <img className='w-32' src={song.picture} alt="" />
         </div>
         <div className='flex p-4'>
-          {/* <img className='w-20 rounded-full mr-3' src={shakira} alt="" /> */}
           <div className='block text-white'>
             <p>¿Estás seguro que quieres borrar a {song.nameSong} de la base de datos?</p>
             <div className='flex justify-center items-center mt-3 gap-3'>
@@ -83,10 +79,8 @@ const MySongSection = () => {
             SongUploaded.map((song) => {
               return (
               
-                
                 <SingularSongUploaded key={song._id} song={song}  handleDeleteSong={handleDeleteSong} SongUploaded={SongUploaded} />
-                
-                
+              
               )
             })
             :

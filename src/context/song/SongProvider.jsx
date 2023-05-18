@@ -5,7 +5,6 @@ import UserContext from "../UserContext";
 
 import { useAuth0 } from "@auth0/auth0-react";
 import { toast } from "react-hot-toast";
-import RecentSong from "../../component/RecentSong/RecentSong";
 
 const SongProvider = ({ children }) => {
   const [dataSong, setDataSong] = useState([]);
@@ -62,7 +61,6 @@ const SongProvider = ({ children }) => {
 
     } catch (error) {
       console.log(error);
-      console.log(data)
       if (data.error === "InvalidTokenError: Invalid Compact JWS") {
         toast.error("Tienes que iniciar sesión para poder añadir me gusta");
       }
@@ -175,7 +173,6 @@ const SongProvider = ({ children }) => {
     })
     const data = await res.json()
     setUpdateSong(data.songChanged)
-    console.log(data) 
 }
 
   return (

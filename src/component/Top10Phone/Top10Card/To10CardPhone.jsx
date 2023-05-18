@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import more from '../../../assets/images/icons/more.png'
-import bluePlay from '../../../assets/images/icons/blue-play.png'
 import SongContext from '../../../context/song/SongContext'
 import Top10ModalDetail from '../Top10ModalDetail/Top10ModalDetail'
 import purpleHeart from '../../../assets/images/icons/purple-heart.png'
@@ -16,7 +15,6 @@ const To10CardPhone = ({ song, isDropdownActive, setActiveDropdown, activeDropdo
           setActiveDropdown(song._id)
         }
       }
-
 
   return (
     <div key={song.id} className='w-full min-w-[25rem] grid grid-cols-9 cursor-pointer  bg-[#D9D9D9] items-center rounded bg-opacity-20 m-2 mx-auto'>

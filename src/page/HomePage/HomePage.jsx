@@ -28,7 +28,6 @@ const CenterSection = lazy(() => {
 });
 
 const HomePage = () => {
-  // const [openSearchSong, setOpenSearchSong] = useState(false)
   const navigate = useNavigate()
   const { userLogged } = useContext(UserContext)
   if (userLogged.rol === 'admin') navigate("/admin")

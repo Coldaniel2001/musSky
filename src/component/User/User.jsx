@@ -10,8 +10,6 @@ import UserContext from "../../context/UserContext";
 
 
 
-
-
 const User = () => {
   const { userLogged } = useContext(UserContext)
   const [modal, setModal] = useState(false)
@@ -19,7 +17,6 @@ const User = () => {
     setModal(!modal)
   }
   const {  loginWithRedirect } = useAuth0()
-
 
 
   return (

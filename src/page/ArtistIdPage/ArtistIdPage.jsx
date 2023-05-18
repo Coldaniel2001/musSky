@@ -12,7 +12,6 @@ const ArtistIdPage = () => {
   const [infoUser, setInfoUser] = useState(null);
 
 
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -42,7 +41,6 @@ const ArtistIdPage = () => {
       </div>
     </div>
   )
-  //fetch al back usando el userId de los params
 
 }
 

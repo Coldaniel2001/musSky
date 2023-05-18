@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import addImageProfile from '../../assets/images/icons/addImageProfile.png'
 import axios from 'axios';
 import UserContext from '../../context/UserContext';
-import { useAuth0 } from '@auth0/auth0-react';
 
 function ProfileImg() {
   const { userLogged, setUserLogged } = useContext(UserContext)

@@ -1,7 +1,5 @@
 import React, { useContext, useState } from 'react'
-import purpleHeartStroke from '../../assets/images/icons/purple-heart-stroke.png'
 import { Link } from 'react-router-dom'
-import UserContext from '../../context/UserContext'
 import PlaylistsContext from '../../context/playlists/PlaylistsContexts'
 
 

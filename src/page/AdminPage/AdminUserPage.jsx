@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ArtistInformation from '../../component/ArtistInformation/ArtistInformation'
 import NavBarAdmin from '../../component/NavBarAdmin/NavBarAdmin'
@@ -23,10 +23,8 @@ useEffect(() => {
   fetchData();
 }, []);
 
-
-//fetch al back usando el userId de los params
   return (
-    <div className='bg-gradient-to-tr from-black via-black to-[#7339E5] w-full min-h-screen'>
+    <div className='bg-gradient-to-tr from-black via-black to-mainPurple w-full min-h-screen'>
       <NavBarAdmin/>
       <ArtistInformation userId={userId} infoUser={infoUser} setInfoUser={setInfoUser} /> 
     </div>

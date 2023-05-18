@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
@@ -6,7 +6,6 @@ import close from '../../assets/images/icons/close.png'
 
 import './MusicPlayerPhone.css'
 
-// import MusicPlayerContext from '../../context/MusicPlayer/MusicPlayerContext';
 import SongContext from '../../context/song/SongContext';
 import PlaylistsContext from '../../context/playlists/PlaylistsContexts';
 import { Link } from 'react-router-dom';
@@ -39,13 +38,8 @@ const MusicPlayerPhone = () => {
 			await setCurrentPlaylist(positionSongPlaylist - 1)
 		} else {
 			await setCurrentPlaylist(infoPlaylist.songs.length - 1)
-
 		}
-
-
-
 	}
-
 
 	const handleNext = async () => {
 		const songNext = await infoPlaylist?.songs.slice(currentPlaylist + 1, currentPlaylist + 2)
@@ -54,13 +48,11 @@ const MusicPlayerPhone = () => {
 			setOnePlayListSong(songNext[0])
 		} else {
 			setOnePlayListSong(infoPlaylist.songs[0])
-
 		}
 
 		if (currentPlaylist === infoPlaylist.songs.length - 1) {
 			setCurrentPlaylist(0)
 		}
-
 	}
 
 	const HandleSongClose = () =>{
@@ -75,7 +67,6 @@ const MusicPlayerPhone = () => {
 					<div className='sm:flex  w-full justify-center  '>
 						<Link to="/reproduction-live" >
 						<div className='w-[100%] sm:w-[45%] xl:hidden flex justify-center py-2 gap-5 border-b border-gray-800   '>
-
 							<div className=' lg:mr-8 w-[40%] sm:w-[25%] rounded flex items-center justify-end  '>
 								<img className='rounded  w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] 2xl:w-[80%] sm:mr-3' src={onePlayListSong.picture} alt={"img-music"} />
 							</div>

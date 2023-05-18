@@ -1,8 +1,4 @@
-import React, { useContext, useState } from 'react'
-import theBeatles from '../../assets/images/beatles.jpg'
-import lodvg from '../../assets/images/lodvg.jpg'
-import estopa from '../../assets/images/estopa.jpg'
-import fito from '../../assets/images/fito.jpg'
+import React, { useContext } from 'react'
 import PlaylistsContext from '../../context/playlists/PlaylistsContexts'
 import SingularPlaylist from './SingularPlaylist'
 
@@ -21,9 +17,7 @@ const RecomendationSong = () => {
         publicFilter.map((playlist) => {
           return (
             <SingularPlaylist key={playlist._id} playlist={playlist} />
-           
-
-)
+          )
 })
 
 }

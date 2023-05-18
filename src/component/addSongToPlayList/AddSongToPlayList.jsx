@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
 import deleteSong from '../../assets/images/deleteSong.png'
-import SongContext from '../../context/song/SongContext'
 
-const AddSongToPlayList = ({playListComplete, playlistToShow, setPlaylistToShow, setPlayListComplete}) => {
-    const {dataSong} = useContext(SongContext)
+
+const AddSongToPlayList = ({ playlistToShow, setPlaylistToShow, setPlayListComplete}) => {
+    
 
     console.log(playlistToShow)
 

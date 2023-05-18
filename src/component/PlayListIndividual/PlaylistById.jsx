@@ -6,8 +6,6 @@ import Search from '../Search/Search'
 import plusWhite from '../../assets/images/icons/plusWhite.png'
 import menusWhite from '../../assets/images/icons/minusWhite.png'
 
-import playWhite from '../../assets/images/icons/play-white.png'
-
 import purpleHeart from '../../assets/images/icons/purple-heart.png'
 import purpleHeartStroke from "../../assets/images/icons/purple-heart-stroke.png"
 

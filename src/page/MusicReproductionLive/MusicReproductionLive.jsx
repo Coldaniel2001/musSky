@@ -2,7 +2,6 @@ import React from 'react'
 import TopPhone from '../../component/TopPhone/TopPhone'
 import SidebarLeft from '../../component/SidebarLeft/SidebarLeft'
 import FooterNav from '../../component/FooterNav/FooterNav'
-import MySongSection from '../../component/MySongSection/MySongSection'
 import ReproductionSongLive from '../../component/ReproductionSongLive/ReproductionSongLive'
 
 const MusicReproductionLive = () => {

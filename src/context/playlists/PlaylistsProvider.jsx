@@ -43,8 +43,6 @@ const PlaylistsProvider = ({ children }) => {
     
     setInfoPlaylist(data.updateLikePlayList)
 
-    // toast.success("Esta cancion ya ha sido enviado en la playlist")
-
 
   }
 
@@ -53,7 +51,6 @@ const PlaylistsProvider = ({ children }) => {
       return likesByPlaylist?.liked_by?.includes(userLogged.email);
     }
   };
-
 
 
   const addSongInPlaylist = async (song, playlist) => {

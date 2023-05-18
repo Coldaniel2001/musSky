@@ -1,13 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react'
-// import rihanna from '../../assets/images/rihanna.png'
+import React, { useContext, useState } from 'react'
 
 
 import logo from '../../assets/images/icons/logo.png'
-import Top10Card from './Top10Card/Top10Card'
 import SongContext from '../../context/song/SongContext'
 import To10CardPhone from './Top10Card/To10CardPhone'
-// import melendi from '../../assets/images/melendi.jpg'
-// import shakira from '../../assets/images/shakira.jpg'
 
 const Top10Phone = () => {
 

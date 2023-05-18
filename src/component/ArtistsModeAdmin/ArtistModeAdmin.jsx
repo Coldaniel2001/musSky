@@ -27,13 +27,6 @@ const ArtistModeAdmin = () => {
             }
             
             
-            
-            
-            
-            
-
-            
-            
         </div>
   )
 }

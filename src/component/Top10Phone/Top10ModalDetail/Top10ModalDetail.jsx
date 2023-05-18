@@ -1,10 +1,7 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
 
 function Top10ModalDetail({handleModal, song}) {
-  const {userId} = useParams()
 
-  console.log(song)
   return (
     <div className='overflow-visible flex jusify-item-center absolute top-[2rem] right-[2rem] z-50 '>
     <div className='w-[11rem] h-[4rem] bg-[#7C8BBF]  hover:opacity-100  rounded border overflow-visible  float-right '>

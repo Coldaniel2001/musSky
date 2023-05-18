@@ -7,7 +7,6 @@ import logo from '../../assets/images/icons/logo.png'
 import { toast } from 'react-hot-toast'
 import SongContext from '../../context/song/SongContext'
 import UserContext from '../../context/UserContext'
-import {  NavLink, useParams } from 'react-router-dom'
 
 
 
@@ -86,7 +85,6 @@ const ArtistInformation = ({ infoUser, userId}) => {
                     <img className='w-32' src={logo} alt="" />
                 </div>
                 <div className='flex p-4'>
-                    {/* <img className='w-20 rounded-full mr-3' src={shakira} alt="" /> */}
                     <div className='block text-white'>
                         <p>¿Estás seguro que quieres borrar a Shakira de la base de datos?</p>
                         <div className='flex justify-center items-center mt-3 gap-3'>
@@ -116,7 +114,6 @@ const ArtistInformation = ({ infoUser, userId}) => {
                         name="imagePlaylist"
                         onChange={handlePreviewImg}
                         
-                        // value={PlayList.imagePlaylist}
                     />
               </label>
                 <div className='lg:ml-10 xl:ml-20 lg:w-[70%]  flex flex-col items-center lg:block '>
@@ -220,7 +217,6 @@ const ArtistInformation = ({ infoUser, userId}) => {
                 </div> : ""
             }
         </div>
-
     </div>
   )
 }

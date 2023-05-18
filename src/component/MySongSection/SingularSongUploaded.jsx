@@ -1,11 +1,9 @@
 import React, { useContext, useState } from 'react'
 import rubish from '../../assets/images/icons/rubish.png'
 import edit from '../../assets/images/icons/edit.png'
-import UserContext from '../../context/UserContext'
 import SongContext from '../../context/song/SongContext'
 
-const SingularSongUploaded = ({song, handleDeleteSong,SongUploaded}) => {
-    const {userLogged} = useContext(UserContext)
+const SingularSongUploaded = ({song, handleDeleteSong}) => {
     const {updateTrack,handleOpenSong} = useContext(SongContext)
     
     const [editSong, setEditSong] = useState(false)
@@ -23,7 +21,6 @@ const SingularSongUploaded = ({song, handleDeleteSong,SongUploaded}) => {
     const handleChangeForm = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value})
     }
-
 
     
     const handleSave = async (song) => {

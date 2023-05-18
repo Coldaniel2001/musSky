@@ -25,7 +25,6 @@ useEffect(() => {
 }, []);
 
 
-//fetch al back usando el userId de los params
   return (
     <div className='bg-gradient-to-tr from-black via-black to-[#7339E5] w-full min-h-screen'>
       <NavBarAdmin/>

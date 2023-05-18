@@ -1,17 +1,12 @@
-
-// import logo from '../../assets/images/icons/logo.png'
-// import user from '../../assets/images/icons/icon-account.png'
-// import artist from '../../assets/images/icons/icon-playlist.png'
 import ArtistModeAdmin from '../../component/ArtistsModeAdmin/ArtistModeAdmin'
-import ArtistInformation from '../../component/ArtistInformation/ArtistInformation'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import NavBarAdmin from '../../component/NavBarAdmin/NavBarAdmin'
 import UserModeAdmin from '../../component/UserModeAdmin/UserModeAdmin'
 import UserContext from '../../context/UserContext'
 
 const AdminPage = () => {
 
-  const {artist, setArtist} = useContext(UserContext)
+  const {artist} = useContext(UserContext)
 
 
 

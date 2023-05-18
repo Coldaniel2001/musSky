@@ -14,8 +14,6 @@ const PlayListItems = ({song, playListComplete, setPlayListComplete, setPlaylist
 
   }
 
-
-
   useEffect(() => {
 
   }, [playListComplete]);

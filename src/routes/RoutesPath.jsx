@@ -6,10 +6,6 @@ import UserProvider from '../context/UserProvider'
 import SongProvider from '../context/song/SongProvider'
 
 
-
-// import PrivateRouter from './PrivateRouter'
-
-// import Playlist from '../page/PlayList/Playlist'
 import AdminPage from '../page/AdminPage/AdminPage'
 import Mysongs from '../page/MySongs/Mysongs'
 import { AdminUserPage } from '../page/AdminPage/AdminUserPage'
@@ -51,21 +47,6 @@ import Rock from '../page/GendersPage/Rock'
 import Flamenco from '../page/GendersPage/Flamenco'
 
 
-
-// import PrivateRouter from './PrivateRouter'
-
-
-// const LoginPage = lazy(() => {
-//     return new Promise((resolve) => {
-//         setTimeout(() => resolve(import('../page/LoginPage/LoginPage')), 2000);
-//     });
-// });
-
-// const RealPlaylistPage = lazy(() => {
-//     return new Promise((resolve) => {
-//         setTimeout(() => resolve(import('../page/RealPlaylistPage/RealPlaylistPage')), 2000);
-//     });
-// });
 
 
 const RoutesPath = () => {

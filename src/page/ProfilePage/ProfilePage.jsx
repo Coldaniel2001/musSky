@@ -4,10 +4,7 @@ import SidebarLeft from '../../component/SidebarLeft/SidebarLeft'
 
 import FooterNav from '../../component/FooterNav/FooterNav'
 
-
-
 import Profile from '../../component/Profile/Profile'
-
 
 
 

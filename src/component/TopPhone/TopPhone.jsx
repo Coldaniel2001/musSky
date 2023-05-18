@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
 import logo from '../../assets/images/icons/logo.png'
-import imgNoLogged from '../../assets/images/icons/user.png'
 
 
 import { useAuth0 } from "@auth0/auth0-react"
@@ -37,11 +36,9 @@ const TopPhone = () => {
           : 
           <div className='flex items-center' onClick={() => loginWithRedirect()}>
             <p className='text-white border-2 rounded px-2 bg-btnColor'>Iniciar sesión</p>
-
           </div>
 }
       </div>
-
     </>
   )
 }

@@ -1,6 +1,5 @@
-import React, {useState, useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
-import background from '../../assets/images/background.png'
 import PlaylistsContext from '../../context/playlists/PlaylistsContexts'
 import UserContext from '../../context/UserContext'
 import likesPlaylists from '../../assets/images/likesPlaylists.jpg'

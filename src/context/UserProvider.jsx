@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import toast from "react-hot-toast";
 
 import UserContext from "./UserContext";
 
@@ -29,7 +28,6 @@ const UserProvider = ({ children }) => {
     email: "",
     password: "",
     passwordRepeat: "",
-    // date: new Date(Date.now()).toLocaleDateString()
   });
 
   const { user, getIdTokenClaims } = useAuth0();
@@ -128,15 +126,12 @@ const UserProvider = ({ children }) => {
       body: JSON.stringify(userChanged),
     });
     const data = await res.json();
-    console.log(data);
   };
 
   const deleteUser = async (id) => {
     await fetch(`http://localhost:4002/users/delete-user/${id}`,{
         method: "DELETE",
       })
-
-
 
 }
 

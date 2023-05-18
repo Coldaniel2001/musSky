@@ -87,7 +87,6 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
                         name="imagePlaylist"
                         onChange={handlePreviewImg}
                         
-                        // value={PlayList.imagePlaylist}
                     />
               </label>
 
@@ -97,8 +96,6 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
                   type="text"
                   name="namePlaylist"
                   required
-                  // onChange={handleInputChange}  
-                  // value={PlayList.namePlaylist}
                   />
               </div>
               <div className='flex gap-10 mt-6'>
@@ -108,7 +105,6 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
                     name="private"
                     value="no"
                     required
-                    // onChange={handleInputChange} 
                     />
                   <p>Playlist pública</p>
                 </label>
@@ -117,8 +113,7 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
                   type="radio"
                   name="private" 
                   value="yes"
-                  required
-                  // onChange={handleInputChange} 
+                  required 
                   />
                   <p>Playlist privada</p>
                 </label>
@@ -139,7 +134,6 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
           <div >
             <ModalSearcSongForPlayList setSearchSong={setSearchSong} playListComplete={playListComplete} setPlayListComplete={setPlayListComplete} handleInputChange={handleInputChange} setPlaylistToShow={setPlaylistToShow} playlistToShow={playlistToShow}/>
           </div>
-
         }
       
   </>

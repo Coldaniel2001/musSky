@@ -1,11 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 
 
 import SongContext from "../../context/song/SongContext";
 import RecentSongCard from "./RecentSongCard/RecentSongCard";
-import UserContext from "../../context/UserContext";
-
-
 
 
 

@@ -8,7 +8,6 @@ import iconAccount from '../../assets/images/icons/icon-account.png'
 import iconHomeViolet from '../../assets/images/icons/homeViolet.png'
 import iconGendersViolet from '../../assets/images/icons/GenreViolet.png'
 import iconPlayListViolet from '../../assets/images/icons/MYViolet.png'
-import iconLikedViolet from '../../assets/images/icons/bytesize_heartViolet.png'
 import iconAccountViolet from '../../assets/images/icons/codicon_accountViolet.png'
 import mySongs from '../../assets/images/icons/musicNotePurple.png'
 import { Link, NavLink,useLocation } from 'react-router-dom';
@@ -25,7 +24,7 @@ import UserContext from '../../context/UserContext';
 const SidebarLeft = () => {
 	const {userLogged} = useContext(UserContext)
 	const location = useLocation();
-	const { onePlayListSong, setCurrentSong, allPlaylistSong, setAllPlaylistSong } = useContext(SongContext)
+	const { onePlayListSong } = useContext(SongContext)
 
 	const artist = userLogged?.rol === "artist" 
 
@@ -85,7 +84,6 @@ const SidebarLeft = () => {
 				Object.entries(onePlayListSong).length !== 0 &&
 					<div className='w-4/6 mx-auto text-red rounded '>
 						<div className=' mt-[4vh] rounded w-full mx-auto'>
-							{/* <h2 className='text-gray-300 lg:text-[1.2rem] '>Está sonando</h2> */}
 							<div className='w-full flex justify-center pb-4'>
 								<img className='rounded w-full h-[18vh]' src={onePlayListSong.picture} alt="" />
 							</div>
@@ -96,7 +94,6 @@ const SidebarLeft = () => {
 				Object.entries(onePlayListSong).length !== 0 &&
 					<div className='w-4/6 mx-auto text-red rounded '>
 						<div className=' mt-[5vh] rounded w-full mx-auto'>
-							{/* <h2 className='text-gray-300 lg:text-[1.2rem] '>Está sonando</h2> */}
 							<div className='w-full flex justify-center pb-4'>
 								<img className='rounded w-full h-[23vh]' src={onePlayListSong.picture} alt="" />
 							</div>
@@ -107,12 +104,6 @@ const SidebarLeft = () => {
 				
 			}
 			</Link>
-
-			
-			{/* <div className='w-full flex justify-center'>
-				<img className='w-4/5 mt-10 flex' src={womenSidebar} alt="" />
-
-			</div> */}
 
 		</div >
 

@@ -1,12 +1,10 @@
 import React, { useContext, useState } from 'react'
 import fito from '../../assets/images/genders.artists/fito.png'
-import dadyYunky from '../../assets/images/genders.artists/dady-yunki.png'
 import Search from '../Search/Search'
 import SongContext from '../../context/song/SongContext'
 import purpleHeart from '../../assets/images/icons/purple-heart.png'
 import purpleHeartStroke from '../../assets/images/icons/purple-heart-stroke.png'
 import addList from '../../assets/images/icons/add-list.png'
-import playWhite from '../../assets/images/icons/play-white.png'
 import UserContext from '../../context/UserContext'
 import ModalAddSongToPLaylist from '../ModalAddSongToPlyalist/ModalAddSongToPlaylist'
 
