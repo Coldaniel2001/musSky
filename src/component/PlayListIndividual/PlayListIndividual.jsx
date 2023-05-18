@@ -46,7 +46,7 @@ const PlayListIndividual = () => {
                     <p className='text-white relative flex justify-center font-bold text-xl md:text-3xl mt-1'>Canciones que me gustan</p>
                 </div>
                 <div  >
-                <p className='hidden sm:flex relative text-white font-bold md:text-2xl mt-6 my-5'>Canciones</p>
+                    <p className='hidden sm:flex relative text-white font-bold md:text-2xl mt-6 my-5'>Canciones</p>
                     <div className='h-[27vh] lg:h-[37vh] overflow-y-scroll scrollbar-hide  lg:pb-0 ' >
 
                         {
@@ -58,12 +58,11 @@ const PlayListIndividual = () => {
                                             {/* <div className='w-[3%] flex justify-center'>
                                                 <p className='text-white span-col-2 text-xl font-thin justify-center'>1</p>
                                             </div> */}
-                                            <img className='w-[40px] h-[40px] lg:w-[70px] lg:h-[70px] rounded' src={song.picture} alt="images-song" />
-                                        <p className='font-semibold text-xl w-full md:w-[42%] pl-10 ' >{song.nameSong}</p>
-                                        <p className='hidden sm:block w-[42%] text-xl font-thin'>{song.nameArtist}</p>
-                                            <img onClick={() => handleOpenSong(song)} className='w-[6%] md:w-[4%] lg:w-[3%] cursor-pointer' src={playWhite} alt="" />
+                                            <img onClick={() => handleOpenSong(song)} className='w-[40px] h-[40px] lg:w-[70px] lg:h-[70px] rounded' src={song.picture} alt="images-song" />
+                                            <p onClick={() => handleOpenSong(song)} className='font-semibold text-xl w-full md:w-[42%] pl-10 ' >{song.nameSong}</p>
+                                            <p onClick={() => handleOpenSong(song)} className='hidden sm:block w-[42%] text-xl font-thin'>{song.nameArtist}</p>
                                             <img onClick={() => handleLikes(song)} className='w-[6%] md:w-[4%] lg:w-[2%] mx-5 cursor-pointer' src={likesByUser(song) ? purpleHeart : purpleHeartStroke} alt="" />
-                                            <img className='w-[6%] md:w-[4%] lg:w-[3%] mr-5 cursor-pointer' onClick={()=>addToPlaylist(song)} src={addList} alt="" />
+                                            <img className='w-[6%] md:w-[4%] lg:w-[3%] mr-5 cursor-pointer' onClick={() => addToPlaylist(song)} src={addList} alt="" />
                                         </div>
 
                                     )
@@ -74,10 +73,10 @@ const PlayListIndividual = () => {
                     </div>
                 </div>
             </div>
-                        {
-                            addSongToPlaylist &&
-                            <ModalAddSongToPLaylist setAddSongToPlaylist={setAddSongToPlaylist} sendSong={sendSong}/>
-                        }
+            {
+                addSongToPlaylist &&
+                <ModalAddSongToPLaylist setAddSongToPlaylist={setAddSongToPlaylist} sendSong={sendSong} />
+            }
         </div>
     )
 }
