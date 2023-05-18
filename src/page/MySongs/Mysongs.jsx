@@ -1,9 +1,16 @@
-import React from 'react'
+import React,{Suspense, lazy} from 'react'
 import FooterNav from '../../component/FooterNav/FooterNav'
-import CenterSection from '../../component/CenterSection/CenterSection'
 import SidebarLeft from '../../component/SidebarLeft/SidebarLeft'
-import MySongSection from '../../component/MySongSection/MySongSection'
+
 import TopPhone from '../../component/TopPhone/TopPhone'
+
+import SkeletonMySong from '../../Skeleton/Mysong/SkeletonMySong'
+
+const MySongSection = lazy(() => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(import('../../component/MySongSection/MySongSection')), 2000);
+  });
+});
 
 const Mysongs = () => {
   return (
@@ -15,7 +22,9 @@ const Mysongs = () => {
         <SidebarLeft />
       </div>
       <div className='w-full pt-10 xl:pt-0 lg:w-full xl:w-[75%] 2xl:w-[85%]'>
-        <MySongSection />
+        <Suspense fallback={<SkeletonMySong />}>
+          <MySongSection />
+        </Suspense>
       </div>
       <div className='xl:hidden'>
         <FooterNav />

@@ -1,7 +1,8 @@
+
 import React from "react"
 import ContentLoader from "react-content-loader"
 
-const SkeletonInfoProfile = (props) => (
+const SkeletonMySong = (props) => (
   <ContentLoader 
     speed={2}
     width={1800}
@@ -19,5 +20,4 @@ const SkeletonInfoProfile = (props) => (
   </ContentLoader>
 )
 
-export default SkeletonInfoProfile
-
+export default SkeletonMySong

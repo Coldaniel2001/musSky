@@ -15,7 +15,7 @@ const MySongSection = () => {
   const [editSong, setEditSong] = useState(false)
 
   const { userLogged } = useContext(UserContext)
-  const { dataSong, deleteSong } = useContext(SongContext)
+  const { dataSong, deleteSong, handleOpenSong } = useContext(SongContext)
 
 
   const SongUploaded = dataSong.filter((song) => {
@@ -73,10 +73,7 @@ const MySongSection = () => {
           SongUploaded.length ?
             SongUploaded.map((song) => {
               return (
-                <div key={song._id} className='relative flex text-white items-center mb-3 gap-3 hover:bg-[#7239e575] rounded cursor-pointer'>
-                  <div className='w-[3%] flex justify-center'>
-                    <p className='text-white span-col-2 text-xl font-thin justify-center'>{song.id}</p>
-                  </div>
+                <div onClick={()=>handleOpenSong(song)} key={song._id} className='relative flex text-white items-center mb-3 gap-3 hover:bg-[#7239e575] rounded cursor-pointer'>
                   {
                     !editSong ?
                       <img className='ml-2 md:ml-0 w-[70px] h-[70px] sm:w-[6%] md:w-[5%] lg:w-[4%] rounded' src={song.picture} alt="" />

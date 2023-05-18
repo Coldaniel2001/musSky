@@ -2,8 +2,9 @@ import React, { Suspense, lazy } from 'react'
 
 import FooterNav from '../../component/FooterNav/FooterNav'
 import SidebarLeft from '../../component/SidebarLeft/SidebarLeft'
-import Skeleton from '../../Skeleton/SkeletonSidebarRight'
+
 import TopPhone from '../../component/TopPhone/TopPhone';
+import SkeletonPlaylist from '../../Skeleton/Playlist/SkeletonPlaylist';
 
 const PlayListIndividual = lazy(() => {
   return new Promise((resolve) => {
@@ -21,7 +22,7 @@ const PlayListPage = () => {
         <SidebarLeft />
       </div>
       <div className='w-full pt-10 sm:pt-10 xl:pt-0  xl:w-[85%] 2xl:w-[82%]'>
-        <Suspense fallback={<Skeleton />}>
+        <Suspense fallback={<SkeletonPlaylist />}>
           <PlayListIndividual />
         </Suspense>
       </div>
