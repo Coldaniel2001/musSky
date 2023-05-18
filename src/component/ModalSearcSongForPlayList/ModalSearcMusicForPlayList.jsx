@@ -1,12 +1,19 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import GendersModal from '../GendersModal/GendersModal'
 import SearchSongForPlayList from '../SearchSongForPlayList/SearchSongForPlayList'
 
 
 
-
 const ModalSearcMusicForPlayList = ({setSearchSong, playListComplete, setPlayListComplete, setPlaylistToShow, playlistToShow}) => {
 const [searchSongToPlaylist, setfirstSearchSongToPlaylist] = useState(false)
+
+const [searchValue, setSearchValue] = useState("");
+
+const handleSearch = (event) => {
+  const value = event.target.value;
+  setSearchValue(value);
+};
+
 
   return (
     <div className="fixed z-10 inset-0 overflow-y-auto bg-black/30  ">
@@ -18,7 +25,13 @@ const [searchSongToPlaylist, setfirstSearchSongToPlaylist] = useState(false)
         </div>
         <h2 className='text-3xl font-bold text-white mt-4 mb-3 '>Música</h2>
         <div className="w-full lg:relative lg:block mb-4 ">
-          <input type="text" className="bg-gray-300 w-full py-2 pl-10 pr-4  rounded-lg border border-gray-400 placeholder-gray-400 text-gray-700 focus:outline-none focus:ring focus:border-gray-500" placeholder="Artistas, Música, PlayLists, Albums..."/>
+          <input 
+          type="text" 
+          className="bg-gray-300 w-full py-2 pl-10 pr-4  rounded-lg border border-gray-400 placeholder-gray-400 text-gray-700 focus:outline-none focus:ring focus:border-gray-500" 
+          placeholder="Artistas, Música, PlayLists, Albums..."
+          onChange={handleSearch}
+          value={searchValue}
+          />
           <div className="absolute top-0 left-0 mt-2 ml-3">
             <i className="fas fa-search text-gray-400"></i>
           </div>
@@ -27,7 +40,7 @@ const [searchSongToPlaylist, setfirstSearchSongToPlaylist] = useState(false)
     {
       searchSongToPlaylist ?
       <GendersModal /> : 
-      <SearchSongForPlayList playListComplete={playListComplete} setPlayListComplete={setPlayListComplete} setPlaylistToShow={setPlaylistToShow} playlistToShow={playlistToShow}/>
+      <SearchSongForPlayList searchValue={searchValue} playListComplete={playListComplete} setPlayListComplete={setPlayListComplete} setPlaylistToShow={setPlaylistToShow} playlistToShow={playlistToShow}/>
 
       
 

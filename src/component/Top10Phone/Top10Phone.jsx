@@ -29,6 +29,7 @@ const top10SongByLiked = dataSong.sort((a, b) => (a.likedBy?.length > b.likedBy?
     <div className="flex overflow-x-scroll w-full whitespace-no-wrap gap-5 ">
 
   {
+    dataSong.length > 0 ? (
     top10SongByLiked.map((song) => {
       const isDropdownActive = activeDropdown === song._id
         return (
@@ -36,6 +37,9 @@ const top10SongByLiked = dataSong.sort((a, b) => (a.likedBy?.length > b.likedBy?
             <To10CardPhone key={song._id} song={song} isDropdownActive={isDropdownActive} setActiveDropdown={setActiveDropdown} activeDropdown={activeDropdown} />
         )
         })
+        ) : (
+          null
+        )
         }
     </div>
   </div>
