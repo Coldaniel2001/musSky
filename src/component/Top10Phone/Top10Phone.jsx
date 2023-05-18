@@ -32,9 +32,10 @@ const Top10Phone = () => {
     <div className="flex overflow-x-scroll w-full whitespace-no-wrap gap-5 ">
 
   {
+    dataSong.length > 0 ? (
     dataSong.map((song) => {
         return (
-            <div key={song.id} className='w-full min-w-[25rem] grid grid-cols-9  bg-[#D9D9D9] items-center rounded bg-opacity-20 m-2 mx-auto'>
+            <div key={song.id} className='w-full min-w-[25rem] grid grid-cols-9 bg-[#D9D9D9] items-center rounded bg-opacity-20 m-2 mx-auto'>
                 <img className='col-span-2 w-3/4 ml-2 rounded-full' src={song.imageUrl} alt="" />
                     <div className='col-span-5 my-4'>
                         <p className='text-xl font-bold'>{song.artist}</p>
@@ -45,6 +46,9 @@ const Top10Phone = () => {
             </div>
         )
         })
+        ) : (
+          null
+        )
         }
     </div>
   </div>

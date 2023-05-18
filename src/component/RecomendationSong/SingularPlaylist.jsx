@@ -5,7 +5,7 @@ import UserContext from '../../context/UserContext'
 import PlaylistsContext from '../../context/playlists/PlaylistsContexts'
 
 
-const SingularPlaylist = ({playlist}) => {
+const SingularPlaylist = ({ playlist }) => {
   const {dataPlayLists} = useContext(PlaylistsContext)
 
   return (

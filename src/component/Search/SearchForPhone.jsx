@@ -54,7 +54,7 @@ const SearchForPhone = () => {
                 }
                     {searchResults.tracks.length ? (
                 searchResults.tracks.map((track) => {
-                  return <TracksResult track={track} />;
+                  return <TracksResult key={track._id} track={track} />;
                 })
                 ) : (
                   ''

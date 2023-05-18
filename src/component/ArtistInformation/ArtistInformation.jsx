@@ -52,7 +52,7 @@ const ArtistInformation = ({ infoUser}) => {
         return user.email
     })
 
-    console.log(picture)
+    // console.log(picture)
 
 
 
@@ -98,7 +98,30 @@ const ArtistInformation = ({ infoUser}) => {
         setGoOutsidePage(true)
     }
 
-
+    // const changeUserImg = async (e) => {
+    //         const data = new FormData();
+    //         data.append("file", e.target.files[0]);
+    //         data.append("id", userId);
+    //         console.log(e.target.files)
+            
+    //         await fetch('http://localhost:4002/users/adminImage', {
+    //             method: 'POST',
+    //             body: data,
+    //             headers: {
+    //                 "Content-Type": "multipart/form-data",
+    //             },
+    //         })
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             const imageUrl = data.imageUrl;
+                
+    //             setFormData({ ...formData, picture: imageUrl });
+    //         })
+    //         .catch((error) => {
+    //             console.error('Error', error);
+    //         });
+    // }
+    
 
 
 
@@ -135,12 +158,15 @@ const ArtistInformation = ({ infoUser}) => {
                 { !editArtist ?
                     <img className='h-[175px] w-[175px] lg:w-[250px] lg:h-[250px]  rounded-full mx-auto' src={infoUser?.picture} alt="" />
                     :
-                    <div className='relative cursor-pointer '>
-                        <img className='w-52 sm:w-52 md:w-60 lg:w-52 lg:h-52 xl:h-auto xl:w-60 rounded-full border-2 border-[#7339E5] opacity-40 mx-auto' src={infoUser?.picture} alt="" />
-                        <div className='absolute inset-0 flex items-center justify-center'>
-                            <p className='text-[#7339E5]  font-bold text-4xl'>Cambiar</p>
+                    <label>
+                        <div className='relative cursor-pointer '>
+                            <img className='w-52 sm:w-52 md:w-60 lg:w-52 lg:h-52 xl:h-auto xl:w-60 rounded-full border-2 border-mainPurple opacity-40 mx-auto' src={infoUser?.picture} alt="" />
+                            <div className='absolute inset-0 flex items-center justify-center'>
+                                <p className='text-mainPurple font-bold text-4xl'>Cambiar</p>
+                            </div>
+                            <input type="file" className='hidden'/>
                         </div>
-                    </div>
+                    </label>
                 }
                 <div className='lg:ml-10 xl:ml-20 lg:w-[70%]  flex flex-col items-center lg:block '>
                     {
@@ -150,7 +176,7 @@ const ArtistInformation = ({ infoUser}) => {
                         <h2 className='lg:text-4xl text-4xl xl:text-6xl 2xl:text-7xl font-bold mb-10 mx-auto'>{infoUser?.name}</h2>
                         </div>
                         :
-                        <input className=' mb-10 bg-transparent border-b focus:outline-none focus:ring-0  border-[#7339E5] text-center text-4xl lg:text-5xl ' 
+                        <input className=' mb-10 bg-transparent border-b focus:outline-none focus:ring-0  border-mainPurple text-center text-4xl lg:text-5xl ' 
                         type="text" 
                         placeholder={name.join("")} 
                         name="name"
@@ -158,7 +184,7 @@ const ArtistInformation = ({ infoUser}) => {
 />
                     }
                     <div className=' flex flex-col justify-end items-center lg:items-start '>
-                        <p className='lg:text-xl xl:text-2xl 2xl:text-3xl text-[#989898] font-semibold'>Nickname: { !editArtist ? <span className='text-white'>{infoUser?.name}</span> : <input className='bg-transparent border-b focus:outline-none focus:ring-0  border-[#7339E5] text-center text-white' 
+                        <p className='lg:text-xl xl:text-2xl 2xl:text-3xl text-[#989898] font-semibold'>Nickname: { !editArtist ? <span className='text-white'>{infoUser?.name}</span> : <input className='bg-transparent border-b focus:outline-none focus:ring-0  border-mainPurple text-center text-white' 
                         placeholder={nickname.join("")} 
                         type="text"
                         name="nickname"
@@ -166,7 +192,7 @@ const ArtistInformation = ({ infoUser}) => {
                       /> 
                         } </p>
 
-                        <p className='lg:text-xl xl:text-2xl 2xl:text-3xl text-[#989898] font-semibold'>Email: { !editArtist ? <span className='text-white'>{infoUser?.email}</span> : <input className='bg-transparent border-b focus:outline-none focus:ring-0 border-[#7339E5]  text-center text-white' 
+                        <p className='lg:text-xl xl:text-2xl 2xl:text-3xl text-[#989898] font-semibold'>Email: { !editArtist ? <span className='text-white'>{infoUser?.email}</span> : <input className='bg-transparent border-b focus:outline-none focus:ring-0 border-mainPurple  text-center text-white' 
                         placeholder={email.join("")} 
                         type="text" 
                         name="email"

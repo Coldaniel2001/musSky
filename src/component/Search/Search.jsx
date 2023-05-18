@@ -72,7 +72,7 @@ const Search = () => {
                 }
                     {searchResults.tracks.length ? (
                 searchResults.tracks.map((track) => {
-                  return <TracksResult track={track} />;
+                  return <TracksResult key={track._id} track={track} />;
                 })
                 ) : (
                   ''
@@ -85,7 +85,7 @@ const Search = () => {
 					}
                 {searchResults.playlists.length ? (
                   searchResults.playlists.map((playlist) => {
-                    return <PlaylistResult playlist={playlist}/>;
+                    return <PlaylistResult key={playlist._id} playlist={playlist}/>;
                   })
                 ) : (
                   ''
@@ -97,7 +97,7 @@ const Search = () => {
 					}
                 {searchResults.artists.length ? (
                   searchResults.artists.map((artist) => {
-                    return <ArtistResult artist={artist}/>;
+                    return <ArtistResult key={artist._id} artist={artist}/>;
                   })
                 ) : (
                   ''

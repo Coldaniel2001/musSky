@@ -1,7 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const PlaylistResult = ({ playlist }) => {
   return (
+    <Link to={`/playlist/${playlist?._id}`} >
     <div className="text-black rounded mb-1 hover:bg-[#7239e575] cursor-pointer">
         <div className='flex gap-5 p-1 pl-5'>
             <img src={playlist.imagePlaylist} alt="picture" className='w-[60px] h-[60px] rounded' />
@@ -11,6 +13,7 @@ const PlaylistResult = ({ playlist }) => {
             </div>
         </div>
     </div>
+    </Link>
   )
 }
 
