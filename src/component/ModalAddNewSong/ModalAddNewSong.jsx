@@ -101,7 +101,7 @@ const ModalAddNewSong = ({ setUploadSong , SongUploaded}) => {
 
 
     return (
-        <div className="fixed z-10 inset-0 overflow-y-auto bg-black/70 z-30">
+        <div className="fixed  inset-0 overflow-y-auto bg-black/70 z-30">
             <div className="flex items-center justify-center min-h-screen">
                 <div className="flex flex-col justify-center bg-gradient-to-tr from-black via-[#7339E5] to-[#7339E5] rounded-lg shadow-lg p-6 w-[90%] sm:w-2/3 md:w-3/6 lg:w-2/6 2xl:w-1/4 border-2 border-white">
                     <p className='font-bold text-3xl mx-auto'>Añadir canción</p>
