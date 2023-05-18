@@ -6,10 +6,7 @@ const ArtistPrivateRouter = ({ children }) => {
   const { userLogged } = useContext(UserContext);
 
   return (
-    <>
-      {userLogged.rol === "artist" ? children : <Navigate to="/home" />}
-      {userLogged.rol !== "admin" ? children : <Navigate to="/admin" />}
-    </>
+      userLogged.rol === "artist" ? children : <Navigate to="/home" />
   )
 }
 

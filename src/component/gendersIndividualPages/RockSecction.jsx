@@ -14,13 +14,11 @@ const RockSection = () => {
     const [addSongToPlaylist, setAddSongToPlaylist] = useState(false)
     const {userLogged} = useContext(UserContext)
     const { dataSong, handleLikes, handleOpenSong, likesByUser } = useContext(SongContext)
+    const [sendSong, setSendSong] = useState()
 
-    console.log(dataSong)
-
-
-
-    const addToPlaylist = () => {
+    const addToPlaylist = (song) => {
         setAddSongToPlaylist(true)
+        setSendSong(song)
     }
     const rockMusic=dataSong.filter(dataSong=>dataSong.genre==="Rock")
 
@@ -54,7 +52,7 @@ const RockSection = () => {
                     <p className='hidden md:block w-[42%] text-xl font-thin'>{song.nameArtist}</p>
                         <img onClick={() => handleOpenSong(song)} className='w-[6%] md:w-[4%] lg:w-[3%] cursor-pointer' src={playWhite} alt="" />
                         <img onClick={() => handleLikes(song)} className='w-[6%] md:w-[4%] lg:w-[2%] mx-5 cursor-pointer' src={likesByUser(song) ? purpleHeart  : purpleHeartStroke} alt="" />
-                        <img className='w-[6%] md:w-[4%] lg:w-[3%] mr-5 cursor-pointer' onClick={()=>addToPlaylist()} src={addList} alt="" />
+                        <img onClick={()=>addToPlaylist(song)} className='w-[6%] md:w-[4%] lg:w-[3%] mr-5 cursor-pointer'  src={addList} alt="" />
                     </div>
 
                 )
@@ -64,7 +62,7 @@ const RockSection = () => {
     </div>
     {
                             addSongToPlaylist &&
-                            <ModalAddSongToPLaylist setAddSongToPlaylist={setAddSongToPlaylist}/>
+                            <ModalAddSongToPLaylist setAddSongToPlaylist={setAddSongToPlaylist} sendSong={sendSong}/>
                         }
     </div>
     
