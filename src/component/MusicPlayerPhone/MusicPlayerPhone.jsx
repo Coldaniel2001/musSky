@@ -88,7 +88,6 @@ const MusicPlayerPhone = () => {
 								onClickNext={(e) => handleNext()}
 								onClickPrevious={(e) => handlePrevious()}
 							/>
-
 						</div>
 					</div>
 				</div>

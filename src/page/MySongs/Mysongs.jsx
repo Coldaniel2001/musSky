@@ -1,6 +1,5 @@
 import React from 'react'
 import FooterNav from '../../component/FooterNav/FooterNav'
-import CenterSection from '../../component/CenterSection/CenterSection'
 import SidebarLeft from '../../component/SidebarLeft/SidebarLeft'
 import MySongSection from '../../component/MySongSection/MySongSection'
 import TopPhone from '../../component/TopPhone/TopPhone'

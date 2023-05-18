@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
-import rubish from '../../assets/images/icons/rubish.png'
-import edit from '../../assets/images/icons/edit.png'
+
 import ModalAddNewSong from '../ModalAddNewSong/ModalAddNewSong'
 import UserContext from '../../context/UserContext'
 import { useAuth0 } from '@auth0/auth0-react'
@@ -8,11 +7,12 @@ import SongContext from '../../context/song/SongContext'
 
 import { toast } from "react-hot-toast";
 import Search from '../Search/Search'
+import SingularSongUploaded from './SingularSongUploaded'
 
 
 const MySongSection = () => {
   const [uploadSong, setUploadSong] = useState(false)
-  const [editSong, setEditSong] = useState(false)
+
 
   const { userLogged } = useContext(UserContext)
   const { dataSong, deleteSong } = useContext(SongContext)
@@ -79,39 +79,8 @@ const MySongSection = () => {
           SongUploaded.length ?
             SongUploaded.map((song) => {
               return (
-                <div key={song._id} className='relative flex text-white items-center mb-3 gap-3 hover:bg-[#7239e575] rounded cursor-pointer'>
-                  <div className='w-[3%] flex justify-center'>
-                    <p className='text-white span-col-2 text-xl font-thin justify-center'>{song.id}</p>
-                  </div>
-                  {
-                    !editSong ?
-                      <img className='ml-2 md:ml-0 w-[70px] h-[70px] sm:w-[6%] md:w-[5%] lg:w-[4%] rounded' src={song.picture} alt="" />
-                      :
-                      <img className='ml-2 md:ml-0 w-[9%] sm:w-[6%] md:w-[5%] lg:w-[4%] rounded border-2 border-[#7339E5] opacity-50' src={song.thumbnail} alt="" />
-                  }
-                  {
-                    !editSong ?
-                      <p className='font-semibold 2xl:text-xl w-[66%] sm:w-[42%] pl-10 ' >{song.nameSong}</p>
-                      :
-                      <input className='w-[42%]  bg-transparent border-b focus:outline-none focus:ring-0  border-[#7339E5] text-left ' type="text" placeholder={song.name} />
-
-                  }
-                  {
-                    !editSong ?
-                      <p className='sm:w-[42%] 2xl:text-xl font-thin hidden sm:flex'>{song.nameArtist}</p>
-                      :
-                      <input className='w-[42%]  bg-transparent border-b focus:outline-none focus:ring-0  border-[#7339E5] text-left ' type="text" placeholder={song.artist} />
-                  }
-                  {
-                    !editSong ?
-                      <>
-                        <img onClick={() => { handleDeleteSong(song) }} className='w-[4%] md:w-[3%]  lg:w-[2%] 2xl:w-[1.5%]  mx-5 cursor-pointer' src={rubish} alt="" />
-                        <img className='w-[4%] md:w-[3%] lg:w-[2%] 2xl:w-[1.5%]  mr-5 cursor-pointer' src={edit} alt="" onClick={() => setEditSong(true)} />
-                      </> :
-                      <button className='bg-[#53b55c] px-4 md:px-10 py-2 rounded' onClick={() => setEditSong(false)}>Guardar</button>
-
-                  }
-                </div>
+                
+                <SingularSongUploaded key={song._id} song={song}  handleDeleteSong={handleDeleteSong} SongUploaded={SongUploaded} />
               )
             })
             :

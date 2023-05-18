@@ -11,7 +11,7 @@ import iconPlayListViolet from '../../assets/images/icons/MYViolet.png'
 import iconLikedViolet from '../../assets/images/icons/bytesize_heartViolet.png'
 import iconAccountViolet from '../../assets/images/icons/codicon_accountViolet.png'
 import mySongs from '../../assets/images/icons/musicNotePurple.png'
-import { NavLink,useLocation } from 'react-router-dom';
+import { Link, NavLink,useLocation } from 'react-router-dom';
 import mySong from '../../assets/images/icons/mySong.png'
 
 
@@ -77,6 +77,7 @@ const SidebarLeft = () => {
 					</div>
 				</NavLink>
 			</div>
+			<Link to="/reproduction-live">
 			
 			{
 				artist ?
@@ -104,6 +105,7 @@ const SidebarLeft = () => {
 					</div>	
 				
 			}
+			</Link>
 
 			
 			{/* <div className='w-full flex justify-center'>

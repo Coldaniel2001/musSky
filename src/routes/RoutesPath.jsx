@@ -83,6 +83,7 @@ const RoutesPath = () => {
                             <Route path='/real-playlist' element={
                                 <Suspense fallback={<Skeleton />}>
                                     <RealPlaylistPage />
+                                    <MusicPlayerPhone />
                                 </Suspense>
                             } />
                             <Route path='/individual-playlist' element={
@@ -111,15 +112,17 @@ const RoutesPath = () => {
                                 <MusicPlayerPhone />
                             </>
                         } />
-                            {/* <Route path='/search' element={
-                            <>
-                                    <SearchPage />
-                                </>
-                            } /> */}
+
                             <Route path='/*' element={<Navigate to={'/home'} />} />
                             <Route path='/admin' element={<AdminPage />} />
                             <Route path='/admin/:userId' element={<AdminUserPage />} />
-                            <Route path='/mis-canciones' element={<Mysongs />} />
+                            
+                            <Route path='/mis-canciones' element={
+                            <>
+                                <MusicPlayerPhone />
+                                <Mysongs />
+                            </>
+                        } />
                             <Route path='/final-register' element={<FinalRegister />} />
                             <Route path='/reproduction-live' element={<MusicReproductionLive/>} />
                             <Route path='/spanish-pop' element={
