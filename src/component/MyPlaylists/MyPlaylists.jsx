@@ -25,7 +25,7 @@ const MyPlaylists = () => {
 
 
   return (
-    <div className='flex justify-between w-full '>
+    <div className='flex justify-between w-full  '>
     <div className='grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8  h-[60%] mx-10 mb-7 w-full lg:mx-h-[70%]  lg:overflow-y-scroll lg:scrollbar-hide px-3 cursor-pointer pb-10'>
         <NavLink className='col-span-2  rounded relative flex justify-end items-end h-[320px] hover:scale-110 transition duration-500' to={"/individual-playlist"}>
             <img className='w-full h-full  rounded ' src={likesPlaylists} alt="name" />

@@ -39,6 +39,19 @@ import AdminPrivateRouter from './AdminPrivateRouter'
 
 
 
+import SpanishPop from '../page/GendersPage/SpanishPop'
+import LatinUrban from '../page/GendersPage/LatinUrban'
+import HipHop from '../page/GendersPage/HipHop'
+import ElectronicaPage from '../page/GendersPage/ElectronicaPage'
+import SpanishRock from '../page/GendersPage/SpanishRock'
+import Reggae from '../page/GendersPage/Reggae'
+import PopLatino from '../page/GendersPage/PopLatino'
+import Jazz from '../page/GendersPage/Jazz'
+import Rock from '../page/GendersPage/Rock'
+import Flamenco from '../page/GendersPage/Flamenco'
+
+
+
 // import PrivateRouter from './PrivateRouter'
 
 
@@ -109,6 +122,77 @@ const RoutesPath = () => {
                                 </HomePrivateRouter>
                             } />
                             <Route path='/*' element={<Navigate to={'/home'} />} />
+                            <Route path='/admin' element={<AdminPage />} />
+                            <Route path='/admin/:userId' element={<AdminUserPage />} />
+                            
+                            <Route path='/mis-canciones' element={
+                            <>
+                                <MusicPlayerPhone />
+                                <Mysongs />
+                            </>
+                        } />
+                            <Route path='/final-register' element={<FinalRegister />} />
+                            <Route path='/reproduction-live' element={<MusicReproductionLive/>} />
+                            <Route path='/spanish-pop' element={
+                            <>
+                                <MusicPlayerPhone/>
+                                <SpanishPop/>
+                            </>
+                            }/>
+                            <Route path='/latin-urban' element={
+                            <>
+                                <MusicPlayerPhone/>
+                                <LatinUrban/>
+                            </>
+                            }/>
+                            <Route path='/hip-hop' element={
+                            <>
+                                <MusicPlayerPhone/>
+                                <HipHop />
+                            </>
+                            }/>
+                            <Route path='/electronic' element={
+                            <>
+                                <MusicPlayerPhone/>
+                                <ElectronicaPage />
+                            </>
+                            }/>
+                            <Route path='/spanish-rock' element={
+                            <>
+                                <MusicPlayerPhone/>
+                                <SpanishRock />
+                            </>
+                            }/>
+                            <Route path='/reggae' element={
+                            <>
+                                <MusicPlayerPhone/>
+                                <Reggae />
+                            </>
+                            }/>
+                            <Route path='/pop-latino' element={
+                            <>
+                                <MusicPlayerPhone/>
+                                <PopLatino />
+                            </>
+                            }/>
+                            <Route path='/jazz' element={
+                            <>
+                                <MusicPlayerPhone/>
+                                <Jazz />
+                            </>
+                            }/>
+                            <Route path='/rock' element={
+                            <>
+                                <MusicPlayerPhone/>
+                                <Rock />
+                            </>
+                            }/>
+                            <Route path='/flamenco' element={
+                            <>
+                                <MusicPlayerPhone/>
+                                <Flamenco />
+                            </>
+                            }/>
 
                             <Route path='/admin/:userId' element={
                                 <AdminPrivateRouter>

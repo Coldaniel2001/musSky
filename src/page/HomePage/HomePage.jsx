@@ -57,12 +57,7 @@ const HomePage = () => {
       <div>
         <FooterNav />
       </div>
-      {/* {
-        openSearchSong ?
-        <ModalNewPlayList />
-        :
-        <ModalSearcMusicForPlayList   />
-      } */}
+
     </div>
 
   )

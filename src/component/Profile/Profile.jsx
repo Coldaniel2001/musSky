@@ -43,7 +43,7 @@ const Profile = () => {
 		<>
 			<TopPhone />
 			<Search />
-			<div className='flex flex-col items-center '>
+			<div className='flex flex-col items-center pb-40 lg:pb-0'>
 				<div className='flex flex-col px-10 text-white  lg:gap-[3rem] lg:h-[80vh] w-full lg:overflow-y-scroll lg:scrollbar-hide'>
 					<div>
 						<Suspense fallback={<SkeletonInfoProfile />}>

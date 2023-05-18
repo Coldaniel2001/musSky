@@ -10,7 +10,8 @@ import iconGendersViolet from '../../assets/images/icons/GenreViolet.png'
 import iconPlayListViolet from '../../assets/images/icons/MYViolet.png'
 import iconLikedViolet from '../../assets/images/icons/bytesize_heartViolet.png'
 import iconAccountViolet from '../../assets/images/icons/codicon_accountViolet.png'
-import { NavLink,useLocation, Link } from 'react-router-dom';
+import mySongs from '../../assets/images/icons/musicNotePurple.png'
+import { Link, NavLink,useLocation } from 'react-router-dom';
 import mySong from '../../assets/images/icons/mySong.png'
 
 
@@ -29,11 +30,9 @@ const SidebarLeft = () => {
 
 	return (
 		<div>
-			<NavLink to={"/home"}>
 			<div className='text-white flex flex-col items-center h-[6vh]'>
 				<img className='h-full ' src={logo} alt="logo" />
 			</div>
-			</NavLink>
 			<div className='text-white mt-[3vh] md:hidden lg:block gap-5'>
 				<NavLink to={"/home"} className={({ isActive }) => isActive ? 'grid border-l-[0.5rem] border-mainPurple' : "grid border-l-[0.5rem] border-transparent"}>
 					<div className='xl:grid grid-cols-8 lg:flex  lg:justify-center lg:pl-0 items-center   xl:pl-6 h-[5vh] '>
@@ -66,8 +65,8 @@ const SidebarLeft = () => {
 					artist &&	
 					<NavLink to={"/mis-canciones"} className={({ isActive }) => isActive ? 'grid  mt-[2vh] border-l-[0.5rem] border-mainPurple' : 'grid border-l-[0.5rem] border-transparent mt-[2vh]'}>
 						<div className=' xl:grid xl:grid-cols-8 lg:flex lg:justify-center lg:pl-0  items-center xl:pl-6 h-[5vh]  '>
-							<img className='lg:w-10 xl:w-12 col-span-2' src={mySong} alt="home icon" />
-							<p className='lg:hidden xl:grid xl:text-[1.5rem] col-span-4 font-semibold'>Mis canciones</p>
+							<img className='lg:w-10 xl:w-12 col-span-2' src={location.pathname === "/mis-canciones" ?mySongs : mySong} alt="home icon" />
+							<p className={`lg:hidden xl:grid xl:text-[1.5rem] col-span-4 font-semibold ${location.pathname === "/mis-canciones" ? 'text-mainPurple' : ''}`}>Mis canciones</p>
 						</div>
 					</NavLink>
 				}
@@ -78,8 +77,8 @@ const SidebarLeft = () => {
 					</div>
 				</NavLink>
 			</div>
+			<Link to="/reproduction-live">
 			
-			<Link to='/reproduction-live' >
 			{
 				artist ?
 				Object.entries(onePlayListSong).length !== 0 &&
@@ -104,7 +103,6 @@ const SidebarLeft = () => {
 							<p className='text-gray-500 text-[1.5vh] truncate'>{onePlayListSong.nameSong}</p>
 						</div>
 					</div>	
-					
 				
 			}
 			</Link>
