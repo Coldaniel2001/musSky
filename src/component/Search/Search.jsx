@@ -7,6 +7,7 @@ import UserContext from "../../context/UserContext";
 import ArtistResult from "./ArtistResult/ArtistResult";
 import TracksResult from "./TracksResult/TracksResult";
 import PlaylistResult from "./PlaylistResult/PlaylistResult";import user from "../../assets/images/icons/user.png";
+import { Link } from "react-router-dom";
 
 
 const Search = () => {
@@ -64,7 +65,7 @@ const Search = () => {
               <div className="absolute top-0 left-0 mt-2 ml-3">
                 <i className="fas fa-search text-gray-400"></i>
               </div>
-              <div className="bg-btnColor rounded w-2/5 absolute z-10 max-h-[30vh] overflow-y-scroll scrollbar-hide">
+              <div className="bg-btnColor rounded  lg:w-2/5 absolute z-10 max-h-[30vh] overflow-y-scroll scrollbar-hide">
                 {searchResults.tracks.length >0 && 
                 <div className="font-bold text-[1.5rem] mt-5 border-b border-gray-600 mb-2 mx-3">
                 <p>Canciones</p>
@@ -106,7 +107,7 @@ const Search = () => {
             </>
         </div>
         <div className="flex flex-col justify-evenly justify-items-end">
-        {userLogged?<div className="bg-[#212121] w-[240px] mt-8 flex rounded-lg mr-10 truncate" onClick={() => toggleModal(true)}>
+        {userLogged?<div className="cursor-pointer  bg-[#212121] w-[240px] mt-8 flex rounded-lg mr-10 truncate" onClick={() => toggleModal(true)}>
             <img className='w-10 h-10 rounded-full my-2 ml-3' src={userLogged?.picture} alt="img-profile" />
             <div className='w-full flex justify-between mr-3'>
               <p className='text-white my-auto ml-3'>{userLogged?.nickname}</p>
@@ -114,9 +115,10 @@ const Search = () => {
             </div>
             {
               showModal &&
-              <div className='w-[14rem]  bg-white  hover:opacity-100 float-right  flex justify-center flex-col absolute mt-[3rem] ml-[-3rem] rounded-md text-black '>
-                <p className=' hover:bg-[#7239e526] pl-2 cursor-pointer rounded'>Mi cuenta</p>
-                    <p className=' hover:bg-[#7239e526] pl-2 cursor-pointer rounded'>Ajustes</p>
+              <div className=' w-[14rem]  bg-white  hover:opacity-100 float-right  flex justify-center flex-col absolute mt-[3rem] ml-[-3rem] rounded-md text-black '>
+                <Link to="profile" >
+                  <p className=' hover:bg-[#7239e526] pl-2 cursor-pointer rounded'>Mi cuenta</p>
+                </Link>
                   <p onClick={()=>logout({logoutParams:{returnTo: window.location.origin + '/home'}})} className='hover:bg-[#7239e526] pl-2 cursor-pointer rounded'>Salir</p>
               </div>
 

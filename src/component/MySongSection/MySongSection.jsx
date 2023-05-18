@@ -55,7 +55,7 @@ const MySongSection = () => {
   return (
     <div>
     <Search />
-    <div className='text-white px-10 py-10 min-h-screen pb-40 lg:pb-0'>
+    <div className='text-white px-10 py-10 min-h-screen pb-72 sm:pb-60 lg:pb-0'>
       <div className='border-b border-[#374151]  lg:pb-10 mb-10'>
         <h2 className='text-white text-[2rem] font-extrabold'>MIS CANCIONES</h2>
         <div className='flex flex-col items-center justify-center lg:flex lg:flex-row lg:items-end lg:justify-start'>
@@ -66,8 +66,8 @@ const MySongSection = () => {
            </div>
            {
           SongUploaded.length >0 &&
-        <div className='flex justify-end mr-10 mt-10 mb-20 w-full items-end '>
-          <button className='bg-btnColor px-4 py-2 text-white rounded hover:border-2 border-[#fff] border-2' onClick={() => setUploadSong(true)}>Añadir nueva canción</button>
+        <div className='flex justify-end mt-4 lg:mt-0 mb-4 lg:mb-0  w-full items-end '>
+          <button className='bg-btnColor px-4 py-2 text-white rounded hover:border-2 border-[#fff] border-2 flex' onClick={() => setUploadSong(true)}>Añadir <span className='hidden md:flex'>nueva canción</span></button>
         </div>
         }
         </div>

@@ -35,15 +35,15 @@ const PlayListIndividual = () => {
         <div>
             <Search />
             <div className='mt-10 mx-10'>
-                <h2 className='text-white text-[2rem] font-extrabold mb-4'>PLAYLIST</h2>
-                <div className='relative w-full h-[26vh] '>
+                <h2 className='text-white text-[2rem] font-extrabold mb-0 sm:mb-4'>PLAYLIST</h2>
+                <div className='relative w-full h-[26vh]  '>
                     <img className='w-full h-[24vh] hidden xl:block opacity-20 absolute top-0 left-0 rounded' src={likesPlaylists} alt="" />
                     <img className='relative inset-0 m-auto pt-10 h-[20vh] xl:h-[18vh] xl:w-[20vw] rounded' src={likesPlaylists} alt="" />
                     <p className='text-white relative flex justify-center font-bold text-xl md:text-3xl mt-1'>Canciones que me gustan</p>
                 </div>
                 <div  >
-                <p className='relative text-white font-bold md:text-2xl mt-6 my-5'>Canciones</p>
-                    <div className='lg:h-[37vh] overflow-y-scroll scrollbar-hide pb-60 lg:pb-0 ' >
+                <p className='hidden sm:flex relative text-white font-bold md:text-2xl mt-6 my-5'>Canciones</p>
+                    <div className='h-[27vh] lg:h-[37vh] overflow-y-scroll scrollbar-hide  lg:pb-0 ' >
 
                         {
                             userLogged ?
