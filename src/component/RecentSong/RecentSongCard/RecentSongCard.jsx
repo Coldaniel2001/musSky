@@ -52,8 +52,8 @@ function RecentSongCard({ song, isDropdownActive,
             alt="first artist"
           />
           <div onClick={() => handleOpenSong(song)} className="col-span-4  grid items-center ml-3 cursor-pointer">
-            <p className="text-[1.2rem] font-bold truncate ">{song.nameArtist}</p>
-            <p className="font-thin">{song.nameSong}</p>
+            <p className="text-[1.2rem] font-bold truncate ">{song.nameSong}</p>
+            <p className="font-thin">{song.nameArtist}</p>
           </div>
           <img
             onClick={() => handleLikes(song)}

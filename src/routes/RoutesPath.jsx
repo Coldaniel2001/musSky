@@ -1,14 +1,9 @@
-import React, { lazy, Suspense } from 'react'
+import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 
 import UserProvider from '../context/UserProvider'
 import SongProvider from '../context/song/SongProvider'
-
-
-
-import Skeleton from '../Skeleton/SkeletonSidebarRight'
-
 
 
 
@@ -94,12 +89,12 @@ const RoutesPath = () => {
                                 </HomePrivateRouter>
                             } />
                             <Route path='/real-playlist' element={
-                                <Suspense fallback={<Skeleton />}>
+                          
                                     <HomePrivateRouter>
                                         <RealPlaylistPage />
                                         <MusicPlayerPhone />
                                     </HomePrivateRouter>
-                                </Suspense>
+                  
                             } />
                             <Route path='/individual-playlist' element={
 
@@ -132,8 +127,8 @@ const RoutesPath = () => {
                             
                             <Route path='/mis-canciones' element={
                             <>
-                                <MusicPlayerPhone />
                                 <Mysongs />
+                                <MusicPlayerPhone />
                             </>
                         } />
                             <Route path='/final-register' element={<FinalRegister />} />

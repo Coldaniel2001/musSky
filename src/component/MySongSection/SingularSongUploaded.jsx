@@ -6,7 +6,7 @@ import SongContext from '../../context/song/SongContext'
 
 const SingularSongUploaded = ({song, handleDeleteSong,SongUploaded}) => {
     const {userLogged} = useContext(UserContext)
-    const {updateTrack} = useContext(SongContext)
+    const {updateTrack,handleOpenSong} = useContext(SongContext)
     
     const [editSong, setEditSong] = useState(false)
 
@@ -33,16 +33,13 @@ const SingularSongUploaded = ({song, handleDeleteSong,SongUploaded}) => {
 
 
   return (
-    <div key={song._id} className='relative flex text-white items-center mb-3 gap-3 hover:bg-[#7239e575] rounded cursor-pointer'>
-                  <div className='w-[3%] flex justify-center'>
-                    <p className='text-white span-col-2 text-xl font-thin justify-center'>{song.id}</p>
-                  </div>
+    <div  key={song._id} className='relative flex text-white items-center mb-3 gap-3 hover:bg-[#7239e575] rounded cursor-pointer'>
 
-                      <img className='ml-2 md:ml-0 w-[70px] h-[70px] sm:w-[6%] md:w-[5%] lg:w-[4%] rounded' src={song.picture} alt="" />
+                      <img onClick={()=>{handleOpenSong(song)}} className='ml-2 md:ml-0 w-[70px] h-[70px] sm:w-[6%] md:w-[5%] lg:w-[4%] rounded' src={song.picture} alt="" />
                       
                   {
                     !editSong ?
-                      <p className='font-semibold 2xl:text-xl w-[66%] sm:w-[42%] pl-10 ' >{song.nameSong}</p>
+                      <p onClick={()=>{handleOpenSong(song)}} className='font-semibold 2xl:text-xl w-[66%] sm:w-[42%] pl-10 ' >{song.nameSong}</p>
                       :
                       <input className='w-[42%]   bg-transparent border-b focus:outline-none focus:ring-0  border-[#7339E5] text-left ' 
                       type="text" 
@@ -52,7 +49,7 @@ const SingularSongUploaded = ({song, handleDeleteSong,SongUploaded}) => {
                       onChange={handleChangeForm} />
                   }
 
-                      <p className='sm:w-[42%] 2xl:text-xl font-thin hidden sm:flex'>{song.nameArtist}</p>
+                      <p onClick={()=>{handleOpenSong(song)}} className='sm:w-[42%] 2xl:text-xl font-thin hidden sm:flex'>{song.nameArtist}</p>
 
                   {
                     !editSong ?

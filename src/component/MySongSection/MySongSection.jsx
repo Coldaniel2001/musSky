@@ -5,6 +5,8 @@ import UserContext from '../../context/UserContext'
 import { useAuth0 } from '@auth0/auth0-react'
 import SongContext from '../../context/song/SongContext'
 
+
+
 import { toast } from "react-hot-toast";
 import Search from '../Search/Search'
 import SingularSongUploaded from './SingularSongUploaded'
@@ -12,6 +14,7 @@ import SingularSongUploaded from './SingularSongUploaded'
 
 const MySongSection = () => {
   const [uploadSong, setUploadSong] = useState(false)
+
 
 
   const { userLogged } = useContext(UserContext)
@@ -51,7 +54,7 @@ const MySongSection = () => {
       </div>
     ))
   }
-
+  
   return (
     <div>
     <Search />
@@ -79,8 +82,11 @@ const MySongSection = () => {
           SongUploaded.length ?
             SongUploaded.map((song) => {
               return (
+              
                 
                 <SingularSongUploaded key={song._id} song={song}  handleDeleteSong={handleDeleteSong} SongUploaded={SongUploaded} />
+                
+                
               )
             })
             :
