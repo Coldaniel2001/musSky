@@ -18,7 +18,7 @@ const MySongSection = () => {
 
 
   const { userLogged } = useContext(UserContext)
-  const { dataSong, deleteSong, handleOpenSong } = useContext(SongContext)
+  const { dataSong, deleteSong } = useContext(SongContext)
 
 
   const SongUploaded = dataSong.filter((song) => {
@@ -54,7 +54,7 @@ const MySongSection = () => {
       </div>
     ))
   }
-
+  
   return (
     <div>
     <Search />

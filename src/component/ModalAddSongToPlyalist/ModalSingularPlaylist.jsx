@@ -4,6 +4,7 @@ import PlaylistsContext from '../../context/playlists/PlaylistsContexts'
 
 const ModalSingularPlaylist = ({ playlist, sendSong, setAddSongToPlaylist}) => {
   const { addSongInPlaylist } = useContext(PlaylistsContext)
+
   const sendSongToPlaylist = () => {
     addSongInPlaylist(sendSong, playlist)
     setAddSongToPlaylist(false)

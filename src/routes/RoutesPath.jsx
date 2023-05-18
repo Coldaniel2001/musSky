@@ -127,8 +127,8 @@ const RoutesPath = () => {
                             
                             <Route path='/mis-canciones' element={
                             <>
-                                <MusicPlayerPhone />
                                 <Mysongs />
+                                <MusicPlayerPhone />
                             </>
                         } />
                             <Route path='/final-register' element={<FinalRegister />} />

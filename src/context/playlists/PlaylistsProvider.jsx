@@ -14,7 +14,7 @@ const PlaylistsProvider = ({ children }) => {
   const [sendSongToPlaylist, setSendSongToPlaylist] = useState()
   const { userLogged } = useContext(UserContext)
 
-
+  
 
   const addPlayList = async (playlist) => {
     const res = await fetch("http://localhost:4002/playlists/newplaylist", {
@@ -69,11 +69,12 @@ const PlaylistsProvider = ({ children }) => {
         body: JSON.stringify({ song, playlist }),
       });
       const data = await res.json();
+      console.log("hola")
       toast.success("Esta cancion ya ha sido enviado en la playlist")
       const filterAuthor = dataPlayLists.find((author) => {
         return author === playlist
       })
-      setSendSongToPlaylist({ ...filterAuthor, songs: song._id })
+      setSendSongToPlaylist(filterAuthor)
     } else {
       toast.error("Esta cancion ya esta en la playlist")
     }
@@ -86,7 +87,7 @@ const PlaylistsProvider = ({ children }) => {
       setDataPlayLists(data.allPlaylists);
     };
     fetchPlaylists();
-  }, [infoPlaylist]);
+  }, [infoPlaylist,sendSongToPlaylist ]);
 
   return (
     <PlayListsContexts.Provider
@@ -103,6 +104,7 @@ const PlaylistsProvider = ({ children }) => {
         setCurrentPlaylist,
         addSongInPlaylist,
         likesByPlaylist
+        
       }}>
       {children}
     </PlayListsContexts.Provider>

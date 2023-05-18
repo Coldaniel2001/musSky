@@ -6,7 +6,7 @@ import SongContext from '../../context/song/SongContext'
 
 const SingularSongUploaded = ({song, handleDeleteSong,SongUploaded}) => {
     const {userLogged} = useContext(UserContext)
-    const {updateTrack} = useContext(SongContext)
+    const {updateTrack,handleOpenSong} = useContext(SongContext)
     
     const [editSong, setEditSong] = useState(false)
 
@@ -33,10 +33,7 @@ const SingularSongUploaded = ({song, handleDeleteSong,SongUploaded}) => {
 
 
   return (
-    <div key={song._id} className='relative flex text-white items-center mb-3 gap-3 hover:bg-[#7239e575] rounded cursor-pointer'>
-                  <div className='w-[3%] flex justify-center'>
-                    <p className='text-white span-col-2 text-xl font-thin justify-center'>{song.id}</p>
-                  </div>
+    <div onClick={()=>{handleOpenSong(song)}} key={song._id} className='relative flex text-white items-center mb-3 gap-3 hover:bg-[#7239e575] rounded cursor-pointer'>
 
                       <img className='ml-2 md:ml-0 w-[70px] h-[70px] sm:w-[6%] md:w-[5%] lg:w-[4%] rounded' src={song.picture} alt="" />
                       

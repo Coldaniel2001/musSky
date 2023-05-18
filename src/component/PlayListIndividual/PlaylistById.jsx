@@ -31,8 +31,9 @@ const PlaylistById = () => {
 
     const { userId } = useParams()
 
-    const addToPlaylist = () => {
+    const addToPlaylist = (song) => {
         setAddSongToPlaylist(true)
+        setSendSong(song)
     }
 
 
@@ -53,7 +54,6 @@ const PlaylistById = () => {
         fetchData();
     }, [userId, dataSong]);
 
-console.log(infoPlaylist)
 
     return (
         <div>
@@ -106,10 +106,6 @@ console.log(infoPlaylist)
                     </div>
                 </div>
             </div>
-            {
-                addSongToPlaylist &&
-                <ModalAddSongToPLaylist setAddSongToPlaylist={setAddSongToPlaylist} />
-            }
         </div>
     )
 }
