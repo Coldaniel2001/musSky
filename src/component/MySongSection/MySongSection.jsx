@@ -70,7 +70,7 @@ const MySongSection = () => {
            {
           SongUploaded.length >0 &&
         <div className='flex justify-end mt-4 lg:mt-0 mb-4 lg:mb-0  w-full items-end '>
-          <button className='bg-btnColor px-4 py-2 text-white rounded hover:border-2 border-[#fff] border-2 flex' onClick={() => setUploadSong(true)}>Añadir <span className='hidden md:flex'>nueva canción</span></button>
+          <button className='bg-btnColor px-4 py-2 text-white rounded hover:border-2 border-[#fff] border-2 flex' onClick={() => setUploadSong(true)}>Añadir<span className='hidden md:flex ' > &nbsp;nueva canción</span></button>
         </div>
         }
         </div>
