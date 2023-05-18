@@ -9,6 +9,7 @@ const UserProvider = ({ children }) => {
 
   const [dataUsers, setDataUsers] = useState([]);
 
+
   const [artist, setArtist] = useState(true)
   const [insertInfoUser,setInsertInfoUser] = useState()
   useEffect(() => {
@@ -42,7 +43,7 @@ const UserProvider = ({ children }) => {
           const infoUsers = {
             name: user.name,
             nickname: user.nickname,
-            surname: user.surname,
+            surname: "en proceso",
             email: user.email,
             picture: user.picture,
             updated_at: user.updated_at,
@@ -102,6 +103,7 @@ const UserProvider = ({ children }) => {
   }, [user, getIdTokenClaims, insertInfoUser]);
 
 
+
   const updateUser = async (userId, newValue) => {
 
     const res = await fetch("http://localhost:4002/users/update-user", {
@@ -112,6 +114,7 @@ const UserProvider = ({ children }) => {
         body: JSON.stringify({userId, newValue})
     })
     const data = await res.json()
+
     setInsertInfoUser(data.user)
 }
 

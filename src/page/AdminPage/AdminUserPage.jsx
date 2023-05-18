@@ -28,7 +28,7 @@ useEffect(() => {
   return (
     <div className='bg-gradient-to-tr from-black via-black to-[#7339E5] w-full min-h-screen'>
       <NavBarAdmin/>
-      <ArtistInformation infoUser={infoUser} setInfoUser={setInfoUser} /> 
+      <ArtistInformation userId={userId} infoUser={infoUser} setInfoUser={setInfoUser} /> 
     </div>
   )
 }
