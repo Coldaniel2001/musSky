@@ -3,9 +3,11 @@ import more from '../../../assets/images/icons/more.png'
 import bluePlay from '../../../assets/images/icons/blue-play.png'
 import SongContext from '../../../context/song/SongContext'
 import Top10ModalDetail from '../Top10ModalDetail/Top10ModalDetail'
+import purpleHeart from '../../../assets/images/icons/purple-heart.png'
+import purpleHeartStroke from '../../../assets/images/icons/purple-heart-stroke.png'
 
 const To10CardPhone = ({ song, isDropdownActive, setActiveDropdown, activeDropdown }) => {
-    const {handleOpenSong} = useContext(SongContext)
+  const {handleLikes, handleOpenSong, likesByUser } = useContext(SongContext)
 
     const handleToogle = () => {
         if (activeDropdown === song._id) {
@@ -23,10 +25,12 @@ const To10CardPhone = ({ song, isDropdownActive, setActiveDropdown, activeDropdo
             <p className='text-xl font-bold'>{song.nameArtist}</p>
             <p>{song.nameSong}</p>
         </div>
-        <img className='pr-2' src={bluePlay} onClick={()=>handleOpenSong(song)} alt="" />
+        <div className='flex'>
+        <img onClick={() => handleLikes(song)} className='w-4/5 mx-5 cursor-pointer mr-4' src={likesByUser(song) ? purpleHeart  : purpleHeartStroke} alt="" />
         <div className='relative flex flex-col '>
         <img className='w-3/5 my-auto' src={more} alt="" onClick={handleToogle} />
         <div className='z-50'>
+        </div>
         {
         
           isDropdownActive ? <Top10ModalDetail /> : null

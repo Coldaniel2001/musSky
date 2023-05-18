@@ -8,6 +8,7 @@ import './MusicPlayerPhone.css'
 // import MusicPlayerContext from '../../context/MusicPlayer/MusicPlayerContext';
 import SongContext from '../../context/song/SongContext';
 import PlaylistsContext from '../../context/playlists/PlaylistsContexts';
+import { Link } from 'react-router-dom';
 
 
 const MusicPlayerPhone = () => {
@@ -70,6 +71,7 @@ const MusicPlayerPhone = () => {
 			{Object.entries(onePlayListSong).length !== 0 &&
 				<div className=' bg-[#1d1d1d] fixed bottom-0 w-full mb-20 xl:mb-0  sm:flex items-center z-10'>
 					<div className='sm:flex items-center w-full justify-center  '>
+						<Link to="/reproduction-live" >
 						<div className='w-[100%] sm:w-[45%] xl:hidden flex justify-center py-2 gap-5 border-b border-gray-800   '>
 							<div className=' lg:mr-8 w-[40%] sm:w-[25%] rounded flex items-center justify-end  '>
 								<img className='rounded  w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] 2xl:w-[80%] sm:mr-3' src={onePlayListSong.picture} alt={"img-music"} />
@@ -79,6 +81,7 @@ const MusicPlayerPhone = () => {
 								<span className='text-gray-500 text-bold text-[1rem] truncate'>{onePlayListSong.nameSong}</span>
 							</div>
 						</div>
+						</Link>
 
 						<div className=' sm:mr-0 md:w-[68%] lg:w-5/6 bg-[#282828]  '>
 
