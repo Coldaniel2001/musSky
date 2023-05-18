@@ -1,13 +1,19 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import more from '../../../assets/images/icons/more.png'
 
 import Top10ModalDetail from '../Top10ModalDetail/Top10ModalDetail'
 import SongContext from '../../../context/song/SongContext'
 
+import ModalAddSongToPLaylist from '../../ModalAddSongToPlyalist/ModalAddSongToPlaylist'
+
+
+
 function Top10Card({ song, isDropdownActive,
   setActiveDropdown, activeDropdown }) {
 
     const {handleOpenSong} = useContext(SongContext)
+    const [addSongToPlaylist, setAddSongToPlaylist] = useState(false)
+    const [ sendSong, setSendSong ] = useState()
 
   const handleToogle = () => {
     if (activeDropdown === song._id) {
@@ -15,6 +21,14 @@ function Top10Card({ song, isDropdownActive,
     } else {
       setActiveDropdown(song._id)
     }
+  }
+
+  const addToPlaylist = (song) => {
+    setSendSong(song)
+  }
+
+  const handleModal = () =>{
+    setAddSongToPlaylist(true)
   }
 
   return (
@@ -28,12 +42,20 @@ function Top10Card({ song, isDropdownActive,
       </div>
       <div className='relative flex flex-col '>
 
-        <img className='w-3/5 my-auto' src={more} alt="" onClick={handleToogle} />
+        <img className='w-3/5 my-auto' src={more} alt=""  
+        onClick={() => {
+              handleToogle()
+              addToPlaylist(song)
+            }} />
         {
-          isDropdownActive ? <Top10ModalDetail /> : null
+          isDropdownActive ? <Top10ModalDetail  handleModal={handleModal} /> : null
         }
 
       </div>
+      {
+        addSongToPlaylist &&
+      <ModalAddSongToPLaylist setAddSongToPlaylist={setAddSongToPlaylist} sendSong={sendSong} />
+  }
     </div>
   )
 }

@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react'
 import Search from '../Search/Search'
-import background from '../../assets/images/background.png'
+
 import playWhite from '../../assets/images/icons/play-white.png'
 
 import purpleHeart from '../../assets/images/icons/purple-heart.png'
+import purpleHeartStroke from "../../assets/images/icons/purple-heart-stroke.png"
+
 import addList from '../../assets/images/icons/add-list.png'
 import seeMore from '../../assets/images/icons/see-more.png'
 import likesPlaylists from '../../assets/images/likesPlaylists.jpg'
@@ -16,7 +18,8 @@ import ModalAddSongToPLaylist from '../ModalAddSongToPlyalist/ModalAddSongToPlay
 const PlayListIndividual = () => {
 
     const [addSongToPlaylist, setAddSongToPlaylist] = useState(false)
-    const { dataSong, handleLikes, handleOpenSong } = useContext(SongContext)
+    const [sendSong, setSendSong] = useState()
+    const { dataSong, handleLikes, handleOpenSong, likesByUser } = useContext(SongContext)
     const { userLogged } = useContext(UserContext)
 
 
@@ -24,8 +27,9 @@ const PlayListIndividual = () => {
         return listToLike.likedBy?.includes(userLogged._id)
     })
 
-    const addToPlaylist = () => {
+    const addToPlaylist = (song) => {
         setAddSongToPlaylist(true)
+        setSendSong(song)
     }
 
 
@@ -58,8 +62,8 @@ const PlayListIndividual = () => {
                                         <p className='font-semibold text-xl w-full md:w-[42%] pl-10 ' >{song.nameSong}</p>
                                         <p className='hidden sm:block w-[42%] text-xl font-thin'>{song.nameArtist}</p>
                                             <img onClick={() => handleOpenSong(song)} className='w-[6%] md:w-[4%] lg:w-[3%] cursor-pointer' src={playWhite} alt="" />
-                                            <img onClick={() => handleLikes(song)} className='w-[6%] md:w-[4%] lg:w-[2%] mx-5 cursor-pointer' src={purpleHeart} alt="" />
-                                            <img className='w-[6%] md:w-[4%] lg:w-[3%] mr-5 cursor-pointer' onClick={()=>addToPlaylist()} src={addList} alt="" />
+                                            <img onClick={() => handleLikes(song)} className='w-[6%] md:w-[4%] lg:w-[2%] mx-5 cursor-pointer' src={likesByUser(song) ? purpleHeart : purpleHeartStroke} alt="" />
+                                            <img className='w-[6%] md:w-[4%] lg:w-[3%] mr-5 cursor-pointer' onClick={()=>addToPlaylist(song)} src={addList} alt="" />
                                         </div>
 
                                     )
@@ -67,14 +71,12 @@ const PlayListIndividual = () => {
                                 : ""
                         }
 
-
-
                     </div>
                 </div>
             </div>
                         {
                             addSongToPlaylist &&
-                            <ModalAddSongToPLaylist setAddSongToPlaylist={setAddSongToPlaylist}/>
+                            <ModalAddSongToPLaylist setAddSongToPlaylist={setAddSongToPlaylist} sendSong={sendSong}/>
                         }
         </div>
     )

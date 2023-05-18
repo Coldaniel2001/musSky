@@ -1,13 +1,19 @@
-import React from 'react'
+import React,{ useContext} from 'react'
+import{useNavigate} from 'react-router-dom'
+
 import TopPhone from '../../component/TopPhone/TopPhone'
 import SidebarLeft from '../../component/SidebarLeft/SidebarLeft'
 import FooterNav from '../../component/FooterNav/FooterNav'
 import GendersSection from '../../component/GendersSection/GendersSection'
 
+import UserContext from '../../context/UserContext'
+
 
 
 const GendersPage = () => {
-
+    const navigate = useNavigate()
+    const { userLogged } = useContext(UserContext)
+    if(userLogged.rol==='admin') navigate("/admin")
     return (
         <div className='bg-gradient-to-tr from-black via-black to-[#7339E5] md:min-h-screen xl:flex'>
             <div className=''>
