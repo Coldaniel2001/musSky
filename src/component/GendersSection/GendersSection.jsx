@@ -5,17 +5,17 @@ import SkeletonGenders from '../../Skeleton/Gender/SkeletonGenders';
 
 
 const Genders = lazy(() => {
-    return new Promise((resolve) => {
-        setTimeout(() => resolve(import('../Genders/Genders')), 2000);
-    });
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(import('../Genders/Genders')), 2000);
+  });
 });
 
 const GendersSection = () => {
-  
+
   return (
     <div>
-      <Search />
-      <Suspense fallback={<SkeletonGenders/>}>
+      <Suspense fallback={<SkeletonGenders />}>
+        <Search />
         <Genders />
       </Suspense>
     </div>

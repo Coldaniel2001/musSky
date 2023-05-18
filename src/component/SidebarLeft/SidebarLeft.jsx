@@ -11,8 +11,9 @@ import iconPlayListViolet from '../../assets/images/icons/MYViolet.png'
 import iconLikedViolet from '../../assets/images/icons/bytesize_heartViolet.png'
 import iconAccountViolet from '../../assets/images/icons/codicon_accountViolet.png'
 import mySongs from '../../assets/images/icons/musicNotePurple.png'
-import { NavLink,useLocation } from 'react-router-dom';
+import { Link, NavLink,useLocation } from 'react-router-dom';
 import mySong from '../../assets/images/icons/mySong.png'
+import purpleHeart from '../../assets/images/icons/purple-heart.png'
 
 
 import SongContext from '../../context/song/SongContext';
@@ -57,7 +58,7 @@ const SidebarLeft = () => {
 				</NavLink>
 				<NavLink to={"/individual-playlist"} className={({ isActive }) => isActive ? 'grid border-l-[0.5rem] border-mainPurple mt-[2vh]' : "grid border-l-[0.5rem] border-transparent mt-[2vh]"}>
 					<div className='xl:grid grid-cols-8 lg:flex  lg:justify-center lg:pl-0 items-center   xl:pl-6 h-[5vh] '>
-						<img className='lg:w-10 xl:w-12 col-span-2' src={location.pathname === "/individual-playlist" ?iconLikedViolet : iconLiked} alt="icon" />
+						<img className='lg:w-10 xl:w-12 col-span-2' src={location.pathname === "/individual-playlist" ?purpleHeart : iconLiked} alt="icon" />
 						<p className={`lg:hidden xl:grid xl:text-[1.5rem] col-span-4 font-semibold ${location.pathname === "/individual-playlist" ? 'text-mainPurple' : ''}`}>Me gusta</p>
 					</div>
 				</NavLink>
@@ -77,6 +78,7 @@ const SidebarLeft = () => {
 					</div>
 				</NavLink>
 			</div>
+			<Link to="/reproduction-live">
 			
 			{
 				artist ?
@@ -104,6 +106,7 @@ const SidebarLeft = () => {
 					</div>	
 				
 			}
+			</Link>
 
 			
 			{/* <div className='w-full flex justify-center'>

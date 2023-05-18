@@ -11,11 +11,10 @@ const SkeletonSidebarRight = (props) => (
     foregroundColor="#7239e537"
     {...props}
   >
-    <rect x="143" y="296" rx="0" ry="0" width="1" height="0" /> 
-    <rect x="136" y="638" rx="0" ry="0" width="1" height="0" /> 
-    <rect x="296" y="629" rx="0" ry="0" width="0" height="1" /> 
-    <rect x="5" y="142" rx="10" ry="10" width="253" height="636" /> 
-    <rect x="45" y="54" rx="10" ry="10" width="170" height="67" />
+
+    <rect x="45" y="54" rx="10" ry="10" width="200" height="50"/>
+    
+    <rect x="5" y="142" rx="10" ry="10" width="253" height="636" />
   </ContentLoader>
 )
 

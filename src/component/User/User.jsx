@@ -26,7 +26,7 @@ const User = () => {
     <>
       {userLogged ?
         <>
-          <div className="bg-[#212121] w-3/4 mx-auto mt-8 flex rounded-lg cursor-pointer " onClick={showModal} >
+          <div className="bg-[#212121] w-3/4 mx-auto mt-8 flex rounded-lg cursor-pointer  " onClick={showModal} >
             <img className="w-10 h-10 rounded-full my-2 ml-3" alt="" src={userLogged.picture} />
             <div className="w-full flex justify-between mr-3 truncate ">
               <p className="text-white my-auto ml-3 ">{userLogged.nickname}</p>
@@ -41,7 +41,7 @@ const User = () => {
         </>
         : 
         <>
-          <div className="bg-green-600 w-2/4 mx-auto mt-8 flex rounded-lg cursor-pointer  hover:bg-[#7339E5] " onClick={() => loginWithRedirect()}  >
+          <div className="bg-btnColor w-2/4 mx-auto mt-8 flex rounded-lg cursor-pointer  hover:bg-[#7339E5] " onClick={() => loginWithRedirect()}  >
             <img className="w-10 h-10 rounded-full my-2 ml-3" alt="" src={user} />
             <div className="w-full flex justify-between mr-3 truncate ">
               <p className="text-white my-auto ml-3 ">Inicia sesión</p>

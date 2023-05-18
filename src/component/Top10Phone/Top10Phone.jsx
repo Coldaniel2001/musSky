@@ -1,25 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 // import rihanna from '../../assets/images/rihanna.png'
-import more from '../../assets/images/icons/more.png'
-import bluePlay from '../../assets/images/icons/blue-play.png'
+
 
 import logo from '../../assets/images/icons/logo.png'
 import Top10Card from './Top10Card/Top10Card'
+import SongContext from '../../context/song/SongContext'
+import To10CardPhone from './Top10Card/To10CardPhone'
 // import melendi from '../../assets/images/melendi.jpg'
 // import shakira from '../../assets/images/shakira.jpg'
 
 const Top10Phone = () => {
-    const MusicUrl = "http://localhost:3004/albums"
-    const [dataSong, setDataSong] = useState([])
 
-    useEffect(() => {
-        const musicTracks = async() => {
-            const data = await fetch(MusicUrl);
-            const json = await data.json();
-            setDataSong(json)
-        } 
-        musicTracks()
-    }, [MusicUrl])
+  const [activeDropdown, setActiveDropdown] = useState(null)
+  const {dataSong} = useContext(SongContext)
+
+const top10SongByLiked = dataSong.sort((a, b) => (a.likedBy?.length > b.likedBy?.length ? -1 : a.likedBy?.length < b.likedBy?.length ? 1 : 0)).slice(0,10)
+
+
 
   return (
 
@@ -33,17 +30,11 @@ const Top10Phone = () => {
 
   {
     dataSong.length > 0 ? (
-    dataSong.map((song) => {
+    top10SongByLiked.map((song) => {
+      const isDropdownActive = activeDropdown === song._id
         return (
-            <div key={song.id} className='w-full min-w-[25rem] grid grid-cols-9 bg-[#D9D9D9] items-center rounded bg-opacity-20 m-2 mx-auto'>
-                <img className='col-span-2 w-3/4 ml-2 rounded-full' src={song.imageUrl} alt="" />
-                    <div className='col-span-5 my-4'>
-                        <p className='text-xl font-bold'>{song.artist}</p>
-                        <p>{song.name}</p>
-                    </div>
-                    <img className='pr-2' src={bluePlay} alt="" />
-                    <img className='col-span-1 pr-2 w-10 flex my-auto' src={more} alt="" />
-            </div>
+          
+            <To10CardPhone key={song._id} song={song} isDropdownActive={isDropdownActive} setActiveDropdown={setActiveDropdown} activeDropdown={activeDropdown} />
         )
         })
         ) : (

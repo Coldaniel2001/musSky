@@ -9,11 +9,11 @@ import RecentSong from "../../component/RecentSong/RecentSong";
 
 const SongProvider = ({ children }) => {
   const [dataSong, setDataSong] = useState([]);
+  const [updateSong, setUpdateSong] = useState()
 
 
   const [onePlayListSong, setOnePlayListSong] = useState({});
   const [recentSong, setRecentSong] = useState([]);
-  const [artistSong, setArtistSong] = useState([])
   const { userLogged } = useContext(UserContext);
   const { getIdTokenClaims } = useAuth0()
   
@@ -38,9 +38,9 @@ const SongProvider = ({ children }) => {
 
   const handleLikes = async (liked) => {
     const token = await getIdTokenClaims();
+
     const response = await fetch(
-      `${process.env.REACT_APP_SERVER_URL}/tracks/addToLike${userLogged && userLogged._id
-      }`,
+      `${process.env.REACT_APP_SERVER_URL}/tracks/addToLike${userLogged._id}`,
       {
         method: "PUT",
         headers: {
@@ -51,7 +51,7 @@ const SongProvider = ({ children }) => {
       }
     );
     const data = await response.json();
-
+    console.log(data)
     try {
       const updateDataSongFilter = dataSong.filter((update) => {
         return update._id !== data.updateLike._id;
@@ -62,6 +62,7 @@ const SongProvider = ({ children }) => {
 
     } catch (error) {
       console.log(error);
+      console.log(data)
       if (data.error === "InvalidTokenError: Invalid Compact JWS") {
         toast.error("Tienes que iniciar sesión para poder añadir me gusta");
       }
@@ -84,15 +85,17 @@ const SongProvider = ({ children }) => {
         }
       );
       const data = await response.json();
-      console.log(data);
       try {
+     
+      if (data.error === "InvalidTokenError: Invalid Compact JWS") {
+        toast.error("Tienes que iniciar sesión para poder escuchar música");
+      }else{
         setOnePlayListSong(song);
         updateRecent(song)
+
+      }
       } catch (error) {
         console.log(error);
-        if (data.error === "InvalidTokenError: Invalid Compact JWS") {
-          toast.error("Tienes que iniciar sesión para poder añadir me gusta");
-        }
       }
     };
     addSongRecent();
@@ -124,6 +127,7 @@ const SongProvider = ({ children }) => {
     }
   }
 
+
   useEffect(() => {
     const musicTracks = async () => {
       const response = await fetch(
@@ -134,7 +138,7 @@ const SongProvider = ({ children }) => {
     };
     musicTracks();
 
-  }, [setDataSong]);
+  }, [setDataSong, updateSong]);
 
   const deleteSong = async (song) => {
     try {
@@ -160,6 +164,20 @@ const SongProvider = ({ children }) => {
     }
   };
 
+  const updateTrack = async (userId, newValue) => {
+    
+    const res = await fetch("http://localhost:4002/tracks/update-track", {
+        method: "PATCH", 
+        headers: {
+        "Content-Type": "application/json",
+      },
+        body: JSON.stringify({userId, newValue})
+    })
+    const data = await res.json()
+    setUpdateSong(data.songChanged)
+    console.log(data) 
+}
+
   return (
     <SongContext.Provider
       value={{
@@ -172,7 +190,8 @@ const SongProvider = ({ children }) => {
         handleLikes: handleLikes,
         likesByUser: likesByUser,
         handleOpenSong: handleOpenSong,
-        deleteSong: deleteSong
+        deleteSong: deleteSong,
+        updateTrack
       }}
     >
       {children}

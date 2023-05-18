@@ -4,12 +4,15 @@ import playWhite from '../../assets/images/icons/play-white.png'
 import addList from '../../assets/images/icons/add-list.png'
 import purpleHeartStroke from "../../assets/images/icons/purple-heart-stroke.png"
 import purpleHeart from '../../assets/images/icons/purple-heart.png'
-import seeMore from '../../assets/images/icons/see-more.png'
 import Search from '../Search/Search'
 
 import { toast } from 'react-hot-toast'
 import SongContext from '../../context/song/SongContext'
 import UserContext from '../../context/UserContext'
+
+import ModalAddSongToPLaylist from '../ModalAddSongToPlyalist/ModalAddSongToPlaylist'
+
+
 
 
 
@@ -18,13 +21,18 @@ const ArtistInformationUser = ({ infoUser }) => {
 
     const { dataSong, handleOpenSong, handleLikes, likesByUser } = useContext(SongContext)
     const { userLogged } = useContext(UserContext)
+    const [addSongToPlaylist, setAddSongToPlaylist] = useState(false)
+    const [sendSong, setSendSong] = useState()
 
     const tracksUser = dataSong.filter((song) => {
         return song?.nameArtist === infoUser?.nickname
     })
 
 
-
+    const addToPlaylist = (song) => {
+        setAddSongToPlaylist(true)
+        setSendSong(song)
+    }
 
 
 
@@ -59,16 +67,11 @@ const ArtistInformationUser = ({ infoUser }) => {
                                 return (
 
                                     <div key={song._id} className='relative flex text-white items-center mb-3 mx-10 hover:bg-[#7239e575] cursor-pointer rounded  '>
-                                        {/* <div className='w-[3%] flex justify-center'>
-                                            <p className='text-white span-col-2 text-xl font-thin justify-center'>1</p>
-                                        </div> */}
-                                        <img className='w-[40px] h-[40px] lg:w-[70px] lg:h-[70px] rounded' src={song.picture} alt="images-song" />
-                                        <p className='font-semibold text-xl w-full md:w-[42%] pl-10 ' >{song.nameSong}</p>
-                                        <p className='hidden sm:block w-[42%] text-xl font-thin'>{song.nameArtist}</p>
-                                        <img onClick={() => handleOpenSong(song)} className='w-[6%] md:w-[4%] lg:w-[3%] cursor-pointer' src={playWhite} alt="" />
+                                        <img onClick={() => handleOpenSong(song)} className='w-[40px] h-[40px] lg:w-[70px] lg:h-[70px] rounded' src={song.picture} alt="images-song" />
+                                        <p onClick={() => handleOpenSong(song)} className='font-semibold text-xl w-full md:w-[42%] pl-10 ' >{song.nameSong}</p>
+                                        <p onClick={() => handleOpenSong(song)} className='hidden sm:block w-[42%] text-xl font-thin'>{song.nameArtist}</p>
                                         <img onClick={() => handleLikes(song)} className='w-[6%] md:w-[4%] lg:w-[2%] mx-5 cursor-pointer' src={likesByUser(song) ? purpleHeart : purpleHeartStroke} alt="" />
-                                        <img className='w-[6%] md:w-[4%] lg:w-[3%] mr-5 cursor-pointer' src={addList} alt="" />
-                                        <img className='w-[6%] md:w-[4%] lg:w-[2%] cursor-pointer' src={seeMore} alt="" />
+                                        <img onClick={() => addToPlaylist(song)} className='w-[6%] md:w-[4%] lg:w-[3%] mr-5 cursor-pointer' src={addList} alt="" />
                                     </div>
 
                                 )
@@ -77,7 +80,10 @@ const ArtistInformationUser = ({ infoUser }) => {
                     }
 
 
-
+                    {
+                        addSongToPlaylist &&
+                        <ModalAddSongToPLaylist setAddSongToPlaylist={setAddSongToPlaylist} sendSong={sendSong} />
+                    }
                 </div>
             </div>
         </div>

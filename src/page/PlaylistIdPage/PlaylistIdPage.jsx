@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import SidebarLeft from '../../component/SidebarLeft/SidebarLeft'
 import PlayListIndividual from '../../component/PlayListIndividual/PlayListIndividual'
 import FooterNav from '../../component/FooterNav/FooterNav'
-import Skeleton from '../../Skeleton/SkeletonSidebarRight'
+import Skeleton from '../../Skeleton/Home/SkeletonSidebarRight'
 import PlaylistById from '../../component/PlayListIndividual/PlaylistById'
 import TopPhone from '../../component/TopPhone/TopPhone'
 

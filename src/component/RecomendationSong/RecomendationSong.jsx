@@ -16,7 +16,7 @@ const RecomendationSong = () => {
 
   return (
 
-      <div className='flex overflow-x-scroll scrollbar-hide w-[100%] gap-5 whitespace-no-wrap py-5 px-5'>
+      <div className='flex overflow-x-scroll scrollbar-hide w-[100%] gap-5 whitespace-no-wrap py-5 px-5 '>
       {
         publicFilter.map((playlist) => {
           return (

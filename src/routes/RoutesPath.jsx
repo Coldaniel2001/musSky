@@ -1,12 +1,9 @@
-import React, { lazy, Suspense } from 'react'
+import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 
 import UserProvider from '../context/UserProvider'
 import SongProvider from '../context/song/SongProvider'
-
-import Skeleton from '../Skeleton/SkeletonSidebarRight'
-
 
 
 
@@ -21,6 +18,7 @@ import MusicPlayerPhone from '../component/MusicPlayerPhone/MusicPlayerPhone'
 import RealPlaylistPage from '../page/RealPlaylistPage/RealPlaylistPage'
 import FinalRegister from '../FinalRegister/FinalRegister'
 
+
 import HomePage from '../page/HomePage/HomePage'
 import ProfilePage from '../page/ProfilePage/ProfilePage'
 import PlayListPage from '../page/PlayListPage/PlayListPage'
@@ -31,6 +29,16 @@ import ArtistIdPage from '../page/ArtistIdPage/ArtistIdPage'
 import PlaylistIdPage from '../page/PlaylistIdPage/PlaylistIdPage'
 import MusicReproductionLive from '../page/MusicReproductionLive/MusicReproductionLive'
 import { AdminArtistPage } from '../page/AdminPage/AdminArtistsPage'
+
+import FinalRegisterRouter from './FinalRegisterRouter'
+import HomePrivateRouter from './HomePrivateRouter'
+import ArtistPrivateRouter from './ArtistPrivateRouter'
+import AdminPrivateRouter from './AdminPrivateRouter'
+
+
+
+
+
 import SpanishPop from '../page/GendersPage/SpanishPop'
 import LatinUrban from '../page/GendersPage/LatinUrban'
 import HipHop from '../page/GendersPage/HipHop'
@@ -61,127 +69,155 @@ import Flamenco from '../page/GendersPage/Flamenco'
 
 
 const RoutesPath = () => {
+
     return (
         <UserProvider>
             <SongProvider>
                 <PlaylistsProvider >
                     <BrowserRouter>
                         <Routes>
+                        <Route path='*' element={<Navigate to={'/home'}/>} />
                             <Route path='/home' element={
-                                <>
+                                <HomePrivateRouter>
                                     <HomePage />
                                     <MusicPlayerPhone />
-                                </>
+                                </HomePrivateRouter>
                             } />
                             <Route path='/profile' element={
-                                <>
+                                <HomePrivateRouter>
                                     <ProfilePage />
                                     <MusicPlayerPhone />
-                                </>
-
+                                </HomePrivateRouter>
                             } />
                             <Route path='/real-playlist' element={
-                                <Suspense fallback={<Skeleton />}>
+
+                                <HomePrivateRouter>
                                     <RealPlaylistPage />
-                                </Suspense>
+                                    <MusicPlayerPhone />
+                                </HomePrivateRouter>
+
                             } />
                             <Route path='/individual-playlist' element={
-                                <>
+
+                                <HomePrivateRouter>
                                     <PlayListPage />
                                     <MusicPlayerPhone />
-                                </>
-
+                                </HomePrivateRouter>
                             } />
                             <Route path='/genders' element={
-                                <>
+                                <HomePrivateRouter>
                                     <GendersPage />
                                     <MusicPlayerPhone />
-                                </>
-
+                                </HomePrivateRouter>
                             } />
                             <Route path='/artist/:userId' element={
-                            <>
-                                <ArtistIdPage/>
-                                <MusicPlayerPhone />
-                            </>
-                        } />
+                                <HomePrivateRouter>
+                                    <ArtistIdPage />
+                                    <MusicPlayerPhone />
+                                </HomePrivateRouter>
+                            } />
                             <Route path='/playlist/:userId' element={
-                            <>
-                                <PlaylistIdPage/>
-                                <MusicPlayerPhone />
-                            </>
-                        } />
-                            {/* <Route path='/search' element={
-                            <>
-                                    <SearchPage />
-                                </>
-                            } /> */}
-                            <Route path='/*' element={<Navigate to={'/home'} />} />
-                            <Route path='/admin' element={<AdminPage />} />
-                            <Route path='/admin/:userId' element={<AdminUserPage />} />
-                            <Route path='/mis-canciones' element={<Mysongs />} />
-                            <Route path='/final-register' element={<FinalRegister />} />
-                            <Route path='/reproduction-live' element={<MusicReproductionLive/>} />
+                                <HomePrivateRouter>
+                                    <PlaylistIdPage />
+                                    <MusicPlayerPhone />
+                                </HomePrivateRouter>
+                            } />
+
+                            <Route path='/mis-canciones' element={
+                                <ArtistPrivateRouter>
+                                    <Mysongs />
+                                    <MusicPlayerPhone />
+                                </ArtistPrivateRouter>
+                            } />
+
+
+                            <Route path='/admin/:userId' element={
+                                <AdminPrivateRouter>
+                                    <AdminUserPage />
+                                </AdminPrivateRouter>
+                            } />
+                            <Route path='/admin/:userId' element={
+                                <AdminPrivateRouter>
+                                    <AdminArtistPage />
+                                </AdminPrivateRouter>
+                            } />
+                            <Route path='/admin' element={
+                                <AdminPrivateRouter>
+                                    <AdminPage />
+                                </AdminPrivateRouter>
+                            } />
+
+                            <Route path='/final-register' element={
+                                <FinalRegisterRouter>
+                                    <FinalRegister />
+                                </FinalRegisterRouter>
+                            } />
+                            <Route path='/reproduction-live' element={
+                                <HomePrivateRouter>
+                                    <MusicReproductionLive />
+                                </HomePrivateRouter>
+                            } />
                             <Route path='/spanish-pop' element={
-                            <>
-                                <MusicPlayerPhone/>
-                                <SpanishPop/>
-                            </>
-                            }/>
+                                <>
+                                    <MusicPlayerPhone />
+                                    <SpanishPop />
+                                </>
+                            } />
                             <Route path='/latin-urban' element={
-                            <>
-                                <MusicPlayerPhone/>
-                                <LatinUrban/>
-                            </>
-                            }/>
+                                <>
+                                    <MusicPlayerPhone />
+                                    <LatinUrban />
+                                </>
+                            } />
                             <Route path='/hip-hop' element={
-                            <>
-                                <MusicPlayerPhone/>
-                                <HipHop />
-                            </>
-                            }/>
+                                <>
+                                    <MusicPlayerPhone />
+                                    <HipHop />
+                                </>
+                            } />
                             <Route path='/electronic' element={
-                            <>
-                                <MusicPlayerPhone/>
-                                <ElectronicaPage />
-                            </>
-                            }/>
+                                <>
+                                    <MusicPlayerPhone />
+                                    <ElectronicaPage />
+                                </>
+                            } />
                             <Route path='/spanish-rock' element={
-                            <>
-                                <MusicPlayerPhone/>
-                                <SpanishRock />
-                            </>
-                            }/>
+                                <>
+                                    <MusicPlayerPhone />
+                                    <SpanishRock />
+                                </>
+                            } />
                             <Route path='/reggae' element={
-                            <>
-                                <MusicPlayerPhone/>
-                                <Reggae />
-                            </>
-                            }/>
+                                <>
+                                    <MusicPlayerPhone />
+                                    <Reggae />
+                                </>
+                            } />
                             <Route path='/pop-latino' element={
-                            <>
-                                <MusicPlayerPhone/>
-                                <PopLatino />
-                            </>
-                            }/>
+                                <>
+                                    <MusicPlayerPhone />
+                                    <PopLatino />
+                                </>
+                            } />
                             <Route path='/jazz' element={
-                            <>
-                                <MusicPlayerPhone/>
-                                <Jazz />
-                            </>
-                            }/>
+                                <>
+                                    <MusicPlayerPhone />
+                                    <Jazz />
+                                </>
+                            } />
                             <Route path='/rock' element={
-                            <>
-                                <MusicPlayerPhone/>
-                                <Rock />
-                            </>
-                            }/>
+                                <>
+                                    <MusicPlayerPhone />
+                                    <Rock />
+                                </>
+                            } />
                             <Route path='/flamenco' element={
-                            <>
-                                <MusicPlayerPhone/>
-                                <Flamenco />
-                            </>
-                            }/>
+                                <>
+                                    <MusicPlayerPhone />
+                                    <Flamenco />
+                                </>
+                            } />
+
                         </Routes>
                     </BrowserRouter>
                 </PlaylistsProvider>

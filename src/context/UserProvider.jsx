@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-
 import toast from "react-hot-toast";
 
 import UserContext from "./UserContext";
 
 const UserProvider = ({ children }) => {
   const allUsers = "http://localhost:4002/users";
+
   const [dataUsers, setDataUsers] = useState([]);
 
-  const [artist, setArtist] = useState(true)
 
+  const [artist, setArtist] = useState(true)
+  const [insertInfoUser,setInsertInfoUser] = useState()
   useEffect(() => {
     const musicTracks = async () => {
       const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users`);
@@ -42,7 +43,7 @@ const UserProvider = ({ children }) => {
           const infoUsers = {
             name: user.name,
             nickname: user.nickname,
-            surname: user.surname,
+            surname: "en proceso",
             email: user.email,
             picture: user.picture,
             updated_at: user.updated_at,
@@ -61,6 +62,7 @@ const UserProvider = ({ children }) => {
             }
           );
           const data = await response.json();
+
           if (data.status === "OK") {
             setUserLogged(data.newUser);
           }
@@ -85,48 +87,35 @@ const UserProvider = ({ children }) => {
             }
           );
           const data = await response.json();
-          console.log(data);
+          console.log(data.user.surname);
           if (data.status === "OK") {
             setUserLogged(data.user);
           }
+
         }
       } catch (error) {
-      
+
         console.log(error);
       }
     };
 
     getUser();
-  }, [user, getIdTokenClaims]);
+  }, [user, getIdTokenClaims, insertInfoUser]);
 
 
-  const userRegister = async (user) => {
-    if (user.password === user.passwordRepeat) {
-      const res = await fetch("http://localhost:4002/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
-      });
-      const data = await res.json();
-      console.log(data);
-    } else {
-      toast.error("Las contraseñas no coinciden");
-    }
-  };
 
   const updateUser = async (userId, newValue) => {
-    
+
     const res = await fetch("http://localhost:4002/users/update-user", {
-        method: "PATCH", 
+        method: "PATCH",
         headers: {
         "Content-Type": "application/json",
       },
         body: JSON.stringify({userId, newValue})
     })
     const data = await res.json()
-    return data
+
+    setInsertInfoUser(data.user)
 }
 
   const userChangeInformation = async (userChanged) => {
@@ -144,11 +133,11 @@ const UserProvider = ({ children }) => {
 
   const deleteUser = async (id) => {
     await fetch(`http://localhost:4002/users/delete-user/${id}`,{
-        method: "DELETE", 
-      })  
-      
-    
-    
+        method: "DELETE",
+      })
+
+
+
 }
 
   return (
@@ -158,17 +147,16 @@ const UserProvider = ({ children }) => {
         setIsLoggin,
         inputChange,
         setInputChange,
-        userRegister,
         userChangeInformation,
         setUserLogged,
         userLogged,
         dataUsers,
         setDataUsers,
         updateUser,
-        artist, 
+        artist,
         setArtist,
         deleteUser
-        
+
       }}
     >
       {children}

@@ -35,7 +35,7 @@ const SearchForPhone = () => {
 
   return (
     <div className='w-full xl:flex'>
-		<div className="w-[90%] xl:hidden  ml-10 pr-20">
+		<div className="w-[100%] xl:hidden  ml-10 pr-20">
 		<input
                 value={searchValue}
                 type="text"
@@ -46,7 +46,7 @@ const SearchForPhone = () => {
               <div className="hidden absolute top-0 left-0 mt-2 ml-3">
                 <i className="fas fa-search text-gray-400"></i>
               </div>
-              <div className="bg-btnColor rounded w-2/5 absolute z-10 max-h-[30vh] overflow-y-scroll scrollbar-hide">
+              <div className="bg-btnColor rounded w-5/6 absolute z-10 max-h-[30vh] overflow-y-scroll scrollbar-hide">
                 {searchResults.tracks.length >0 && 
                 <div className="font-bold text-[1.5rem] mt-5 border-b border-gray-600 mb-2 mx-3">
                 <p>Canciones</p>

@@ -11,61 +11,24 @@ import {  NavLink, useParams } from 'react-router-dom'
 
 
 
-const ArtistInformation = ({ infoUser}) => {
+const ArtistInformation = ({ infoUser, userId}) => {
 
     const [editArtist, setEditArtist] = useState(false)
     const [editSong, setEditSong] = useState(false)
     const {dataSong} = useContext(SongContext)
     const {dataUsers, updateUser, deleteUser} = useContext(UserContext)
-    const currentDate = new Date(); const day = currentDate.getDate(); const month = currentDate.getMonth() + 1; const year = currentDate.getFullYear();
-    const formattedDate = `${day}/${month}/${year}`;
-    const [goOutsidePage, setGoOutsidePage] = useState(false)
-
-
-    const {userId} = useParams()
-    const thisUser = dataUsers?.filter((data) => {
-        return data._id === userId
-    })
-    
-    const rol = thisUser?.map((user) => {
-        return user?.rol
-    })
-
-
-    const picture = thisUser.map((user) => {
-        return user.picture
-    })
-    const name = thisUser.map((user) => {
-        return user.name
-    })
-
-    
-    const surname = thisUser.map((user) => {
-        return user.surname
-    })
-    const nickname = thisUser.map((user) => {
-        return user.nickname
-    })
-
-    
-    const email = thisUser.map((user) => {
-        return user.email
-    })
-
-    // console.log(picture)
-
-
-
+    const [previewImg, setPreviewImg] = useState(null);
+    console.log(infoUser)
 
     const [formData, setFormData] = useState({
         _id: userId,
-        name:  name.join(""),
-        username: surname.join(""),
-        nickname: nickname.join(""),
-        email:  email.join(""),
-        picture: picture.join(""),
-        rol: rol.join(""),
-        update_at: formattedDate,
+        name:  infoUser?.name,
+        username: infoUser?.username,
+        nickname: infoUser?.nickname,
+        email:  infoUser?.email,
+        picture: infoUser?.picture,
+        rol: infoUser?.rol,
+        update_at: infoUser?.update_at,
         
     })
 
@@ -94,34 +57,25 @@ const ArtistInformation = ({ infoUser}) => {
       
     const deleteNewUser = () => {
         deleteUser(userId)
-        toast.success(`El usuario ${name.join("")} ha sido borrado con éxito`)
-        setGoOutsidePage(true)
+        toast.success(`El usuario "${infoUser.name}" ha sido borrado con éxito`)
     }
 
-    // const changeUserImg = async (e) => {
-    //         const data = new FormData();
-    //         data.append("file", e.target.files[0]);
-    //         data.append("id", userId);
-    //         console.log(e.target.files)
-            
-    //         await fetch('http://localhost:4002/users/adminImage', {
-    //             method: 'POST',
-    //             body: data,
-    //             headers: {
-    //                 "Content-Type": "multipart/form-data",
-    //             },
-    //         })
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             const imageUrl = data.imageUrl;
-                
-    //             setFormData({ ...formData, picture: imageUrl });
-    //         })
-    //         .catch((error) => {
-    //             console.error('Error', error);
-    //         });
-    // }
-    
+    const handlePreviewImg = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            setPreviewImg(reader.result);
+        };
+    }
+
+
+
+
+
+
+
+
 
 
 
@@ -155,19 +109,16 @@ const ArtistInformation = ({ infoUser}) => {
     <div className='lg:w-[90%] xl:w-5/6 2xl:w-2/3 mx-auto '>
         <div className='text-white flex  w-full mt-20 '>
             <div className='w-3/4  mx-auto lg:flex lg:w-full'>
-                { !editArtist ?
-                    <img className='h-[175px] w-[175px] lg:w-[250px] lg:h-[250px]  rounded-full mx-auto' src={infoUser?.picture} alt="" />
-                    :
-                    <label>
-                        <div className='relative cursor-pointer '>
-                            <img className='w-52 sm:w-52 md:w-60 lg:w-52 lg:h-52 xl:h-auto xl:w-60 rounded-full border-2 border-mainPurple opacity-40 mx-auto' src={infoUser?.picture} alt="" />
-                            <div className='absolute inset-0 flex items-center justify-center'>
-                                <p className='text-mainPurple font-bold text-4xl'>Cambiar</p>
-                            </div>
-                            <input type="file" className='hidden'/>
-                        </div>
-                    </label>
-                }
+            <label className='w-2/4 flex justify-center mt-[3vh]'>
+                    <img className='w-[200px] h-[200px]  lg:w-[250px] lg:h-[250px]  cursor-pointer rounded-full hover:opacity-40' src={previewImg ? previewImg : infoUser?.picture} alt="UP" />
+                    <input type="file" className='hidden'
+                        required
+                        name="imagePlaylist"
+                        onChange={handlePreviewImg}
+                        
+                        // value={PlayList.imagePlaylist}
+                    />
+              </label>
                 <div className='lg:ml-10 xl:ml-20 lg:w-[70%]  flex flex-col items-center lg:block '>
                     {
                         
@@ -178,22 +129,22 @@ const ArtistInformation = ({ infoUser}) => {
                         :
                         <input className=' mb-10 bg-transparent border-b focus:outline-none focus:ring-0  border-mainPurple text-center text-4xl lg:text-5xl ' 
                         type="text" 
-                        placeholder={name.join("")} 
+                        placeholder={infoUser.name} 
                         name="name"
                         onChange={handleChangeInput}
 />
                     }
                     <div className=' flex flex-col justify-end items-center lg:items-start '>
-                        <p className='lg:text-xl xl:text-2xl 2xl:text-3xl text-[#989898] font-semibold'>Nickname: { !editArtist ? <span className='text-white'>{infoUser?.name}</span> : <input className='bg-transparent border-b focus:outline-none focus:ring-0  border-mainPurple text-center text-white' 
-                        placeholder={nickname.join("")} 
+                        <p className='lg:text-xl xl:text-2xl 2xl:text-3xl text-[#989898] font-semibold'>Nickname: { !editArtist ? <span className='text-white'>{infoUser?.nickname}</span> : <input className='bg-transparent border-b focus:outline-none focus:ring-0  border-[#7339E5] text-center text-white' 
+                        placeholder={infoUser.nickname} 
                         type="text"
                         name="nickname"
                         onChange={handleChangeInput} 
                       /> 
                         } </p>
 
-                        <p className='lg:text-xl xl:text-2xl 2xl:text-3xl text-[#989898] font-semibold'>Email: { !editArtist ? <span className='text-white'>{infoUser?.email}</span> : <input className='bg-transparent border-b focus:outline-none focus:ring-0 border-mainPurple  text-center text-white' 
-                        placeholder={email.join("")} 
+                        <p className='lg:text-xl xl:text-2xl 2xl:text-3xl text-[#989898] font-semibold'>Email: { !editArtist ? <span className='text-white'>{infoUser?.email}</span> : <input className='bg-transparent border-b focus:outline-none focus:ring-0 border-[#7339E5]  text-center text-white' 
+                        placeholder={infoUser.email} 
                         type="text" 
                         name="email"
                         onChange={handleChangeInput} /> 

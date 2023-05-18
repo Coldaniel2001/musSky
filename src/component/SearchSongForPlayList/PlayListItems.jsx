@@ -28,8 +28,7 @@ const PlayListItems = ({song, playListComplete, setPlayListComplete, setPlaylist
     </div>
     
     <div className='flex flex-col justify-center w-[50%]'>
-      <p className='text-2xl  text-white truncate'>{song.nameArtist}</p>
-      <p className='text-xl text-gray-400'>{song.nameSong}</p>
+      <p className='text-xl text-white'>{song.nameSong}</p>
     </div>
     <div className='flex justify-end w-[40%] gap-7 items-center cursor-pointer'>
       { songAdd ?
