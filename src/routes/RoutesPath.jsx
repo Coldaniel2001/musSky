@@ -144,7 +144,6 @@ const RoutesPath = () => {
                             <Route path='/reproduction-live' element={
                                 <HomePrivateRouter>
                                     <MusicReproductionLive />
-                                    <MusicPlayerPhone />
                                 </HomePrivateRouter>
                             } />
                         </Routes>

@@ -9,10 +9,19 @@ const MyPlaylists = () => {
 
     const { dataPlayLists } = useContext(PlaylistsContext)
     const { userLogged } = useContext(UserContext)
+
     
     const myPlaylists = dataPlayLists.filter((playlist) => {
         return playlist.author === userLogged?.email
     })
+
+    const myPlaylistsLike = dataPlayLists.filter((playlist) => {
+        return playlist?.liked_by.toString() === userLogged?.email
+    })
+    
+    const myPlaylistComplete = myPlaylists.concat(myPlaylistsLike)
+
+
 
 
   return (
@@ -26,7 +35,7 @@ const MyPlaylists = () => {
         
         </NavLink>
 
-        {myPlaylists.map((playlist) => {
+        {myPlaylistComplete.map((playlist) => {
             return (
                 <NavLink className=" flex items-end" to={`/playlist/${playlist?._id}`}  >
                 <div key={playlist._id} className=' relative flex justify-end items-end hover:scale-110 transition duration-500 rounded cursor-pointer '>

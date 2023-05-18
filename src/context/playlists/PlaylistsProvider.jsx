@@ -9,24 +9,53 @@ import { toast } from 'react-hot-toast'
 const PlaylistsProvider = ({ children }) => {
 
   const [dataPlayLists, setDataPlayLists] = useState([])
-  const [infoPlaylist, setInfoPlaylist] = useState(null);
   const [currentPlaylist, setCurrentPlaylist] = useState(0)
+  const [infoPlaylist, setInfoPlaylist] = useState(null);
   const [sendSongToPlaylist, setSendSongToPlaylist] = useState()
   const { userLogged } = useContext(UserContext)
-  
 
-    const addPlayList = async (playlist) => {
-        const res = await fetch("http://localhost:4002/playlists/newplaylist", {
-          method: "POST",
-          body: playlist
-        })
-        const data = await res.json();
-        setDataPlayLists([...dataPlayLists, data.newPlaylist])
+
+
+  const addPlayList = async (playlist) => {
+    const res = await fetch("http://localhost:4002/playlists/newplaylist", {
+      method: "POST",
+      body: playlist
+    })
+    const data = await res.json();
+    setDataPlayLists([...dataPlayLists, data.newPlaylist])
 
     if (data.ok) {
       toast.success("Playlist creada con éxito")
     }
   }
+
+  const addPlaylist = async (playlist) => {
+
+
+    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/playlists/addPlaylist`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ playlist, userEmail: userLogged.email }),
+    });
+    const data = await res.json();
+    
+    setInfoPlaylist(data.updateLikePlayList)
+
+    // toast.success("Esta cancion ya ha sido enviado en la playlist")
+
+
+  }
+
+  const likesByPlaylist = (likesByPlaylist) => {
+    if (userLogged) {
+      return likesByPlaylist?.liked_by?.includes(userLogged.email);
+    }
+  };
+
+
+
   const addSongInPlaylist = async (song, playlist) => {
     const playListRepeat = playlist.songs.find((songRepeat) => {
       return songRepeat === song._id
@@ -44,7 +73,7 @@ const PlaylistsProvider = ({ children }) => {
       const filterAuthor = dataPlayLists.find((author) => {
         return author === playlist
       })
-      setSendSongToPlaylist({...filterAuthor, songs:song._id})
+      setSendSongToPlaylist({ ...filterAuthor, songs: song._id })
     } else {
       toast.error("Esta cancion ya esta en la playlist")
     }
@@ -57,7 +86,7 @@ const PlaylistsProvider = ({ children }) => {
       setDataPlayLists(data.allPlaylists);
     };
     fetchPlaylists();
-  }, [sendSongToPlaylist]);
+  }, [infoPlaylist]);
 
   return (
     <PlayListsContexts.Provider
@@ -69,9 +98,11 @@ const PlaylistsProvider = ({ children }) => {
         setDataPlayLists,
         infoPlaylist,
         setInfoPlaylist,
+        addPlaylist,
         currentPlaylist,
         setCurrentPlaylist,
-        addSongInPlaylist
+        addSongInPlaylist,
+        likesByPlaylist
       }}>
       {children}
     </PlayListsContexts.Provider>

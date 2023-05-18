@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import MyPlaylists from '../MyPlaylists/MyPlaylists'
-import plusWhite from '../../assets/images/plusWhite.png'
+import plusWhite from '../../assets/images/icons/plusWhite.png'
 import ModalNewPlayList from '../ModalNewPlayList/ModalNewPlayList'
 import FreePlaylists from '../FreePlaylists/FreePlaylists'
 
