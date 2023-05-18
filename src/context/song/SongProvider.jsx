@@ -88,7 +88,7 @@ const SongProvider = ({ children }) => {
       try {
      
       if (data.error === "InvalidTokenError: Invalid Compact JWS") {
-        toast.error("Tienes que iniciar sesión para poder escuchar me gusta");
+        toast.error("Tienes que iniciar sesión para poder escuchar música");
       }else{
         setOnePlayListSong(song);
         updateRecent(song)
