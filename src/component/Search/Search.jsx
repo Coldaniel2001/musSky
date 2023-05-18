@@ -125,7 +125,7 @@ const Search = () => {
             }
           </div>:
           <>
-                    <div className="bg-green-600 w-[240px] mt-8 flex rounded-lg  truncate hover:bg-[#7339E5] cursor-pointer" onClick={() => loginWithRedirect()}>
+            <div className="bg-btnColor w-[240px] mt-8 flex rounded-lg  truncate hover:border-2 cursor-pointer mr-10" onClick={() => loginWithRedirect()}>
             <img className='w-10 h-10 rounded-full my-2 ml-3' src={user} alt="img-profile" />
             <div className='w-full flex justify-between mr-3'>
               <p className='text-white my-auto ml-3'>Inicia Sesión</p>

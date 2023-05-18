@@ -18,7 +18,7 @@ const falseState = () => {
   return (
     <div className="fixed z-10 inset-0 overflow-y-auto bg-black/70">
             <div className="flex flex-col items-center justify-center min-h-screen ">
-                <div className="flex flex-col justify-center bg-gradient-to-tr text-white from-black via-[#7339E5] to-[#7339E5] rounded-lg shadow-lg p-6 w-[90%] sm:w-2/3 md:w-3/6 xl:w-3/6 2xl:w-2/5 border-2 border-white">
+                <div className="flex flex-col justify-center bg-gradient-to-tr text-white from-black via-[#7339E5] to-[#7339E5] rounded-lg shadow-lg p-6 w-[90%] sm:w-2/3 md:w-3/6 xl:w-3/6 2xl:w-2/5 border-2 border-white z-30">
                     <div className='flex'>
                         <p className='font-bold text-2xl mx-auto mb-8 '>¿En qué Playlist quieres introducir esta canción?</p>
                         <img className='w-4 h-4 cursor-pointer' onClick={()=>falseState()} src={close} alt="" />

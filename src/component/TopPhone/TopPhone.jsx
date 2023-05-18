@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import logo from '../../assets/images/icons/logo.png'
+import imgNoLogged from '../../assets/images/icons/user.png'
 
 
 import { useAuth0 } from "@auth0/auth0-react"
@@ -7,6 +8,7 @@ import UserContext from '../../context/UserContext'
 import { Link } from 'react-router-dom'
 
 const TopPhone = () => {
+  const {  loginWithRedirect } = useAuth0()
   const { userLogged } = useContext(UserContext)
   const [modal, setModal] = useState(false)
   const showModal = () => {
@@ -32,7 +34,12 @@ const TopPhone = () => {
               <p onClick={() => logout({ logoutParams: { returnTo: window.location.origin + '/home' } })} className='ml-2 hover:bg-[#7239e537]'>Salir</p>
             </div>}
           </>
-          : null}
+          : 
+          <div className='flex items-center' onClick={() => loginWithRedirect()}>
+            <p className='text-white border-2 rounded px-2 bg-btnColor'>Iniciar sesión</p>
+
+          </div>
+}
       </div>
 
     </>

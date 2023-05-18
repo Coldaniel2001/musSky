@@ -70,9 +70,9 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
   return (
     <>
 
-          <div className="fixed z-10 inset-0 overflow-y-auto bg-black/70">
-          <div className="flex items-center justify-center min-h-screen">
-            <div className="flex flex-col justify-center bg-gradient-to-tr from-black via-[#7339E5] to-[#7339E5] rounded-lg shadow-lg p-6 w-[90%] sm:w-2/3 md:w-3/5 xl:w-1/2 2xl:w-1/2 border-2 border-white items-center">
+          <div className="fixed  inset-0 overflow-y-auto bg-black/70 z-30">
+          <div className="flex items-center justify-center min-h-screen ">
+            <div className="flex flex-col justify-center bg-gradient-to-tr from-black via-[#7339E5] to-[#7339E5] rounded-lg shadow-lg p-6 w-[90%] sm:w-2/3 md:w-3/5 xl:w-1/2 2xl:w-1/2 border-2 border-white items-center ">
               <form className='flex flex-col items-center text-white pb-2 w-full' ref={form} >
               <div className='flex justify-between text-white border-b pb-2 w-full'>
                   <p className='font-light cursor-pointer' onClick={()=>setAddNewPlayList(false)}>Cancel</p>
