@@ -15,7 +15,7 @@ const ArtistIdPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:4002/users/id/${userId}`)
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/id/${userId}`)
         const data = await response.json();
         setInfoUser(data.user);
       } catch (error) {

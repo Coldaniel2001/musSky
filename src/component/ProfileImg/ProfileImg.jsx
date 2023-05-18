@@ -9,7 +9,7 @@ function ProfileImg() {
 
   
   const editImgFetch = async (data) => {
-    return await axios.post('http://localhost:4002/users/image', data, {
+    return await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/image`, data, {
         headers: {
             "Content-Type": "multipart/form-data",
         },

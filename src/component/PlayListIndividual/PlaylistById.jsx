@@ -40,7 +40,7 @@ const PlaylistById = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://localhost:4002/playlists/id/${userId}`)
+                const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/playlists/id/${userId}`)
                 const data = await response.json();
                 setInfoPlaylist(data.playlist);
             } catch (error) {

@@ -60,7 +60,7 @@ const ModalAddNewSong = ({ setUploadSong , SongUploaded}) => {
         })
         if (!filterSongRepeat){
 
-            const res = await fetch('http://localhost:4002/tracks/imagesong', {
+            const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/tracks/imagesong`, {
                 method: "POST",
                 body: data
             });

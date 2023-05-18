@@ -4,7 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import UserContext from "./UserContext";
 
 const UserProvider = ({ children }) => {
-  const allUsers = "http://localhost:4002/users";
+  const allUsers = `${process.env.REACT_APP_SERVER_URL}/users`;
 
   const [dataUsers, setDataUsers] = useState([]);
 
@@ -85,7 +85,6 @@ const UserProvider = ({ children }) => {
             }
           );
           const data = await response.json();
-          console.log(data.user.surname);
           if (data.status === "OK") {
             setUserLogged(data.user);
           }
@@ -104,7 +103,7 @@ const UserProvider = ({ children }) => {
 
   const updateUser = async (userId, newValue) => {
 
-    const res = await fetch("http://localhost:4002/users/update-user", {
+    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/update-user`, {
         method: "PATCH",
         headers: {
         "Content-Type": "application/json",
@@ -118,7 +117,7 @@ const UserProvider = ({ children }) => {
 
   const userChangeInformation = async (userChanged) => {
 
-    const res = await fetch("http://localhost:4002/users/changeinformation", {
+    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/changeinformation`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -129,7 +128,7 @@ const UserProvider = ({ children }) => {
   };
 
   const deleteUser = async (id) => {
-    await fetch(`http://localhost:4002/users/delete-user/${id}`,{
+    await fetch(`${process.env.REACT_APP_SERVER_URL}/users/delete-user/${id}`,{
         method: "DELETE",
       })
 

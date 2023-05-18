@@ -41,7 +41,7 @@ const [searchValue, setSearchValue] = useState("");
       });
     } else {
       const response = await fetch(
-        `http://localhost:4002/search/${searchValue}`
+        `${process.env.REACT_APP_SERVER_URL}/search/${searchValue}`
       );
       const data = await response.json();
       if (data.ok) {

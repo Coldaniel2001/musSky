@@ -17,7 +17,7 @@ const PlaylistsProvider = ({ children }) => {
   
 
   const addPlayList = async (playlist) => {
-    const res = await fetch("http://localhost:4002/playlists/newplaylist", {
+    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/playlists/newplaylist`, {
       method: "POST",
       body: playlist
     })
@@ -78,7 +78,7 @@ const PlaylistsProvider = ({ children }) => {
   }
   useEffect(() => {
     const fetchPlaylists = async () => {
-      const res = await fetch("http://localhost:4002/playlists/");
+      const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/playlists`);
       const data = await res.json();
 
       setDataPlayLists(data.allPlaylists);

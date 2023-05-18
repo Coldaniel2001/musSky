@@ -164,7 +164,7 @@ const SongProvider = ({ children }) => {
 
   const updateTrack = async (userId, newValue) => {
     
-    const res = await fetch("http://localhost:4002/tracks/update-track", {
+    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/tracks/update-track`, {
         method: "PATCH", 
         headers: {
         "Content-Type": "application/json",
