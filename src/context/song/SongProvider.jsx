@@ -38,9 +38,9 @@ const SongProvider = ({ children }) => {
 
   const handleLikes = async (liked) => {
     const token = await getIdTokenClaims();
+
     const response = await fetch(
-      `${process.env.REACT_APP_SERVER_URL}/tracks/addToLike${userLogged && userLogged._id
-      }`,
+      `${process.env.REACT_APP_SERVER_URL}/tracks/addToLike${userLogged._id}`,
       {
         method: "PUT",
         headers: {
@@ -51,7 +51,7 @@ const SongProvider = ({ children }) => {
       }
     );
     const data = await response.json();
-
+    console.log(data)
     try {
       const updateDataSongFilter = dataSong.filter((update) => {
         return update._id !== data.updateLike._id;
@@ -62,6 +62,7 @@ const SongProvider = ({ children }) => {
 
     } catch (error) {
       console.log(error);
+      console.log(data)
       if (data.error === "InvalidTokenError: Invalid Compact JWS") {
         toast.error("Tienes que iniciar sesión para poder añadir me gusta");
       }
@@ -84,15 +85,17 @@ const SongProvider = ({ children }) => {
         }
       );
       const data = await response.json();
-      console.log(data);
       try {
+     
+      if (data.error === "InvalidTokenError: Invalid Compact JWS") {
+        toast.error("Tienes que iniciar sesión para poder escuchar me gusta");
+      }else{
         setOnePlayListSong(song);
         updateRecent(song)
+
+      }
       } catch (error) {
         console.log(error);
-        if (data.error === "InvalidTokenError: Invalid Compact JWS") {
-          toast.error("Tienes que iniciar sesión para poder añadir me gusta");
-        }
       }
     };
     addSongRecent();
