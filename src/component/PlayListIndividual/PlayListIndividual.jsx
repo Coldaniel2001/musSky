@@ -7,7 +7,6 @@ import purpleHeart from '../../assets/images/icons/purple-heart.png'
 import purpleHeartStroke from "../../assets/images/icons/purple-heart-stroke.png"
 
 import addList from '../../assets/images/icons/add-list.png'
-import seeMore from '../../assets/images/icons/see-more.png'
 import likesPlaylists from '../../assets/images/likesPlaylists.jpg'
 
 import SongContext from '../../context/song/SongContext'

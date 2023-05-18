@@ -12,7 +12,6 @@ import purpleHeart from '../../assets/images/icons/purple-heart.png'
 import purpleHeartStroke from "../../assets/images/icons/purple-heart-stroke.png"
 
 import addList from '../../assets/images/icons/add-list.png'
-import seeMore from '../../assets/images/icons/see-more.png'
 import ModalAddSongToPLaylist from '../ModalAddSongToPlyalist/ModalAddSongToPlaylist'
 
 import UserContext from '../../context/UserContext'
@@ -86,7 +85,6 @@ const PlaylistById = () => {
                                             <p onClick={() => handleOpenSong(song)} className='w-[42%] text-xl font-thin hidden md:block'>{song.nameArtist}</p>
                                             <img onClick={() => handleLikes(song)} className='w-[6%] md:w-[4%] lg:w-[2%] mx-5 cursor-pointer' src={likesByUser(song) ? purpleHeart : purpleHeartStroke} alt="" />
                                             <img onClick={() => addToPlaylist(song)} className='w-[6%] md:w-[4%] lg:w-[3%] mr-5 cursor-pointer' src={addList} alt="" />
-                                            <img className='w-[6%] md:w-[4%] lg:w-[2%] cursor-pointer' src={seeMore} alt="" />
                                         </div>
 
                                     )
