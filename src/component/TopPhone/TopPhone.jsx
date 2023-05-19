@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import logo from '../../assets/images/icons/logo.png'
-import imgNoLogged from '../../assets/images/icons/user.png'
+
 
 
 import { useAuth0 } from "@auth0/auth0-react"

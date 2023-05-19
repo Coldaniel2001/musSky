@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+
 
 function Top10ModalDetail({handleModal, song}) {
-  const {userId} = useParams()
+
 
   console.log(song)
   return (

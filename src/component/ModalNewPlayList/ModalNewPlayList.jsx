@@ -7,7 +7,7 @@ import PlaylistsContext from '../../context/playlists/PlaylistsContexts'
 import { useAuth0 } from '@auth0/auth0-react'
 import UserContext from '../../context/UserContext'
 import AddSongToPlayList from '../../component/addSongToPlayList/AddSongToPlayList'
-import { toast } from 'react-hot-toast'
+
 
 
 
@@ -15,7 +15,7 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
   const [playListComplete, setPlayListComplete] = useState([])
   const [playlistToShow, setPlaylistToShow] = useState([])
   const {addPlayList} = useContext(PlaylistsContext)
-  const {user} = useAuth0()
+ 
   const {userLogged} = useContext(UserContext)
   
   const [PlayList, setNewPlayList] = useState({
@@ -97,8 +97,7 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
                   type="text"
                   name="namePlaylist"
                   required
-                  // onChange={handleInputChange}  
-                  // value={PlayList.namePlaylist}
+               
                   />
               </div>
               <div className='flex gap-10 mt-6'>
@@ -108,7 +107,7 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
                     name="private"
                     value="no"
                     required
-                    // onChange={handleInputChange} 
+               
                     />
                   <p>Playlist pública</p>
                 </label>
@@ -118,7 +117,7 @@ const ModalNewPlayList = ({setAddNewPlayList}) => {
                   name="private" 
                   value="yes"
                   required
-                  // onChange={handleInputChange} 
+               
                   />
                   <p>Playlist privada</p>
                 </label>

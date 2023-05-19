@@ -1,9 +1,8 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import { useAuth0 } from "@auth0/auth0-react"
 
 import Button from "../Button/Button";
 
-import UserContext from '../../context/UserContext'
 
 import { toast } from 'react-hot-toast';
 
@@ -11,30 +10,7 @@ import { toast } from 'react-hot-toast';
 const ChangePassword = () => {
     const { user, getIdTokenClaims} = useAuth0()
 
-    // const {  inputChange, state } = useContext(UserContext)
-    // const [ password, setPassword] = useState({
-    //     previousPassword: "",
-    //     newPassword: "",
-    //     confirmPassword: "",
-    // });
 
-    // const handleInputChange = (e) => {
-    //     setPassword({...password, [e.target.name]: e.target.value})
-    // }
-
-    // const handleSubmit = (e) => {
-
-    //     e.preventDefault()
-    //     if((inputChange.password === password.previousPassword) && (password.newPassword === password.confirmPassword)){
-    //         inputChange.password = password.confirmPassword
-    //         inputChange.passwordrepeat = password.confirmPassword   
-    //     }
-
-    //     if((state.user.password === password.previousPassword) && (password.newPassword === password.confirmPassword)){
-    //         state.user.password = password.confirmPassword   
-    //     }
-
-    // }
     const handleSendEmail = async () => {
         try {
             const token = await getIdTokenClaims()
@@ -77,41 +53,6 @@ const ChangePassword = () => {
                 </div>
             </div>
 
-
-            {/* <form onSubmit={handleSubmit} className='sm:w-full md:w-auto md:flex 2xl:flex gap-5 mt-5'>
-            <div className='flex flex-col sm:w-2/3 md:w-auto '>
-                <label htmlFor="">Contraseña actual</label>
-                <input className='rounded h-[2rem] xl:w-[14rem] text-black' 
-                type="password"
-                name="previousPassword"
-                value={password.previousPassword}
-                onChange={handleInputChange}
-                required
-                 />
-            </div>
-            <div className='flex flex-col sm:w-2/3 md:w-auto '>
-                <label htmlFor="">Nueva contraseña</label>
-                <input className='rounded h-[2rem] xl:w-[14rem] text-black' 
-                type="password"
-                name="newPassword"
-                onChange={handleInputChange}
-                required />
-            </div>
-            <div className='flex flex-col sm:w-2/3 md:w-auto '>
-                <label htmlFor="">Confirma contraseña</label>
-                <input className='rounded h-[2rem] xl:w-[14rem] text-black' 
-                type="password"
-                name="confirmPassword"
-                onChange={handleInputChange}
-                required />
-            </div>
-            <div className='flex items-end sm:my-5 md:my-0 justify-end '>
-                <Button value={'Actualizar'}
-                types="submit"
-                classButton={'bg-[#7C8BBF] sm:mx-10 h-[2rem] mt-4 mb-6 sm:mt-0 sm:mb-0 sm:mx-0 px-3 rounded'} />
-            </div>
-            
-        </form> */}
 
         </div>
     )

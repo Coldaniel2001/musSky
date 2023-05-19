@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import leiva from '../../assets/images/genders.artists/leiva.png'
 import daddy from '../../assets/images/genders.artists/dady-yunki.png'
 import fito from '../../assets/images/genders.artists/fito.png'

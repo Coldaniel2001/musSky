@@ -1,6 +1,4 @@
-import React, { useContext, useState } from 'react'
-import PlaylistsContext from '../../context/playlists/PlaylistsContexts'
-import UserContext from '../../context/UserContext'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 const PlaylistIndividual = ({playlist}) => {

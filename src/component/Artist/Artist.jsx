@@ -1,11 +1,9 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-
 import UserContext from '../../context/UserContext'
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-// import "swiper/css/autoplay";
 import '../Swiper/Swiper.css'
 import { Autoplay, Navigation } from "swiper";
 

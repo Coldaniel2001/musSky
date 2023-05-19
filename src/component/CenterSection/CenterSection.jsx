@@ -1,7 +1,6 @@
 import React from 'react';
 import Artists from '../Artists/Artists';
 import Recents from '../Recents/Recents';
-import Search from '../Search/Search';
 import Recomendations from '../Recomendations/Recomendations'
 import Top10Phone from '../Top10Phone/Top10Phone';
 import SearchForHome from '../Search/SearchForHome';

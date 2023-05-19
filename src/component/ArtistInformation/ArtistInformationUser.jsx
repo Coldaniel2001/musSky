@@ -1,12 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
-
-import playWhite from '../../assets/images/icons/play-white.png'
+import React, { useContext, useState } from 'react'
 import addList from '../../assets/images/icons/add-list.png'
 import purpleHeartStroke from "../../assets/images/icons/purple-heart-stroke.png"
 import purpleHeart from '../../assets/images/icons/purple-heart.png'
 import Search from '../Search/Search'
-
-import { toast } from 'react-hot-toast'
 import SongContext from '../../context/song/SongContext'
 import UserContext from '../../context/UserContext'
 

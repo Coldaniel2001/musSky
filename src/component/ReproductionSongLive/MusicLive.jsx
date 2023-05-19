@@ -9,26 +9,10 @@ import './MusicLive.css'
 
 const MusicLive = () => {
 
-	const { onePlayListSong, setCurrentSong, allPlaylistSong, setAllPlaylistSong } = useContext(SongContext)
+	const { onePlayListSong } = useContext(SongContext)
 
 
 
-
-	const handlePrevious = () => {
-		// if (allSong[0].id === currentSong) {
-		// 	setCurrentSong(allSong[0].id)
-		// } else {
-		// 	setCurrentSong(currentSong - 1)
-		// }
-	}
-
-	const handleNext = () => {
-		// if (allSong.length === currentSong) {
-		// 	setCurrentSong(allSong[0].id)
-		// } else {
-		// 	setCurrentSong(currentSong + 1)
-		// }
-	}
 
 
 	return (
@@ -40,8 +24,7 @@ const MusicLive = () => {
 							<AudioPlayer src={onePlayListSong.song} layout="stacked-reverse"
 								autoPlay={true}
 								showSkipControls={true}
-								onClickNext={(e) => handleNext()}
-								onClickPrevious={(e) => handlePrevious()}
+								
 							/>
 						
 					</div>

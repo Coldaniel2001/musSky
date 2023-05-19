@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 
 import chica from "../assets/images/bgLoginRegister/MusSkyModel.png"
 import logo from "../assets/images/logo/LogoMusSky.png"
-import UserContext from '../../context/UserContext';
+import UserContext from '../context/UserContext';
 import toast from "react-hot-toast"
 import { useAuth0 } from '@auth0/auth0-react';
 

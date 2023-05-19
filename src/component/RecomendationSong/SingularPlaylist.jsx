@@ -1,12 +1,9 @@
-import React, { useContext, useState } from 'react'
-import purpleHeartStroke from '../../assets/images/icons/purple-heart-stroke.png'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import UserContext from '../../context/UserContext'
-import PlaylistsContext from '../../context/playlists/PlaylistsContexts'
 
 
 const SingularPlaylist = ({ playlist }) => {
-  const {dataPlayLists} = useContext(PlaylistsContext)
+  
 
   return (
 

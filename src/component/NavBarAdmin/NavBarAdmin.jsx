@@ -26,11 +26,11 @@ const NavBarAdmin = () => {
         <div className=' flex gap-20 justify-center mt-10 mb-5'>
                 
                     <div className='flex items-center font-bold text-xl gap-3'>
-                        {/* <img className='w-10 h-8' src={artist} alt="" /> */}
+                       
                         <h2 className='text-white text-[2rem] border-b-2 pb-2 cursor-pointer' onClick={() => setArtist(true)}>Artistas</h2>
                     </div>
                     <div className=' flex items-center font-bold text-xl gap-3'>
-                        {/* <img className='w-10 h-8' src={user} alt="" /> */}
+               
                         <h2 className='text-gray-500 cursor-pointer' onClick={() => setArtist(false)}>Usuarios</h2>
                     </div> 
                     
@@ -42,11 +42,11 @@ const NavBarAdmin = () => {
                  <div className=' flex gap-20 justify-center mt-10 mb-5'>
                 
                     <div className='flex items-center font-bold text-xl gap-3'>
-                        {/* <img className='w-10 h-8' src={artist} alt="" /> */}
+                  
                         <h2 className='text-gray-500 cursor-pointer ' onClick={() => setArtist(true)}>Artistas</h2>
                     </div>
                     <div className=' flex items-center font-bold text-xl gap-3'>
-                        {/* <img className='w-10 h-8' src={user} alt="" /> */}
+                    
                         <h2 className='text-white text-[2rem] border-b-2 pb-2 cursor-pointer' onClick={() => setArtist(false)}>Usuarios</h2>
                     </div> 
                     

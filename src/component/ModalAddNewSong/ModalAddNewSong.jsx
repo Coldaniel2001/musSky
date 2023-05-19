@@ -1,12 +1,9 @@
 import React, { useContext, useRef, useState } from 'react'
 import updateImgSong from '../../assets/images/updateImgSong.png'
 import greenCheck from '../../assets/images/icons/greenCheck.png'
-
 import UserContext from '../../context/UserContext';
 import SongContext from '../../context/song/SongContext';
-
 import { toast } from 'react-hot-toast';
-// import ClipLoader from "react-spinners/ClipLoader";
 import { RingLoader } from 'react-spinners';
 
 
@@ -56,19 +53,10 @@ const ModalAddNewSong = ({ setUploadSong , SongUploaded}) => {
         formdata.append("update_at", formattedDate)
 
         editSongImageFetch(formdata)
-        // addSongArtist(formdata)
+      
     }
 
-    // const addSongArtist = async (data) => {
-    //     console.log(data)
-    //     const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/artist`, {
-    //         method: "POST",
-    //         body: data
-    //     });
-    //     const newSong = await res.json()
-    //     console.log(newSong)
-
-    // }
+    
 
     const editSongImageFetch = async (data) => {
         
@@ -113,7 +101,7 @@ const ModalAddNewSong = ({ setUploadSong , SongUploaded}) => {
                                     required
                                     onChange={handlePreviewImg}
                                     name="picture"
-                                // value={uploadNewSong.picture} 
+                            
                                 />
                             </label>
                         </div>
@@ -123,17 +111,16 @@ const ModalAddNewSong = ({ setUploadSong , SongUploaded}) => {
                                 type="text"
                                 name="nameSong"
                                 id="nameSong"
-                            // value={uploadNewSong.nameSong}
-                            // onChange={handleChangeFormData} 
+                           
                             />
                         </div>
                         <div className='flex flex-col mt-4'>
                             <label className='text-xl font-bold'>Género</label>
                             <select className='text-black h-[2rem] rounded'
-                                // value={uploadNewSong.genre}
+                             
                                 name="genre"
                                 id="genre"
-                            // onChange={handleChangeFormData}
+                         
                             >
                                 <option value="Pop español">Pop Español</option>
                                 <option value="Urbano latino">Urbano latino</option>
@@ -154,7 +141,7 @@ const ModalAddNewSong = ({ setUploadSong , SongUploaded}) => {
                             >
                                 <input type="file" className='hidden'
                                     name="song"
-                                    // value={uploadNewSong.song}
+                               
                                     onChange={uploadSong}
                                 />
                                 <p>Subir canción</p>

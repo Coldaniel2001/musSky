@@ -1,8 +1,6 @@
 import React, { useContext, useState } from 'react'
 import Search from '../Search/Search'
 
-import playWhite from '../../assets/images/icons/play-white.png'
-
 import purpleHeart from '../../assets/images/icons/purple-heart.png'
 import purpleHeartStroke from "../../assets/images/icons/purple-heart-stroke.png"
 
@@ -54,9 +52,7 @@ const PlayListIndividual = () => {
                                     return (
 
                                         <div key={song._id} className='relative flex text-white items-center mb-3 sm:mx-10 hover:bg-[#7239e575] cursor-pointer rounded  '>
-                                            {/* <div className='w-[3%] flex justify-center'>
-                                                <p className='text-white span-col-2 text-xl font-thin justify-center'>1</p>
-                                            </div> */}
+                                          
                                             <img onClick={() => handleOpenSong(song)} className='w-[40px] h-[40px] lg:w-[70px] lg:h-[70px] rounded' src={song.picture} alt="images-song" />
                                             <p onClick={() => handleOpenSong(song)} className='font-semibold text-xl w-full md:w-[42%] pl-10 ' >{song.nameSong}</p>
                                             <p onClick={() => handleOpenSong(song)} className='hidden sm:block w-[42%] text-xl font-thin'>{song.nameArtist}</p>

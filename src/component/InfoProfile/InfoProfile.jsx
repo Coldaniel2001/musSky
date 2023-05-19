@@ -1,10 +1,6 @@
 import React, { useContext, useState } from "react";
-
 import Button from "../Button/Button";
-
 import ProfileImg from "../ProfileImg/ProfileImg";
-import addPicture from "../../assets/images/icons/addImageProfile.png";
-
 import { useAuth0 } from "@auth0/auth0-react";
 import UserContext from "../../context/UserContext";
 
