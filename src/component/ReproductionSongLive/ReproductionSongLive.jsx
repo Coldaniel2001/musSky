@@ -1,7 +1,4 @@
 import React, { useContext } from 'react'
-import antonioJose from '../../assets/images/antonio-jose-1.jpg'
-import melendi from '../../assets/images/melendi.jpg'
-import MusicPlayerPhone from '../MusicPlayerPhone/MusicPlayerPhone'
 import MusicLive from './MusicLive'
 import SongContext from '../../context/song/SongContext'
 
