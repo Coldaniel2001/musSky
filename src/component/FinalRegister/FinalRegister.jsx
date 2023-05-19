@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react'
-import {useNavigate} from 'react-router-dom'
+
 
 import chica from "../assets/images/bgLoginRegister/MusSkyModel.png"
 import logo from "../assets/images/logo/LogoMusSky.png"
-import UserContext from '../context/UserContext';
+import UserContext from '../../context/UserContext';
 import toast from "react-hot-toast"
 import { useAuth0 } from '@auth0/auth0-react';
 
@@ -11,7 +11,7 @@ function FinalRegister() {
     const { updateUser, userLogged } = useContext(UserContext);
     const { user } = useAuth0();
 
-    const navigate = useNavigate()
+   
 
     const currentDate = new Date(); const day = currentDate.getDate(); const month = currentDate.getMonth() + 1; const year = currentDate.getFullYear();
     const formattedDate = `${day}/${month}/${year}`;

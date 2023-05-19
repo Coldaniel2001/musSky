@@ -9,7 +9,7 @@ import purpleHeartStroke from "../../../assets/images/icons/purple-heart.png";
 
 
 import SongContext from "../../../context/song/SongContext";
-import DetailModal from "../../../Detail Modal/DetailModal";
+import DetailModal from "../../Detail Modal/DetailModal";
 import ModalAddSongToPLaylist from "../../ModalAddSongToPlyalist/ModalAddSongToPlaylist";
 
 

@@ -5,18 +5,18 @@ import UserContext from "../UserContext";
 
 import { useAuth0 } from "@auth0/auth0-react";
 import { toast } from "react-hot-toast";
-import RecentSong from "../../component/RecentSong/RecentSong";
+import { useParams } from "react-router-dom";
+
 
 const SongProvider = ({ children }) => {
   const [dataSong, setDataSong] = useState([]);
-  const [updateSong, setUpdateSong] = useState()
 
 
   const [onePlayListSong, setOnePlayListSong] = useState({});
+  const [allPlaylistSong, setAllPlaylistSong] = useState([]);
   const [recentSong, setRecentSong] = useState([]);
   const { userLogged } = useContext(UserContext);
   const { getIdTokenClaims } = useAuth0()
-  
 
   // Recient
   useEffect(() => {
@@ -34,13 +34,13 @@ const SongProvider = ({ children }) => {
 
   }, [userLogged, dataSong])
 
-  //song
+  
 
   const handleLikes = async (liked) => {
     const token = await getIdTokenClaims();
-
     const response = await fetch(
-      `${process.env.REACT_APP_SERVER_URL}/tracks/addToLike${userLogged._id}`,
+      `${process.env.REACT_APP_SERVER_URL}/tracks/addToLike${userLogged && userLogged._id
+      }`,
       {
         method: "PUT",
         headers: {
@@ -51,7 +51,7 @@ const SongProvider = ({ children }) => {
       }
     );
     const data = await response.json();
-    console.log(data)
+
     try {
       const updateDataSongFilter = dataSong.filter((update) => {
         return update._id !== data.updateLike._id;
@@ -62,7 +62,6 @@ const SongProvider = ({ children }) => {
 
     } catch (error) {
       console.log(error);
-      console.log(data)
       if (data.error === "InvalidTokenError: Invalid Compact JWS") {
         toast.error("Tienes que iniciar sesión para poder añadir me gusta");
       }
@@ -85,17 +84,15 @@ const SongProvider = ({ children }) => {
         }
       );
       const data = await response.json();
+      console.log(data);
       try {
-     
-      if (data.error === "InvalidTokenError: Invalid Compact JWS") {
-        toast.error("Tienes que iniciar sesión para poder escuchar música");
-      }else{
         setOnePlayListSong(song);
         updateRecent(song)
-
-      }
       } catch (error) {
         console.log(error);
+        if (data.error === "InvalidTokenError: Invalid Compact JWS") {
+          toast.error("Tienes que iniciar sesión para poder añadir me gusta");
+        }
       }
     };
     addSongRecent();
@@ -127,7 +124,6 @@ const SongProvider = ({ children }) => {
     }
   }
 
-
   useEffect(() => {
     const musicTracks = async () => {
       const response = await fetch(
@@ -137,52 +133,44 @@ const SongProvider = ({ children }) => {
       setDataSong(data.allSong);
     };
     musicTracks();
-
-  }, [setDataSong, updateSong]);
-
-  const deleteSong = async (song) => {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/tracks/${song._id}`,{
-        method: "DELETE"
-      }
-      )
-      const data = await response.json();
-      console.log(data)
-      const deleteSong = dataSong.filter((song)=>{
-        return song._id !== data.deleteTracks._id
-      })
-      setDataSong(deleteSong)
-
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  }, [setDataSong]);
 
   const likesByUser = (song) => {
     if (userLogged) {
+      console.log(song);
       return song.likedBy?.includes(userLogged._id);
     }
   };
 
-  const updateTrack = async (userId, newValue) => {
-    
-    const res = await fetch("http://localhost:4002/tracks/update-track", {
-        method: "PATCH", 
-        headers: {
-        "Content-Type": "application/json",
-      },
-        body: JSON.stringify({userId, newValue})
-    })
-    const data = await res.json()
-    setUpdateSong(data.songChanged)
-    console.log(data) 
-}
+  
+
+ const {userId} = useParams()
+ const [infoUser, setInfoUser] = useState(null);
+ 
+ 
+ 
+ useEffect(() => {
+   const fetchData = async () => {
+     try {
+       const response = await fetch(`http://localhost:4002/users/id/${userId}`)
+       const data = await response.json();
+       console.log(data)
+       setInfoUser(data.user);
+     } catch (error) {
+       console.error(error);
+     }
+ 
+   }
+   fetchData();
+ }, [userId]);
 
   return (
     <SongContext.Provider
       value={{
         dataSong,
         setDataSong,
+        allPlaylistSong,
+        setAllPlaylistSong,
         onePlayListSong,
         setOnePlayListSong,
         recentSong,
@@ -190,8 +178,7 @@ const SongProvider = ({ children }) => {
         handleLikes: handleLikes,
         likesByUser: likesByUser,
         handleOpenSong: handleOpenSong,
-        deleteSong: deleteSong,
-        updateTrack
+        infoUser
       }}
     >
       {children}
