@@ -69,13 +69,14 @@ const PlaylistsProvider = ({ children }) => {
         body: JSON.stringify({ song, playlist }),
       });
       const data = await res.json();
-      toast.success("Esta cancion ya ha sido enviado en la playlist")
+      console.log("hola")
+      toast.success("La canción ha sido añadida a tu Playlist correctamente")
       const filterAuthor = dataPlayLists.find((author) => {
         return author === playlist
       })
       setSendSongToPlaylist(filterAuthor)
     } else {
-      toast.error("Esta cancion ya esta en la playlist")
+      toast.error("Esta canción ya está introducida en esa playlist")
     }
   }
   useEffect(() => {

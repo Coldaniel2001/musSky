@@ -10,9 +10,11 @@ import PlaylistResult from './PlaylistResult/PlaylistResult';
 import ArtistResult from './ArtistResult/ArtistResult';
 
 
+
 const SearchForHome = () => {
 	const [showModal, setShowModal] = useState(false);
 	const {userLogged} = useContext(UserContext)
+ 
 	const {  loginWithRedirect } = useAuth0()
 
 const [searchValue, setSearchValue] = useState("");
@@ -69,10 +71,11 @@ const [searchValue, setSearchValue] = useState("");
                 <div className="font-bold text-[1.5rem] mt-5 border-b border-gray-600 mb-2 mx-3">
                 <p>Canciones</p>
                 </div>
+                
                 }
                     {searchResults.tracks.length ? (
                 searchResults.tracks.map((track) => {
-                  return <TracksResult track={track} />;
+                  return <TracksResult key={track._id} track={track} />;
                 })
                 ) : (
                   ''
@@ -85,7 +88,7 @@ const [searchValue, setSearchValue] = useState("");
 					}
                 {searchResults.playlists.length ? (
                   searchResults.playlists.map((playlist) => {
-                    return <PlaylistResult playlist={playlist}/>;
+                    return <PlaylistResult key={playlist._id} playlist={playlist}/>;
                   })
                 ) : (
                   ''
@@ -97,7 +100,7 @@ const [searchValue, setSearchValue] = useState("");
 					}
                 {searchResults.artists.length ? (
                   searchResults.artists.map((artist) => {
-                    return <ArtistResult artist={artist}/>;
+                    return <ArtistResult key={artist._id} artist={artist}/>;
                   })
                 ) : (
                   ''
@@ -125,11 +128,11 @@ const [searchValue, setSearchValue] = useState("");
 						}
 					</div>:
                      <>
-                    <div className="bg-green-600 w-[240px] mt-8 flex rounded-lg  truncate hover:bg-[#7339E5] cursor-pointer" onClick={() => loginWithRedirect()}>
-						<img className='w-10 h-10 rounded-full my-2 ml-3' src={user} alt="img-profile" />
-						<div className='w-full flex justify-between mr-3'>
-							<p className='text-white my-auto ml-3'>Inicia Sesión</p>
-						</div>
+            <div className="bg-btnColor w-[240px] mt-8 flex rounded-lg  truncate hover:bg-[#7339E5] cursor-pointer" onClick={() => loginWithRedirect()}>
+              <img className='w-10 h-10 rounded-full my-2 ml-3' src={user} alt="img-profile" />
+              <div className='w-full flex justify-between mr-3'>
+                <p className='text-white my-auto ml-3'>Inicia Sesión</p>
+              </div>
 
                      </div>
 

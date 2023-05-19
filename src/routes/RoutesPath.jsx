@@ -76,6 +76,7 @@ const RoutesPath = () => {
                 <PlaylistsProvider >
                     <BrowserRouter>
                         <Routes>
+                        <Route path='*' element={<Navigate to={'/home'}/>} />
                             <Route path='/home' element={
                                 <HomePrivateRouter>
                                     <HomePage />

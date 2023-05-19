@@ -69,8 +69,11 @@ const ArtistInformation = ({ infoUser, userId}) => {
         };
     }
 
-    
-    
+
+
+
+
+
 
 
 
@@ -124,7 +127,7 @@ const ArtistInformation = ({ infoUser, userId}) => {
                         <h2 className='lg:text-4xl text-4xl xl:text-6xl 2xl:text-7xl font-bold mb-10 mx-auto'>{infoUser?.name}</h2>
                         </div>
                         :
-                        <input className=' mb-10 bg-transparent border-b focus:outline-none focus:ring-0  border-[#7339E5] text-center text-4xl lg:text-5xl ' 
+                        <input className=' mb-10 bg-transparent border-b focus:outline-none focus:ring-0  border-mainPurple text-center text-4xl lg:text-5xl ' 
                         type="text" 
                         placeholder={infoUser.name} 
                         name="name"

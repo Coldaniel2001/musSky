@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
+import close from '../../assets/images/icons/close.png'
 
 import './MusicPlayerPhone.css'
 
@@ -60,9 +61,10 @@ const MusicPlayerPhone = () => {
 			setCurrentPlaylist(0)
 		}
 
+	}
 
-
-
+	const HandleSongClose = () =>{
+		setOnePlayListSong({})
 	}
 
 
@@ -70,9 +72,10 @@ const MusicPlayerPhone = () => {
 		<>
 			{Object.entries(onePlayListSong).length !== 0 &&
 				<div className=' bg-[#1d1d1d] fixed bottom-0 w-full mb-20 xl:mb-0  sm:flex items-center z-10'>
-					<div className='sm:flex items-center w-full justify-center  '>
+					<div className='sm:flex  w-full justify-center  '>
 						<Link to="/reproduction-live" >
 						<div className='w-[100%] sm:w-[45%] xl:hidden flex justify-center py-2 gap-5 border-b border-gray-800   '>
+
 							<div className=' lg:mr-8 w-[40%] sm:w-[25%] rounded flex items-center justify-end  '>
 								<img className='rounded  w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] 2xl:w-[80%] sm:mr-3' src={onePlayListSong.picture} alt={"img-music"} />
 							</div>
@@ -91,6 +94,9 @@ const MusicPlayerPhone = () => {
 								onClickNext={(e) => handleNext()}
 								onClickPrevious={(e) => handlePrevious()}
 							/>
+						</div>
+						<div className='flex text-end justify-end absolute 2sm:right-[2rem] right-[0.5rem] top-[0.5rem]'>
+							<img className='w-[15px] h-[15px]' onClick={HandleSongClose} src={close} alt=""/>
 						</div>
 					</div>
 				</div>

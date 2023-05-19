@@ -33,7 +33,7 @@ const To10CardPhone = ({ song, isDropdownActive, setActiveDropdown, activeDropdo
         </div>
         {
         
-          isDropdownActive ? <Top10ModalDetail /> : null
+          isDropdownActive ? <Top10ModalDetail  /> : null
         }
         </div>
         </div>

@@ -22,14 +22,18 @@ const PlayListItems = ({song, playListComplete, setPlayListComplete, setPlaylist
 
 
   return (
-    <div className='flex h-[6vh] mb-4 w-full border-b border-gray-400 pb-3'>
+    <div className='flex h-[6vh] mb-4 w-full border-b border-gray-400 pb-3 cursor-pointer'>
     <div className='h-full w-[60px] mr-4'>
       <img className='h-full mr-4 rounded w-full' src={song.picture} alt="" />
     </div>
     
+<<<<<<< HEAD
+    <div className='flex flex-col justify-center w-[50%] '>
+      {/* <p className='text-2xl  text-white truncate'>{song.nameArtist}</p> */}
+=======
     <div className='flex flex-col justify-center w-[50%]'>
-      <p className='text-2xl  text-white truncate'>{song.nameArtist}</p>
-      <p className='text-xl text-gray-400'>{song.nameSong}</p>
+>>>>>>> 745535400139eefac70ef8c786eec04dc99d9d25
+      <p className='text-xl text-white'>{song.nameSong}</p>
     </div>
     <div className='flex justify-end w-[40%] gap-7 items-center cursor-pointer'>
       { songAdd ?
