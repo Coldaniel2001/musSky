@@ -52,20 +52,6 @@ import Flamenco from '../page/GendersPage/Flamenco'
 
 
 
-// import PrivateRouter from './PrivateRouter'
-
-
-// const LoginPage = lazy(() => {
-//     return new Promise((resolve) => {
-//         setTimeout(() => resolve(import('../page/LoginPage/LoginPage')), 2000);
-//     });
-// });
-
-// const RealPlaylistPage = lazy(() => {
-//     return new Promise((resolve) => {
-//         setTimeout(() => resolve(import('../page/RealPlaylistPage/RealPlaylistPage')), 2000);
-//     });
-// });
 
 
 const RoutesPath = () => {
