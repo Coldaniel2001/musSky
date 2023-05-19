@@ -3,7 +3,6 @@ import GendersModal from '../GendersModal/GendersModal'
 import SearchSongForPlayList from '../SearchSongForPlayList/SearchSongForPlayList'
 
 
-
 const ModalSearcMusicForPlayList = ({setSearchSong, playListComplete, setPlayListComplete, setPlaylistToShow, playlistToShow}) => {
 const [searchSongToPlaylist, setfirstSearchSongToPlaylist] = useState(false)
 
@@ -41,20 +40,16 @@ const handleSearch = (event) => {
           </div>
 		    </div>
         <div className=' h-[75%] overflow-y-scroll scrollbar-hide'>
-    {
-      searchSongToPlaylist ?
-      <GendersModal /> : 
-      <SearchSongForPlayList searchValue={searchValue} playListComplete={playListComplete} setPlayListComplete={setPlayListComplete} setPlaylistToShow={setPlaylistToShow} playlistToShow={playlistToShow}/>
-
-      
-
-    }
-          
+          {
+            searchSongToPlaylist ?
+            <GendersModal /> : 
+            <SearchSongForPlayList searchValue={searchValue} playListComplete={playListComplete} setPlayListComplete={setPlayListComplete} setPlaylistToShow={setPlaylistToShow} playlistToShow={playlistToShow}/>
+          }
+        </div>
       </div>
     </div>
   </div>
-  </div>
-  )
+)
 }
 
 export default ModalSearcMusicForPlayList

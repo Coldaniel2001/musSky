@@ -16,7 +16,7 @@ const MyPlaylists = () => {
     })
 
     const myPlaylistsLike = dataPlayLists.filter((playlist) => {
-        return playlist?.liked_by.toString() === userLogged?.email
+        return playlist?.liked_by?.toString() === userLogged?.email
     })
     
     const myPlaylistComplete = myPlaylists.concat(myPlaylistsLike)
